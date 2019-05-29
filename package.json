@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "git add * && git commit -m Deploy && vue-cli-service build && firebase deploy"
+    "deploy": "git add * && git commit -m Deploy && git push"
   },
   "dependencies": {
     "axios": "^0.18.0",
