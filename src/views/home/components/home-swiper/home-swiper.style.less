@@ -1,0 +1,72 @@
+@import (reference) "../../../../shared/styles/index.less";
+
+#constructor-swiper(){
+
+
+
+
+.swiper.home-swiper {
+  width: 100%;
+  height: @size-home-swiper;
+  z-index: 10;
+}
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+  height: @size-home-swiper;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+  height: @size-home-swiper;
+}
+.swiper-pagination-bullet-active {
+  background-color: rgba(100, 100, 100, 0.5) !important;
+}
+.swiper-pagination-bullet {
+  width: 1em !important;
+  height: 1em !important;
+
+  border: 2px solid rgba(100, 100, 100, 0.7) !important;
+  border-radius: 0em !important;
+  outline: none;
+  span {
+    outline: none;
+  }
+}
+.swiper-pagination-bullet-active {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+* {
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  &:focus {
+    outline: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+}

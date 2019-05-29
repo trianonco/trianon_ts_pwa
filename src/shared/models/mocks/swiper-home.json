@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "description": "Primer Slide",
+        "src_hd": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg1.png?alt=media&token=3afc8073-5b59-40de-b8d8-c2b32797e514",
+        "src_thumb": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg1-placeholder.jpg?alt=media&token=e9e1f2ca-cfe3-43ac-bfde-5a313877f602"
+    },
+    {
+        "id": 1,
+        "description": "Segundo Slide",
+        "src_hd": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg2.png?alt=media&token=c862b6a5-b801-437b-83e0-f22c93c884d9",
+        "src_thumb": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg2-placeholder.jpg?alt=media&token=e530febc-6357-49c6-99e0-fe331afd7357"
+    },
+    {
+        "id": 2,
+        "description": "Tercer Slide",
+        "src_hd": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg3.png?alt=media&token=b9ada943-2a33-4c80-ade5-576ea6640534",
+        "src_thumb": "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Home-Swiper%2Fimg3-placeholder.jpg?alt=media&token=afbb8b6b-1ec7-4e54-8897-6ee70540590e"
+    }
+]

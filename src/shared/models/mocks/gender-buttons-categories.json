@@ -1,0 +1,70 @@
+[
+    {
+        "title": "Billeteras",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Bolsos y Maletines",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Cinturones",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Llavero",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Monederos y Tarjeteros",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Porta Billetes",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Porta Cosméticos",
+        "gender": [
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Porta Llaveros",
+        "gender": [
+            "HOMBRE"
+        ]
+    },
+    {
+        "title": "Porta Documentos",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    },
+    {
+        "title": "Porta Pasaportes",
+        "gender": [
+            "HOMBRE",
+            "DAMA"
+        ]
+    }
+]

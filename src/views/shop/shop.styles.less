@@ -1,0 +1,41 @@
+ @import './../../shared/styles/index.less';
+
+ div.products-banner {
+     background-color: black;
+     color: white;
+
+     display: block;
+     width: 100%;
+
+     padding-top: 1em;
+     padding-bottom: 1em;
+
+     #Flex-Row-Extremes();
+
+     h1 {
+         #Font-TrajanPro();
+     }
+
+     img {
+         width: 1.5em;
+         box-sizing: content-box;
+
+         &.last {
+             -moz-transform: scaleX(1);
+             -o-transform: scaleX(1);
+             -webkit-transform: scaleX(1);
+             transform: scaleX(1);
+             filter: FlipH;
+             -ms-filter: "FlipH";
+         }
+
+         &.first {
+             -moz-transform: scaleX(-1);
+             -o-transform: scaleX(-1);
+             -webkit-transform: scaleX(-1);
+             transform: scaleX(-1);
+             filter: FlipH;
+             -ms-filter: "FlipH";
+         }
+     }
+ }

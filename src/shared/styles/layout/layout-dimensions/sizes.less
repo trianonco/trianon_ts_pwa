@@ -1,0 +1,53 @@
+
+// ------------------------------------------------------ //
+// -- pm Sizes ------------------------------------------ //
+// ------------------------------------------------------ //
+@0pm : 0px;
+@1p2m: 4px;
+@1pm : 8px;
+@2pm : 16px;
+@3pm : 32px;
+@4pm : 48px;
+@5pm : 56px;
+@6pm : 62px;
+@6p5m : 72px;
+@7pm : 86px;
+@8pm : 92px;
+@9pm : 110px;
+@10pm : 122px;
+// ------------------------------------------------------ //
+
+
+
+
+// ------------------------------------------------------ //
+// -- heights ------------------------------------------- //
+// ------------------------------------------------------ //
+    
+   // @size-height-app : var(--app-height);
+    @size-height-app : 100vh;
+
+// ------------------------------------------------------ //    
+
+    @size-header-height: @6p5m; 
+    @size-footer-height: @10pm;
+
+// ------------------------------------------------------ //
+    @size-gender-buttons-height: @5pm;
+    @size-search-height: @6pm;
+    @size-home-swiper : calc( @size-height-app - @size-header-height - @size-gender-buttons-height - @size-search-height) ;
+    @size-home-gender-content : @size-home-swiper;
+    @size-home-search-content : @size-home-swiper;
+// ------------------------------------------------------ //
+
+
+// ------------------------------------------------------ //
+    @size-login-share-height: @6pm;
+    @size-login-signin-height : calc( @size-height-app - @size-header-height - @size-footer-height - @size-login-share-height);
+// ------------------------------------------------------ //
+
+
+
+
+
+//@size-swiper-home-height : calc( var(--app-height) - (@size-header-height + @size-gender-buttons-height + @size-search-bar-height));

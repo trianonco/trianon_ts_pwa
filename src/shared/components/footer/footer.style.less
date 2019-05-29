@@ -1,0 +1,54 @@
+@import (reference) "./../../styles/index.less";
+
+#constructor-footer{
+      display: block;
+  width: 100%;
+  height: @10pm;
+  margin: 0 auto;
+
+  z-index: 500;
+
+  position: relative;
+
+  background-color: @color-black;
+  color: @color-white;
+  &-title {
+    h2 {
+      #Font-OpenSans("normal");
+      font-weight: 300;
+      font-size: (@2pm - 4px);
+      padding: @1pm;
+      padding-top: @1pm + 8px;
+    }
+  }
+
+  &-logo {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    img {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      padding: @1pm;
+      box-sizing: border-box;
+    }
+  }
+  &-networks {
+    #Flex-Row-Center-Center();
+  }
+  &-network {
+    display: block;
+    width: @3pm + 4px;
+    padding: @1pm + 4px;
+    display: block;
+    width: 36px;
+    padding: 7px;
+
+    img {
+      box-sizing: content-box;
+      display: block;
+      width: 100%;
+    }
+  }
+}
