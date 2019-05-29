@@ -35,6 +35,7 @@ Vue.use(VueAnalytics, { id: "UA-138600827-1" });
 import VueFacebookPixel from 'vue-analytics-facebook-pixel'
 Vue.use(VueFacebookPixel);
 
+
 console.clear();
 console.log('');
 console.group(' Trianon PWA Welcome ! ');
@@ -63,6 +64,13 @@ Vue.filter('toCurrency', function (value: any) {
   });
   return formatter.format(value);
 });
+
+
+const FACEBOOK_CODE = '984344015003425';
+const FACEBOOK_EMAIL = 'trianonoficial@gmail.com';
+(Vue as any).analytics.fbq.init(FACEBOOK_CODE, {
+  em: FACEBOOK_EMAIL
+})
 
 
 new Vue({
