@@ -2,6 +2,21 @@
     {
         "git-branch": "dev",
         "firebase-project": "trianon-co-pwa-dev",
-        "firebase-hosting-url": "http://dev.com"
+        "firebase-hosting-url": "https://trianon-co-pwa-dev.firebaseapp.com"
+    },
+    {
+        "git-branch": "test",
+        "firebase-project": "trianon-co-pwa-test",
+        "firebase-hosting-url": "https://trianon-co-pwa-test.firebaseapp.com"
+    },
+    {
+        "git-branch": "qa",
+        "firebase-project": "trianon-co-pwa-qa",
+        "firebase-hosting-url": "https://trianon-co-pwa-qa.firebaseapp.com"
+    },
+    {
+        "git-branch": "prod",
+        "firebase-project": "trianon-co-pwa-prod",
+        "firebase-hosting-url": "https://trianon-co-pwa-prod.firebaseapp.com"
     }
 ]

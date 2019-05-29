@@ -32,7 +32,8 @@ Vue.use(VueGeolocation);
 import VueAnalytics from "vue-analytics";
 Vue.use(VueAnalytics, { id: "UA-138600827-1" });
 
-
+import VueFacebookPixel from 'vue-analytics-facebook-pixel'
+Vue.use(VueFacebookPixel);
 
 console.clear();
 console.log('');
