@@ -1,9 +1,7 @@
-{
-    "branchs": [
-        {
-            "git-branch": "dev",
-            "firebase-project": "trianon-co-pwa-dev",
-            "firebase-hosting-url": "http://dev.com"
-        }
-    ]
-}
+[
+    {
+        "git-branch": "dev",
+        "firebase-project": "trianon-co-pwa-dev",
+        "firebase-hosting-url": "http://dev.com"
+    }
+]
