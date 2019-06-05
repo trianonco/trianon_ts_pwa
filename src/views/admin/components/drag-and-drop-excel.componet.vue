@@ -35,13 +35,9 @@ export default {
       reader.onload = function(e) {
         var data = e.target.result;
         var fixedData = self.fixdata(data);
-
         var workbook = xlsx.read(btoa(fixedData), { type: "base64" });
         var worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        console.log("  worksheet ");
-
         const results = xlsx.utils.sheet_to_json(worksheet);
-
         self.$emit("onLoad", results);
       };
     },

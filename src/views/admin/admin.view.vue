@@ -73,6 +73,7 @@ export default class AdminViewComponent extends Vue {
   }
 
   private async upload_DB() {
+    
     this.db
       .setShopProducts(this.products)
       .then(response => {})

@@ -34,9 +34,10 @@ export default class AuthGmail {
                     var errorMessage = error.message;
                     var email = error.email;
                     var credential = error.credential;
-                    reject();
                     console.error("Auth Error GMAIL");
                     console.error(error);
+                    reject();
+
                 });
         })
     }

@@ -68,27 +68,27 @@ function getRef(product: any) {
 
 function getRefCode(product: any) {
     const ref = getRef(product);
-    const ref_code = `${product.ref.split("-")[0]}`;
-    const ref_color_code = `${product.ref.split("-")[1].slice(0, 2)}`;
-    const ref_size_code = `${product.ref.split("-")[1].slice(2, 4)}`
+    const ref_code = `${ref.split("-")[0]}`;
+    const ref_color_code = `${ref.split("-")[1].slice(0, 2)}`;
+    const ref_size_code = `${ref.split("-")[1].slice(2, 4)}`
     const _ref_code = ref_code;
     return _ref_code;
 }
 
 function getRefColorCode(product: any) {
     const ref = getRef(product);
-    const ref_code = `${product.ref.split("-")[0]}`;
-    const ref_color_code = `${product.ref.split("-")[1].slice(0, 2)}`;
-    const ref_size_code = `${product.ref.split("-")[1].slice(2, 4)}`
+    const ref_code = `${ref.split("-")[0]}`;
+    const ref_color_code = `${ref.split("-")[1].slice(0, 2)}`;
+    const ref_size_code = `${ref.split("-")[1].slice(2, 4)}`
     const _ref_code = ref_color_code;
     return _ref_code;
 }
 
 function getRefSizeCode(product: any) {
     const ref = getRef(product);
-    const ref_code = `${product.ref.split("-")[0]}`;
-    const ref_color_code = `${product.ref.split("-")[1].slice(0, 2)}`;
-    const ref_size_code = `${product.ref.split("-")[1].slice(2, 4)}`
+    const ref_code = `${ref.split("-")[0]}`;
+    const ref_color_code = `${ref.split("-")[1].slice(0, 2)}`;
+    const ref_size_code = `${ref.split("-")[1].slice(2, 4)}`
     const _ref_code = ref_size_code;
     return _ref_code;
 }

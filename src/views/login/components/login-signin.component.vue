@@ -26,12 +26,14 @@
 
 <script>
 import AuthGmail from "./../../../shared/auth/authSignInGmail";
+import AuthFB from "./../../../shared/auth/authSignInFB";
 export default {
   name: "LoginSigninComponent",
 
   methods: {
     doLoginGmail() {
-      this.auth
+      const authProvider = new AuthGmail();
+      authProvider
         .doLoginGmail()
         .then(response => {
           this.$router.push("/view/profile/");
@@ -39,13 +41,21 @@ export default {
         .catch(error => {});
     },
 
-    doLoginFacebook() {},
+    doLoginFacebook() {
+      const authProvider = new AuthFB();
+      authProvider
+        .doLoginFB()
+        .then(response => {
+          this.$router.push("/view/profile/");
+        })
+        .catch(error => {});
+    },
 
     doLoginEmail() {}
   },
   data() {
     return {
-      auth: new AuthGmail(),
+      auth: {},
       title: "INICIO DE SESIÓN",
       description:
         "Gracias por visitarnos. En este espacio podrás crear tu PERFIL TRIANON, con el cual habilitarás el chat para contactarte con nosotros, también realizar compras y ver los estados de envió."

@@ -1,11 +1,5 @@
 <template>
-  <div class="wrapper" v-if="user">
-    <div class="wrapper-title">
-      <span>{{ userName }}, BIENVENIDO A TU PERFIL TRIANON</span>
-    </div>
-    <div class="wrapper-text">
-      <span>Aquí encontrarás los productos que hayas seleccionado, el estado de envio y los detalles de tus compras.</span>
-    </div>
+  <div class="wrapper empty-shopping-cart" v-if="user">
     <div class="wrapper-container">
       <div class="wrapper-container-header">
         <img src="../../../shared/assets/images/gender-categories/bullet-gray.png">
@@ -68,6 +62,11 @@ div.view.profile {
     display: block;
     width: 100%;
     padding: 1em;
+
+    &.empty-shopping-cart {
+      height: ~"calc(100vh - 72px - 122px - 62px - 110.5px)";
+      #Flex-Row-Center-Center();
+    }
 
     box-sizing: border-box;
     #Font-OpenSans();

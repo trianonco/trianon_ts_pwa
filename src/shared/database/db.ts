@@ -67,6 +67,8 @@ export default class TrianonDB {
                 categoriesAsArray.map(async category => {
                     const products_gender = products.filter(product => product.gender === gender);
                     const products_gender_category = products_gender.filter(product => product.category === category);
+                    console.log(' Gender : ' + gender);
+                    console.log(' Category : ' + category)
                     const isUploaded = await this.firebaseDB.setShopProducts(products_gender_category, gender, category)
                 });
             });

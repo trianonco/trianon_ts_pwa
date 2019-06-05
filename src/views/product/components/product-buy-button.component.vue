@@ -1,21 +1,19 @@
 <template>
   <div class="product buy-button">
-     <div class="button theme-black border-gold" @click="doAddToCart()">
-            <h5 v-if="getProductsInShoppingCart.lenght === 0">COMPRAR</h5>
-            <h5 v-if="getProductsInShoppingCart.lenght !== 0">AÑADIDO AL CARRITO</h5>
-      </div>
+    <div class="button theme-black border-gold" @click="doAddToCart()">
+      <h5 v-if="getProductsInShoppingCart.length === 0">COMPRAR</h5>
+      <h5 v-if="getProductsInShoppingCart.length !== 0">AÑADIDO AL CARRITO</h5>
+    </div>
 
-       <div class="message">
-            <h3>EL PRODUCTO SE AÑADIRÁ A TU PERFIL</h3>
-      </div>
-
-     
+    <div class="message">
+      <h3>EL PRODUCTO SE AÑADIRÁ A TU PERFIL</h3>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import IShopProduct from './../../../shared/models/IShopProduct.model';
+import IShopProduct from "./../../../shared/models/IShopProduct.model";
 import VLazyImage from "v-lazy-image";
 
 @Component({
@@ -24,29 +22,31 @@ import VLazyImage from "v-lazy-image";
   }
 })
 export default class ProductBuyButtonComponent extends Vue {
+  @Prop()
+  product!: IShopProduct;
 
- @Prop()
- product!:IShopProduct ;
-
-  get getProductsInShoppingCart(){
-        return this.$store.state.shoppingCartModule.products.filter( (product:IShopProduct) => product.ref === this.product.ref)
+  get getProductsInShoppingCart() {
+    return this.$store.state.shoppingCartModule.products.filter(
+      (product: IShopProduct) => product.ref === this.product.ref
+    );
   }
   private mounted() {
+    console.warn("getProductsInShoppingCart");
+    console.warn(this.getProductsInShoppingCart);
   }
-  private  doAddToCart() {
-      this.$store.dispatch("addToCart", this.product);
-      console.log(this.getProductsInShoppingCart)
-    }
+  private doAddToCart() {
+    this.$store.dispatch("addToCart", this.product);
+    console.log((this.getProductsInShoppingCart as any[]).length);
+  }
 }
 </script>
 
 <style lang="less" scoped>
 @import (reference) "./../../../shared/styles/index.less";
 div.product.buy-button {
-
   text-align: center;
 
-    div.button {
+  div.button {
     display: block;
     width: ~"calc(100% - 1em)";
     box-sizing: border-box;
@@ -64,7 +64,7 @@ div.product.buy-button {
     }
   }
 
-    div.message {
+  div.message {
     display: block;
     width: ~"calc(100% - 1em)";
     box-sizing: border-box;
@@ -79,6 +79,5 @@ div.product.buy-button {
       transform: scaleY(0.9);
     }
   }
-
 }
 </style>

@@ -53,14 +53,16 @@ export default class ShopProductsListItemComponent extends Vue {
     this.$router.push(`/product/${this.product.ref}`);
   }
   private mounted() {
-    const product_token = "c392cfe1-c92e-4bb8-97f1-cf815a641f01";
+    const product_token = "18c776df-f5a7-45a0-9012-16f780381d92";
     const filename = `${this.product.ref_photo_code}-01.jpg`;
     const pathbase =
-      "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Shop-Products-Photos";
+      "https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos";
     const mediafile = `alt=media&token=${product_token}`;
 
     this.photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
     this.photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
+
+    console.warn(this.photo_thumb_src);
   }
 }
 </script>

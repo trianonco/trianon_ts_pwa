@@ -4,7 +4,6 @@
     <HeaderComponent/>
 
     <div class="view-wrapper">
-
       <ProductHeaderComponent></ProductHeaderComponent>
 
       <div class="view-wrapper-frame">
@@ -17,9 +16,12 @@
         </div>
       </div>
 
-      <ProductInfoBannerComponent :sizes="productSizes" :ref_code="productObj.ref_code" :ref_color_code="productObj.ref_color_code" :ref_size_code="productObj.ref_size_code"></ProductInfoBannerComponent>
-
-      
+      <ProductInfoBannerComponent
+        :sizes="productSizes"
+        :ref_code="productObj.ref_code"
+        :ref_color_code="productObj.ref_color_code"
+        :ref_size_code="productObj.ref_size_code"
+      ></ProductInfoBannerComponent>
     </div>
 
     <FooterComponent/>
@@ -41,10 +43,10 @@ import ProductPhotosComponent from "./components/product-photos.component.vue";
 import ProductBuyButtonComponent from "./components/product-buy-button.component.vue";
 import ProductInfoBannerComponent from "./components/product-info-banner.component.vue";
 
-import TrianonDB from './../../shared/database/db';
-import IShopProduct from './../../shared/models/IShopProduct.model';
+import TrianonDB from "./../../shared/database/db";
+import IShopProduct from "./../../shared/models/IShopProduct.model";
 
-import {toIShopProduct} from './../../shared/models/toIShopProduct.model';
+import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
 @Component({
   components: {
     VLazyImage,
@@ -60,27 +62,23 @@ import {toIShopProduct} from './../../shared/models/toIShopProduct.model';
   }
 })
 export default class ProductView extends Vue {
-
   private db = new TrianonDB();
   private productObj: any = {};
   private productPhotos: any[] = [];
   private productSizes: any[] = [];
   private productPrice: number = -1;
-  private productDiscount : number = -1;
+  private productDiscount: number = -1;
   private productColor: string = "";
   private productDescription: string = "";
   private isProductLoaded: boolean = false;
   private productSlideIndex: number = 0;
 
   private mounted() {
-
     // Route Params
     const params = (this.$route as any).params;
     const productRef = params.productRef ? params.productRef : "";
 
-
-    this.db.getProductByRef(productRef).then( async (product:any) => {
-
+    this.db.getProductByRef(productRef).then(async (product: any) => {
       this.productObj = await toIShopProduct(product);
 
       this.productPhotos.push(this.getPhotoURLs(1));
@@ -98,36 +96,41 @@ export default class ProductView extends Vue {
       const refColorCode = this.productObj.ref_color_code;
       const gender = this.productObj.gender;
       const category = this.productObj.category;
-      const producstSameCodeAndColor:IShopProduct[] = await this.db.getProductsSizesByRefCodeAndRefColorCode(refCode,refColorCode,gender,category);
-      this.productSizes = (producstSameCodeAndColor as IShopProduct[]).map( (product : IShopProduct) => {
-        return{
-          height : product.height,
-          width: product.width,
-          depth: product.depth
+      const producstSameCodeAndColor: IShopProduct[] = await this.db.getProductsSizesByRefCodeAndRefColorCode(
+        refCode,
+        refColorCode,
+        gender,
+        category
+      );
+      this.productSizes = (producstSameCodeAndColor as IShopProduct[]).map(
+        (product: IShopProduct) => {
+          return {
+            height: product.height,
+            width: product.width,
+            depth: product.depth
+          };
         }
-      })
+      );
 
       this.isProductLoaded = true;
-
     });
-    
   }
 
-  private getPhotoURLs(n:number){
-      const product_token = "c392cfe1-c92e-4bb8-97f1-cf815a641f01";
-      const filename = `${this.productObj.ref_photo_code}-0${n}.jpg`;
-      const pathbase =
-      "https://firebasestorage.googleapis.com/v0/b/trianon-pwa-v2.appspot.com/o/Shop-Products-Photos";
-      const mediafile = `alt=media&token=${product_token}`;
-      const photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
-      const photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
-      return {
-        hd : photo_hd_src,
-        thumb: photo_thumb_src
-      }
+  private getPhotoURLs(n: number) {
+    const product_token = "c392cfe1-c92e-4bb8-97f1-cf815a641f01";
+    const filename = `${this.productObj.ref_photo_code}-0${n}.jpg`;
+    const pathbase =
+      "https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos";
+    const mediafile = `alt=media&token=${product_token}`;
+    const photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
+    const photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
+    return {
+      hd: photo_hd_src,
+      thumb: photo_thumb_src
+    };
   }
 
-  private goToSwiperSlide(n:number){
+  private goToSwiperSlide(n: number) {
     //(this.$refs.productSwiper as any).swiper.slideTo(n, 1000, true);
     this.productSlideIndex = n;
   }
@@ -137,7 +140,6 @@ export default class ProductView extends Vue {
 <style lang="less">
 @import (reference) "./../../shared/styles/index.less";
 div.product {
-
   display: block;
   width: 100%;
 
@@ -153,10 +155,10 @@ div.product {
     #Font-TrajanPro();
   }
 
-    div.view-wrapper-frame {
+  div.view-wrapper-frame {
     display: block;
     width: 100%;
-     box-sizing: border-box;
+    box-sizing: border-box;
     background-color: white;
     color: black;
     padding: 1em;
@@ -165,7 +167,7 @@ div.product {
     div.view-wrapper-frame-content {
       display: block;
       width: 100%;
-       box-sizing: border-box;
+      box-sizing: border-box;
       border: 1px solid black;
       color: black;
       padding: 0em;
@@ -173,7 +175,6 @@ div.product {
       padding-right: 0em;
       padding-bottom: 0em;
 
-     
       div.product-photo-swiper {
         display: block;
         width: 100%;
@@ -198,6 +199,5 @@ div.product {
       }
     }
   }
-
 }
 </style>
