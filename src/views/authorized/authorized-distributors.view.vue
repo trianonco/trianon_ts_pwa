@@ -18,8 +18,8 @@
       <GmapMap
         :center="{lat:10, lng:10}"
         :zoom="7"
-        map-type-id="terrain"
-        style="width: 500px; height: 300px"
+        map-type-id="trianon-gmap"
+        style="width: 100p%; height: 300px"
       >
         <GmapMarker
           :key="index"
@@ -49,7 +49,16 @@ import TrianonDB from "./../../shared/database/db";
 @Component({
   components: { HeaderComponent, FooterComponent, VLazyImage }
 })
-export default class ProductView extends Vue {}
+export default class ProductView extends Vue {
+  private markers = [];
+  private position = { lat: 10, lng: 10 };
+
+  private mounted() {
+    (this as any).$getLocation().then((coordinates: any) => {
+      console.log(this.position);
+    });
+  }
+}
 </script>
 
 <style lang="less">
@@ -105,6 +114,11 @@ div.authorized-distributors {
       border: none;
       padding: 0.5em;
       border-bottom: 1px solid white;
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+      }
     }
   }
 }
