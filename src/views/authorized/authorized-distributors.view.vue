@@ -19,7 +19,16 @@
         :zoom="12"
         map-type-id="terrain"
         style="width: 500px; height: 300px"
-      ></GmapMap>
+      >
+        <GmapMarker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          :clickable="true"
+          :draggable="true"
+          @click="center=m.position"
+        />
+      </GmapMap>
     </div>
 
     <FooterComponent/>
@@ -40,8 +49,8 @@ import TrianonDB from "./../../shared/database/db";
   components: { HeaderComponent, FooterComponent, VLazyImage }
 })
 export default class ProductView extends Vue {
-  private markers = [];
-  private position = { lat: 10, lng: 10 };
+  private markers: any = [];
+  private position: any = { lat: 10, lng: 10 };
 
   private mounted() {
     (this as any).$getLocation().then((coordinates: any) => {
@@ -52,6 +61,7 @@ export default class ProductView extends Vue {
         lng: lng
       };
       this.position = coord;
+      this.markers.push({ position: this.position });
       console.log(coord);
     });
   }
