@@ -17,19 +17,17 @@
 
       <GmapMap
         :center="{lat:10, lng:10}"
-        :zoom="7"
-        map-type-id="trianon-gmap"
-        style="width: 100p%; height: 300px"
-      >
-        <GmapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          :clickable="true"
-          :draggable="true"
-          @click="center=m.position"
-        />
-      </GmapMap>
+        :zoom="3"
+        map-type-id="terrain"
+        style="width: 500%; height: 300px"
+      ></GmapMap>
+
+      <GmapMap
+        :center="position"
+        :zoom="3"
+        map-type-id="terrain"
+        style="width: 500%; height: 300px"
+      ></GmapMap>
     </div>
 
     <FooterComponent/>
@@ -55,7 +53,14 @@ export default class ProductView extends Vue {
 
   private mounted() {
     (this as any).$getLocation().then((coordinates: any) => {
-      console.log(this.position);
+      const lat = coordinates.lat;
+      const lng = coordinates.lng;
+      const coord = {
+        lat: lat,
+        lng: lng
+      };
+      this.position = coord;
+      console.log(coord);
     });
   }
 }
