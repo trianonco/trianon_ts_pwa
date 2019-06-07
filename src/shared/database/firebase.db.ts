@@ -26,6 +26,22 @@ export default class FirebaseDB {
         });
     }
 
+
+
+
+    public getUserFromDB(email: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            console.warn('email ==> ' + email)
+            this.db.collection("USERS").where("email", "==", email).get()
+                .then((querySnapshot: any) => {
+                    console.warn(querySnapshot.docs[0].data())
+                    resolve(querySnapshot.docs[0].data());
+                }).catch((error: any) => reject(error));
+        });
+    }
+
+
+
     public getHomeSwiperSlides(): Promise<any[]> {
         return new Promise((resolve) => {
             this.db.collection("HOME_SETTINGS").where("code", "==", "home_swiper_slides").get().then((querySnapshot: any) => {
@@ -125,6 +141,29 @@ export default class FirebaseDB {
         });
 
 
+    }
+
+
+
+
+    public getAuthorizedDistributors(): Promise<any> {
+        return new Promise((resolve) => {
+            this.db.collection("AUTHORIZED_DISTRIBUTORS").where("code", "==", "PLACES").get().then((querySnapshot: any) => {
+                resolve(querySnapshot.docs[0].data().PLACES);
+            });
+        });
+    }
+
+    public setAuthorizedDistributors(places: any[]): Promise<any> {
+        return new Promise((resolve) => {
+            const doc = {
+                code: 'PLACES',
+                PLACES: places
+            }
+            this.db.collection("AUTHORIZED_DISTRIBUTORS").doc('wH9jN7gQ631j0Z1xq2AP').set(doc).then((querySnapshot: any) => {
+                resolve('OK')
+            });
+        });
     }
 
 

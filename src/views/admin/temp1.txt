@@ -1,0 +1,53 @@
+private user: any = {};
+  private userName: string = "";
+  private openedCardRef = "";
+
+  get cartProducts() {
+    return this.$store.state.shoppingCartModule.products;
+  }
+
+  get cartProductsByRef() {
+    const products = this.$store.state.shoppingCartModule.products;
+    const products_refs = Array.from(
+      new Set(products.map((product: any) => product.ref))
+    );
+    const products_no_pretead = products_refs.map((ref: any) => {
+      return products.filter((product: any) => product.ref === ref)[0];
+    });
+    return products_no_pretead;
+  }
+
+  private mounted() {
+    this.user = JSON.parse(localStorage.getItem("user") || "");
+    this.userName = this.user.displayName.split(" ")[0];
+  }
+
+  private addItemOnShoppingCart() {
+    this.$router.push("/");
+  }
+
+  private isCardOpen(ref: string) {
+    return this.openedCardRef === ref;
+  }
+
+  private openCard(ref: string) {
+    if (this.openedCardRef === ref) {
+      this.openedCardRef = "";
+    } else {
+      this.openedCardRef = ref;
+    }
+  }
+
+  private getPhotoURL(ref_photo_code: string) {
+    const product_token = "c392cfe1-c92e-4bb8-97f1-cf815a641f01";
+    const filename = `${ref_photo_code}-01.jpg`;
+    const pathbase =
+      "https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos";
+    const mediafile = `alt=media&token=${product_token}`;
+    const photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
+    const photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
+    return {
+      hd: photo_hd_src,
+      thumb: photo_thumb_src
+    };
+  }

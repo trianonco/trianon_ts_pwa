@@ -24,8 +24,10 @@
     "vue-axios": "^2.1.4",
     "vue-browser-geolocation": "^1.8.0",
     "vue-class-component": "^7.0.2",
+    "vue-infinite-loading": "^2.4.4",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
+    "vue2-google-maps": "^0.10.6",
     "vuex": "^3.0.1",
     "xlsx": "^0.14.3"
   },

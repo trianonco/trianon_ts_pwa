@@ -41,7 +41,7 @@ div.product.header {
       span {
         display: inline-block;
         vertical-align: middle;
-        font-size:1em;
+        font-size: 3.5vw;
         letter-spacing: 0px;
         -webkit-transform: scaleY(0.9);
         transform: scaleY(0.9);

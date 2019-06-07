@@ -31,6 +31,9 @@
 import { Component, Vue } from "vue-property-decorator";
 
 // Shared
+
+import TrianonDB from "./../../shared/database/db";
+
 import HeaderComponent from "../../shared/components/header/header.component.vue";
 import FooterComponent from "../../shared/components/footer/footer.component.vue";
 
@@ -52,16 +55,36 @@ export default class ProfileView extends Vue {
     color: "light",
     background: "dark"
   };
+
+  private db: any = new TrianonDB();
+
   private user: any = {};
   private userName: string = "";
+
+  private shoppingCartProducts: any[] = [];
+  private inProcessProducts: any[] = [];
+  private purchasedProducts: any[] = [];
 
   get cartProducts() {
     return this.$store.state.shoppingCartModule.products;
   }
 
-  private mounted() {
+  private created() {
     this.user = JSON.parse(localStorage.getItem("user") || "");
     this.userName = this.user.displayName.split(" ")[0];
+
+    this.db
+      .getUserFromDB(this.user.email)
+      .then((response: any) => {
+        console.log("");
+        console.log(" . ");
+        console.log(" . .");
+        console.log(" + getUserFromDB ");
+        console.log(response);
+        console.log(" . .");
+        console.log("");
+      })
+      .catch((error: any) => console.error(error));
   }
 }
 </script>

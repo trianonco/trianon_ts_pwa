@@ -10,22 +10,40 @@
       <br>
       <br>
 
-      <div class="db-stats" v-if="UX.isUploadButton">
-        <h1>Archivo :: {{ }}</h1>
-        <h1>Productos :: {{ }}</h1>
+      <div class="admin-map" v-if="canUserAdminMaps">
+        <h1>PANEL DE DISTRIBUIDORES</h1>
+        <DragAndDropExcelComponent @onLoad="onLoad_MAP"></DragAndDropExcelComponent>
+        <br>
+        <hr>
+        <br>
+        <div class="button-container" v-if="UX.isUploadMapsButton">
+          <div class="button-upload" @click="upload_MAPS">SUBIR</div>
+        </div>
+        <br>
+        <hr>
       </div>
 
-      <DragAndDropExcelComponent @onLoad="onLoad_DB"></DragAndDropExcelComponent>
+      <br>
+      <br>
 
-      <br>
-      <hr>
-      <br>
-      <div class="button-container" v-if="UX.isUploadButton">
-        <div class="button-upload" @click="upload_DB">SUBIR</div>
+      <div class="admin-shop" v-if="canUserAdminShops && false">
+        <h1>PANEL DE PRODUCTOS</h1>
+        <div class="db-stats" v-if="UX.isUploadMapsButton">
+          <h1>Archivo :: {{ }}</h1>
+          <h1>Productos :: {{ }}</h1>
+        </div>
+
+        <DragAndDropExcelComponent @onLoad="onLoad_DB"></DragAndDropExcelComponent>
+
+        <br>
+        <hr>
+        <br>
+        <div class="button-container" v-if="UX.isUploadButton">
+          <div class="button-upload" @click="upload_DB">SUBIR</div>
+        </div>
       </div>
 
       <br>
-      <hr>
       <br>
       <!-- Footers -->
       <FooterComponent/>
@@ -56,11 +74,30 @@ import TrianonDB from "./../../shared/database/db";
 })
 export default class AdminViewComponent extends Vue {
   private db = new TrianonDB();
+
+  // Bases de Datos
   private products: IShopProduct[] = [];
+  private maps: any[] = [];
+
   private UX: any = {
-    isUploadButton: false as boolean
+    isUploadButton: false as boolean,
+    isUploadMapsButton: false as boolean
   };
-  private mounted() {}
+
+  private canUserAdminUsers: boolean = false;
+  private canUserAdminShops: boolean = false;
+  private canUserAdminMaps: boolean = false;
+  private canUserAdminLogistics: boolean = false;
+
+  private beforeMount() {
+    const user = JSON.parse("" + localStorage.getItem("user"));
+    if (user.email === "jl.mayorga236@gmail.com") {
+      this.canUserAdminUsers = true;
+      this.canUserAdminShops = true;
+      this.canUserAdminMaps = true;
+      this.canUserAdminLogistics = true;
+    }
+  }
 
   private onLoad_DB($shop_db: any) {
     this.products = [];
@@ -72,8 +109,76 @@ export default class AdminViewComponent extends Vue {
     this.UX.isUploadButton = true;
   }
 
+  private onLoad_MAP($maps_db: any) {
+    this.maps = [];
+    $maps_db.map(async ($map: any) => {
+      const map = {
+        email:
+          $map["Correo electronico"] ||
+          $map["Correo electrónico"] ||
+          $map["email"] ||
+          $map["Email"] ||
+          "NA",
+        city: $map["Ciudad"] || $map["CIUDAD"] || $map["ciudad"] || "NA",
+        country: $map["Pais"] || $map["PAIS"] || $map["pais"] || "NA",
+        phone: $map["Telefono"] || $map["TELEFONO"] || $map["telefono"] || "NA",
+        address:
+          $map["Direccion"] || $map["DIRECCION"] || $map["direccion"] || "NA"
+      };
+      this.maps.push(map);
+    });
+    this.UX.isUploadMapsButton = true;
+  }
+
+  private async upload_MAPS() {
+    this.db
+      .getAuthorizedDistributors()
+      .then(places => {
+        console.warn(places[0]);
+        console.warn(places[0].updateAt);
+        console.warn(places[0].updateAt.toDate());
+
+        this.maps.map($map => {
+          const $map_id = `${$map.email}-${$map.address}`;
+          const $place = places.filter(
+            (place: any) => place && place["id"] === $map_id
+          )[0];
+          $map["id"] = $map_id;
+
+          // is a Old Place and we are updating
+          if ($place) {
+            const isSameCity = $place.city === $map.city;
+            const isSameAddress = $place.address === $map.address;
+            const isSamePhone = $place.phone === $map.phone;
+            const isSameEmail = $place.phone === $map.email;
+            if (!(isSameCity && isSameAddress && isSamePhone && isSameEmail)) {
+              $map["createdAt"] = $place["createdAt"];
+              $map["updateAt"] = new Date();
+            }
+
+            // is a new Place
+          } else {
+            $map["createdAt"] = new Date();
+            $map["updateAt"] = new Date();
+          }
+        });
+
+        this.db.setAuthorizedDistributors(this.maps).then(response => {
+          console.log(response);
+        });
+      })
+      .catch(error => {});
+
+    /*
+    this.db
+      .setAuthorizedDistributors(this.maps)
+      .then(response => {})
+      .catch(error => {});
+
+      */
+  }
+
   private async upload_DB() {
-    
     this.db
       .setShopProducts(this.products)
       .then(response => {})
@@ -84,6 +189,11 @@ export default class AdminViewComponent extends Vue {
 
 <style lang="less">
 div.view.admin {
+  h1 {
+    text-align: center;
+    padding: 1em;
+    font-family: "TrajanPro";
+  }
   .button-container {
     display: block;
     width: 100%;

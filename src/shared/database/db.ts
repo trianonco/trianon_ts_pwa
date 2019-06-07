@@ -10,7 +10,10 @@ export default class TrianonDB {
     constructor() { }
 
     public async init() {
+
     }
+
+
 
 
     public getHeaderTitleText(): Promise<string> {
@@ -26,6 +29,50 @@ export default class TrianonDB {
             }
         });
     }
+
+
+    public getUserFromDB(email: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.getUserFromDB(email)
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public getAuthorizedDistributors(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.getAuthorizedDistributors()
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public setAuthorizedDistributors(places: any[]): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.setAuthorizedDistributors(places)
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+
+
+
+
+
+
 
     public getHomeSwiperSlides(): Promise<any[]> {
         return new Promise((resolve, reject) => {

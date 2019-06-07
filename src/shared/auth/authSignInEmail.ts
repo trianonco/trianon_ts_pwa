@@ -3,7 +3,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
-export default class AuthFB {
+export default class AuthEmail {
 
     private user = {
         id: "",
@@ -16,32 +16,67 @@ export default class AuthFB {
     }
 
 
-    public doLoginFB(): Promise<boolean> {
+    public doLoginWithEmailAndPassword(email: string, assword: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
 
-
-            var provider = new firebase.auth.FacebookAuthProvider();
             firebase
                 .auth()
-                .signInWithPopup(provider)
+                .signInWithEmailAndPassword(email, assword)
                 .then((result: any) => {
                     var token = result.credential.accessToken;
                     var user = result.user;
+                    localStorage.setItem("user", JSON.stringify(user));
+                    resolve(true);
+                })
+                .catch((error: any) => {
+
+
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    var email = error.email;
+                    var credential = error.credential;
+
+                    if (errorCode === 'auth/user-not-found') {
+                        resolve(false);
+                    } else if (errorCode === 'auth/invalid-email') {
+                        console.error("Auth Error GMAIL");
+                        console.error(error);
+                        reject();
+                    } else {
+                        console.error("Auth Error EMAIL");
+                        console.error(error);
+                        reject();
+                    }
+
+                });
+        })
+    }
+
+
+    public doSignUpWithEmailAndPassword(email: string, password: string): Promise<boolean> {
+        return new Promise((resolve, reject) => {
+
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then((response: any) => {
+
+                    var token = response.credential.accessToken;
+                    var user = response.user;
                     localStorage.setItem("user", JSON.stringify(user));
 
 
                     const trianonUser = {
                         name: user.displayName,
                         email: user.email,
-                        password: 'AUTH-FB',
+                        password: password,
                         phoneNumber: user.phoneNumber || ' ',
                         photoUrl: user.photoURL,
                         birthday: '',
                         gender: '',
                         createdAt: user.metadata.creationTime,
-                        lastSignInAt: user.metadata.lastSignInTime,
+                        lastSignInAt: user.metadata.lastSignInTime
                     }
-
 
                     firebase.firestore().collection("USERS")
                         .doc(trianonUser.email)
@@ -54,7 +89,6 @@ export default class AuthFB {
                             console.error("Error writing document: ", error);
                             reject();
                         });
-
                 })
                 .catch((error: any) => {
 
@@ -63,12 +97,10 @@ export default class AuthFB {
                     var errorMessage = error.message;
                     var email = error.email;
                     var credential = error.credential;
-                    console.error("Auth Error GMAIL");
-                    console.error(error);
+
+                    console.error(errorCode);
                     reject();
-
-
                 });
-        })
+        });
     }
 }

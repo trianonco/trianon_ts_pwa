@@ -4,21 +4,49 @@
       <h1 class="title">{{ title }}</h1>
       <h2 class="subtitle">{{ description }}</h2>
       <div class="login-signin-buttons">
-        <div class="login-signin-button facebook" @click="doLoginFacebook()">
+        <br>
+        <div
+          class="login-signin-button facebook"
+          v-if="!isEmailLoginOpen"
+          @click="doLoginFacebook()"
+        >
           <img src="../../../shared/assets/images/signin/bullet-fb.png" class alt>
           <h1>INGRESA CON FACEBOOK</h1>
           <img src="../../../shared/assets/images/signin/bullet-fb.png" class alt>
         </div>
-        <div class="login-signin-button gmail" @click="doLoginGmail()">
+        <div class="login-signin-button gmail" v-if="!isEmailLoginOpen" @click="doLoginGmail()">
           <img src="../../../shared/assets/images/signin/bullet-gmail.png" class alt>
           <h1>INGRESA CON GMAIL</h1>
           <img src="../../../shared/assets/images/signin/bullet-gmail.png" class alt>
         </div>
-        <div class="login-signin-button email" @click="doLoginEmail()">
+        <div
+          class="login-signin-button email"
+          @click="doToogleLoginEmail()"
+          style="margin-bottom:0px"
+        >
           <img src="../../../shared/assets/images/signin/bullet-email.png" class alt>
           <h1>CORREO ELECTRÓNICO</h1>
           <img src="../../../shared/assets/images/signin/bullet-email.png" class alt>
         </div>
+        <br v-if="isEmailLoginOpen">
+        <div class="email-login-form" v-if="isEmailLoginOpen">
+          <div class="email-login-form-input email">
+            <input type="email" v-model="auth.email" placeholder="CORREO ELECTRONICO">
+          </div>
+          <div class="email-login-form-input password">
+            <input type="password" v-model="auth.password" placeholder="CONSTRASEÑA">
+          </div>
+          <div class="email-login-form-input password" v-if="isNewUser">
+            <input type="password" v-model="auth.repassword" placeholder="CONFIRMAR CONSTRASEÑA">
+            <span class="error" v-if="!isSamePassword">CONTRASEÑAS NO COINCIDEN</span>
+          </div>
+          <div class="email-login-form-submit login" @click="doLoginEmail()">INICIAR SESIÓN</div>
+          <div
+            class="email-login-form-label recovery-password"
+            @click="doRecoveryPassword()"
+          >¿Olvidaste tu contraseña?</div>
+        </div>
+        <br v-if="!isEmailLoginOpen">
       </div>
     </div>
   </div>
@@ -27,6 +55,9 @@
 <script>
 import AuthGmail from "./../../../shared/auth/authSignInGmail";
 import AuthFB from "./../../../shared/auth/authSignInFB";
+import AuthEmail from "./../../../shared/auth/authSignInEmail";
+const DEFAULT_DESCRIPTION =
+  "Gracias por visitarnos. En este espacio podrás crear tu PERFIL TRIANON, con el cual habilitarás el chat para contactarte con nosotros, también realizar compras y ver los estados de envió.";
 export default {
   name: "LoginSigninComponent",
 
@@ -51,14 +82,62 @@ export default {
         .catch(error => {});
     },
 
-    doLoginEmail() {}
+    doLoginEmail() {
+      if (!this.isNewUser) {
+        const authProvider = new AuthEmail();
+        authProvider
+          .doLoginWithEmailAndPassword(this.auth.email, this.auth.password)
+          .then(isExistingUser => {
+            if (!isExistingUser) {
+              this.isNewUser = true;
+              console.warn(" USUARIO NUEVO ");
+            } else {
+              console.warn(" USUARIO REGISTRADO ");
+            }
+          })
+          .catch(error => {});
+      } else {
+        if (this.auth.password === this.auth.repassword) {
+          const authProvider = new AuthEmail();
+          authProvider
+            .doSignUpWithEmailAndPassword(this.auth.email, this.auth.password)
+            .then(response => {
+              this.$router.push("/view/profile/");
+            })
+            .catch(error => {});
+        }
+      }
+    },
+
+    doRecoveryPassword() {},
+
+    doToogleLoginEmail() {
+      this.description =
+        this.description === DEFAULT_DESCRIPTION
+          ? "Por favor selecciona la opcion mediante la cual realizaste tu registro"
+          : DEFAULT_DESCRIPTION;
+
+      this.isEmailLoginOpen = !this.isEmailLoginOpen;
+    }
   },
+
+  computed: {
+    isSamePassword: function() {
+      return this.auth.password === this.auth.repassword;
+    }
+  },
+
   data() {
     return {
-      auth: {},
+      auth: {
+        email: "",
+        password: "",
+        repassword: ""
+      },
+      isNewUser: false,
+      isEmailLoginOpen: false,
       title: "INICIO DE SESIÓN",
-      description:
-        "Gracias por visitarnos. En este espacio podrás crear tu PERFIL TRIANON, con el cual habilitarás el chat para contactarte con nosotros, también realizar compras y ver los estados de envió."
+      description: DEFAULT_DESCRIPTION
     };
   }
 };
@@ -100,7 +179,7 @@ div.login-signin {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    padding: 1em;
+    padding: 0em;
     background-color: white;
   }
 
@@ -108,11 +187,13 @@ div.login-signin {
     #Font-TrajanPro();
     #Flex-Row-Extremes();
 
+    margin: 0em 1em;
+
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 
-    width: 100%;
+    width: ~"calc(100% - 2em)";
 
     border: 1px solid @color-yellow;
 
@@ -129,6 +210,65 @@ div.login-signin {
     img {
       width: 10px;
     }
+  }
+}
+
+div.email-login-form {
+  display: block;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 1em;
+
+  background-color: @color-gold;
+
+  &-input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.35em;
+      border: none;
+      text-align: center;
+      font-family: "TrajanPro";
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    &.email {
+      padding-bottom: 5px;
+    }
+    &.password {
+      padding-bottom: 10px;
+      .error {
+        padding: 0.5em 0em;
+        color: red;
+        font-size: 0.9em;
+        text-transform: lowercase;
+      }
+    }
+  }
+  &-submit {
+    display: block;
+    width: 100%;
+    background-color: white;
+    color: @color-gold;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  &-label {
+    padding: 10px;
+    font-family: "Open Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    text-decoration: underline;
   }
 }
 </style>

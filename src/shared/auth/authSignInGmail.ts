@@ -27,7 +27,33 @@ export default class AuthGmail {
                     var token = result.credential.accessToken;
                     var user = result.user;
                     localStorage.setItem("user", JSON.stringify(user));
-                    resolve(true);
+
+                    const trianonUser = {
+                        name: user.displayName,
+                        email: user.email,
+                        password: 'AUTH-GMAIL',
+                        phoneNumber: user.phoneNumber || ' ',
+                        photoUrl: user.photoURL,
+                        birthday: '',
+                        gender: '',
+                        createdAt: user.metadata.creationTime,
+                        lastSignInAt: user.metadata.lastSignInTime,
+                    }
+
+                    firebase.firestore().collection("USERS")
+                        .doc(trianonUser.email)
+                        .set(trianonUser)
+                        .then((response: any) => {
+                            console.log("Document successfully written!");
+                            resolve(true);
+                        })
+                        .catch((error: any) => {
+                            console.error("Error writing document: ", error);
+                            reject();
+                        });
+
+
+
                 })
                 .catch((error: any) => {
                     var errorCode = error.code;

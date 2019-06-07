@@ -8,6 +8,7 @@ import { PROFILE_ROUTES } from "./_profile.routes";
 import { SHOP_ROUTES } from "./_shop.routes";
 import { PRODUCT_ROUTES } from "./_product.routes";
 import { ADMIN_ROUTES } from "./_admin.routes";
+import { AUTHORIZED_SHOPS_AND_DISTRIBUTORS_ROUTES } from "./_autorized_shops_and_distributors.routes";
 import { ABOUT_ROUTES } from "./_about.routes";
 import { LOGISTICS_ROUTES } from "./_logistics.routes";
 import { MAPS_ROUTES } from "./_maps.routes";
@@ -26,7 +27,9 @@ export default new Router({
     ...LOGIN_ROUTES,
     ...SHOP_ROUTES,
     ...PRODUCT_ROUTES,
-    ...PROFILE_ROUTES/*,
+    ...PROFILE_ROUTES,
+    ...AUTHORIZED_SHOPS_AND_DISTRIBUTORS_ROUTES,
+    /*,
     ...ABOUT_ROUTES,
     ...LOGISTICS_ROUTES,
     ...ABOUT_ROUTES,

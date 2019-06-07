@@ -1,8 +1,14 @@
 <template>
   <div class="product buy-button">
-    <div class="button theme-black border-gold" @click="doAddToCart()">
-      <h5 v-if="getProductsInShoppingCart.length === 0">COMPRAR</h5>
-      <h5 v-if="getProductsInShoppingCart.length !== 0">AÑADIDO AL CARRITO</h5>
+    <div class="button theme-black border-gold">
+      <h5 v-if="getProductsInShoppingCart.length === 0" @click="doAddToCart()">
+        <span>COMPRAR</span>
+      </h5>
+      <h5 v-if="getProductsInShoppingCart.length !== 0">
+        <span class="remove-btn" @click="doRemoveFromCart()">-</span>
+        <span class="counted" style=" flex:1">{{ getProductsInShoppingCart.length }}</span>
+        <span class="add-btn" @click="doAddToCart()">+</span>
+      </h5>
     </div>
 
     <div class="message">
@@ -38,6 +44,10 @@ export default class ProductBuyButtonComponent extends Vue {
     this.$store.dispatch("addToCart", this.product);
     console.log((this.getProductsInShoppingCart as any[]).length);
   }
+  private doRemoveFromCart() {
+    this.$store.dispatch("removeFromCart", this.product);
+    console.log((this.getProductsInShoppingCart as any[]).length);
+  }
 }
 </script>
 
@@ -50,7 +60,7 @@ div.product.buy-button {
     display: block;
     width: ~"calc(100% - 1em)";
     box-sizing: border-box;
-    padding: 1em;
+
     margin: 0.5em auto;
     margin-top: 0em;
     margin-bottom: 0em;
@@ -61,6 +71,22 @@ div.product.buy-button {
     }
     &.border-gold {
       border: 2px solid @color-yellow;
+    }
+
+    h5 {
+      padding: 1em 0em;
+      text-align: center;
+      #Flex-Row-Center-Extremes();
+      span {
+        display: block;
+        margin: 0 auto;
+        &.remove-btn {
+          padding: 0em 1em;
+        }
+        &.add-btn {
+          padding: 0em 1em;
+        }
+      }
     }
   }
 

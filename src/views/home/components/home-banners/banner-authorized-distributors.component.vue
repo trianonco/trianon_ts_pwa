@@ -9,7 +9,7 @@
     </div>
     <div class="banner-button gold">
       <img class src="../../../../shared/assets/images/banners/button-place-ico-02.png">
-      <h4>
+      <h4 @click="goToAuthorizedDistributors()">
         <span>VER UBICACIONES</span>
       </h4>
     </div>
@@ -19,7 +19,12 @@
 <script>
 export default {
   name: "HomeBannerAuthorizedDistributorsComponent",
-  props: {}
+  props: {},
+  methods: {
+    goToAuthorizedDistributors() {
+      this.$router.push("/view/authorized/distributors");
+    }
+  }
 };
 </script>
 
