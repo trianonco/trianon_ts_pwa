@@ -14,19 +14,11 @@
         <img src="./../../shared/assets/images/search/lupa-icon.png">
         <input type="text" placeholder="DEPARTAMENTO O CIUDAD">
       </div>
-
-      <GmapMap
-        :center="{lat:10, lng:10}"
-        :zoom="3"
-        map-type-id="terrain"
-        style="width: 500%; height: 300px"
-      ></GmapMap>
-
       <GmapMap
         :center="position"
-        :zoom="3"
+        :zoom="12"
         map-type-id="terrain"
-        style="width: 500%; height: 300px"
+        style="width: 500px; height: 300px"
       ></GmapMap>
     </div>
 
