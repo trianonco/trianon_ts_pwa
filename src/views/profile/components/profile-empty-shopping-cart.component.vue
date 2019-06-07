@@ -2,7 +2,7 @@
   <div class="wrapper empty-shopping-cart" v-if="user">
     <div class="wrapper-container">
       <div class="wrapper-container-header">
-        <img src="../../../shared/assets/images/gender-categories/bullet-gray.png">
+        <img alt="TrianonCo Image" src="../../../shared/assets/images/gender-categories/bullet-gray.png">
         <h1>ESPACIO PARA TUS PRODUCTOS</h1>
       </div>
       <div class="wrapper-container-content">

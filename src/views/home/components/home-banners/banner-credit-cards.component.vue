@@ -2,9 +2,9 @@
   <div class="banner credit cards">
     <h2>MÉTODOS DE PAGO</h2>
     <div class="credit-cards">
-      <img src="../../../../shared/assets/images/banners/credit-card-mc.png">
-      <img src="../../../../shared/assets/images/banners/credit-card-visa.png">
-      <img src="../../../../shared/assets/images/banners/credit-card-amex.png">
+      <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/credit-card-mc.png">
+      <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/credit-card-visa.png">
+      <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/credit-card-amex.png">
     </div>
     <p>Realiza tus pagos a través de trajeta de credito, debito automatico (PSE) ó efectivo por medio de Efecty</p>
   </div>

@@ -10,23 +10,23 @@
           v-if="!isEmailLoginOpen"
           @click="doLoginFacebook()"
         >
-          <img src="../../../shared/assets/images/signin/bullet-fb.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png">
           <h1>INGRESA CON FACEBOOK</h1>
-          <img src="../../../shared/assets/images/signin/bullet-fb.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png">
         </div>
         <div class="login-signin-button gmail" v-if="!isEmailLoginOpen" @click="doLoginGmail()">
-          <img src="../../../shared/assets/images/signin/bullet-gmail.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png">
           <h1>INGRESA CON GMAIL</h1>
-          <img src="../../../shared/assets/images/signin/bullet-gmail.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png">
         </div>
         <div
           class="login-signin-button email"
           @click="doToogleLoginEmail()"
           style="margin-bottom:0px"
         >
-          <img src="../../../shared/assets/images/signin/bullet-email.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png">
           <h1>CORREO ELECTRÓNICO</h1>
-          <img src="../../../shared/assets/images/signin/bullet-email.png" class alt>
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png">
         </div>
         <br v-if="isEmailLoginOpen">
         <div class="email-login-form" v-if="isEmailLoginOpen">

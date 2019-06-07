@@ -1,7 +1,7 @@
 
 <template>
   <div class="banner guarantee">
-    <img src="../../../../shared/assets/images/banners/guarantee-header.png">
+    <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/guarantee-header.png">
     <div class="banner-title">
       <h2>GARANTÍA DIRECTA</h2>
       <p>

@@ -3,9 +3,9 @@
   <div class="banner address">
     <div class="header">
       <div class="title">
-        <img src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/bullet-gold-01.png">
         <h2>PUNTO DE FÁBRICA</h2>
-        <img src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/bullet-gold-01.png">
       </div>
       <div class="address">
         BOGOTÁ | CALLE 6A # 33 - 22

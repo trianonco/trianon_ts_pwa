@@ -1,6 +1,6 @@
 <template>
   <div class="banner about us">
-    <img src="../../../../shared/assets/images/banners/about-us-header.png">
+    <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/about-us-header.png">
     <div class="banner-title">
       <h2>UNA TRADICIÓN DESDE 1935</h2>
       <h3>En TRIANON hemos construido experiencia y tradición por más de 80 años, dedicándonos a la fabricación de marroquineriá y accesorios en cuero, como, billeteras, bolsos, cinturones y llaveros, entre otros. Nuestra escencia está en el talento humano, fabricando productos con insumos 100% colombianos. Creamos artesanalmente cada artículo con la más alta calidad y detalle, logrando que cada producto sea una pieza única.</h3>

@@ -11,7 +11,7 @@
       >TENDRÁS A TU ALCANCE DIVERSAS REFERENCIAS DE PRODUCTOS TRIANON, TEN EN CUENTA QUE CADA UNO DE LOS DISTRIBUIDORES ESTA SUJETO A INVENTARIO</h2>
 
       <div class="search">
-        <img src="./../../shared/assets/images/search/lupa-icon.png">
+        <img alt="TrianonCo Image" src="./../../shared/assets/images/search/lupa-icon.png">
         <input type="text" placeholder="DEPARTAMENTO O CIUDAD">
       </div>
       <GmapMap

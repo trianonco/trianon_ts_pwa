@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="footer-logo">
-      <img src="./../../assets/images/footers/bull.png" class alt>
+      <img alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
     </div>
   </footer>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <div class="product header">
  <h1>
-        <img src="../../../shared/assets/images/gender-categories/bullet-gold.png">
+        <img alt="TrianonCo Image" src="../../../shared/assets/images/gender-categories/bullet-gold.png">
         <span>100% Cuero. 100% Colombiano</span>
-        <img src="../../../shared/assets/images/gender-categories/bullet-gold.png">
+        <img alt="TrianonCo Image" src="../../../shared/assets/images/gender-categories/bullet-gold.png">
       </h1>
   </div>
 </template>
