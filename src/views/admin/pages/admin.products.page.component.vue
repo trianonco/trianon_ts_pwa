@@ -95,6 +95,8 @@ export default class AdminProductsPageComponent extends Vue {
     const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_DOCUMENTOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA DOCUMENTOS');
     const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_PASAPORTES   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA PASAPORTES');
 
+
+
     console.log(PRODUCTS_GENDER_MALE_CATEGORY_MONEDEROS_Y_TARJETEROS);
 
   }
