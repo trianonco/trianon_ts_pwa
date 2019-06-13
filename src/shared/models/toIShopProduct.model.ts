@@ -1,5 +1,5 @@
 import IShopProduct from './IShopProduct.model';
-import TrianonDB from './../database/db';
+import TrianonDB from '../database/db';
 import StringHelper from './../helpers/string.helper';
 
 export async function toIShopProduct($product: any): Promise<IShopProduct> {

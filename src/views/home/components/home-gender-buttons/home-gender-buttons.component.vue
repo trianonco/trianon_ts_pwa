@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import appDB from "./../../../../shared/database/db";
+import ApiDataBase from "./../../../../shared/database/index";
 import { Component, Vue } from "vue-property-decorator";
 @Component({})
 export default class HomeGenderButtonsComponent extends Vue {
@@ -61,10 +61,13 @@ export default class HomeGenderButtonsComponent extends Vue {
   private selectedItemID: number = -1;
 
   private mounted() {
-    const db = new appDB();
-    db.getHomeGenderButtonsGategories().then(
-      categories => (this.categories = categories)
-    );
+    const apiDB = new ApiDataBase();
+    apiDB.setDatabaseByName("SETTINGS-DB");
+    const db = apiDB.getDatabase();
+
+    db.getShopCategories().then((categories: any) => {
+      this.categories = categories;
+    });
   }
 
   private getActiveClassByGender(gender: string) {

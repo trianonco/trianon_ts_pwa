@@ -15,7 +15,7 @@ export default interface IShopProduct {
     price_usd: number;
     line: string;
     color: string;
-    height: number;
-    width: number;
-    depth: number;
+    height: string;
+    width: string;
+    depth: string;
 }

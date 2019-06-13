@@ -1,8 +1,8 @@
 import firebaseDB from './firebase.db';
 import localDB from './local.db';
-import IShopProduct from "./../../shared/models/IShopProduct.model";
-import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
-import { toIShopProducts } from "./../../shared/models/toIShopProduct.model";
+import IShopProduct from "../models/IShopProduct.model";
+import { toIShopProduct } from "../models/toIShopProduct.model";
+import { toIShopProducts } from "../models/toIShopProduct.model";
 
 export default class TrianonDB {
     public firebaseDB: any = new firebaseDB();

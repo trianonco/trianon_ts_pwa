@@ -7,7 +7,7 @@
     </div>
     <div class="banner-button gold">
       <img class src="../../../../shared/assets/images/banners/button-place-dark-ico-02.png">
-      <h4>
+      <h4 @click="goToAuthorizedShops()">
         <span>VER UBICACIONES</span>
       </h4>
     </div>
@@ -17,7 +17,12 @@
 <script>
 export default {
   name: "HomeBannerAuthorizedShopsComponent",
-  props: {}
+  props: {},
+  methods: {
+    goToAuthorizedShops() {
+      this.$router.push("/view/authorized/shops");
+    }
+  }
 };
 </script>
 

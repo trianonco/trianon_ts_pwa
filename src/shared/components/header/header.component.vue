@@ -107,6 +107,7 @@ export default class HeaderComponent extends Vue {
 @import (reference) "./header.style.less";
 header {
   #constructor-header();
+  background-color: white;
 }
 header .header-nav {
   #constructor-header-nav();

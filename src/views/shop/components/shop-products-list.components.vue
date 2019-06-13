@@ -4,6 +4,10 @@
       <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!--
+    {{ productsDB }}
+    -->
+
     <ShopProductsListItemComponent
       v-for="product in products"
       v-bind:key="product.ref"
@@ -121,7 +125,7 @@ export default class ShopProductsListComponent extends Vue {
       } else {
         $state.complete();
       }
-    }, 50);
+    }, 0);
   }
 }
 </script>

@@ -4,11 +4,15 @@
       <form class="my-form">
         <input
           type="file"
-          id="fileElem"
+          id="fileElem1"
           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           @change="handleFiles"
         >
-        <label class="button" for="fileElem">Select some files</label>
+        <label
+          class="button"
+          style="text-align:center"
+          for="fileElem1"
+        >{{ message ? message : 'ARRASTRA TU ARCHIVO EXCEL ACA ' }}</label>
       </form>
     </div>
   </div>
@@ -18,12 +22,15 @@
 import xlsx from "xlsx";
 export default {
   name: "DragAndDropExcelComponent",
+  props: ["message"],
 
   data() {
     return {};
   },
   methods: {
     handleFiles(event) {
+      this.$emit("onStart");
+
       var f = event.target.files[0];
 
       var reader = new FileReader();
@@ -38,6 +45,22 @@ export default {
         var workbook = xlsx.read(btoa(fixedData), { type: "base64" });
         var worksheet = workbook.Sheets[workbook.SheetNames[0]];
         const results = xlsx.utils.sheet_to_json(worksheet);
+        results.map(obj => {
+          const objValues = Object.values(obj);
+          const objKeys = Object.keys(obj);
+          objKeys.map(key => {
+            //obj[key] = obj[key].replace(/ +(?= )/g, "");
+            const objValue = (obj[key] + " ")
+              .toUpperCase()
+              .replace(/ +(?= )/g, "");
+            obj[key] = objValue;
+          });
+
+          return obj;
+        });
+
+        //  str.replace(/ +(?= )/g,'');
+
         self.$emit("onLoad", results);
       };
     },
@@ -58,7 +81,7 @@ export default {
 </script>
 
 <style lang="less">
-@import (reference) "./../../../shared/styles/index.less";
+@import (reference) "./../../../../shared/styles/index.less";
 div.drag-and-drop-excel {
   #drop-area {
     border: 2px dashed #ccc;
@@ -99,15 +122,16 @@ div.drag-and-drop-excel {
   .button {
     display: inline-block;
     padding: 10px;
-    background: #ccc;
+    background: #ddd;
     cursor: pointer;
     border-radius: 5px;
     border: 1px solid #ccc;
+    text-align: center;
   }
   .button:hover {
     background: #ddd;
   }
-  #fileElem {
+  #fileElem1 {
     display: none;
   }
 }
