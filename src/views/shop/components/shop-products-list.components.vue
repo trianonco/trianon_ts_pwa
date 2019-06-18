@@ -6,10 +6,15 @@
 
     <!--
     {{ productsDB }}
-    -->
+    
+
+    <div  v-for="product in productsDB">
+      <h1>{{ product.ref_photo_code }}</h1>
+      <img :src="'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fthumb%2F' + product.ref_photo_code + '-01.jpg'">
+    </div>-->
 
     <ShopProductsListItemComponent
-      v-for="product in products"
+      v-for="product in productsDB"
       v-bind:key="product.ref"
       :product="product"
     ></ShopProductsListItemComponent>
@@ -37,6 +42,7 @@ import appDB from "./../../../shared/database/db";
 import InfiniteLoading from "vue-infinite-loading";
 import IShopProduct from "../../../shared/models/IShopProduct.model";
 import ShopProductsListItemComponent from "./shop-products-list-item.component.vue";
+import ApiDataBase from "./../../../shared/database/index";
 
 import axios from "axios";
 
@@ -61,6 +67,16 @@ export default class ShopProductsListComponent extends Vue {
   private page: number = 1;
   private list: any[] = [];
 
+  private apiDB = new ApiDataBase();
+  private db: any = {};
+
+
+  private beforeMount() {
+    this.apiDB.setDatabaseByName("SHOP-DB");
+    this.db = this.apiDB.getDatabase();
+ 
+  }
+
   private handleScroll($event: any) {
     const scrollPosition =
       document.documentElement.scrollTop || document.body.scrollTop;
@@ -81,22 +97,21 @@ export default class ShopProductsListComponent extends Vue {
 
   private mounted() {
     // Database
-    const db = new appDB();
+
     const params = (this.$route as any).params;
 
     // Route Params
     const category = params.category ? params.category : "";
     const description = params.category ? params.category : "";
     const gender = params.gender ? params.gender : "";
+    
+      this.db.getProductsByGenderAndCategories(gender, category).then( async (products:any) => {
 
-    db.getShopProductsByCategoryAndGender(category, gender).then(
-      async (productsFromDB: any) => {
-        const products: IShopProduct[] = await toIShopProducts(productsFromDB);
         const unique = this.removeDuplicates(products, "ref_photo_code");
         this.productsDB = unique;
         this.products = this.productsDB.slice(0, this.productsPageSize);
-      }
-    );
+
+      })  
   }
 
   private removeDuplicates(myArr: any[], prop: string) {

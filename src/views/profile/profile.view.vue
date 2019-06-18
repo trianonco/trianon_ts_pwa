@@ -14,8 +14,11 @@
         </div>
       </div>
 
-      <ProfileEmptyShoppingCartComponent v-if="cartProducts.length === 0"></ProfileEmptyShoppingCartComponent>
-      <ProfileListShoppingCartComponent v-if="cartProducts.length > 0"></ProfileListShoppingCartComponent>
+      <ProfileEmptyProductsComponent
+        v-if="(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
+      ></ProfileEmptyProductsComponent>
+
+      <ProfileListProductsComponent v-if="cartProducts.length > 0"></ProfileListProductsComponent>
 
       <ProfileShareComponent :theme="'gray'"></ProfileShareComponent>
 
@@ -37,8 +40,9 @@ import TrianonDB from "./../../shared/database/db";
 import HeaderComponent from "../../shared/components/header/header.component.vue";
 import FooterComponent from "../../shared/components/footer/footer.component.vue";
 
-import ProfileEmptyShoppingCartComponent from "./components/profile-empty-shopping-cart.component.vue";
-import ProfileListShoppingCartComponent from "./components/profile-list-shopping-cart.component.vue";
+import ProfileEmptyProductsComponent from "./components/profile-empty-products.component.vue";
+import ProfileListProductsComponent from "./components/profile-list-products.component.vue";
+
 import ProfileShareComponent from "./components/profile-share.component.vue";
 
 @Component({
@@ -46,8 +50,8 @@ import ProfileShareComponent from "./components/profile-share.component.vue";
     HeaderComponent,
     FooterComponent,
     ProfileShareComponent,
-    ProfileEmptyShoppingCartComponent,
-    ProfileListShoppingCartComponent
+    ProfileEmptyProductsComponent,
+    ProfileListProductsComponent
   }
 })
 export default class ProfileView extends Vue {
@@ -61,14 +65,21 @@ export default class ProfileView extends Vue {
   private user: any = {};
   private userName: string = "";
 
-  private shoppingCartProducts: any[] = [];
-  private inProcessProducts: any[] = [];
-  private purchasedProducts: any[] = [];
+  //private shoppingCartProducts: any[] = [];
+  //private inProcessProducts: any[] = [];
+  //private purchasedProducts: any[] = [];
 
   get cartProducts() {
     return this.$store.state.shoppingCartModule.products;
   }
 
+  get inProcessProducts() {
+    return this.$store.state.shoppingCartModule.products;
+  }
+
+  get purchasedProducts() {
+    return this.$store.state.shoppingCartModule.products;
+  }
   private created() {
     this.user = JSON.parse(localStorage.getItem("user") || "");
     this.userName = this.user.displayName.split(" ")[0];
@@ -76,13 +87,13 @@ export default class ProfileView extends Vue {
     this.db
       .getUserFromDB(this.user.email)
       .then((response: any) => {
-        console.log("");
-        console.log(" . ");
-        console.log(" . .");
-        console.log(" + getUserFromDB ");
-        console.log(response);
-        console.log(" . .");
-        console.log("");
+        const shoppingCart = response.shoppingCart || [];
+        const inProcess = response.inProcess || [];
+        const purchased = response.purchased || [];
+
+        shoppingCart.map((product: any) => {
+          this.$store.dispatch("addToCart", product);
+        });
       })
       .catch((error: any) => console.error(error));
   }

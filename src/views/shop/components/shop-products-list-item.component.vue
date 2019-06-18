@@ -1,7 +1,11 @@
 <template>
+
   <div class="products-list-item" v-if="isProductOnStock" :class="getProducsListItemClass()">
+
     <div class="product-list-item-wrapper" @click="goToProductView()">
       <div class="isNew" v-if="isNew">NUEVO</div>
+
+
 
       <v-lazy-image
         class="photo"
@@ -18,6 +22,7 @@
       <h2 class="color">Color {{ product.color}}</h2>
     </div>
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -50,7 +55,7 @@ export default class ShopProductsListItemComponent extends Vue {
   }
 
   private goToProductView() {
-    this.$router.push(`/product/${this.product.ref}`);
+    this.$router.push(`/product/gender/${this.product.gender}/category/${this.product.category}/ref/${this.product.ref_photo_code}`);
   }
   private mounted() {
     const product_token = "18c776df-f5a7-45a0-9012-16f780381d92";

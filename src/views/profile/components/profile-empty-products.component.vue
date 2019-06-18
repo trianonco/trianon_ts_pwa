@@ -29,7 +29,7 @@ import { mapState, mapGetters, mapActions } from "vuex";
     ...mapActions(["addItem"])
   }
 })
-export default class ProfileEmptyShopppingCart extends Vue {
+export default class ProfileEmptyProductsComponent extends Vue {
   private user: any = {};
   private userName: string = "";
 

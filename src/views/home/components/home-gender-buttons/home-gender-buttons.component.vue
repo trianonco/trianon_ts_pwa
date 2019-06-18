@@ -68,6 +68,7 @@ export default class HomeGenderButtonsComponent extends Vue {
     db.getShopCategories().then((categories: any) => {
       this.categories = categories;
     });
+    
   }
 
   private getActiveClassByGender(gender: string) {

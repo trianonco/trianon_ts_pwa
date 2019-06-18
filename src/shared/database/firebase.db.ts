@@ -156,35 +156,6 @@ export default class FirebaseDB {
 
     public setAuthorizedDistributors(places: any[]): Promise<any> {
         return new Promise((resolve) => {
-
-            /*
-            const doc = {
-                id: 'AUTHORIZED_DISTRIBUTORS_JSON',
-                content: JSON.stringify(places)
-            }
-            this.db.collection("AAAA").doc("LA").set({
-                name: "Los Angeles",
-                state: "CA",
-                country: "USA"
-            }).then(function () {
-                console.log("Document successfully written!");
-            }).catch(function (error: any) {
-                console.error("Error writing document: ", error);
-            });
-            this.db.collection("TRIANON_DB").doc('AUTHORIZED_DISTRIBUTORS').set(doc).then((querySnapshot: any) => {
-                resolve('OK')
-            });
-            this.db.collection("AUTHORIZED_DISTRIBUTORS").doc("000AAAAA").set({
-                name: "Los Angeles",
-                state: "CA",
-                country: "USA"
-            }).then(function () {
-                    console.log("Document successfully written!");
-            }).catch(function (error: any) {
-                    console.error("Error writing document: ", error);
-            });
-            */
-
             this.db.collection("AUTHORIZED_DISTRIBUTORS").doc("wH9jN7gQ631j0Z1xq2AP").set({
                 name: "Los Angeles",
                 state: "CA",
@@ -194,6 +165,30 @@ export default class FirebaseDB {
             }).catch(function (error: any) {
                 console.error("Error writing document: ", error);
             });
+
+        });
+    }
+
+
+    public setShoppingCartProducts(shoppingCarProducts: any[]): Promise<any> {
+        return new Promise((resolve) => {
+            const user = JSON.parse(localStorage.getItem("user") || '{}');
+            const email = user.email || '';
+            if (email) {
+                this.db.collection("USERS").doc(email).update({
+                    shoppingCart: shoppingCarProducts
+                }).then(function () {
+                    console.log("Document successfully written!");
+                    resolve('OK')
+                }).catch(function (error: any) {
+
+                    console.error("Error writing document: ", error);
+                    resolve('ERROR FROM FIRESTORE')
+                });
+            } else {
+                resolve('ERROR!!! NO EMAIL IN LOCALSTORGAE')
+            }
+
 
         });
     }

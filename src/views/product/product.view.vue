@@ -22,6 +22,7 @@
         :ref_color_code="productObj.ref_color_code"
         :ref_size_code="productObj.ref_size_code"
       ></ProductInfoBannerComponent>
+
     </div>
 
     <FooterComponent/>
@@ -47,6 +48,10 @@ import TrianonDB from "./../../shared/database/db";
 import IShopProduct from "./../../shared/models/IShopProduct.model";
 
 import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
+
+import ApiDataBase from "./../../shared/database/index";
+
+
 @Component({
   components: {
     VLazyImage,
@@ -62,7 +67,6 @@ import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
   }
 })
 export default class ProductView extends Vue {
-  private db = new TrianonDB();
   private productObj: any = {};
   private productPhotos: any[] = [];
   private productSizes: any[] = [];
@@ -73,47 +77,96 @@ export default class ProductView extends Vue {
   private isProductLoaded: boolean = false;
   private productSlideIndex: number = 0;
 
+  private apiDB = new ApiDataBase();
+  private db: any = {};
+
+
+  private beforeMount() {
+    this.apiDB.setDatabaseByName("SHOP-DB");
+    this.db = this.apiDB.getDatabase();
+
+ 
+  }
+
+
   private mounted() {
     // Route Params
     const params = (this.$route as any).params;
-    const productRef = params.productRef ? params.productRef : "";
+    const productGender = params.gender ? params.gender : "";
+    const productCategory = params.category ? params.category : "";
+    const productRefNoSize = params.ref ? params.ref : "";
 
-    this.db.getProductByRef(productRef).then(async (product: any) => {
-      this.productObj = await toIShopProduct(product);
+    this.db.getProductsByGenderAndCategoriesAndID(productGender,productCategory,productRefNoSize).then( async (response:any) => {
+
+      const product:IShopProduct = response[0];
+      const products_sizes = response.map( (product:any) => {
+        return {
+          ref:  product.ref,
+          size : {
+              width : product.width,
+              height : product.height,
+              depth : product.depth
+          }
+        }
+      });
+
+      this.productObj = product;
 
       this.productPhotos.push(this.getPhotoURLs(1));
       this.productPhotos.push(this.getPhotoURLs(2));
       this.productPhotos.push(this.getPhotoURLs(3));
       this.productPhotos.push(this.getPhotoURLs(4));
       this.productPhotos.push(this.getPhotoURLs(5));
-
       this.productPrice = this.productObj.price_cop;
       this.productDescription = this.productObj.description;
       this.productColor = this.productObj.color;
       this.productDiscount = this.productObj.discount;
-
       const refCode = this.productObj.ref_code;
       const refColorCode = this.productObj.ref_color_code;
       const gender = this.productObj.gender;
       const category = this.productObj.category;
-      const producstSameCodeAndColor: IShopProduct[] = await this.db.getProductsSizesByRefCodeAndRefColorCode(
-        refCode,
-        refColorCode,
-        gender,
-        category
-      );
-      this.productSizes = (producstSameCodeAndColor as IShopProduct[]).map(
-        (product: IShopProduct) => {
-          return {
-            height: product.height,
-            width: product.width,
-            depth: product.depth
-          };
-        }
-      );
-
       this.isProductLoaded = true;
+      this.productSizes = products_sizes;
     });
+
+    /*
+      this.db.getProductByRef(productRef).then(async (product: any) => {
+        this.productObj = await toIShopProduct(product);
+
+        this.productPhotos.push(this.getPhotoURLs(1));
+        this.productPhotos.push(this.getPhotoURLs(2));
+        this.productPhotos.push(this.getPhotoURLs(3));
+        this.productPhotos.push(this.getPhotoURLs(4));
+        this.productPhotos.push(this.getPhotoURLs(5));
+
+        this.productPrice = this.productObj.price_cop;
+        this.productDescription = this.productObj.description;
+        this.productColor = this.productObj.color;
+        this.productDiscount = this.productObj.discount;
+
+        const refCode = this.productObj.ref_code;
+        const refColorCode = this.productObj.ref_color_code;
+        const gender = this.productObj.gender;
+        const category = this.productObj.category;
+        const producstSameCodeAndColor: IShopProduct[] = await this.db.getProductsSizesByRefCodeAndRefColorCode(
+          refCode,
+          refColorCode,
+          gender,
+          category
+        );
+        this.productSizes = (producstSameCodeAndColor as IShopProduct[]).map(
+          (product: IShopProduct) => {
+            return {
+              height: product.height,
+              width: product.width,
+              depth: product.depth
+            };
+          }
+        );
+
+        this.isProductLoaded = true;
+      });
+    */
   }
 
   private getPhotoURLs(n: number) {

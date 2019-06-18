@@ -25,6 +25,7 @@ import DragAndDropExcelProductsComponent from "./../components/lib/drag-and-drop
 import { Component, Vue } from "vue-property-decorator";
 import FuzzySet from "fuzzyset.js";
 import IShopProduct from "./../../../shared/models/IShopProduct.model";
+
 @Component({
   components: { DragAndDropExcelProductsComponent },
   name: "AdminTitlePageComponent"
@@ -73,31 +74,116 @@ export default class AdminProductsPageComponent extends Vue {
     });
     this.isLoading = false;
   }
-  private save() {
+  private async save() {
     
-    const PRODUCTS_GENDER_MALE_CATEGORY_BILLETERAS         = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'BILLETERAS');
-    const PRODUCTS_GENDER_MALE_CATEGORY_BOLSOS_Y_MALETINES = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'BOLSOS Y MALETINES');
-    const PRODUCTS_GENDER_MALE_CATEGORY_CINTURONES         = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'CINTURONES');
-    const PRODUCTS_GENDER_MALE_CATEGORY_LLAVEROS           = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'LLAVEROS');
-    const PRODUCTS_GENDER_MALE_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'MONEDEROS Y TARJETEROS');
-    const PRODUCTS_GENDER_MALE_CATEGORY_PORTA_BILLETES     = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA BILLETES');
-    const PRODUCTS_GENDER_MALE_CATEGORY_PORTA_COSMETICOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA COSMÉTICOS');
-    const PRODUCTS_GENDER_MALE_CATEGORY_PORTA_DOCUMENTOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA DOCUMENTOS');
-    const PRODUCTS_GENDER_MALE_CATEGORY_PORTA_PASAPORTES   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA PASAPORTES');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_BILLETERAS         = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'BILLETERAS');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_BOLSOS_Y_MALETINES = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'BOLSOS Y MALETINES');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_CINTURONES         = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'CINTURONES');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_LLAVEROS           = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'LLAVEROS');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'MONEDEROS Y TARJETEROS');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_BILLETES     = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA BILLETES');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_COSMETICOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA COSMÉTICOS');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_DOCUMENTOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA DOCUMENTOS');
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_PASAPORTES   = this.PRODUCTS.filter(  (product:any) => product.gender === 'HOMBRE' && product.category === 'PORTA PASAPORTES');
 
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_BILLETERAS         = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'BILLETERAS');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_BOLSOS_Y_MALETINES = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'BOLSOS Y MALETINES');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_CINTURONES         = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'CINTURONES');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_LLAVEROS           = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'LLAVEROS');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'MONEDEROS Y TARJETEROS');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_BILLETES     = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA BILLETES');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_COSMETICOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA COSMÉTICOS');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_DOCUMENTOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA DOCUMENTOS');
-    const PRODUCTS_GENDER_FEMALE_CATEGORY_PORTA_PASAPORTES   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA PASAPORTES');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_BILLETERAS         = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'BILLETERAS');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_BOLSOS_Y_MALETINES = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'BOLSOS Y MALETINES');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_CINTURONES         = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'CINTURONES');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_LLAVEROS           = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'LLAVEROS');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'MONEDEROS Y TARJETEROS');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_BILLETES     = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA BILLETES');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_COSMETICOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA COSMÉTICOS');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_DOCUMENTOS   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA DOCUMENTOS');
+    const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_PASAPORTES   = this.PRODUCTS.filter(  (product:any) => product.gender === 'DAMA' && product.category === 'PORTA PASAPORTES');
 
+    const PRODUCTS_TO_DB = [
+      {
+        gender : 'HOMBRE',
+        category : 'BILLETERAS',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_BILLETERAS
+      },{
+        gender : 'HOMBRE',
+        category : 'BOLSOS_Y_MALETINES',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_BOLSOS_Y_MALETINES
+      },{
+        gender : 'HOMBRE',
+        category : 'CINTURONES',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_CINTURONES
+      },{
+        gender : 'HOMBRE',
+        category : 'LLAVEROS',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_LLAVEROS
+      },{
+        gender : 'HOMBRE',
+        category : 'MONEDEROS_Y_TARJETEROS',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_MONEDEROS_Y_TARJETEROS
+      },{
+        gender : 'HOMBRE',
+        category : 'PORTA_BILLETES',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_BILLETES
+      },{
+        gender : 'HOMBRE',
+        category : 'PORTA_COSMETICOS',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_COSMETICOS
+      },{
+        gender : 'HOMBRE',
+        category : 'PORTA_DOCUMENTOS',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_DOCUMENTOS
+      },{
+        gender : 'HOMBRE',
+        category : 'PORTA_PASAPORTES',
+        data : PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_PASAPORTES
+      }, {
+        gender : 'DAMA',
+        category : 'BILLETERAS',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_BILLETERAS
+      },{
+        gender : 'DAMA',
+        category : 'BOLSOS_Y_MALETINES',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_BOLSOS_Y_MALETINES
+      },{
+        gender : 'DAMA',
+        category : 'CINTURONES',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_CINTURONES
+      },{
+        gender : 'DAMA',
+        category : 'LLAVEROS',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_LLAVEROS
+      },{
+        gender : 'DAMA',
+        category : 'MONEDEROS_Y_TARJETEROS',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_MONEDEROS_Y_TARJETEROS
+      },{
+        gender : 'DAMA',
+        category : 'PORTA_BILLETES',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_BILLETES
+      },{
+        gender : 'DAMA',
+        category : 'PORTA_COSMETICOS',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_COSMETICOS
+      },{
+        gender : 'DAMA',
+        category : 'PORTA_DOCUMENTOS',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_DOCUMENTOS
+      },{
+        gender : 'DAMA',
+        category : 'PORTA_PASAPORTES',
+        data : PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_PASAPORTES
+      },
+    ];
 
+    for(let i = 0; i < PRODUCTS_TO_DB.length ; i++){
+      const collection_name = 'PRODUCTS';
+      const document_name = `PRODUCTS_GENDER_${PRODUCTS_TO_DB[i].gender}_CATEGORY_${PRODUCTS_TO_DB[i].category}`;
+      const document_data = {
+        gender: PRODUCTS_TO_DB[i].gender,
+        category : PRODUCTS_TO_DB[i].category,
+        products : JSON.stringify(PRODUCTS_TO_DB[i].data)
+      }
 
-    console.log(PRODUCTS_GENDER_MALE_CATEGORY_MONEDEROS_Y_TARJETEROS);
+      const isLoaded = await this.db.setShopProducts(collection_name, document_name, document_data);
+      
+    }
 
   }
   private clear() {
