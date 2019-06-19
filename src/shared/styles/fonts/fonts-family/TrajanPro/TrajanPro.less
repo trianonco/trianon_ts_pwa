@@ -1,43 +1,67 @@
+@font-face {
+  font-family: 'TrajanPro';
+  font-display: block;
+  font-display: block;
+  font-weight: bold;
+  font-style: normal;
+  src: url('../../../../assets/fonts/TrajanPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../../../../assets/fonts/TrajanPro-Bold.otf') format('opentype'),
+    url('../../../../assets/fonts/TrajanPro-Bold.woff') format('woff'),
+    url('../../../../assets/fonts/TrajanPro-Bold.ttf') format('truetype'),
+    url('../../../../assets/fonts/TrajanPro-Bold.svg#TrajanPro-Bold') format('svg');
+}
 
 @font-face {
   font-family: 'TrajanPro';
-  font-weight: bold;
-  font-style: normal;
-  src: url('../../../../assets/fonts/TrajanPro-Bold.eot?#iefix') format('embedded-opentype'),  
-       url('../../../../assets/fonts/TrajanPro-Bold.otf')  format('opentype'),
-       url('../../../../assets/fonts/TrajanPro-Bold.woff') format('woff'), 
-       url('../../../../assets/fonts/TrajanPro-Bold.ttf')  format('truetype'), 
-       url('../../../../assets/fonts/TrajanPro-Bold.svg#TrajanPro-Bold') format('svg');
-}
-@font-face {
-  font-family: 'TrajanPro';
+  font-display: block;
   font-weight: normal;
   font-style: normal;
-  src: url('../../../../assets/fonts/TrajanPro-Regular.eot?#iefix') format('embedded-opentype'),  
-       url('../../../../assets/fonts/TrajanPro-Regular.otf')  format('opentype'),
-       url('../../../../assets/fonts/TrajanPro-Regular.woff') format('woff'), 
-       url('../../../../assets/fonts/TrajanPro-Regular.ttf')  format('truetype'), 
-       url('../../../../assets/fonts/TrajanPro-Regular.svg#TrajanPro-Regular') format('svg');
- 
+  src: url('../../../../assets/fonts/TrajanPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../../../../assets/fonts/TrajanPro-Regular.otf') format('opentype'),
+    url('../../../../assets/fonts/TrajanPro-Regular.woff') format('woff'),
+    url('../../../../assets/fonts/TrajanPro-Regular.ttf') format('truetype'),
+    url('../../../../assets/fonts/TrajanPro-Regular.svg#TrajanPro-Regular') format('svg');
+
 }
+
 // ------------------------------------------------------ //
 // -- Mixins Fonts Family for OpenSans  ----------------- //
 // ------------------------------------------------------ //
-#Font-TrajanPro(@style: 'normal') when (@style = 'normal') {
+#Font-TrajanPro(@style: 'normal') when (@style ='normal') {
   font-family: 'TrajanPro';
+  font-display: block;
   font-weight: normal;
   font-style: normal;
-  h1,h2,h3,h4,h5,h6,span,a,p{
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a,
+  p {
     transform: scaleY(0.9);
     letter-spacing: 1px;
   }
 }
 
-#Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
+#Font-TrajanPro(@style: 'normal') when (@style ='bold') {
   font-family: 'TrajanPro';
+  font-display: block;
   font-weight: bold;
   font-style: normal;
-  h1,h2,h3,h4,h5,h6,span,a,p{
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a,
+  p {
     transform: scaleY(0.9);
     letter-spacing: 1px;
   }
@@ -45,5 +69,3 @@
 
 
 // ------------------------------------------------------ //
-
-

@@ -1,5 +1,6 @@
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 600;
     font-style: italic;
     src: url('../../../../assets/fonts/OpenSans-SemiboldItalic.eot');
@@ -14,6 +15,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: bold;
     font-style: italic;
     src: url('../../../../assets/fonts/OpenSans-BoldItalic.eot');
@@ -27,6 +29,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: bold;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans-Bold.eot');
@@ -41,6 +44,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 300;
     font-style: italic;
     src: url('../../../../assets/fonts/OpenSansLight-Italic.eot');
@@ -55,6 +59,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: normal;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans.eot');
@@ -69,6 +74,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 800;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans-Extrabold.eot');
@@ -82,6 +88,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 600;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans-Semibold.eot');
@@ -96,6 +103,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: normal;
     font-style: italic;
     src: url('../../../../assets/fonts/OpenSans-Italic.eot');
@@ -109,6 +117,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 800;
     font-style: italic;
     src: url('../../../../assets/fonts/OpenSans-ExtraboldItalic.eot');
@@ -121,6 +130,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: normal;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans_1.eot');
@@ -134,6 +144,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: 300;
     font-style: normal;
     src: url('../../../../assets/fonts/OpenSans-Light.eot');
@@ -165,26 +176,34 @@
 // ------------------------------------------------------ //
 // -- Mixins Fonts Family for OpenSans  ----------------- //
 // ------------------------------------------------------ //
-#Font-OpenSans(@style: 'normal') when (@style = 'normal') {
+#Font-OpenSans(@style: 'normal') when (@style ='normal') {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: normal;
     font-style: normal;
 }
-#Font-OpenSans(@style: 'normal') when (@style = 'bold') {
+
+#Font-OpenSans(@style: 'normal') when (@style ='bold') {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: bold;
     font-style: normal;
 }
-#Font-OpenSans(@style: 'normal') when (@style = 'italic-bold') {
+
+#Font-OpenSans(@style: 'normal') when (@style ='italic-bold') {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: bold;
     font-style: italic;
 }
-#Font-OpenSans(@style: 'normal') when (@style = 'italic-normal') {
+
+#Font-OpenSans(@style: 'normal') when (@style ='italic-normal') {
     font-family: 'Open Sans';
+    font-display: block;
     font-weight: normal;
     font-style: italic;
 }
+
 // ------------------------------------------------------ //
 
 
@@ -204,37 +223,37 @@
 // ------------------------------------------------------ //
 /*
 #Font-OpenSans(@style: 'normal') when (@style = 'normal') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: 600;
     font-style: italic;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: 800;
     font-style: normal;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: 600;
     font-style: normal;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: normal;
     font-style: italic;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: 800;
     font-style: italic;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: normal;
     font-style: normal;
 }
 #Font-TrajanPro(@style: 'normal') when (@style = 'bold') {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans';     font-display: block;
     font-weight: 300;
     font-style: normal;
 }

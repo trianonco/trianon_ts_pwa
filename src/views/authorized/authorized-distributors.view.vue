@@ -37,11 +37,11 @@
         }"
       >
         <GmapMarker
-          v-if="currentDistributor && currentDistributor.coord"
-          :position="currentDistributor.coord"
+          v-if="currentDistributor && currentDistributor.position"
+          :position="currentDistributor.position"
           :clickable="true"
           :draggable="false"
-          @click="center=currentDistributor.coord"
+          @click="center=currentDistributor.position"
         />
       </GmapMap>
 
@@ -113,18 +113,34 @@ export default class ProductView extends Vue {
   }
 
   private get distributorsFilteredBySearchKey() {
-    return this.distributors.filter(distributor =>
-      distributor.city
-        .toUpperCase()
-        .includes(this.currentSearchKey.toUpperCase())
-    );
+    if (this.currentSearchKey === "") {
+      return this.distributorsDB.filter((distDB: any) => {
+        const latDiff2 = Math.pow(
+          Math.abs(distDB.position.lat - this.position.lat),
+          2
+        );
+        const lngDiff2 = Math.pow(
+          Math.abs(distDB.position.lng - this.position.lng),
+          2
+        );
+        const posDistance = Math.sqrt(latDiff2 + lngDiff2);
+        return posDistance < 0.01;
+      });
+    } else {
+      return this.distributorsDB.filter(distributor =>
+        distributor.city
+          .toUpperCase()
+          .includes(this.currentSearchKey.toUpperCase())
+      );
+    }
   }
 
   private setCurrentDistributor(distributor: any) {
-    if (distributor && distributor.coord) {
+    if (distributor && distributor.position) {
       this.currentDistributor = distributor;
-      this.position = this.currentDistributor.coord;
+      this.position = this.currentDistributor.position;
       this.currentCity = this.currentDistributor.city;
+      this.goScrollTop();
     }
   }
 
@@ -132,26 +148,25 @@ export default class ProductView extends Vue {
     const nowTime = new Date().getTime();
     const createdTime = new Date(distributor.createdAt).getTime();
     const diffTime = (nowTime - createdTime) / (1000 * 60 * 60 * 24);
-    return diffTime < 7;
+    return diffTime < 0.035;
+    //return Math.random() > 0.5;
   }
 
   private mounted() {
     this.db.getAuthorizedDistributors().then((response: any) => {
-      this.distributors = response.sort((a: any, b: any) => {
+      this.distributorsDB = response.sort((a: any, b: any) => {
         return a.city.localeCompare(b.city);
       });
-    });
 
-    (this as any).$getLocation().then((coordinates: any) => {
-      const lat = coordinates.lat;
-      const lng = coordinates.lng;
-      const coord = {
-        lat: lat,
-        lng: lng
-      };
-      this.position = coord;
-      this.markers.push({ position: this.position });
-      console.log(coord);
+      (this as any).$getLocation().then((coordinates: any) => {
+        const lat = coordinates.lat;
+        const lng = coordinates.lng;
+        this.position = {
+          lat: lat,
+          lng: lng
+        };
+        this.markers.push({ position: this.position });
+      });
     });
   }
 

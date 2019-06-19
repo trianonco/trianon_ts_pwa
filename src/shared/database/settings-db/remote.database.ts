@@ -243,12 +243,12 @@ export default class settingsRemoteDatabase {
                         const location = geometry.location;
                         resolve(location);
                     } catch (e) {
-                        console.error(e);
-                        console.warn(URL);
+                        //console.error(e);
+                        //console.warn(URL);
                         resolve();
                     }
                 } else {
-                    console.error(response)
+                    //console.error(response)
                     resolve();
                 }
 
@@ -304,6 +304,8 @@ export default class settingsRemoteDatabase {
 
             const collectionRef = this.db.collection(this.db_collection);
             const data: any = {};
+
+   
             this.getAuthorizedShops().then(async (shopsOnDB: any) => {
 
                 const p_distributorsOnDB = JSON.parse(JSON.stringify(shopsOnDB) + '');
@@ -394,79 +396,72 @@ export default class settingsRemoteDatabase {
             const attributeRef = this.db_docs.AUTHORIZED_DISTRIBUTORS_AND_SHOPS_SETTINGS.DISTRIBUTORS;
             const collectionRef = this.db.collection(this.db_collection);
             const data: any = {};
-            this.getAuthorizedDistributors().then(async (distributorsOnDB: any) => {
-                const p_distributorsOnDB = JSON.parse(JSON.stringify(distributorsOnDB) + '');
-                const a_distributorsOnDB: any[] = [];
-                p_distributorsOnDB.map(async (distributorOnDB: any) => {
+            this.getAuthorizedDistributors().then( async (inDistributorsOnDB: any) => {
 
-                    const distributorOnExcel = JSON.parse(JSON.stringify(distributors.find(distr => distr.code === distributorOnDB['code'])) + '');
-                    const distributorOnDataBase = JSON.parse(JSON.stringify(distributorOnDB) + '');
+                const distributorsOnDB = JSON.parse(JSON.stringify(inDistributorsOnDB) + '');
+                const distributorsOnExcel = JSON.parse(JSON.stringify(distributors) + '');
+                const distributorsToCreateOnDB : any[] = [];
+                const distributorsToUpdateOnDB : any[] = [];
+                const distributorsToRemoveOnDB : any[] = [];
 
-                    const createdAt = distributorOnDataBase['createdAt'] || new Date();
-                    const updatedAt = distributorOnDataBase['updatedAt'] || new Date();
+                for (let i = 0; i < distributorsOnExcel.length; i++) {
 
-                    if (!(distributorOnExcel === distributorOnDataBase)) {
-                        distributorOnExcel['updatedAt'] = new Date();
-                        distributorOnExcel['createdAt'] = createdAt;
-                    } else {
-                        distributorOnExcel['updatedAt'] = updatedAt;
-                        distributorOnExcel['createdAt'] = createdAt;
+                    const distOnExcel = distributorsOnExcel[i];
+                    const isDistOnExcel = distributorsOnDB.find( (distributorOnDB:any) => {
+                       return distributorOnDB.code.replace(/\s/g, '') == distOnExcel.code.replace(/\s/g, '')
+                    });
+                    
+                    const address = distOnExcel.address;
+                    const city = distOnExcel.city;
+                    const department = distOnExcel.department;
 
-
-                        const okPosition = [];
-                        const noPosition = [];
-                        for (let i = 0; i < a_distributorsOnDB.length; i++) {
-                            const address = (a_distributorsOnDB[i] as any).address;
-                            const city = (a_distributorsOnDB[i] as any).city;
-                            const department = (a_distributorsOnDB[i] as any).department;
-                            const position = await this.getLatLngFromAddress(address, city, department);
-                            if (position) {
-                                okPosition.push({
-                                    city: city,
-                                    address: address,
-                                    position: position
-                                });
-                                a_distributorsOnDB[i]['coord'] = {
-                                    lat: (position as any).lat,
-                                    lng: (position as any).lng
-                                }
-                            } else {
-                                noPosition.push({
-                                    city: city,
-                                    address: address
-                                });
-                            }
-
-                            console.log(100 * (i / a_distributorsOnDB.length))
-
-                        }
-
-                        localStorage.setItem("okPosition", JSON.stringify(okPosition));
-                        localStorage.setItem("noPosition", JSON.stringify(noPosition));
-
-                        console.log(a_distributorsOnDB)
-
+                    const position = await this.getLatLngFromAddress(address, city, department);
+                    if(position){
+                        distOnExcel['position'] = position;
+                        
+                    }else{
+                        distOnExcel['position'] = {};
                     }
-                    a_distributorsOnDB.push(distributorOnExcel);
-                    return distributorOnExcel;
-                });
+
+                    if(isDistOnExcel){
+                        distOnExcel['updatedAt'] = new Date();
+                        distributorsToUpdateOnDB.push(distOnExcel);
+                    }else{
+                        distOnExcel['createdAt'] = new Date();
+                        distributorsToCreateOnDB.push(distOnExcel);
+                    }
+
+                };
+
+                distributorsOnDB.map( (element:any,index:any) => {
+                    const distOnDB = element;
+                    const isDistOnDB = distributorsOnExcel.find( (distributorOnExcel:any) => {
+                        return distributorOnExcel.code.replace(/\s/g, '') == distOnDB.code.replace(/\s/g, '')
+                    });
+     
+                    if(!isDistOnDB){
+                        distributorsToRemoveOnDB.push(distOnDB);
+                    }
+                 });
 
 
-                data[attributeRef] = JSON.stringify(a_distributorsOnDB);
+                const distributorsToDB = [... distributorsToCreateOnDB, ... distributorsToUpdateOnDB];
+                const distributorsToDB_json = JSON.stringify(distributorsToDB);
 
+                data[attributeRef] = distributorsToDB_json;
                 collectionRef.doc(documentRef).update(data)
-                    .then((response: any) => {
-                        resolve(response)
-                    })
-                    .catch((error: any) => {
-                        reject(error)
-                    })
+                .then((response: any) => {
+                    resolve(response)
+                })
+                .catch((error: any) => {
+                    reject(error)
+                })
 
+                
+            
             });
-        })
+        });
     };
-
-
 }
 
 
