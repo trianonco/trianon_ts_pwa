@@ -12,7 +12,6 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 
 export const HandleNewBuy = functions.https.onRequest((request, response) => {
     //response.send(JSON.stringify(request));
-    const 
     response.send("Hello from HandleNewBuy Firebase!");
 });
 
