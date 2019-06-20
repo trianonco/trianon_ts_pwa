@@ -9,5 +9,11 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 
 
 export const HandleNewBuy = functions.https.onRequest((request, response) => {
-    response.send(JSON.stringify(request));
+    //response.send(JSON.stringify(request));
+    response.send("Hello from HandleNewBuy Firebase!");
+});
+
+export const HandleUpdateBuy = functions.https.onRequest((request, response) => {
+    //response.send(JSON.stringify(request));
+    response.send("Hello from HandleUpdateBuy Firebase!");
 });
