@@ -70,11 +70,9 @@ export default class ShopProductsListComponent extends Vue {
   private apiDB = new ApiDataBase();
   private db: any = {};
 
-
   private beforeMount() {
     this.apiDB.setDatabaseByName("SHOP-DB");
     this.db = this.apiDB.getDatabase();
- 
   }
 
   private handleScroll($event: any) {
@@ -104,14 +102,14 @@ export default class ShopProductsListComponent extends Vue {
     const category = params.category ? params.category : "";
     const description = params.category ? params.category : "";
     const gender = params.gender ? params.gender : "";
-    
-      this.db.getProductsByGenderAndCategories(gender, category).then( async (products:any) => {
 
+    this.db
+      .getProductsByGenderAndCategories(gender, category)
+      .then(async (products: any) => {
         const unique = this.removeDuplicates(products, "ref_photo_code");
         this.productsDB = unique;
         this.products = this.productsDB.slice(0, this.productsPageSize);
-
-      })  
+      });
   }
 
   private removeDuplicates(myArr: any[], prop: string) {
@@ -148,7 +146,8 @@ export default class ShopProductsListComponent extends Vue {
 <style lang="less">
 @import (reference) "./../../../shared/styles/index.less";
 div.products-list {
-  min-height: 50vh;
+  min-height: ~"calc(100vh - 122px - 10px - 12px - 31.656px - 72px)";
+
   div.goUpButton {
     display: block;
     #Flex-Row-Center-Center();

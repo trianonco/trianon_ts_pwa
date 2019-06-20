@@ -4,16 +4,12 @@
     <div class="product-reference">Referencia : {{ref_code}} - {{ref_color_code}}</div>
     <br>
 
-
-
     <div v-if="sizes.length > 1">
-     
       <select class="form-control" v-model="selected" @change="changeSize">
         <option v-for="(size, index) of sizes" v-bind:value="index" v-bind:key="index">
-          
           <span
             v-if="size.size.height && size.size.height !== '-' && size.size.height !== 'NA'"
-          >Alto : {{size.size.height}}</span>
+          >{{ size.size.height.includes('T') ? 'TALLA' : 'Alto' }}: {{size.size.height}}</span>
           <span
             v-if="size.size.width  && size.size.width  !== '-' && size.size.width  !== 'NA'"
           >, Ancho: {{size.size.width}}</span>
@@ -51,10 +47,18 @@ export default class ProductInfoBannerComponent extends Vue {
   public selected: number = 0;
 
   private mounted() {
-    console.warn(this.sizes)
+    if (this.sizes && this.sizes[0]) {
+      const size = JSON.parse(JSON.stringify(this.sizes[0]) + "");
+      this.$emit("onChangeSize", size);
+    }
   }
 
-  private changeSize() {}
+  private changeSize($event: any) {
+    if (this.sizes && this.selected) {
+      const size = JSON.parse(JSON.stringify(this.sizes[this.selected]) + "");
+      this.$emit("onChangeSize", size);
+    }
+  }
 }
 </script>
 
@@ -72,25 +76,25 @@ div.product.info-banner {
     width: 80%;
     box-sizing: border-box;
     text-align: center;
-    option{
+    option {
       display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
     }
   }
 }

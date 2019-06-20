@@ -6,7 +6,7 @@ export default {
         state.products.push(item);
 
         const db = new FirebaseDB();
-        db.setShoppingCartProducts(state.products).then((response: any) => { });
+        //db.setShoppingCartProducts(state.products).then((response: any) => { });
 
     },
     REMOVE_FROM_CART(state: any, item: IShopProduct) {
@@ -19,7 +19,7 @@ export default {
             state.products = _new_products;
 
             const db = new FirebaseDB();
-            db.setShoppingCartProducts(state.products).then((response: any) => { });
+            //db.setShoppingCartProducts(state.products).then((response: any) => { });
 
         } catch (e) {
             console.error(e);

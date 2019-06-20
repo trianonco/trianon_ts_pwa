@@ -31,9 +31,13 @@ export default class ProductBuyButtonComponent extends Vue {
   @Prop()
   product!: IShopProduct;
 
+  @Prop()
+  size!: any;
+
   get getProductsInShoppingCart() {
     return this.$store.state.shoppingCartModule.products.filter(
-      (product: IShopProduct) => product.ref === this.product.ref
+      (product: IShopProduct) =>
+        product.ref_photo_code === this.product.ref_photo_code
     );
   }
   private mounted() {
@@ -41,12 +45,39 @@ export default class ProductBuyButtonComponent extends Vue {
     console.warn(this.getProductsInShoppingCart);
   }
   private doAddToCart() {
-    this.$store.dispatch("addToCart", this.product);
-    console.log((this.getProductsInShoppingCart as any[]).length);
+    const size = JSON.parse(JSON.stringify(this.size || {}) + "");
+    if (size.ref) {
+      const product = JSON.parse(JSON.stringify(this.product || {}) + "");
+      product["ref"] = size.ref;
+      product["height"] = size.size.height;
+      product["width"] = size.size.width;
+      product["depth"] = size.size.depth;
+
+      this.$store.dispatch("addToCart", product);
+    } else {
+      if (this.product.category !== "CINTURONES") {
+        this.$store.dispatch("addToCart", this.product);
+      }
+    }
+    //
+    //console.log((this.getProductsInShoppingCart as any[]).length);
   }
   private doRemoveFromCart() {
-    this.$store.dispatch("removeFromCart", this.product);
-    console.log((this.getProductsInShoppingCart as any[]).length);
+    //
+    const size = JSON.parse(JSON.stringify(this.size) + "");
+    if (size.ref) {
+      const product = JSON.parse(JSON.stringify(this.product) + "");
+      product["ref"] = size.ref;
+      product["height"] = size.size.height;
+      product["width"] = size.size.width;
+      product["depth"] = size.size.depth;
+
+      this.$store.dispatch("removeFromCart", product);
+    } else {
+      if (this.product.category !== "CINTURONES") {
+        this.$store.dispatch("removeFromCart", this.product);
+      }
+    }
   }
 }
 </script>

@@ -91,9 +91,11 @@ export default class ProfileView extends Vue {
         const inProcess = response.inProcess || [];
         const purchased = response.purchased || [];
 
+        /*
         shoppingCart.map((product: any) => {
           this.$store.dispatch("addToCart", product);
         });
+        */
       })
       .catch((error: any) => console.error(error));
   }

@@ -12,6 +12,7 @@
         @onSortByColor="onSortByColor"
         @onSortByPrice="onSortByPrice"
       ></ShopProductsBannerFiltersSortByComponent>
+
       <ShopProductsBannerFilterGenderColorComponent :gender="gender"></ShopProductsBannerFilterGenderColorComponent>
       <ShopProductsListComponent :sortBy="sortBy"></ShopProductsListComponent>
 
@@ -66,22 +67,22 @@ export default class ShopComponent extends Vue {
     //db.getShopProducts().then(products => this.products);
   }
 
-  private onSortByName(isAscendent: boolean) {
+  private onSortByName(isAscendent: any) {
     this.sortBy = {
       by: "name",
       isAscendent: isAscendent
     };
   }
-  private onSortByPrice(isAscendent: boolean) {
+  private onSortByPrice(isAscendent: any) {
     this.sortBy = {
       by: "price",
       isAscendent: isAscendent
     };
   }
-  private onSortByColor(isAscendent: boolean) {
+  private onSortByColor(keyword: any) {
     this.sortBy = {
       by: "color",
-      isAscendent: isAscendent
+      keyword: keyword
     };
   }
 }
