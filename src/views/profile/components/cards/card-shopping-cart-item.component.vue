@@ -97,6 +97,8 @@
       <div class="card-content-payment">
         <h1>SELECCIONA UN METODO DE PAGO:</h1>
 
+        <img src="../../../../shared/assets/images/credit-cards2.jpg" width="100%">
+
         <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
           <input name="merchantId" type="hidden" value="508029">
           <input name="accountId" type="hidden" value="512321">
