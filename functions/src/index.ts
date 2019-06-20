@@ -14,6 +14,6 @@ export const HandleNewBuy = functions.https.onRequest((request, response) => {
 });
 
 export const HandleUpdateBuy = functions.https.onRequest((request, response) => {
-    response.send(JSON.stringify(request));
+    response.send(JSON.stringify(request.query));
     //response.send("Hello from HandleUpdateBuy Firebase!");
 });

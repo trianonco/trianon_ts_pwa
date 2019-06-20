@@ -1,0 +1,245 @@
+[debug] [2019-06-20T02:15:27.193Z] ----------------------------------------------------------------------
+[debug] [2019-06-20T02:15:27.197Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\walla\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-06-20T02:15:27.198Z] CLI Version:   6.11.0
+[debug] [2019-06-20T02:15:27.198Z] Platform:      win32
+[debug] [2019-06-20T02:15:27.198Z] Node Version:  v10.14.1
+[debug] [2019-06-20T02:15:27.201Z] Time:          Wed Jun 19 2019 21:15:27 GMT-0500 (GMT-05:00)
+[debug] [2019-06-20T02:15:27.201Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-20T02:15:27.220Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-20T02:15:27.222Z] > authorizing via signed-in user
+[debug] [2019-06-20T02:15:27.222Z] [iam] checking project trianon-co-pwa-dev for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2019-06-20T02:15:27.226Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/trianon-co-pwa-dev:testIamPermissions  
+
+[debug] [2019-06-20T02:15:27.815Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:27.819Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/trianon-co-pwa-dev  
+ 
+[debug] [2019-06-20T02:15:28.225Z] <<< HTTP RESPONSE 200
+[warn] !  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'trianon-co-pwa-dev'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script.
+[info] i  database: checking rules syntax...
+[debug] [2019-06-20T02:15:51.823Z] >>> HTTP REQUEST PUT https://trianon-co-pwa-dev.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2019-06-20T02:15:52.262Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database trianon-co-pwa-dev is valid
+[debug] [2019-06-20T02:15:52.265Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/trianon-co-pwa-dev  
+ 
+[debug] [2019-06-20T02:15:53.069Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2019-06-20T02:15:53.072Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev:test  
+
+[debug] [2019-06-20T02:15:53.291Z] <<< HTTP RESPONSE 200
+[info] +  storage: rules file storage.rules compiled successfully
+[info] i  firestore: checking firestore.rules for compilation errors...
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[debug] [2019-06-20T02:15:53.297Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev:test  
+
+[debug] [2019-06-20T02:15:53.479Z] <<< HTTP RESPONSE 200
+[info] +  firestore: rules file firestore.rules compiled successfully
+[debug] [2019-06-20T02:15:53.484Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "~7.0.0",
+    "firebase-functions": "^2.3.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-06-20T02:15:53.485Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/trianon-co-pwa-dev?view=CONSUMER_VIEW  
+ 
+[debug] [2019-06-20T02:15:53.486Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/trianon-co-pwa-dev?view=CONSUMER_VIEW  
+ 
+[debug] [2019-06-20T02:15:54.751Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2019-06-20T02:15:55.002Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:55.003Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/trianon-co-pwa-dev  
+ 
+[debug] [2019-06-20T02:15:55.460Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:55.461Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/886337397745:getServerAppConfig  
+ 
+[debug] [2019-06-20T02:15:55.779Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:55.781Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/trianon-co-pwa-dev/versions  
+
+[debug] [2019-06-20T02:15:56.935Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2019-06-20T02:15:56.936Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev/rulesets  
+
+[debug] [2019-06-20T02:15:57.197Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:57.197Z] [rules] created ruleset projects/trianon-co-pwa-dev/rulesets/ba5b5f15-60ef-4ac6-987b-0270b7585e5a
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2019-06-20T02:15:57.199Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev/rulesets  
+
+[debug] [2019-06-20T02:15:57.199Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/trianon-co-pwa-dev/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2019-06-20T02:15:57.444Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:57.444Z] [rules] created ruleset projects/trianon-co-pwa-dev/rulesets/adc5c36d-ed08-4574-b8a9-11b07f137196
+[debug] [2019-06-20T02:15:58.034Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:58.034Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/trianon-co-pwa-dev/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2019-06-20T02:15:58.726Z] <<< HTTP RESPONSE 200
+[info] +  firestore: deployed indexes in firestore.indexes.json successfully
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-06-20T02:15:58.728Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/trianon-co-pwa-dev/configs  
+ 
+[debug] [2019-06-20T02:15:59.032Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (33.43 KB) for uploading
+[debug] [2019-06-20T02:15:59.322Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2019-06-20T02:15:59.968Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:15:59.969Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-065fd279-42e7-4d55-ab68-231b324a9ddd/8173badd-5675-4913-8b50-d7b10edd83fa.zip?GoogleAccessId=service-886337397745@gcf-admin-robot.iam.gserviceaccount.com&Expires=1560998759&Signature=ifhmC6qTA1%2Bi0lvbJ3cSeHq4ULAddZRJJbKT6mlVfiOCNfd6KYg8vAya79TDmpH1yGzCHl7vIkWDvhddbOuAuNwzQYOy%2Bd7jk4OtA5%2BbwT4SCNIvgSR4q3UpY1h0YtnOPp1grSHid3m%2B1d6F4Y7nwUm5%2F8290O2m42cw6j1k%2F0U%2Fjb9ZtI6ir1Qgg8%2FkpJOADlzzZav9iNvd2%2BEe1jfMexFfWXVUP%2BLvsVbQyRGJaNAAOmQQF4%2F7wv0S0lKaJMrQl35DTviGh%2FNsArigtC1xkxstOFoUQC%2FPUiiMLWoHYXLeKw5InU8E9I5UF2A%2BmNJs2BdsaTyQ%2BM7IOXDB%2FqEPWg%3D%3D  
+
+[debug] [2019-06-20T02:16:00.479Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[info] i  hosting[trianon-co-pwa-dev]: beginning deploy...
+[info] i  hosting[trianon-co-pwa-dev]: found 122 files in dist
+[debug] [2019-06-20T02:16:00.521Z] [hosting] hash cache [ZGlzdA] load error: lines is not defined
+[info] i  hosting: hashing files [121/122] (99%)
+[debug] [2019-06-20T02:16:03.087Z] [hosting] hash cache [ZGlzdA] stored for 122 files
+[debug] [2019-06-20T02:16:03.088Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-20T02:16:03.088Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/trianon-co-pwa-dev/versions/3aa1631193d8f6c7:populateFiles  
+ <request body omitted>
+[info] i  hosting: adding files to version [0/122] (0%)
+[debug] [2019-06-20T02:16:04.930Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:04.934Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-20T02:16:04.934Z] [hosting] uploads queued: 2
+[debug] [2019-06-20T02:16:06.447Z] [hosting][upload queue][FINAL]
+[info] +  hosting[trianon-co-pwa-dev]: file upload complete
+[debug] [2019-06-20T02:16:06.447Z] [hosting] deploy completed after 5967ms
+[info] i  database: releasing rules...
+[debug] [2019-06-20T02:16:06.738Z] >>> HTTP REQUEST PUT https://trianon-co-pwa-dev.firebaseio.com/.settings/rules.json  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2019-06-20T02:16:07.306Z] <<< HTTP RESPONSE 200
+[info] +  database: rules for database trianon-co-pwa-dev released successfully
+[debug] [2019-06-20T02:16:07.309Z] [rules] releasing firebase.storage/trianon-co-pwa-dev.appspot.com with ruleset projects/trianon-co-pwa-dev/rulesets/ba5b5f15-60ef-4ac6-987b-0270b7585e5a
+[debug] [2019-06-20T02:16:07.310Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev/releases/firebase.storage/trianon-co-pwa-dev.appspot.com  
+
+[debug] [2019-06-20T02:16:07.613Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:07.613Z] [rules] updated release projects/trianon-co-pwa-dev/releases/firebase.storage/trianon-co-pwa-dev.appspot.com
+[info] +  storage: released rules storage.rules to firebase.storage/trianon-co-pwa-dev.appspot.com
+[debug] [2019-06-20T02:16:07.614Z] [rules] releasing cloud.firestore with ruleset projects/trianon-co-pwa-dev/rulesets/adc5c36d-ed08-4574-b8a9-11b07f137196
+[debug] [2019-06-20T02:16:07.614Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev/releases/cloud.firestore  
+
+[debug] [2019-06-20T02:16:07.948Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:07.949Z] [rules] updated release projects/trianon-co-pwa-dev/releases/cloud.firestore
+[info] +  firestore: released rules firestore.rules to cloud.firestore
+[debug] [2019-06-20T02:16:07.951Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/-/functions  
+ 
+[debug] [2019-06-20T02:16:08.515Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 8 function helloWorld(us-central1)...
+[debug] [2019-06-20T02:16:08.518Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function HandleNewBuy(us-central1)...
+[debug] [2019-06-20T02:16:08.519Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function HandleUpdateBuy(us-central1)...
+[debug] [2019-06-20T02:16:08.519Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2019-06-20T02:16:08.521Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudscheduler.googleapis.com/projectSettings/trianon-co-pwa-dev?view=CONSUMER_VIEW  
+ 
+[debug] [2019-06-20T02:16:09.781Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:09.783Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/us-central1/functions/helloWorld {"updateMask":"sourceUploadUrl,name,labels,runtime,httpsTrigger"} 
+
+[debug] [2019-06-20T02:16:09.784Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/us-central1/functions/HandleNewBuy {"updateMask":"sourceUploadUrl,name,labels,runtime,httpsTrigger"} 
+
+[debug] [2019-06-20T02:16:09.784Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/us-central1/functions/HandleUpdateBuy {"updateMask":"sourceUploadUrl,name,labels,runtime,httpsTrigger"} 
+
+[debug] [2019-06-20T02:16:10.284Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:10.389Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:10.390Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:10.392Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/trianon-co-pwa-dev/locations/-/functions  
+ 
+[debug] [2019-06-20T02:16:10.965Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:10.966Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:10.967Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:10.967Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:11.334Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:11.337Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:11.384Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:13.334Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:13.338Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:13.384Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:13.723Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:13.729Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:13.786Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:15.723Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:15.731Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:15.788Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:16.132Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:16.156Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:16.206Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:18.134Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:18.161Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:18.209Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:18.602Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:18.623Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:18.644Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:20.602Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:20.625Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:20.646Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:21.000Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:21.027Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:21.038Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:23.001Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:23.029Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:23.041Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:23.394Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:23.425Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:23.430Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:25.397Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZU5ld0J1eS93Z292ckU5RGk0bw  
+ 
+[debug] [2019-06-20T02:16:25.427Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL0hhbmRsZVVwZGF0ZUJ1eS8zNG95MEpJYlk3RQ  
+ 
+[debug] [2019-06-20T02:16:25.430Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dHJpYW5vbi1jby1wd2EtZGV2L3VzLWNlbnRyYWwxL2hlbGxvV29ybGQvV18wY0RNZXR3WVk  
+ 
+[debug] [2019-06-20T02:16:25.809Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:25.812Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-20T02:16:25.841Z] <<< HTTP RESPONSE 200
