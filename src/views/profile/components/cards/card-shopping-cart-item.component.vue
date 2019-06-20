@@ -109,8 +109,8 @@
           <input name="currency" type="hidden" :value="getPayCurrency()">
           <input name="signature" type="hidden" :value="getPaySignature()">
           <input name="test" type="hidden" value="1">
-          <input name="buyerEmail" type="hidden" value="wallamejorge@hotmail.com">
-          <input name="responseUrl" type="hidden" value="http://www.youtube.com/">
+          <input name="buyerEmail" type="hidden" :value="getPayClientEmail()">
+          <input name="responseUrl" type="hidden" :value="getPayUpdateURL()">
           <input name="confirmationUrl" type="hidden" value="http://www.facebook.com/">
 
           <input name="shippingAddress" type="hidden" value="calle 93 n 47 - 65">
@@ -143,6 +143,21 @@ export default {
       ///return "7ee7cf808ce6a39b17481c54f2c57acc";
       return md5(
         `${apiKey}~${merchandId}~${referenceCode}~${amount}~${currency}`
+      );
+    },
+
+    getPayClientEmail() {
+      return "wallamejorge@hotmail.com";
+    },
+
+    getPayUpdateURL() {
+      const date = new Date();
+      const browser = JSON.stringify(navigator.userAgent);
+      const item = JSON.stringify(this.getProductsInShoppingCart);
+
+      return (
+        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleNewBuy?ID=" +
+        md5(date + browser + item)
       );
     },
     getPayCurrency() {
