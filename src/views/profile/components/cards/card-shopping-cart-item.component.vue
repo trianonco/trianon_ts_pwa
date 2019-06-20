@@ -53,19 +53,31 @@
 
       <div class="card-content-shipping-info">
         <h1>INFORMACIÓN DE ENVIO</h1>
-        <input type="text" autocomplete="on" placeholder="DIRECCIÓN">
-        <input type="text" autocomplete="on" placeholder="PISO O APARTAMENTO">
-        <input type="text" autocomplete="on" placeholder="BARRIO">
+        <input type="text" autocomplete="on" placeholder="DIRECCIÓN" v-model="BUY.address">
+        <input
+          type="text"
+          autocomplete="on"
+          placeholder="PISO O APARTAMENTO"
+          v-model="BUY.address_info"
+        >
+        <input
+          type="text"
+          autocomplete="on"
+          placeholder="BARRIO"
+          v-model="BUY.address_neighborhood"
+        >
         <input
           type="text"
           autocomplete="on"
           placeholder="DEPARTAMENTO"
+          v-model="BUY.address_department"
           style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
         >
         <input
           type="text"
           autocomplete="on"
           placeholder="MUNICIPIO"
+          v-model="BUY.address_city"
           style="width:calc(50% - 0.5em);margin-bottom:0px;"
         >
         <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
@@ -74,13 +86,14 @@
           type="text"
           autocomplete="on"
           placeholder="NOMBRE DE QUIEN VA A RECIBIR"
+          v-model="BUY.fullname"
           style="margin-top:1em"
         >
       </div>
 
       <div class="card-content-phone-and-total">
         <div class="card-content-phone">
-          <input type="text" placeholder="TU NUMERO CELULAR *">
+          <input type="text" placeholder="TU NUMERO CELULAR *" v-model="BUY.phone">
         </div>
 
         <div class="card-content-total-sum">
@@ -97,9 +110,17 @@
       <div class="card-content-payment">
         <h1>SELECCIONA UN METODO DE PAGO:</h1>
 
-        <img src="../../../../shared/assets/images/credit-cards2.jpg" width="100%">
+        <img
+          src="../../../../shared/assets/images/credit-cards2.jpg"
+          width="100%"
+          @click="goToPayU()"
+        >
 
-        <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
+        <form
+          ref="payU_Form"
+          method="post"
+          action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/"
+        >
           <input name="merchantId" type="hidden" value="508029">
           <input name="accountId" type="hidden" value="512321">
           <input name="referenceCode" type="hidden" value="TestPayU">
@@ -118,7 +139,7 @@
           <input name="shippingAddress" type="hidden" value="calle 93 n 47 - 65">
           <input name="shippingCity" type="hidden" value="Bogota">
           <input name="shippingCountry" type="hidden" value="CO">
-          <input name="Submit" type="submit" value="Enviar">
+          <input name="Submit" type="hidden" value="Enviar">
         </form>
       </div>
     </div>
@@ -127,6 +148,7 @@
 
 <script>
 import VLazyImage from "v-lazy-image";
+import firebase from "firebase/app";
 var md5 = require("md5");
 
 export default {
@@ -135,6 +157,22 @@ export default {
     VLazyImage
   },
   methods: {
+    goToPayU() {
+      const db = firebase.firestore();
+      this.$refs.payU_Form.submit();
+
+      db.collection("SHOPPING_HISTORY")
+        .doc(this.BUY.ID)
+        .set(this.BUY)
+        .then(() => {
+          console.log("Document successfully written!");
+          this.$refs.payU_Form.submit();
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
+    },
+
     getPaySignature() {
       console.warn("md5 => " + md5("POLII"));
       const apiKey = "4Vj8eK4rloUd272L48hsrarnUA";
@@ -149,6 +187,8 @@ export default {
     },
 
     getPayClientEmail() {
+      const user_email = JSON.parse(localStorage.getItem("user")).email;
+      this.BUY.email = user_email;
       return "wallamejorge@hotmail.com";
     },
 
@@ -156,11 +196,15 @@ export default {
       const date = new Date();
       const browser = JSON.stringify(navigator.userAgent);
       const item = JSON.stringify(this.getProductsInShoppingCart);
+      const ID = md5(date + browser + item + Math.random());
 
-      return (
-        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleNewBuy?ID=" +
-        md5(date + browser + item)
-      );
+      this.BUY.ID = ID;
+
+      const base =
+        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleUpdateBuy?ID=" +
+        ID;
+
+      return base;
     },
     getPayCurrency() {
       return "COP";
@@ -211,17 +255,21 @@ export default {
   },
   computed: {
     getProductsInShoppingCart() {
-      return this.$store.state.shoppingCartModule.products.filter(
+      const items = this.$store.state.shoppingCartModule.products.filter(
         product =>
           product && product.ref_photo_code === this.item.ref_photo_code
       );
+      this.BUY.ref = items[0].ref;
+      return items;
     },
     getTotalPriceByItem() {
-      return this.getProductsInShoppingCart
+      this.BUY.items = this.getProductsInShoppingCart.length;
+      this.BUY.total = this.getProductsInShoppingCart
         .map(item => item.price_cop)
         .reduce(function(valorAnterior, valorActual) {
           return valorAnterior + valorActual;
         });
+      return this.BUY.total;
     }
   },
   props: ["item"],
@@ -232,6 +280,20 @@ export default {
     return {
       UX: {
         isCardOpen: false
+      },
+      BUY: {
+        ID: "",
+        state: "IN PROCESS: WATING FOR PAYMENT",
+        ref: "",
+        items: 0,
+        address: "",
+        address_info: "",
+        address_neighborhood: "",
+        address_department: "",
+        address_city: "",
+        fullname: "",
+        phone: "",
+        total: 0
       }
     };
   }
