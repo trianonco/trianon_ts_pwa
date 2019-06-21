@@ -129,10 +129,12 @@ export default {
 
 @media (min-width: 600px) {
   .banner.address {
+    padding-bottom: 3em;
     background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.png");
     div.header {
       background-color: rgba(0, 0, 0, 0);
       color: white;
+      padding-top: 3em;
     }
     .links {
       width: 80%;

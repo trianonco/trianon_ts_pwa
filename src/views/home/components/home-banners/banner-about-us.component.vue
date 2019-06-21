@@ -18,7 +18,9 @@
       </div>
     </div>
     <div class="banner desktop instagram">
-      <img src="./../../../../shared/assets/images/banners/instragram-mock.png" width="100%">
+      <a href="https://www.instagram.com/trianonoficial/" target="_blank">
+        <img src="./../../../../shared/assets/images/banners/instragram-mock.png" width="100%">
+      </a>
     </div>
   </div>
 </template>

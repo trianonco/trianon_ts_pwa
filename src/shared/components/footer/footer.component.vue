@@ -14,6 +14,7 @@
       <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
       <img class="desktop" alt="TrianonCo Image" src="./../../assets/images/footers/bull-large.png">
     </div>
+    <div class="footer-copy desktop">© {{currentYear}} TRIANON S.A.S TODOS LOS DERECHOS RESERVADOS.</div>
   </footer>
 </template>
 
@@ -22,6 +23,7 @@ export default {
   name: "FooterComponent",
   data() {
     return {
+      currentYear: new Date().getFullYear(),
       icons: [
         {
           id: 0,
@@ -76,6 +78,13 @@ export default {
       .desktop {
         display: block;
       }
+    }
+
+    .footer-copy {
+      background-color: #3f3e3d;
+      padding: 1em;
+      font-family: "Open Sans";
+      color: #9d9d9c;
     }
   }
 }

@@ -129,6 +129,9 @@ export default {
       background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.png");
       background-size: cover;
     }
+    div.gold-bg {
+      display: none;
+    }
   }
 }
 </style>

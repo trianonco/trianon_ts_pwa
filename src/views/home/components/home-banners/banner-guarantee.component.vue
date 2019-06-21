@@ -1,7 +1,16 @@
 
 <template>
   <div class="banner guarantee">
-    <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/guarantee-header.png">
+    <img
+      class="mobile"
+      alt="TrianonCo Image"
+      src="../../../../shared/assets/images/banners/guarantee-header.png"
+    >
+    <img
+      class="desktop"
+      alt="TrianonCo Image"
+      src="../../../../shared/assets/images/banners/garatian-line-header-desktop.png"
+    >
     <div class="banner-title">
       <h2>GARANTÍA DIRECTA</h2>
       <p>
@@ -32,6 +41,14 @@ export default {
   box-sizing: border-box;
   background-color: black;
   color: white;
+
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+
   img {
     width: 100%;
     display: block;
@@ -56,6 +73,24 @@ export default {
     letter-spacing: 1px;
     margin: 0 auto;
     padding-bottom: 15px;
+  }
+}
+
+@media (min-width: 600px) {
+  .banner.guarantee {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
+
+    p {
+      max-width: 600px;
+    }
+
+    img {
+    }
   }
 }
 </style>
