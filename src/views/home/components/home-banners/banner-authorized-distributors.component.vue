@@ -35,7 +35,7 @@
         <div>
           <div class="banner-button gold">
             <img class src="../../../../shared/assets/images/banners/button-place-dark-ico-02.png">
-            <h4 @click="goToAuthorizedDistributors()">
+            <h4 @click="goToAuthorizedShops()">
               <span>TIENDAS</span>
             </h4>
           </div>
@@ -52,6 +52,9 @@ export default {
   methods: {
     goToAuthorizedDistributors() {
       this.$router.push("/view/authorized/distributors");
+    },
+    goToAuthorizedShops() {
+      this.$router.push("/view/authorized/shops");
     }
   }
 };

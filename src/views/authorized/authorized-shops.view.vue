@@ -6,33 +6,37 @@
     <div class="view-wrapper">
       <h1 class="title">
         <span>TIENDAS TRIANON</span>
-        <img src="./../../shared/assets/images/banners/shops.png">
+        <img class="mobile" src="./../../shared/assets/images/banners/shops.png">
+        <img class="desktop" src="./../../shared/assets/images/banners/shops-desktops.png">
         <p>EN NUESTRAS TIENDAS, PODRÁS ENCONTRAR COMPLETA DISPONIBILIDAD DE TODOS NUETROS PRODUCTOS ASI COMO TAMBIÉN CONOCER LAS MÁS RECIENTES COLECCIONES</p>
       </h1>
 
-      <div v-for="(shop,index) of shopsFilteredBySearchKey" v-bind:key="index">
-        <div class="authorized-shop-card" @click="setCurrentShop(shop)">
-          <div class="authorized-shop-card-phone">
-            <span>{{ shop.city }}</span>  <span v-if="shop.place"> - {{ shop.place}}</span>
-            <span v-if="shop.local">{{ shop.local}}</span>
-          </div>
-          <div class="authorized-shop-card-address">
-            <span v-if="shop.address">{{ shop.address}} / </span>
-            <span v-if="shop.phone"> TELÉFONO} {{ shop.phone}} </span>
-          </div>
-          <div class="authorized-shop-card-address">
-            <span v-if="shop.schedule">HORARIO DE ATENCIÓN : {{ shop.schedule}}</span>
-            <span v-if="shop.daytime">{{ shop.daytime}}</span>
+      <div class="list-and-map">
+        <div class="list">
+          <div v-for="(shop,index) of shopsFilteredBySearchKey" v-bind:key="index">
+            <div class="authorized-shop-card" @click="setCurrentShop(shop)">
+              <div class="authorized-shop-card-phone">
+                <span>{{ shop.city }}</span>
+                <span v-if="shop.place">- {{ shop.place}}</span>
+                <span v-if="shop.local">{{ shop.local}}</span>
+              </div>
+              <div class="authorized-shop-card-address">
+                <span v-if="shop.address">{{ shop.address}} /</span>
+                <span v-if="shop.phone">TELÉFONO} {{ shop.phone}}</span>
+              </div>
+              <div class="authorized-shop-card-address">
+                <span v-if="shop.schedule">HORARIO DE ATENCIÓN : {{ shop.schedule}}</span>
+                <span v-if="shop.daytime">{{ shop.daytime}}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <GmapMap
-        map-type-id="terrain"
-        style="width: 500px; height: 300px"
-        :center="position"
-        :zoom="16"
-        :options="{
+        <GmapMap
+          map-type-id="terrain"
+          style="width: 500px; height: 300px"
+          :center="position"
+          :zoom="16"
+          :options="{
           zoomControl: true,
           mapTypeControl: false,
           scaleControl: false,
@@ -41,15 +45,16 @@
           fullscreenControl: true,
           disableDefaultUi: false
         }"
-      >
-        <GmapMarker
-          v-if="currentShop && currentShop.coord"
-          :position="currentShop.coord"
-          :clickable="true"
-          :draggable="false"
-          @click="center=currentShop.coord"
-        />
-      </GmapMap>
+        >
+          <GmapMarker
+            v-if="currentShop && currentShop.coord"
+            :position="currentShop.coord"
+            :clickable="true"
+            :draggable="false"
+            @click="center=currentShop.coord"
+          />
+        </GmapMap>
+      </div>
 
       <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
         <i class="fas fa-arrow-up"></i>
@@ -181,6 +186,13 @@ div.authorized-shops {
   display: block;
   width: 100%;
 
+  .mobile {
+    display: block !important;
+  }
+  .desktop {
+    display: none !important;
+  }
+
   h1.title {
     display: block;
     width: 100%;
@@ -220,6 +232,14 @@ div.authorized-shops {
       box-sizing: border-box;
       padding: 1em;
     }
+  }
+
+  div.list {
+    display: block;
+  }
+
+  div.vue-map-container {
+    display: block;
   }
 
   h2.description {
@@ -366,6 +386,66 @@ div.authorized-shops {
     position: fixed;
     bottom: 1em;
     right: 1em;
+  }
+}
+
+@media (min-width: 600px) {
+  div.authorized-shops {
+    .mobile {
+      display: none !important;
+    }
+    .desktop {
+      display: block !important;
+    }
+
+    div.view-wrapper {
+    }
+
+    h1.title {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: white;
+      color: black;
+      font-size: 1.15em;
+      p {
+        width: 600px;
+        line-height: 2em;
+        letter-spacing: 2px;
+      }
+    }
+
+    div.list-and-map {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    div.list {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      max-width: 500px;
+    }
+
+    div.vue-map-container {
+      display: inline-block;
+      width: 40%;
+    }
   }
 }
 </style>
