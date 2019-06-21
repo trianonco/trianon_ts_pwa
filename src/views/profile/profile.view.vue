@@ -18,7 +18,9 @@
         v-if="(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
       ></ProfileEmptyProductsComponent>
 
-      <ProfileListProductsComponent v-if="cartProducts.length > 0"></ProfileListProductsComponent>
+      <ProfileListProductsComponent
+        v-if="!(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
+      ></ProfileListProductsComponent>
 
       <ProfileShareComponent :theme="'gray'"></ProfileShareComponent>
 
@@ -74,11 +76,12 @@ export default class ProfileView extends Vue {
   }
 
   get inProcessProducts() {
-    return this.$store.state.shoppingCartModule.products;
+    return this.$store.state.inProcessCartModule.products;
   }
 
   get purchasedProducts() {
-    return this.$store.state.shoppingCartModule.products;
+    //return this.$store.state.shoppingCartModule.products;
+    return [];
   }
   private created() {
     this.user = JSON.parse(localStorage.getItem("user") || "");
@@ -88,8 +91,12 @@ export default class ProfileView extends Vue {
       .getUserFromDB(this.user.email)
       .then((response: any) => {
         const shoppingCart = response.shoppingCart || [];
-        const inProcess = response.inProcess || [];
+        const inProcess = response.inProcessCart || [];
         const purchased = response.purchased || [];
+
+        inProcess.map((product: any) => {
+          this.$store.dispatch("addToInProcessCart", product);
+        });
 
         /*
         shoppingCart.map((product: any) => {

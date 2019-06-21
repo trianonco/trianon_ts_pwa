@@ -160,6 +160,7 @@ export default {
     goToPayU() {
       const db = firebase.firestore();
       this.$refs.payU_Form.submit();
+      this.BUY.product = this.item;
 
       db.collection("SHOPPING_HISTORY")
         .doc(this.BUY.ID)
@@ -210,13 +211,13 @@ export default {
       return "COP";
     },
     getPayTaxReturnBase() {
-      return this.getTotalPriceByItem * (1 - 0.19);
+      return (this.getTotalPriceByItem * (1 - 0.19)).toFixed(2);
     },
     getPayTax() {
-      return this.getTotalPriceByItem * 0.19;
+      return (this.getTotalPriceByItem * 0.19).toFixed(2);
     },
     getPayAmount() {
-      return this.getTotalPriceByItem;
+      return this.getTotalPriceByItem.toFixed(2);
     },
     getPayDescription() {
       return this.getProductsInShoppingCart[0].description;
@@ -284,6 +285,8 @@ export default {
       BUY: {
         ID: "",
         state: "IN PROCESS: WATING FOR PAYMENT",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         ref: "",
         items: 0,
         address: "",
@@ -293,7 +296,8 @@ export default {
         address_city: "",
         fullname: "",
         phone: "",
-        total: 0
+        total: 0,
+        product: {}
       }
     };
   }

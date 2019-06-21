@@ -46,6 +46,7 @@ import FooterComponent from "./../../shared/components/footer/footer.component.v
 import AdminPanelsMenuComponent from "./components/panels.menu.component.vue";
 
 import AdminTitle from "./pages/admin.title.page.component.vue";
+import AdminDispatches from "./pages/admin.dispatches.page.component.vue";
 import AdminUsers from "./pages/admin.users.page.component.vue";
 import AdminSwiper from "./pages/admin.swiper.page.component.vue";
 import AdminBanners from "./pages/admin.banners.page.component.vue";
@@ -60,6 +61,7 @@ import AdminDistributorsAndShops from "./pages/admin.distributors.and.shops.page
     FooterComponent,
     AdminPanelsMenuComponent,
     AdminTitle,
+    AdminDispatches,
     AdminUsers,
     AdminSwiper,
     AdminBanners,
@@ -74,6 +76,11 @@ export default class AdminViewComponent extends Vue {
       title: "Title",
       titulo: "Titulo",
       component: AdminTitle
+    },
+    {
+      title: "Dispatches",
+      titulo: "Despachos",
+      component: AdminDispatches
     },
     {
       title: "Users",

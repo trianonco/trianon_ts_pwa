@@ -85,4 +85,9 @@ export default class HomeSwiperComponent extends Vue {
 <style lang="less">
 @import "./home-swiper.style.less";
 #constructor-swiper();
+@media (min-width: 600px) {
+  div.swiper.home-swiper {
+    display: none;
+  }
+}
 </style>

@@ -68,7 +68,6 @@ export default class HomeGenderButtonsComponent extends Vue {
     db.getShopCategories().then((categories: any) => {
       this.categories = categories;
     });
-    
   }
 
   private getActiveClassByGender(gender: string) {
@@ -129,5 +128,11 @@ div.gender-buttons {
 }
 div.gender-contents {
   #constructor-gender-contents();
+}
+
+@media (min-width: 600px) {
+  .gender-buttons.home-gender-buttons {
+    display: none;
+  }
 }
 </style>

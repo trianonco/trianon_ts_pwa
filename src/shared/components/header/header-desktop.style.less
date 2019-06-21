@@ -1,0 +1,193 @@
+// -------------------------------------------------- //
+// -- Header Component Styles ----------------------- //
+// -------------------------------------------------- //
+@import (reference) '../../styles/index.less';
+
+
+
+// ------------------------- //
+// -- Header --------------- //
+// ------------------------- //
+#constructor-desktop-header() {
+    display: block;
+
+    width: 100%;
+    height: @size-header-height + @2pm;
+
+    box-sizing: border-box;
+    padding: @0pm ;
+    margin: @0pm;
+
+    position: relative;
+    top: @0pm;
+    left: @0pm;
+}
+
+// ------------------------- //
+
+
+
+
+// ------------------------- //
+// -- Header-Nav ----------- //
+// ------------------------- //
+#constructor-desktop-header-nav() {
+
+    // Header Nav
+    display: block;
+    width: 100%;
+    height: @size-header-height + @2pm;
+
+    box-sizing: border-box;
+    padding: @1pm ;
+    margin: @0pm;
+
+    position: relative;
+
+    // Component Font Styles : 
+    // @params [ 'normal' , 'bold' ]
+    #Font-OpenSans();
+    #Font-SubTitle();
+
+    // Component Theme Styles : 
+    // @params [ '' , '' ]
+
+
+    // Component Layout
+    #Flex-Row-Extremes-toTop();
+
+    // Header Nav Back
+    &-back {
+        display: block;
+        width: 33.3333%;
+        height: @size-header-height - @2pm;
+
+        #Flex-Col-Center-toLeft();
+
+        div {
+            #Flex-Col-Center-toLeft()
+        }
+
+        img.back {
+            width: @2pm;
+            padding: @1pm;
+            box-sizing: content-box;
+        }
+    }
+
+    // Header Nav Auth
+    &-auth {
+        display: block;
+        width: 33.3333%;
+        height: @size-header-height - @2pm;
+
+        &-login {
+            display: block;
+            width: auto;
+            height: @size-header-height - @2pm;
+
+            h3 {
+                font-size: 10px;
+                width: fit-content;
+                float: right;
+                letter-spacing: 0px;
+                padding-bottom: @1p2m;
+                border-bottom: 1px solid @color-gray;
+            }
+
+            padding-top: @2pm;
+            padding-right: @2pm;
+        }
+
+        &-profile {
+            display: block;
+            padding: 1em;
+
+            width: 67px;
+            margin-left: auto;
+            height: 100%;
+            height: @size-header-height;
+
+            .wrapper {
+
+                display: flex !important;
+                padding-right: 5px;
+
+                #Flex-Row-Center-toRight();
+                width: auto;
+                height: auto;
+
+                h3 {
+                    width: auto;
+                }
+
+                img {
+                    width: 8px;
+                    padding: 2px;
+                    display: block;
+                    box-sizing: content-box;
+                }
+            }
+        }
+    }
+
+    // Header Nav Logo
+    &-logo {
+        display: block;
+        width: 33.3333%;
+
+        img.logo {
+            width: 5em;
+            padding: 2em;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    // Images 
+    img {
+        width: 10px;
+    }
+
+}
+
+// ------------------------- //
+
+
+
+
+
+// ------------------------- //
+// -- Header-Title ------ //
+// ------------------------- //
+#constructor-desktop-header-title() {
+
+    display: block;
+    width: auto;
+    height: auto;
+
+
+    display: block;
+    margin: 0 auto;
+
+    padding: @0pm;
+
+    // Font Styles : 
+    // @params [ 'normal' , 'bold' ]
+    #Font-TrajanPro('normal');
+    #Font-Title();
+
+    // Component Theme Styles : 
+    // @params [ '' , '' ]
+
+
+    h1 {
+        padding: @1pm - 4px;
+        position: relative;
+        top: -2.25em;
+        text-align: center;
+    }
+
+}
+
+// ------------------------- //

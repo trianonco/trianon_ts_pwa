@@ -29,6 +29,7 @@ export default new Router({
     ...PRODUCT_ROUTES,
     ...PROFILE_ROUTES,
     ...AUTHORIZED_SHOPS_AND_DISTRIBUTORS_ROUTES,
+    ...TERMS_AND_POLICIES_ROUTES,
     /*,
     ...ABOUT_ROUTES,
     ...LOGISTICS_ROUTES,

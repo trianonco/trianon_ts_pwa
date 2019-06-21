@@ -12,12 +12,11 @@
       <!-- --------------------------------------------------------------------------------- -->
       <!-- -- IN PROCESS ITEMS ------------------------------------------------------------- -->
       <!-- --------------------------------------------------------------------------------- -->
-      <!--
+
       <div class="cards-in-process-items" v-for="(item,index) of inProcessProducts" :key="index">
-          {{ index }}
         <CardInProcessItemComponent :item="item"></CardInProcessItemComponent>
       </div>
-      -->
+
       <!-- --------------------------------------------------------------------------------- -->
 
       <!-- --------------------------------------------------------------------------------- -->
@@ -66,11 +65,11 @@ export default class ProfileListProductsComponent extends Vue {
   }
 
   get inProcessProducts() {
-    return [...new Set(this.$store.state.shoppingCartModule.products)];
+    return this.getUnique(this.$store.state.inProcessCartModule.products, "ID");
   }
 
   get purchasedProducts() {
-    return [...new Set(this.$store.state.shoppingCartModule.products)];
+    return [...new Set(this.$store.state.inProcessModule.products)];
   }
 
   getUnique(arr: any[], comp: any) {

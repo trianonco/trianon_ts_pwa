@@ -130,4 +130,60 @@ div.view-loader-wrapper {
 img.view-loader-logo {
   width: 50vw;
 }
+
+@media (min-width: 600px) {
+  div.view-loader-wrapper {
+    display: block;
+    background-color: black;
+    z-index: 100;
+
+    width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    &.default {
+      opacity: 1;
+      -webkit-transition: all 1000ms ease-in-out;
+      -moz-transition: all 1000ms ease-in-out;
+      -ms-transition: all 1000ms ease-in-out;
+      -o-transition: all 1000ms ease-in-out;
+      transition: all 1000ms ease-in-out;
+    }
+
+    &.hidden {
+      opacity: 0;
+      -webkit-transition: all 1000ms ease-in-out;
+      -moz-transition: all 1000ms ease-in-out;
+      -ms-transition: all 1000ms ease-in-out;
+      -o-transition: all 1000ms ease-in-out;
+      transition: all 1000ms ease-in-out;
+    }
+  }
+  img.view-loader-logo {
+    width: 200px;
+  }
+}
 </style>

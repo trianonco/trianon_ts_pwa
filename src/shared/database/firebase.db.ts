@@ -33,9 +33,19 @@ export default class FirebaseDB {
         return new Promise((resolve, reject) => {
             console.warn('email ==> ' + email)
             this.db.collection("USERS").where("email", "==", email).get()
-                .then((querySnapshot: any) => {
-                    console.warn(querySnapshot.docs[0].data())
-                    resolve(querySnapshot.docs[0].data());
+                .then((user_querySnapshot: any) => {
+                    this.db.collection("SHOPPING_HISTORY").where("email", "==", email).get()
+                        .then((inprocess_querySnapshot: any) => {
+                            const user = user_querySnapshot.docs[0].data();
+                            const inProcess = inprocess_querySnapshot.docs.map((doc: any) => doc.data());
+                            user['inProcessCart'] = inProcess;
+                            console.error('')
+                            console.error({
+                                user: user
+                            })
+                            console.error('')
+                            resolve(user);
+                        }).catch((error: any) => reject(error));
                 }).catch((error: any) => reject(error));
         });
     }

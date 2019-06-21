@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="header-title">
-      <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA v-demo-7/06/19</h1>
+      <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA</h1>
     </div>
   </header>
 </template>
@@ -105,6 +105,7 @@ export default class HeaderComponent extends Vue {
 
 <style scoped lang="less">
 @import (reference) "./header.style.less";
+@import (reference) "./header-desktop.style.less";
 header {
   #constructor-header();
   background-color: white;
@@ -114,5 +115,19 @@ header .header-nav {
 }
 header .header-title {
   #constructor-header-title();
+}
+
+@media (min-width: 600px) {
+  header {
+    #constructor-desktop-header();
+    background-color: black;
+    color: white;
+  }
+  header .header-nav {
+    #constructor-desktop-header-nav();
+  }
+  header .header-title {
+    #constructor-desktop-header-title();
+  }
 }
 </style>

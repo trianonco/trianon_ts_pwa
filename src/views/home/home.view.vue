@@ -4,6 +4,8 @@
     <div class="view-wrapper">
       <HeaderComponent :theme="headerTheme"/>
       <HomeSwiperComponent></HomeSwiperComponent>
+      <HomeDekstopCoverComponent></HomeDekstopCoverComponent>
+      <HomeDesktopProductsSwiperComponent></HomeDesktopProductsSwiperComponent>
       <HomeGenderButtonsComponent></HomeGenderButtonsComponent>
       <HomeSearchBarComponent></HomeSearchBarComponent>
       <HomeBannerAuthorizedDistributorsComponent></HomeBannerAuthorizedDistributorsComponent>
@@ -25,6 +27,8 @@ import HeaderComponent from "./../../shared/components/header/header.component.v
 import FooterComponent from "./../../shared/components/footer/footer.component.vue";
 import LoaderComponent from "./../../shared/components/loader/loader.component.vue";
 import HomeSwiperComponent from "./components/home-swiper/home-swiper.component.vue";
+import HomeDekstopCoverComponent from "./components/home-desktop-cover/home-desktop-cover.component.vue";
+import HomeDesktopProductsSwiperComponent from "./components/home-desktop-products-swiper/home-desktop-products-swiper.component.vue";
 import HomeGenderButtonsComponent from "./components/home-gender-buttons/home-gender-buttons.component.vue";
 import HomeSearchBarComponent from "./components/home-search/home-search.component.vue";
 import HomeBannerAuthorizedDistributorsComponent from "./components/home-banners/banner-authorized-distributors.component.vue";
@@ -41,6 +45,8 @@ import HomeBannerAddressComponent from "./components/home-banners/banner-address
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
+    HomeDekstopCoverComponent,
+    HomeDesktopProductsSwiperComponent,
     HomeSwiperComponent,
     HomeGenderButtonsComponent,
     HomeSearchBarComponent,
