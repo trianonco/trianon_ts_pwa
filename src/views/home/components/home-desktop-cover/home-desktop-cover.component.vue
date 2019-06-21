@@ -29,6 +29,9 @@ export default class HomeSwiperComponent extends Vue {
 
 <style lang="less">
 @import "./home-desktop-cover.style.less";
+div.home-desktop-cover {
+  display: none;
+}
 @media (min-width: 600px) {
   #constructor-desktop-cover();
 }

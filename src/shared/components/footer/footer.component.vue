@@ -11,7 +11,8 @@
       </div>
     </div>
     <div class="footer-logo">
-      <img alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
+      <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
+      <img class="desktop" alt="TrianonCo Image" src="./../../assets/images/footers/bull-large.png">
     </div>
   </footer>
 </template>
@@ -58,5 +59,24 @@ export default {
 .footer {
   #constructor-footer();
   text-align: center;
+  .footer-logo {
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .footer-logo {
+      .mobile {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
+    }
+  }
 }
 </style>

@@ -7,8 +7,15 @@ export default {
         clickable: true
     },
 
-    slidesPerView: 6,
-    spaceBetween: 30,
+    grabCursor: true,
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    slidesPerView: 5,
+    spaceBetween: 0,
 
 
 }

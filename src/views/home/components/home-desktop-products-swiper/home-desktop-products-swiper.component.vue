@@ -4,14 +4,24 @@
       <!-- slides -->
       <swiper-slide v-for="(product, index) of products" v-bind:key="index">
         <div class="product-card">
-          <v-lazy-image
-            :src="getPhotoURLs(product).hd"
-            :src-placeholder="getPhotoURLs(product).thumb"
-          />
+          <div class="wrapper">
+            <v-lazy-image
+              :src="getPhotoURLs(product).hd"
+              :src-placeholder="getPhotoURLs(product).thumb"
+            />
+            <div class="info">
+              {{product.description}}
+              <br>
+              <br>
+              COLOR {{ product.color }}
+            </div>
+          </div>
         </div>
       </swiper-slide>
-
-      <!-- Optional controls -->
+      <!-- Optional controls
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+      -->
     </swiper>
   </div>
 </template>
@@ -27,7 +37,9 @@ import HomeSwiperMock from "./home-swiper.mock";
 import ApiDataBase from "./../../../../shared/database/index";
 
 // -------------------------------------------------------- //
+/*
 
+*/
 @Component({
   components: {
     VLazyImage
@@ -65,7 +77,7 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
     this.apiDB.setDatabaseByName("SHOP-DB");
     this.db = this.apiDB.getDatabase();
 
-    const gender = "DAMA";
+    const gender = "HOMBRE";
     const category = "BILLETERAS";
 
     this.db
@@ -73,7 +85,22 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
       .then(async (products: any) => {
         const unique = this.removeDuplicates(products, "ref_photo_code");
         this.productsDB = unique;
-        this.products = this.productsDB.slice(0, 10);
+        this.products = this.productsDB.filter(
+          (product: any) =>
+            product.ref_photo_code.includes("HB1212-01") ||
+            product.ref_photo_code.includes("HB1212-12") ||
+            product.ref_photo_code.includes("HJ1255-01") ||
+            product.ref_photo_code.includes("HJ1255-07") ||
+            product.ref_photo_code.includes("HJ1256-01") ||
+            product.ref_photo_code.includes("HM1206-04") ||
+            product.ref_photo_code.includes("HT1242-04") ||
+            product.ref_photo_code.includes("HT1251-01") ||
+            product.ref_photo_code.includes("HT1251-04") ||
+            product.ref_photo_code.includes("HT1252-04") ||
+            product.ref_photo_code.includes("HT1252-15") ||
+            product.ref_photo_code.includes("HT1251-01") ||
+            product.ref_photo_code.includes("HT1241-15")
+        );
 
         console.warn({
           productsDB: this.productsDB
@@ -93,6 +120,9 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
 
 <style lang="less">
 @import "./home-desktop-products-swiper.style.less";
+div.home-desktop-products-swiper {
+  display: none;
+}
 @media (min-width: 600px) {
   #constructor-desktop-products-swiper();
 }

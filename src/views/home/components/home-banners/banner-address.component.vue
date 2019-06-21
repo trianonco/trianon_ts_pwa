@@ -3,9 +3,15 @@
   <div class="banner address">
     <div class="header">
       <div class="title">
-        <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/bullet-gold-01.png"
+        >
         <h2>PUNTO DE FÁBRICA</h2>
-        <img alt="TrianonCo Image" src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/bullet-gold-01.png"
+        >
       </div>
       <div class="address">
         BOGOTÁ | CALLE 6A # 33 - 22
@@ -15,7 +21,7 @@
     <div class="links">
       <router-link to="/safe">COMPRA SEGURA</router-link>/
       <router-link to="/terms">TERMINOS DE SERVICIO</router-link>
-      <br>
+      <br class="mobile-br">
       <router-link to="/politics">POLITICAS DE PRIVACIDAD</router-link>/
       <router-link to="/sitemap">MAPA DEL SITIO</router-link>
     </div>
@@ -117,6 +123,25 @@ export default {
         width: 1em;
         padding: 1.25em;
       }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .banner.address {
+    background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.png");
+    div.header {
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+    }
+    .links {
+      width: 80%;
+      a {
+        padding: 1em;
+      }
+    }
+    .mobile-br {
+      display: none;
     }
   }
 }

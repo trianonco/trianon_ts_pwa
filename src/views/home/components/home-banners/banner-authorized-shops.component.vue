@@ -1,5 +1,5 @@
 <template>
-  <div class="banner authorized shops">
+  <div class="banner mobile authorized shops">
     <br>
     <div class="banner-title">
       <h2>Tiendas Trianon</h2>
@@ -36,6 +36,14 @@ export default {
   box-sizing: border-box;
   background-color: black;
   color: white;
+
+  &.mobile {
+    display: block;
+  }
+  &.desktop {
+    display: none;
+  }
+
   .banner-title {
     max-width: 290px;
     margin: 0 auto;
@@ -61,6 +69,17 @@ export default {
   .banner-button {
     &.gold {
       #button-gold-dark();
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .banner.authorized.shops {
+    &.mobile {
+      display: none;
+    }
+    &.desktop {
+      display: block;
     }
   }
 }

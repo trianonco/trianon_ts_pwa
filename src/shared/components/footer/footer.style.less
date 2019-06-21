@@ -1,7 +1,7 @@
 @import (reference) "./../../styles/index.less";
 
-#constructor-footer{
-      display: block;
+#constructor-footer {
+  display: block;
   width: 100%;
   height: @10pm;
   margin: 0 auto;
@@ -12,6 +12,7 @@
 
   background-color: @color-black;
   color: @color-white;
+
   &-title {
     h2 {
       #Font-OpenSans("normal");
@@ -26,6 +27,7 @@
     display: block;
     width: 100%;
     margin: 0 auto;
+
     img {
       display: block;
       width: 100%;
@@ -34,9 +36,11 @@
       box-sizing: border-box;
     }
   }
+
   &-networks {
     #Flex-Row-Center-Center();
   }
+
   &-network {
     display: block;
     width: @3pm + 4px;
@@ -49,6 +53,17 @@
       box-sizing: content-box;
       display: block;
       width: 100%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    &-network {
+      padding: 0.5em 2em;
+      font-family: 'TrajanPro';
+
+      img {
+        width: 80%;
+      }
     }
   }
 }
