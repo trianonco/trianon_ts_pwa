@@ -56,6 +56,8 @@
         </GmapMap>
       </div>
 
+      <BannerAddressComponent></BannerAddressComponent>
+
       <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
         <i class="fas fa-arrow-up"></i>
       </div>
@@ -76,8 +78,15 @@ import FooterComponent from "../../shared/components/footer/footer.component.vue
 import ApiDataBase from "./../../shared/database/index";
 import InfiniteLoading from "vue-infinite-loading";
 
+import BannerAddressComponent from "./../home/components/home-banners/banner-address.component.vue";
 @Component({
-  components: { HeaderComponent, FooterComponent, VLazyImage, InfiniteLoading }
+  components: {
+    HeaderComponent,
+    FooterComponent,
+    VLazyImage,
+    InfiniteLoading,
+    BannerAddressComponent
+  }
 })
 export default class AuthorizedShops extends Vue {
   private apiDB = new ApiDataBase();
