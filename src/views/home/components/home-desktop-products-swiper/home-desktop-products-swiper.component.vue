@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="homeProductSwiper">
       <!-- slides -->
       <swiper-slide v-for="(product, index) of products" v-bind:key="index">
-        <div class="product-card">
+        <div class="product-card" @click="goToProductView(product)">
           <div class="wrapper">
             <v-lazy-image
               :src="getPhotoURLs(product).hd"
@@ -58,7 +58,13 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
   private get swiper() {
     return (this.$refs.homeProductSwiper as any).swiper;
   }
-
+  private goToProductView(product: any) {
+    this.$router.push(
+      `/product/gender/${product.gender}/category/${product.category}/ref/${
+        product.ref_photo_code
+      }`
+    );
+  }
   private getPhotoURLs(productObj: any) {
     const product_token = "c392cfe1-c92e-4bb8-97f1-cf815a641f01";
     const filename = `${productObj.ref_photo_code}-01.jpg`;
