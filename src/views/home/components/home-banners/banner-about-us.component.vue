@@ -17,6 +17,9 @@
         <h3>En TRIANON hemos construido experiencia y tradición por más de 80 años, dedicándonos a la fabricación de marroquineriá y accesorios en cuero, como, billeteras, bolsos, cinturones y llaveros, entre otros. Nuestra escencia está en el talento humano, fabricando productos con insumos 100% colombianos. Creamos artesanalmente cada artículo con la más alta calidad y detalle, logrando que cada producto sea una pieza única.</h3>
       </div>
     </div>
+    <div class="banner desktop instagram">
+      <img src="./../../../../shared/assets/images/banners/instragram-mock.png" width="100%">
+    </div>
   </div>
 </template>
 

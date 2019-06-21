@@ -121,4 +121,14 @@ export default {
     padding: 0px;
   }
 }
+
+@media (min-width: 600px) {
+  .banner.free.shipping {
+    div.pic-bg {
+      background-color: #dfcc8d;
+      background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.png");
+      background-size: cover;
+    }
+  }
+}
 </style>
