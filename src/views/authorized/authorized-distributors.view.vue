@@ -12,21 +12,29 @@
         class="description"
       >TENDRÁS A TU ALCANCE DIVERSAS REFERENCIAS DE PRODUCTOS TRIANON, TEN EN CUENTA QUE CADA UNO DE LOS DISTRIBUIDORES ESTA SUJETO A INVENTARIO</h2>
 
-      <div class="search">
-        <img alt="TrianonCo Image" src="./../../shared/assets/images/search/lupa-icon.png">
-        <input
-          type="text"
-          placeholder="DEPARTAMENTO O CIUDAD"
-          v-model="currentSearchKey"
-          v-on:keyup.enter="onSubmit"
-        >
-      </div>
-      <GmapMap
-        map-type-id="terrain"
-        style="width: 500px; height: 300px"
-        :center="position"
-        :zoom="16"
-        :options="{
+      <div class="list-and-map">
+        <div class="search">
+          <div class="search-wrapper">
+            <img alt="TrianonCo Image" src="./../../shared/assets/images/search/lupa-icon.png">
+            <input
+              type="text"
+              placeholder="DEPARTAMENTO O CIUDAD"
+              v-model="currentSearchKey"
+              v-on:keyup.enter="onSubmit"
+            >
+          </div>
+          <img
+            class="banner"
+            src="./../../shared/assets/images/deskt-distributors_Mesa de trabajo 1.png"
+          >
+        </div>
+
+        <GmapMap
+          map-type-id="terrain"
+          style="width: 500px; height: 300px"
+          :center="position"
+          :zoom="16"
+          :options="{
           zoomControl: true,
           mapTypeControl: false,
           scaleControl: false,
@@ -35,15 +43,16 @@
           fullscreenControl: true,
           disableDefaultUi: false
         }"
-      >
-        <GmapMarker
-          v-if="currentDistributor && currentDistributor.position"
-          :position="currentDistributor.position"
-          :clickable="true"
-          :draggable="false"
-          @click="center=currentDistributor.position"
-        />
-      </GmapMap>
+        >
+          <GmapMarker
+            v-if="currentDistributor && currentDistributor.position"
+            :position="currentDistributor.position"
+            :clickable="true"
+            :draggable="false"
+            @click="center=currentDistributor.position"
+          />
+        </GmapMap>
+      </div>
 
       <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
         <i class="fas fa-arrow-up"></i>
@@ -258,33 +267,40 @@ div.authorized-distributors {
 
   div.search {
     display: block;
-    background-color: gray;
-    #Flex-Row-Center-toLeft();
-    img {
-      width: 1em;
-      padding: 1em;
-      padding-left: 2em;
+
+    .banner {
+      display: none;
     }
-    input {
+    .search-wrapper {
       display: block;
-      width: 20em;
-      background: none;
-      color: white;
-      outline: none;
-      border: none;
-      padding: 0.5em;
-      border-bottom: 1px solid white;
-
-      font-family: "TrajanPro";
-      font-weight: normal;
-      font-style: normal;
-      font-size: 10px;
-      letter-spacing: 1px;
-
-      &::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
+      background-color: gray;
+      #Flex-Row-Center-toLeft();
+      img {
+        width: 1em;
+        padding: 1em;
+        padding-left: 2em;
+      }
+      input {
+        display: block;
+        width: 20em;
+        background: none;
         color: white;
-        opacity: 1; /* Firefox */
+        outline: none;
+        border: none;
+        padding: 0.5em;
+        border-bottom: 1px solid white;
+
+        font-family: "TrajanPro";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 10px;
+        letter-spacing: 1px;
+
+        &::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: white;
+          opacity: 1; /* Firefox */
+        }
       }
     }
   }
@@ -380,6 +396,58 @@ div.authorized-distributors {
     position: fixed;
     bottom: 1em;
     right: 1em;
+  }
+}
+
+@media (min-width: 600px) {
+  div.authorized-distributors {
+    h2.description {
+      width: 550px;
+      padding: 2em;
+      padding-top: 0px;
+    }
+    h1.title {
+      background-color: white;
+      color: black;
+    }
+    .list-and-map {
+      display: block;
+
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+
+      .vue-map-container {
+        width: 50%;
+      }
+      .search {
+        width: 50%;
+        .banner {
+          padding: 0em;
+          display: block;
+          width: 100%;
+          height: 252px;
+          object-fit: cover;
+        }
+        .search-wrapper {
+        }
+      }
+    }
   }
 }
 </style>
