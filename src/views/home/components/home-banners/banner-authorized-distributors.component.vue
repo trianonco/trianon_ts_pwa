@@ -127,8 +127,8 @@ export default {
         font-family: "Open Sans";
         text-align: center;
         font-size: 12px;
-        width: 80%;
-        max-width: 700px;
+        width: 90%;
+        max-width: 817px;
         margin: 0 auto;
         letter-spacing: 1px;
         line-height: 1.5em;
