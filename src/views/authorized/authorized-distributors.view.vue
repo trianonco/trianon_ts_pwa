@@ -141,7 +141,14 @@ export default class ProductView extends Vue {
       return this.distributorsDB.filter(distributor =>
         distributor.city
           .toUpperCase()
-          .includes(this.currentSearchKey.toUpperCase())
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .includes(
+            this.currentSearchKey
+              .toUpperCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          )
       );
     }
   }
