@@ -58,7 +58,9 @@
         <i class="fas fa-arrow-up"></i>
       </div>
 
-      <div class="authorized-distributor-city">{{ currentCity }}</div>
+      <div class="authorized-distributor-city">
+        <span>{{ currentCity }}</span>
+      </div>
 
       <div v-for="(distributor,index) of distributorsFilteredBySearchKey" v-bind:key="index">
         <div class="authorized-distributor-card" @click="setCurrentDistributor(distributor)">
@@ -382,6 +384,15 @@ div.authorized-distributors {
     color: white;
     text-align: center;
     text-transform: uppercase;
+    font-family: "TrajanPro";
+    font-weight: normal;
+    font-style: normal;
+    span {
+      display: inline-block;
+      -webkit-transform: scale(1, 0.85);
+      transform: scale(1, 0.85);
+      letter-spacing: 2px;
+    }
   }
 
   div.goUpButton {
@@ -402,13 +413,17 @@ div.authorized-distributors {
 @media (min-width: 600px) {
   div.authorized-distributors {
     h2.description {
-      width: 550px;
+      width: 651px;
       padding: 2em;
       padding-top: 0px;
+      letter-spacing: 2px;
+      line-height: 2.5em;
     }
     h1.title {
       background-color: white;
       color: black;
+      font-size: 1.1em;
+      padding: 1em;
     }
     .list-and-map {
       display: block;
@@ -433,7 +448,7 @@ div.authorized-distributors {
       align-items: flex-start;
 
       .vue-map-container {
-        width: 50%;
+        width: 50% !important;
       }
       .search {
         width: 50%;
@@ -445,6 +460,43 @@ div.authorized-distributors {
           object-fit: cover;
         }
         .search-wrapper {
+        }
+      }
+    }
+
+    div.authorized-distributor-card {
+      display: block;
+      padding: 0.25em;
+      &-phone {
+        display: inline-block;
+        width: fit-content;
+        padding: 0.15em;
+        padding-top: 1em;
+        font-size: 11px;
+        font-weight: 900;
+      }
+      &-address {
+        display: inline-block;
+        width: fit-content;
+        padding: 0.15em;
+        font-size: 11px;
+        font-weight: 900;
+      }
+      &-email {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0.25em;
+        font-size: 11px;
+        color: #888;
+        font-family: "Open Sans";
+        font-weight: normal;
+        font-style: normal;
+        letter-spacing: 0px;
+        text-transform: lowercase;
+        padding-bottom: 1em;
+        span {
+          letter-spacing: 1px;
         }
       }
     }

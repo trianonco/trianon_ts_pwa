@@ -1,6 +1,11 @@
 <template>
   <div class="swiper home-desktop-cover">
     <div class="female-category">
+      <v-lazy-image
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-01-ICC.jpg')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-01-ICC.jpg')"
+      />
+
       <div class="button" @click="UX.isFemaleOpen = !UX.isFemaleOpen">DAMA</div>
       <div class="categories male" v-bind:class="{ active: UX.isMaleOpen }">
         <ul>
@@ -19,6 +24,11 @@
       </div>
     </div>
     <div class="male-category">
+      <v-lazy-image
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-02-ICC.jpg')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-02-ICC.jpg')"
+      />
+
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
       <div class="categories female" v-bind:class="{ active: UX.isFemaleOpen }">
         <ul>
@@ -101,6 +111,15 @@ div.home-desktop-cover {
     .female-category,
     .male-category {
       position: relative;
+      .v-lazy-image {
+        width: 100%;
+      
+      }
+      .v-lazy-image-loaded {
+        width: 100% !important;
+        object-fit: cover;
+        object-position: center;
+      }
     }
     div.categories {
       position: absolute;
@@ -109,25 +128,49 @@ div.home-desktop-cover {
 
       overflow: hidden;
 
-      top: 450px;
-      -webkit-transition: all 500ms ease-in-out;
-      -moz-transition: all 500ms ease-in-out;
-      -ms-transition: all 500ms ease-in-out;
-      -o-transition: all 500ms ease-in-out;
-      transition: all 500ms ease-in-out;
+      -webkit-transition: all 500ms linear;
+      -moz-transition: all 500ms linear;
+      -ms-transition: all 500ms linear;
+      -o-transition: all 500ms linear;
+      transition: all 500ms linear;
 
       &.active {
         top: 0px;
-        -webkit-transition: all 500ms ease-in-out;
-        -moz-transition: all 500ms ease-in-out;
-        -ms-transition: all 500ms ease-in-out;
-        -o-transition: all 500ms ease-in-out;
-        transition: all 500ms ease-in-out;
+        -webkit-transition: all 500ms linear;
+        -moz-transition: all 500ms linear;
+        -ms-transition: all 500ms linear;
+        -o-transition: all 500ms linear;
+        transition: all 500ms linear;
+
+        right: 0px;
+        &.male {
+          right: 0px;
+          -webkit-transition: all 500ms linear;
+          -moz-transition: all 500ms linear;
+          -ms-transition: all 500ms linear;
+          -o-transition: all 500ms linear;
+          transition: all 500ms linear;
+        }
+        &.female {
+          right: 0px;
+          -webkit-transition: all 500ms linear;
+          -moz-transition: all 500ms linear;
+          -ms-transition: all 500ms linear;
+          -o-transition: all 500ms linear;
+          transition: all 500ms linear;
+        }
       }
 
       &.male {
         background-size: cover;
         background-image: url("./../../../../shared/assets/images/gender-male-categories-bg_Mesa de trabajo 1.png");
+
+        right: 50vw;
+        -webkit-transition: all 500ms linear;
+        -moz-transition: all 500ms linear;
+        -ms-transition: all 500ms linear;
+        -o-transition: all 500ms linear;
+        transition: all 500ms linear;
 
         ul {
           display: block;
@@ -172,6 +215,12 @@ div.home-desktop-cover {
         background-size: cover;
         background-image: url("./../../../../shared/assets/images/gender-female_Mesa de trabajo 1.png");
 
+        right: -50vw;
+        -webkit-transition: all 500ms linear;
+        -moz-transition: all 500ms linear;
+        -ms-transition: all 500ms linear;
+        -o-transition: all 500ms linear;
+        transition: all 500ms linear;
         ul {
           display: block;
           padding: 0px;
