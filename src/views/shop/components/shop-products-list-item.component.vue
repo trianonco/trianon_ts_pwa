@@ -1,5 +1,5 @@
 <template>
-  <div class="products-list-item" v-if="isProductOnStock" :class="getProducsListItemClass()">
+  <div class="products-list-item" :class="getProducsListItemClass()">
     <div class="product-list-item-wrapper" @click="goToProductView()">
       <div class="isNew" v-if="isNew">NUEVO</div>
 
@@ -31,7 +31,7 @@ export default class ShopProductsListItemComponent extends Vue {
   product!: any;
 
   private isNew: boolean = false;
-  private isPhotoOnStock: boolean = true;
+  private isPhotoOnStock: boolean = false;
   private isProductOnStock: boolean = false;
   private photo_hd_src: string = "";
   private photo_thumb_src: string = "";
@@ -39,6 +39,7 @@ export default class ShopProductsListItemComponent extends Vue {
 
   private getProducsListItemClass() {
     return this.isPhotoOnStock ? "default" : "hidden";
+    //return "default";
   }
 
   private onLoadVLazyImage() {
@@ -65,7 +66,10 @@ export default class ShopProductsListItemComponent extends Vue {
     this.photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
     this.photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
 
-    console.warn(this.photo_thumb_src);
+    setTimeout(() => {
+      if (this.isProductOnStock === false) {
+      }
+    }, 1000);
   }
 }
 </script>
@@ -84,42 +88,20 @@ div.products-list-item {
   visibility: inherit;
 
   &.hidden {
-    visibility: hidden;
-    height: 0px;
-    width: 0%;
-    padding: 0em 0em;
+    background-color: black;
+    position: fixed;
+    z-index: -10000000;
+    top: 0px;
+    opacity: 0;
+  }
 
-    div.product-list-item-wrapper {
-      width: 100%;
-      height: 0px;
-      border: none;
-    }
+  &.default {
+    background-color: white;
 
-    .photo {
-      width: 0%;
-      padding: 0%;
-      &.v-lazy-image {
-        height: 0px;
-      }
-    }
-
-    .price {
-      font-size: 0px;
-      padding: 0em;
-      margin-bottom: 0px;
-    }
-
-    .name {
-      font-size: 0px;
-      padding: 0em;
-    }
-
-    .color {
-      font-size: 0px;
-      padding: 0em;
-    }
-
-    //display: none;
+    z-index: 0;
+    position: relative;
+    top: 0px;
+    opacity: 1;
   }
 
   div.product-list-item-wrapper {

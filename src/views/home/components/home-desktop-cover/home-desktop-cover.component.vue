@@ -7,7 +7,10 @@
       />
 
       <div class="button" @click="UX.isFemaleOpen = !UX.isFemaleOpen">DAMA</div>
-      <div class="categories male" v-bind:class="{ active: UX.isMaleOpen }">
+      <div
+        class="categories male"
+        v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }"
+      >
         <ul>
           <li
             v-for="(category,index) of MaleCategories"
@@ -34,7 +37,10 @@
       />
 
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
-      <div class="categories female" v-bind:class="{ active: UX.isFemaleOpen }">
+      <div
+        class="categories female"
+        v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
+      >
         <ul>
           <li
             v-for="(category,index) of FemaleCategories"
@@ -168,12 +174,46 @@ div.home-desktop-cover {
       &.active {
         top: 0px;
 
-        right: 0px;
         &.male {
           right: 0px;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
         }
         &.female {
           right: 0px;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+        }
+      }
+
+      &.default {
+        top: 0px;
+
+        &.male {
+          right: 50vw;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+        }
+        &.female {
+          right: -50vw;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
         }
       }
 
@@ -181,19 +221,20 @@ div.home-desktop-cover {
         background-size: cover;
         background-image: url("./../../../../shared/assets/images/gender-male-categories-bg_Mesa de trabajo 1.png");
 
-        right: 50vw;
-
         ul {
           display: block;
           padding: 0px;
           margin: 0px;
           padding: 1em;
+
           li {
             padding: 0px;
             margin: 0px;
             padding: 0.5em;
             text-decoration: underline;
             text-align: right;
+
+            font-size: 10px;
 
             display: -ms-flexbox;
             display: -webkit-flex;
@@ -226,8 +267,6 @@ div.home-desktop-cover {
         background-size: cover;
         background-image: url("./../../../../shared/assets/images/gender-female_Mesa de trabajo 1.png");
 
-        right: -50vw;
-
         ul {
           display: block;
           padding: 0px;
@@ -237,6 +276,8 @@ div.home-desktop-cover {
             padding: 0px;
             margin: 0px;
             padding: 0.5em;
+            font-size: 10px;
+            letter-spacing: 1px;
             text-decoration: underline;
             text-align: right;
             display: -ms-flexbox;
