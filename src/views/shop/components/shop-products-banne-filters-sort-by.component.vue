@@ -30,11 +30,10 @@
       </div>
 
       <div class="filter" :class="isFilterActiveByName('az')" @click="setFilterActiveByName('az')">
-        <span >A-Z</span>
+        <span>A-Z</span>
         <span
           class="triangle"
           style="position: absolute;top: 13px;left: 3px;"
-          
           v-if="false && UX.isModalAZ"
         ></span>
       </div>
@@ -44,7 +43,6 @@
         <span
           class="triangle"
           style="position: absolute;top: 13px;left: 1px;"
-
           v-if="false && UX.isModalZA"
         ></span>
       </div>
@@ -139,7 +137,7 @@ export default class ShopProductsBannerFiltersSortByComponent extends Vue {
     }
 
     if (this.UX.isModalAZ || this.UX.isModalZA) {
-      alert('OLII')
+      alert("OLII");
       this.$emit("onSortByName", this.UX.FilterName);
     }
   }
@@ -284,6 +282,15 @@ div.products-filters-sort-by-modal-row {
         font-weight: 900;
       }
     }
+  }
+}
+
+@media (min-width: 600px) {
+  div.products-filters-sort-by {
+    position: relative;
+    display: block;
+    width: 600px;
+    margin: 0 auto;
   }
 }
 </style>

@@ -78,4 +78,11 @@ div.products-banner {
     }
   }
 }
+
+@media (min-width: 600px) {
+  div.products-banner {
+    background-color: white;
+    color: black;
+  }
+}
 </style>

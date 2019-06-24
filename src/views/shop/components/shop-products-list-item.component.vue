@@ -1,11 +1,7 @@
 <template>
-
   <div class="products-list-item" v-if="isProductOnStock" :class="getProducsListItemClass()">
-
     <div class="product-list-item-wrapper" @click="goToProductView()">
       <div class="isNew" v-if="isNew">NUEVO</div>
-
-
 
       <v-lazy-image
         class="photo"
@@ -14,7 +10,6 @@
         @load="onLoadVLazyImage()"
       />
 
-      <h2 class="price">{{ product.ref}}</h2>
       <h2 class="price">{{ parseFloat(product.price_cop) | toCurrency}}</h2>
 
       <h2 class="name">{{ product.description }}</h2>
@@ -22,7 +17,6 @@
       <h2 class="color">Color {{ product.color}}</h2>
     </div>
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -37,8 +31,8 @@ export default class ShopProductsListItemComponent extends Vue {
   product!: any;
 
   private isNew: boolean = false;
-  private isPhotoOnStock: boolean = false;
-  private isProductOnStock: boolean = true;
+  private isPhotoOnStock: boolean = true;
+  private isProductOnStock: boolean = false;
   private photo_hd_src: string = "";
   private photo_thumb_src: string = "";
   private product_code: string = "";
@@ -55,7 +49,11 @@ export default class ShopProductsListItemComponent extends Vue {
   }
 
   private goToProductView() {
-    this.$router.push(`/product/gender/${this.product.gender}/category/${this.product.category}/ref/${this.product.ref_photo_code}`);
+    this.$router.push(
+      `/product/gender/${this.product.gender}/category/${
+        this.product.category
+      }/ref/${this.product.ref_photo_code}`
+    );
   }
   private mounted() {
     const product_token = "18c776df-f5a7-45a0-9012-16f780381d92";
@@ -185,4 +183,21 @@ div.products-list-item {
     #Font-TrajanPro();
   }
 }
+
+@media (min-width: 600px) {
+  div.products-list-item {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    width: 20%;
+    .photo {
+      width: 100%;
+      padding: 0%;
+      &.v-lazy-image {
+        height: 20vw;
+      }
+    }
+  }
+}
 </style>
+
+  

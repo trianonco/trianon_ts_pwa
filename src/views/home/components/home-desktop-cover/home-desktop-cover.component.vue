@@ -9,7 +9,11 @@
       <div class="button" @click="UX.isFemaleOpen = !UX.isFemaleOpen">DAMA</div>
       <div class="categories male" v-bind:class="{ active: UX.isMaleOpen }">
         <ul>
-          <li v-for="(category,index) of MaleCategories" :key="index">
+          <li
+            v-for="(category,index) of MaleCategories"
+            :key="index"
+            @click="goToShopCategoryByCategoryAndGender(category.title, 'HOMBRE')"
+          >
             <span>{{category.title}}</span>
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
@@ -32,7 +36,11 @@
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
       <div class="categories female" v-bind:class="{ active: UX.isFemaleOpen }">
         <ul>
-          <li v-for="(category,index) of FemaleCategories" :key="index">
+          <li
+            v-for="(category,index) of FemaleCategories"
+            :key="index"
+            @click="goToShopCategoryByCategoryAndGender(category.title, 'DAMA')"
+          >
             <span>{{category.title}}</span>
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
@@ -94,6 +102,36 @@ export default class HomeSwiperComponent extends Vue {
 
   private async mounted() {}
 
+  private goToShopCategoryByCategoryAndGender(category: any, gender: string) {
+    console.warn({
+      category: category,
+      gender: gender
+    });
+
+    this.$router.push({
+      name: "shopCategoryGender",
+      params: {
+        category: category,
+        gender: gender
+      }
+    });
+
+    /*
+
+    this.selectedItemID = parseInt(id);
+    setTimeout(() => {
+      this.selectedItemID = 0;
+      this.$router.push({
+        name: "shopCategoryGender",
+        params: {
+          category: category.title,
+          gender: gender
+        }
+      });
+    }, 500);
+    */
+  }
+
   private isBulletActive(category: any) {
     return false;
   }
@@ -113,7 +151,6 @@ div.home-desktop-cover {
       position: relative;
       .v-lazy-image {
         width: 100%;
-      
       }
       .v-lazy-image-loaded {
         width: 100% !important;
@@ -128,36 +165,15 @@ div.home-desktop-cover {
 
       overflow: hidden;
 
-      -webkit-transition: all 500ms linear;
-      -moz-transition: all 500ms linear;
-      -ms-transition: all 500ms linear;
-      -o-transition: all 500ms linear;
-      transition: all 500ms linear;
-
       &.active {
         top: 0px;
-        -webkit-transition: all 500ms linear;
-        -moz-transition: all 500ms linear;
-        -ms-transition: all 500ms linear;
-        -o-transition: all 500ms linear;
-        transition: all 500ms linear;
 
         right: 0px;
         &.male {
           right: 0px;
-          -webkit-transition: all 500ms linear;
-          -moz-transition: all 500ms linear;
-          -ms-transition: all 500ms linear;
-          -o-transition: all 500ms linear;
-          transition: all 500ms linear;
         }
         &.female {
           right: 0px;
-          -webkit-transition: all 500ms linear;
-          -moz-transition: all 500ms linear;
-          -ms-transition: all 500ms linear;
-          -o-transition: all 500ms linear;
-          transition: all 500ms linear;
         }
       }
 
@@ -166,11 +182,6 @@ div.home-desktop-cover {
         background-image: url("./../../../../shared/assets/images/gender-male-categories-bg_Mesa de trabajo 1.png");
 
         right: 50vw;
-        -webkit-transition: all 500ms linear;
-        -moz-transition: all 500ms linear;
-        -ms-transition: all 500ms linear;
-        -o-transition: all 500ms linear;
-        transition: all 500ms linear;
 
         ul {
           display: block;
@@ -216,11 +227,7 @@ div.home-desktop-cover {
         background-image: url("./../../../../shared/assets/images/gender-female_Mesa de trabajo 1.png");
 
         right: -50vw;
-        -webkit-transition: all 500ms linear;
-        -moz-transition: all 500ms linear;
-        -ms-transition: all 500ms linear;
-        -o-transition: all 500ms linear;
-        transition: all 500ms linear;
+
         ul {
           display: block;
           padding: 0px;

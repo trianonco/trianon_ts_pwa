@@ -3,15 +3,14 @@
     <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
       <i class="fas fa-arrow-up"></i>
     </div>
-
     <!--
-    {{ productsDB }}
-    
-
-    <div  v-for="product in productsDB">
+    <div v-for="product in productsDB">
       <h1>{{ product.ref_photo_code }}</h1>
-      <img :src="'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fthumb%2F' + product.ref_photo_code + '-01.jpg'">
-    </div>-->
+      <img
+        :src="'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fthumb%2F' + product.ref_photo_code + '-01.jpg?alt=media&token=dd27645c-db12-4bd6-bbfa-17a9bf25e027'"
+      >
+    </div>
+    -->
 
     <ShopProductsListItemComponent
       v-for="product in productsDB"
@@ -161,5 +160,8 @@ div.products-list {
     bottom: 1em;
     right: 1em;
   }
+}
+
+@media (min-width: 600px) {
 }
 </style>
