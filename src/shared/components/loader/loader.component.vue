@@ -50,7 +50,7 @@ export default class RouterLoading extends Vue {
 div.view-loader {
   display: block;
   background-color: rgba(0, 0, 0, 0);
-  z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+  z-index: 10000;
 
   width: 100vw;
   height: 100%;
