@@ -187,15 +187,26 @@ export default class ProductView extends Vue {
         return a.city.localeCompare(b.city);
       });
 
-      (this as any).$getLocation().then((coordinates: any) => {
-        const lat = coordinates.lat;
-        const lng = coordinates.lng;
-        this.position = {
-          lat: lat,
-          lng: lng
-        };
-        this.markers.push({ position: this.position });
-      });
+      (this as any)
+        .$getLocation()
+        .then((coordinates: any) => {
+          const lat = coordinates.lat;
+          const lng = coordinates.lng;
+          this.position = {
+            lat: lat,
+            lng: lng
+          };
+          this.markers.push({ position: this.position });
+        })
+        .catch((e: any) => {
+          const lat = 4.602472;
+          const lng = -74.108094;
+          this.position = {
+            lat: lat,
+            lng: lng
+          };
+          this.markers.push({ position: this.position });
+        });
     });
   }
 
