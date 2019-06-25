@@ -18,9 +18,35 @@
         <div class="message">COMPRAS INTERNACIONALES</div>
       </div>
     </div>
-    <div class="banner desktop credit cards">
+    <div class="banner desktop credit-cards">
+      <h1>METODOS DE PAGO</h1>
+      <div class="cards">
+        <img
+          class="card"
+          src="./../../../../shared/assets/images/banners/desktop-credit-card/PW-IMAGENES-PARA-MAQUETAR-VISA.png"
+        >
+        <img
+          class="card"
+          src="./../../../../shared/assets/images/banners/desktop-credit-card/PW-IMAGENES-PARA-MAQUETAR-MASTERCARD.png"
+        >
+        <img
+          class="card"
+          src="./../../../../shared/assets/images/banners/desktop-credit-card/PW-IMAGENES-PARA-MAQUETAR-AMERICAN.png"
+        >
+      </div>
+
+      <p>
+        Realiza tus pagos a través de tarjeta de credito, debito automático (PSE)
+        <br>ó efectivo por medio de Efecty, Davivienda ó Bancolombia ( consignación )
+      </p>
+
       <img
-        src="./../../../../shared/assets/images/banners/desktop-credits_Mesa de trabajo 1_Mesa de trabajo 1.png"
+        class="corner toRight"
+        src="./../../../../shared/assets/images/banners/desktop-credit-card/PW-IMAGENES-PARA-MAQUETAR-GPLDER.png"
+      >
+      <img
+        class="corner toLeft"
+        src="./../../../../shared/assets/images/banners/desktop-credit-card/PW-IMAGENES-PARA-MAQUETAR-GPLIZQ.png"
       >
     </div>
   </div>
@@ -138,6 +164,86 @@ export default {
     }
     div.gold-bg {
       display: none;
+    }
+  }
+  .banner.desktop.credit-cards {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    position: relative;
+
+    .cards {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 13px;
+      letter-spacing: 4px;
+      font-weight: 300;
+
+      padding-top: 2em;
+      padding-bottom: 10px;
+    }
+
+    p {
+      width: 638px;
+      font-family: "Open Sans";
+      font-size: 14px;
+      margin: 0 auto;
+      letter-spacing: 2px;
+      line-height: 1.5em;
+      padding-bottom: 2em;
+    }
+
+    .corner {
+      position: absolute;
+      width: 20em;
+
+      top: 0px;
+      &.toRight {
+        right: 0px;
+      }
+      &.toLeft {
+        left: 0px;
+      }
+    }
+
+    .card {
+      width: 4em;
+      margin: 1em;
     }
   }
 }
