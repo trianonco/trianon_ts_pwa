@@ -19,6 +19,7 @@ export default class RouterLoading extends Vue {
   };
 
   public mounted() {
+    /*
     const isLoadedBefore = sessionStorage.getItem("isLoadedBefore");
     if (!isLoadedBefore || true) {
       setTimeout(() => {
@@ -33,6 +34,7 @@ export default class RouterLoading extends Vue {
       this.UI.isLoaderOn = false;
       this.UI.isLoading = false;
     }
+    */
   }
 
   private getViewLoaderWrapperClass() {
