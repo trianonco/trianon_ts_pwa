@@ -125,7 +125,7 @@ export default class ProductView extends Vue {
 
   private get distributorsFilteredBySearchKey() {
     if (this.currentSearchKey === "") {
-      return this.distributorsDB.filter((distDB: any) => {
+      const near = this.distributorsDB.filter((distDB: any) => {
         const latDiff2 = Math.pow(
           Math.abs(distDB.position.lat - this.position.lat),
           2
@@ -135,8 +135,21 @@ export default class ProductView extends Vue {
           2
         );
         const posDistance = Math.sqrt(latDiff2 + lngDiff2);
-        return posDistance < 0.01;
+        return posDistance < 0.1;
       });
+
+      if (near.length > 10) {
+        return near;
+      } else {
+        const byBogota = this.distributorsDB.filter(distributor =>
+          distributor.city
+            .toUpperCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .includes("BOGOTA")
+        );
+        return byBogota;
+      }
     } else {
       return this.distributorsDB.filter(
         distributor =>
@@ -182,7 +195,9 @@ export default class ProductView extends Vue {
   }
 
   private mounted() {
+    //this.currentSearchKey = "Bogotá D.C";
     this.db.getAuthorizedDistributors().then((response: any) => {
+      console.warn("distributors");
       this.distributorsDB = response.sort((a: any, b: any) => {
         return a.city.localeCompare(b.city);
       });
@@ -190,12 +205,21 @@ export default class ProductView extends Vue {
       (this as any)
         .$getLocation()
         .then((coordinates: any) => {
+          /*
           const lat = coordinates.lat;
           const lng = coordinates.lng;
           this.position = {
             lat: lat,
             lng: lng
           };
+          */
+          const lat = 4.602472;
+          const lng = -74.108094;
+          this.position = {
+            lat: lat,
+            lng: lng
+          };
+
           this.markers.push({ position: this.position });
         })
         .catch((e: any) => {
@@ -205,7 +229,7 @@ export default class ProductView extends Vue {
             lat: lat,
             lng: lng
           };
-          this.markers.push({ position: this.position });
+          //this.markers.push({ position: this.position });
         });
     });
   }
