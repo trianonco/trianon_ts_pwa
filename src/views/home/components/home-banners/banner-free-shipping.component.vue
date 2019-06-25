@@ -1,20 +1,27 @@
 
 
 <template>
-  <div class="banner free shipping">
-    <div class="pic-bg">
-      <h2>MEDIOS DE ENVIO</h2>
-      <h3>
-        !Envíos Gratis!
-        <br>POR COMPRAS SUPERIORES A $100.000 COP
-        <br>
-        <span>valido solo para colombia</span>
-      </h3>
-      <h4>Costo de envío a nivel nacional : $8.000 COP</h4>
-      <h4>Costo de envío a nivel internacional: $10 USD</h4>
+  <div>
+    <div class="banner free shipping">
+      <div class="pic-bg">
+        <h2>MEDIOS DE ENVIO</h2>
+        <h3>
+          !Envíos Gratis!
+          <br>POR COMPRAS SUPERIORES A $100.000 COP
+          <br>
+          <span>valido solo para colombia</span>
+        </h3>
+        <h4>Costo de envío a nivel nacional : $8.000 COP</h4>
+        <h4>Costo de envío a nivel internacional: $10 USD</h4>
+      </div>
+      <div class="gold-bg">
+        <div class="message">COMPRAS INTERNACIONALES</div>
+      </div>
     </div>
-    <div class="gold-bg">
-      <div class="message">COMPRAS INTERNACIONALES</div>
+    <div class="banner desktop credit cards">
+      <img
+        src="./../../../../shared/assets/images/banners/desktop-credits_Mesa de trabajo 1_Mesa de trabajo 1.png"
+      >
     </div>
   </div>
 </template>

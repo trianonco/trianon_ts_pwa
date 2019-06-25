@@ -18,11 +18,7 @@
       </div>
       <p>Realiza tus pagos a través de trajeta de credito, debito automatico (PSE) ó efectivo por medio de Efecty</p>
     </div>
-    <div class="banner desktop credit cards">
-      <img
-        src="./../../../../shared/assets/images/banners/desktop-credits_Mesa de trabajo 1_Mesa de trabajo 1.png"
-      >
-    </div>
+  
   </div>
 </template>
 

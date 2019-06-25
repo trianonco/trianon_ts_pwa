@@ -14,6 +14,7 @@
         class="categories female"
         v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
       >
+        <span class="close-category" @click="toogleFemaleOpen()">X</span>
         <ul>
           <li
             v-for="(category,index) of FemaleCategories"
@@ -45,6 +46,7 @@
         class="categories male"
         v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }"
       >
+        <span class="close-category" @click="UX.isMaleOpen = !UX.isMaleOpen; ">X</span>
         <ul>
           <li
             v-for="(category,index) of MaleCategories"
@@ -184,6 +186,7 @@ div.home-desktop-cover {
   div.home-desktop-cover {
     overflow-y: hidden;
     overflow-x: hidden;
+
     .female-category,
     .male-category {
       position: relative;
@@ -205,6 +208,7 @@ div.home-desktop-cover {
       }
       .v-lazy-image-loaded {
         width: 100% !important;
+        height: 100%;
         object-fit: cover;
         object-position: center;
       }
@@ -212,7 +216,7 @@ div.home-desktop-cover {
     div.categories {
       position: absolute;
       width: 50vw;
-      height: 45vw;
+      height: 75vw;
       max-height: 650px;
 
       overflow: hidden;
@@ -269,6 +273,15 @@ div.home-desktop-cover {
         background-image: url("./../../../../shared/assets/images/desktop-cover/bg/gender-male-categories-bg.jpg");
         border-left: 0.25em solid white;
 
+        .close-category {
+          position: absolute;
+          top: 14px;
+          left: 16px;
+          font-family: "Open Sans";
+          color: white;
+          transform: scaleY(0.89);
+        }
+
         ul {
           display: block;
           padding: 0px;
@@ -315,6 +328,15 @@ div.home-desktop-cover {
         background-size: cover;
         background-image: url("./../../../../shared/assets/images/desktop-cover/bg/gender-female-categories-bg.jpg");
         border-right: 0.25em solid white;
+
+        .close-category {
+          position: absolute;
+          top: 14px;
+          right: 16px;
+          font-family: "Open Sans";
+          color: white;
+          transform: scaleY(0.89);
+        }
         ul {
           display: block;
           padding: 0px;
@@ -399,17 +421,26 @@ div.home-desktop-cover {
 @media (min-width: 1200px) {
   div.home-desktop-cover .male-category {
     width: 50vw;
-    height: 70vw;
+    height: 60vw;
     max-height: 650px;
   }
-    div.home-desktop-cover .female-category {
+  div.home-desktop-cover .female-category {
     width: 50vw;
-    height: 70vw;
+    height: 60vw;
     max-height: 650px;
-
   }
 }
 
 @media (min-width: 1600px) {
+  div.home-desktop-cover .male-category {
+    width: 50vw;
+    height: 50vw;
+    max-height: 650px;
+  }
+  div.home-desktop-cover .female-category {
+    width: 50vw;
+    height: 50vw;
+    max-height: 650px;
+  }
 }
 </style>
