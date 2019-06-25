@@ -183,6 +183,7 @@ div.home-desktop-cover {
   #constructor-desktop-cover();
   div.home-desktop-cover {
     overflow-y: hidden;
+    overflow-x: hidden;
     .female-category,
     .male-category {
       position: relative;
@@ -211,7 +212,8 @@ div.home-desktop-cover {
     div.categories {
       position: absolute;
       width: 50vw;
-      height: 450px;
+      height: 45vw;
+      max-height: 650px;
 
       overflow: hidden;
       z-index: 50;
@@ -220,22 +222,22 @@ div.home-desktop-cover {
         top: 0px;
 
         &.male {
-          right: 50vw;
+          right: ~"calc(50vw - 1em)";
           top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
+          -webkit-transition: right 500ms ease-in-out;
+          -moz-transition: right 500ms ease-in-out;
+          -ms-transition: right 500ms ease-in-out;
+          -o-transition: right 500ms ease-in-out;
+          transition: right 500ms ease-in-out;
         }
         &.female {
           right: -50vw;
           top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
+          -webkit-transition: right 500ms ease-in-out;
+          -moz-transition: right 500ms ease-in-out;
+          -ms-transition: right 500ms ease-in-out;
+          -o-transition: right 500ms ease-in-out;
+          transition: right 500ms ease-in-out;
         }
       }
 
@@ -243,28 +245,29 @@ div.home-desktop-cover {
         top: 0px;
 
         &.male {
-          right: 0vw;
+          right: -0.5em;
           top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
+          -webkit-transition: right 500ms ease-in-out;
+          -moz-transition: right 500ms ease-in-out;
+          -ms-transition: right 500ms ease-in-out;
+          -o-transition: right 500ms ease-in-out;
+          transition: right 500ms ease-in-out;
         }
         &.female {
           right: 0vw;
           top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
+          -webkit-transition: right 500ms ease-in-out;
+          -moz-transition: right 500ms ease-in-out;
+          -ms-transition: right 500ms ease-in-out;
+          -o-transition: right 500ms ease-in-out;
+          transition: right 500ms ease-in-out;
         }
       }
 
       &.male {
         background-size: cover;
-        background-image: url("./../../../../shared/assets/images/gender-male-categories-bg_Mesa de trabajo 1.png");
+        background-image: url("./../../../../shared/assets/images/desktop-cover/bg/gender-male-categories-bg.jpg");
+        border-left: 0.25em solid white;
 
         ul {
           display: block;
@@ -310,8 +313,8 @@ div.home-desktop-cover {
       }
       &.female {
         background-size: cover;
-        background-image: url("./../../../../shared/assets/images/gender-female_Mesa de trabajo 1.png");
-
+        background-image: url("./../../../../shared/assets/images/desktop-cover/bg/gender-female-categories-bg.jpg");
+        border-right: 0.25em solid white;
         ul {
           display: block;
           padding: 0px;
@@ -391,5 +394,22 @@ div.home-desktop-cover {
       }
     }
   }
+}
+
+@media (min-width: 1200px) {
+  div.home-desktop-cover .male-category {
+    width: 50vw;
+    height: 70vw;
+    max-height: 650px;
+  }
+    div.home-desktop-cover .female-category {
+    width: 50vw;
+    height: 70vw;
+    max-height: 650px;
+
+  }
+}
+
+@media (min-width: 1600px) {
 }
 </style>

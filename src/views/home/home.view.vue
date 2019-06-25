@@ -6,6 +6,7 @@
       <HomeSwiperComponent></HomeSwiperComponent>
       <HomeDekstopCoverComponent></HomeDekstopCoverComponent>
       <HomeDesktopProductsSwiperComponent></HomeDesktopProductsSwiperComponent>
+
       <HomeGenderButtonsComponent></HomeGenderButtonsComponent>
       <HomeSearchBarComponent></HomeSearchBarComponent>
       <HomeBannerAuthorizedDistributorsComponent></HomeBannerAuthorizedDistributorsComponent>
@@ -15,6 +16,7 @@
       <HomeBannerFreeShippingComponent></HomeBannerFreeShippingComponent>
       <HomeBannerGuaranteeComponent></HomeBannerGuaranteeComponent>
       <HomeBannerAddressComponent></HomeBannerAddressComponent>
+
       <FooterComponent/>
     </div>
   </div>

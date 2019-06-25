@@ -10,7 +10,7 @@
     <div class="banner desktop about us">
       <img
         alt="TrianonCo Image"
-        src="../../../../shared/assets/images/banners/about-us-desktop_Mesa de trabajo 1.png"
+        src="../../../../shared/assets/images/banners/about-us-desktop_Mesa de trabajo 1.jpg"
       >
       <div class="banner-title">
         <h2>UNA TRADICIÓN DESDE 1935</h2>
@@ -19,7 +19,7 @@
     </div>
     <div class="banner desktop instagram">
       <a href="https://www.instagram.com/trianonoficial/" target="_blank">
-        <img src="./../../../../shared/assets/images/banners/instragram-mock.png" width="100%">
+        <img src="./../../../../shared/assets/images/banners/instragram-mock.jpg" width="100%">
       </a>
     </div>
   </div>
