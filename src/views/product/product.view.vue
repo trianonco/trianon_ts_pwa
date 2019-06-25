@@ -7,12 +7,48 @@
       <ProductHeaderComponent></ProductHeaderComponent>
 
       <div class="view-wrapper-frame">
-        <div class="view-wrapper-frame-content" v-if="isProductLoaded">
+        <div class="view-wrapper-frame-content mobile" v-if="isProductLoaded">
           <ProductSwiperComponent :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
           <ProductPriceComponent :price="productPrice"></ProductPriceComponent>
           <ProductDescriptionComponent :description="productDescription" :color="productColor"></ProductDescriptionComponent>
           <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
           <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize"></ProductBuyButtonComponent>
+        </div>
+
+        <div class="view-wrapper-frame-content desktop" v-if="isProductLoaded">
+          <div class="view-wrapper-frame-content-col">
+            <ProductSwiperComponent :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
+            <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
+          </div>
+          <div class="view-wrapper-frame-content-col">
+            <h1>
+              <span>{{ productObj.description }} {{ productObj.line}} / {{ productObj.color }}</span>
+            </h1>
+            <h2>
+              <span>{{ productObj.price_cop | toCurrency }}</span>
+            </h2>
+            <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize"></ProductBuyButtonComponent>
+            <div class="referencia">
+              <h3>REFERENCIA : {{ productObj.ref }}</h3>
+            </div>
+            <div class="tallas">
+              <h3>
+                <span
+                  v-if="isCinturon(productObj) && productObj.height"
+                >TALLA : {{ productObj.height }}</span>
+                <span
+                  v-if="productObj.width && productObj.width !== '-' && productObj.width !== '-'"
+                >ANCHO : {{ productObj.width }}</span>
+                <span
+                  v-if="!isCinturon(productObj) && productObj.height && productObj.height !== '-' && productObj.height !== '-'"
+                >ALTO : {{ productObj.height }}</span>
+                <span
+                  v-if="!isCinturon(productObj) && productObj.depth && productObj.depth !== '-' && productObj.depth !== '- '"
+                >PROFUNDO : {{ productObj.depth }}</span>
+              </h3>
+            </div>
+            <img class="symbol" src="./../../shared/assets/images/icon-symbol.png">
+          </div>
         </div>
       </div>
 
@@ -83,6 +119,10 @@ export default class ProductView extends Vue {
   private beforeMount() {
     this.apiDB.setDatabaseByName("SHOP-DB");
     this.db = this.apiDB.getDatabase();
+  }
+
+  private isCinturon(productObj: any) {
+    return productObj && productObj.height.slice(0, 1) === "T";
   }
 
   private mounted() {
@@ -194,6 +234,13 @@ div.product {
       padding-right: 0em;
       padding-bottom: 0em;
 
+      &.mobile {
+        display: block;
+      }
+      &.desktop {
+        display: none;
+      }
+
       div.product-photo-swiper {
         display: block;
         width: 100%;
@@ -214,6 +261,121 @@ div.product {
           &:first-child {
             margin-left: 0.5em;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  div.view.product .view-wrapper {
+    background: url("./../../shared/assets/images/product-view-bg-left.png")
+        bottom left no-repeat,
+      url("./../../shared/assets/images/product-view-bg-right.png") bottom right
+        no-repeat;
+
+    background-size: auto 50vh;
+  }
+  div.product {
+    div.view-wrapper {
+      width: 100%;
+      margin: 0 auto;
+      background-color: white;
+      border: none;
+    }
+
+    div.view-wrapper-frame {
+      border: none;
+
+      width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border: none;
+      div.view-wrapper-frame-content {
+        &.mobile {
+          display: none;
+        }
+        &.desktop {
+          border: none;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+          -webkit-justify-content: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-align-content: center;
+          -ms-flex-line-pack: center;
+          align-content: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+        }
+
+        &-col {
+          width: 50%;
+          display: block;
+
+          .symbol {
+            padding-top: 3em;
+            width: 3em;
+            display: block;
+            margin: 0 auto;
+          }
+          .referencia,
+          .tallas {
+            #Font-TrajanPro();
+            h3 {
+              font-size: 12px;
+              letter-spacing: 1px;
+              -webkit-transform: scaleY(0.8);
+              transform: scaleY(0.8);
+              display: block;
+              color: gray;
+              width: fit-content;
+              margin: 0 auto;
+              padding: 0.5em;
+            }
+          }
+
+          h1,
+          h2,
+          span {
+            text-align: center;
+            font-size: 14px;
+            #Font-TrajanPro();
+          }
+
+          h1,
+          h2 {
+            padding: 1em;
+            margin: 0 auto;
+            transform: scaleY(0.8);
+            letter-spacing: 1px;
+            display: block;
+          }
+
+          h2 {
+            display: block;
+            padding-top: 0px;
+          }
+          h2 span {
+            display: block;
+            font-size: 24px;
+            font-weight: 900;
+            transform: scaleY(0.9);
+            letter-spacing: 1px;
+          }
+        }
+
+        div.product-photo-swiper {
+        }
+        div.photos {
         }
       }
     }

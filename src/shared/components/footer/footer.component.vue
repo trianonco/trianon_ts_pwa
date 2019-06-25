@@ -82,7 +82,7 @@ export default {
 
     .footer-copy {
       background-color: #3f3e3d;
-      margin-top: 1em;
+      margin-top: 1.85em;
       padding: 1em;
       letter-spacing: 1px;
       font-size: 12px;

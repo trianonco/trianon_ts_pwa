@@ -137,4 +137,36 @@ div.product.buy-button {
     }
   }
 }
+
+@media (min-width: 600px) {
+  div.product.buy-button {
+    div.button {
+      display: block;
+      width: ~"calc(200px - 1em)";
+      box-sizing: border-box;
+    }
+    div.message {
+      display: block;
+      width: ~"calc(100% - 1em)";
+      box-sizing: border-box;
+      padding: 0.5em;
+      margin: 0em auto;
+      margin-top: 0em;
+      #Font-TrajanPro();
+      h3 {
+        font-size: 12px;
+        letter-spacing: 1px;
+        -webkit-transform: scaleY(0.8);
+        transform: scaleY(0.8);
+        display: block;
+        color: gray;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 1em;
+        padding-bottom: 2.5em;
+        border-bottom: 1px solid gray;
+      }
+    }
+  }
+}
 </style>
