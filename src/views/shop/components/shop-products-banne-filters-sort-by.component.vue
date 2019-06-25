@@ -50,15 +50,15 @@
 
     <div class="products-filters-sort-by-modal" v-if="UX.isModalActive && UX.isModalPrice">
       <div class="products-filters-sort-by-modal-row prices">
-        <div class="price active" @click="UX.FilterPrice = 1">DE MAYOR A MENOR</div>
-        <div class="price" @click="UX.FilterPrice = -1">DE MENOR A MAYOR</div>
+        <div class="price active" @click="doFilterByPriceFromBiggerToLower()">DE MAYOR A MENOR</div>
+        <div class="price" @click="doFilterByPriceFromLowerToBigger()">DE MENOR A MAYOR</div>
       </div>
     </div>
 
     <div class="products-filters-sort-by-modal" v-if="UX.isModalActive && UX.isModalColor">
       <div class="products-filters-sort-by-modal-row search-bar">
         <img src="./../../../shared/assets/images/search/lupa-icon.png">
-        <input type="text" v-model="UX.FilterColor">
+        <input type="text" v-model="UX.FilterColor" @change="onColorTyped">
       </div>
       <div class="products-filters-sort-by-modal-row"></div>
     </div>
@@ -82,12 +82,24 @@ export default class ShopProductsBannerFiltersSortByComponent extends Vue {
     FilterName: 0
   };
 
+  private onColorTyped() {
+    this.$emit("onSortByColor", this.UX.FilterColor);
+  }
   private isFilterActiveByName(filterName: string) {
     if (this.filter === filterName) {
       return "active";
     } else {
       return "no-active";
     }
+  }
+
+  private doFilterByPriceFromBiggerToLower() {
+    this.UX.FilterPrice = 1;
+    this.$emit("onSortByPrice", 1);
+  }
+  private doFilterByPriceFromLowerToBigger() {
+    this.UX.FilterPrice = -1;
+    this.$emit("onSortByPrice", -1);
   }
 
   private setFilterActiveByName(filterName: string) {
@@ -137,7 +149,6 @@ export default class ShopProductsBannerFiltersSortByComponent extends Vue {
     }
 
     if (this.UX.isModalAZ || this.UX.isModalZA) {
-      alert("OLII");
       this.$emit("onSortByName", this.UX.FilterName);
     }
   }
@@ -289,8 +300,12 @@ div.products-filters-sort-by-modal-row {
   div.products-filters-sort-by {
     position: relative;
     display: block;
-    width: 600px;
+    width: 500px;
     margin: 0 auto;
+  }
+  div.products-filters-sort-by-modal {
+    display: block;
+    width: 80%;
   }
 }
 </style>

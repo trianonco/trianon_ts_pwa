@@ -12,7 +12,7 @@
 
       <h2 class="price">{{ parseFloat(product.price_cop) | toCurrency}}</h2>
 
-      <h2 class="name">{{ product.description }}</h2>
+      <h2 class="name">{{ product.description }} {{ product.line }}</h2>
 
       <h2 class="color">Color {{ product.color}}</h2>
     </div>

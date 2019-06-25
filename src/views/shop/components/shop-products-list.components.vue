@@ -13,7 +13,7 @@
     -->
 
     <ShopProductsListItemComponent
-      v-for="product in productsDB"
+      v-for="product in productsSortedBy"
       v-bind:key="product.ref"
       :product="product"
     ></ShopProductsListItemComponent>
@@ -72,6 +72,53 @@ export default class ShopProductsListComponent extends Vue {
   private beforeMount() {
     this.apiDB.setDatabaseByName("SHOP-DB");
     this.db = this.apiDB.getDatabase();
+  }
+
+  private get productsSortedBy() {
+    let productsSortedBy: any[] = [];
+    /* this.productsDB.sort(function(a:any, b:any){
+      return a-b
+      });
+      */
+
+    //console.clear();
+    console.warn(this.sortBy);
+
+    if (this.sortBy.by === "price") {
+      if (this.sortBy.isAscendent === 1) {
+        productsSortedBy = this.productsDB.sort(function(a: any, b: any) {
+          return a.price_cop - b.price_cop;
+        });
+      } else {
+        productsSortedBy = this.productsDB.sort(function(a: any, b: any) {
+          return b.price_cop - a.price_cop;
+        });
+      }
+    } else if (this.sortBy.by === "color") {
+      productsSortedBy = this.productsDB.filter((prod: any) => {
+        return prod.color.includes(this.sortBy.keyword.toUpperCase());
+      });
+    } else if (this.sortBy.by === "name") {
+      if (this.sortBy.isAscendent === 1) {
+        productsSortedBy = this.productsDB.sort(function(a: any, b: any) {
+          const a_name = a.description + " " + a.line;
+          const b_name = b.description + " " + b.line;
+
+          return ("" + a_name).localeCompare(b_name);
+        });
+      } else {
+        productsSortedBy = this.productsDB.sort(function(a: any, b: any) {
+          const a_name = a.description + " " + a.line;
+          const b_name = b.description + " " + b.line;
+
+          return ("" + b_name).localeCompare(a_name);
+        });
+      }
+    } else {
+      productsSortedBy = this.productsDB;
+    }
+
+    return productsSortedBy;
   }
 
   private handleScroll($event: any) {
