@@ -60,8 +60,25 @@
     height: 175px;
 
     &-network {
-      padding: 0.5em 2em;
+      padding: 0.5em 1em;
+      padding-top: 2em;
       font-family: 'TrajanPro';
+
+      opacity: 0.4;
+      -webkit-transition: all 500s ease-in-out;
+      -moz-transition: all 500s ease-in-out;
+      -ms-transition: all 500s ease-in-out;
+      -o-transition: all 500s ease-in-out;
+      transition: all 500s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+        -webkit-transition: all 500s ease-in-out;
+        -moz-transition: all 500s ease-in-out;
+        -ms-transition: all 500s ease-in-out;
+        -o-transition: all 500s ease-in-out;
+        transition: all 500s ease-in-out;
+      }
 
       img {
         width: 80%;

@@ -1,21 +1,24 @@
 <template>
   <div class="swiper home-desktop-cover">
-    <div class="female-category">
+    <div
+      class="female-category"
+      v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
+    >
       <v-lazy-image
-        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-01-ICC.jpg')"
-        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-01-ICC.jpg')"
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-01-ICC-V2.jpg')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-01-ICC-V2.jpg')"
       />
 
-      <div class="button" @click="UX.isFemaleOpen = !UX.isFemaleOpen">DAMA</div>
+      <div class="button" @click="toogleFemaleOpen()">DAMA</div>
       <div
-        class="categories male"
-        v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }"
+        class="categories female"
+        v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
       >
         <ul>
           <li
-            v-for="(category,index) of MaleCategories"
+            v-for="(category,index) of FemaleCategories"
             :key="index"
-            @click="goToShopCategoryByCategoryAndGender(category.title, 'HOMBRE')"
+            @click="goToShopCategoryByCategoryAndGender(category.title, 'DAMA')"
           >
             <span>{{category.title}}</span>
             <img
@@ -30,22 +33,23 @@
         </ul>
       </div>
     </div>
-    <div class="male-category">
+    <div class="male-category" v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }">
       <v-lazy-image
-        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-02-ICC.jpg')"
-        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-02-ICC.jpg')"
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-02-ICC-V2.jpg')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-02-ICC-V2.jpg')"
       />
 
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
+
       <div
-        class="categories female"
-        v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
+        class="categories male"
+        v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }"
       >
         <ul>
           <li
-            v-for="(category,index) of FemaleCategories"
+            v-for="(category,index) of MaleCategories"
             :key="index"
-            @click="goToShopCategoryByCategoryAndGender(category.title, 'DAMA')"
+            @click="goToShopCategoryByCategoryAndGender(category.title, 'HOMBRE')"
           >
             <span>{{category.title}}</span>
             <img
@@ -79,7 +83,8 @@ import VLazyImage from "v-lazy-image";
 export default class HomeSwiperComponent extends Vue {
   private UX: any = {
     isMaleOpen: false,
-    isFemaleOpen: false
+    isFemaleOpen: false,
+    isZIndex: false
   };
 
   private MaleCategories: any[] = [
@@ -107,6 +112,18 @@ export default class HomeSwiperComponent extends Vue {
   ];
 
   private async mounted() {}
+
+  private toogleFemaleOpen() {
+    if (this.UX.isFemaleOpen) {
+      this.UX.isFemaleOpen = false;
+      setTimeout(() => {
+        this.UX.isZIndex = false;
+      }, 500);
+    } else {
+      this.UX.isFemaleOpen = true;
+      this.UX.isZIndex = true;
+    }
+  }
 
   private goToShopCategoryByCategoryAndGender(category: any, gender: string) {
     console.warn({
@@ -149,12 +166,39 @@ export default class HomeSwiperComponent extends Vue {
 div.home-desktop-cover {
   display: none;
 }
+
+@keyframes animate {
+  0% {
+    z-index: 2000;
+  }
+  99% {
+    z-index: 2000;
+  }
+  100% {
+    z-index: 0;
+  }
+}
+
 @media (min-width: 600px) {
   #constructor-desktop-cover();
   div.home-desktop-cover {
+    overflow-y: hidden;
     .female-category,
     .male-category {
       position: relative;
+      z-index: 50;
+
+      &::-webkit-scrollbar {
+        width: 0px; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+      /* Optional: show position indicator in red */
+      &::-webkit-scrollbar-thumb {
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+      &::-webkit-scrollbar {
+        display: none; // Safari and Chrome
+      }
       .v-lazy-image {
         width: 100%;
       }
@@ -170,31 +214,9 @@ div.home-desktop-cover {
       height: 450px;
 
       overflow: hidden;
+      z-index: 50;
 
       &.active {
-        top: 0px;
-
-        &.male {
-          right: 0px;
-          top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
-        }
-        &.female {
-          right: 0px;
-          top: 0px;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
-        }
-      }
-
-      &.default {
         top: 0px;
 
         &.male {
@@ -208,6 +230,29 @@ div.home-desktop-cover {
         }
         &.female {
           right: -50vw;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+        }
+      }
+
+      &.default {
+        top: 0px;
+
+        &.male {
+          right: 0vw;
+          top: 0px;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+        }
+        &.female {
+          right: 0vw;
           top: 0px;
           -webkit-transition: all 500ms ease-in-out;
           -moz-transition: all 500ms ease-in-out;
@@ -306,6 +351,43 @@ div.home-desktop-cover {
           color: #fff;
           font-family: "TrajanPro";
         }
+      }
+    }
+  }
+
+  div.home-desktop-cover {
+    .male-category {
+      .v-lazy-image-loaded {
+        z-index: 200;
+        display: block;
+      }
+      .categories.male {
+        z-index: -100;
+        display: block;
+      }
+    }
+
+    .female-category {
+      -webkit-transition: all 500ms ease-in-out;
+      -moz-transition: all 500ms ease-in-out;
+      -ms-transition: all 500ms ease-in-out;
+      -o-transition: all 500ms ease-in-out;
+      transition: all 500ms ease-in-out;
+      &.active {
+        z-index: 20000;
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+      }
+      .v-lazy-image-loaded {
+        z-index: 200;
+        display: block;
+      }
+      .categories.female {
+        z-index: -100;
+        display: block;
       }
     }
   }

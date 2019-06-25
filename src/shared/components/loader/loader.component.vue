@@ -12,7 +12,7 @@ import LoaderHelper from "./../../helpers/loader.helper";
 @Component({})
 export default class RouterLoading extends Vue {
   // UI Property
-  public LOAD_TIME: number = 10050;
+  public LOAD_TIME: number = 2000;
   public UI = {
     isLoading: true,
     isLoaderOn: true
@@ -25,6 +25,7 @@ export default class RouterLoading extends Vue {
         this.UI.isLoading = false;
         setTimeout(() => {
           this.UI.isLoaderOn = false;
+          this.$emit("isLoaded");
         }, this.LOAD_TIME);
       }, this.LOAD_TIME);
       sessionStorage.setItem("isLoadedBefore", JSON.stringify(true));

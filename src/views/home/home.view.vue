@@ -1,6 +1,6 @@
 <template>
   <div class="view home">
-    <LoaderComponent/>
+    <LoaderComponent @isLoaded="isLoaded = true"/>
     <div class="view-wrapper">
       <HeaderComponent :theme="headerTheme"/>
       <HomeSwiperComponent></HomeSwiperComponent>
@@ -64,6 +64,7 @@ export default class HomeComponent extends Vue {
     color: "light",
     background: "dark"
   };
+  private isLoaded: boolean = false;
 }
 </script>
 

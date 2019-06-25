@@ -12,7 +12,11 @@
     </div>
     <div class="footer-logo">
       <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
-      <img class="desktop" alt="TrianonCo Image" src="./../../assets/images/footers/bull-large.png">
+      <img
+        class="desktop"
+        alt="TrianonCo Image"
+        src="./../../assets/images/footers/G-C-LÍNEA-TORO-V1.png"
+      >
     </div>
     <div class="footer-copy desktop">© {{currentYear}} TRIANON S.A.S TODOS LOS DERECHOS RESERVADOS.</div>
   </footer>
@@ -82,7 +86,7 @@ export default {
 
     .footer-copy {
       background-color: #3f3e3d;
-      margin-top: 1.85em;
+      margin-top: -0.65em;
       padding: 1em;
       letter-spacing: 1px;
       font-size: 12px;

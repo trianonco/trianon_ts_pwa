@@ -322,7 +322,8 @@ div.product {
           display: block;
 
           .symbol {
-            padding-top: 3em;
+            padding-top: 1.5em;
+            padding-bottom: 2.5em;
             width: 3em;
             display: block;
             margin: 0 auto;
