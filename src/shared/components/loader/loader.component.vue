@@ -19,22 +19,18 @@ export default class RouterLoading extends Vue {
   };
 
   public mounted() {
-    /*
-    const isLoadedBefore = sessionStorage.getItem("isLoadedBefore");
-    if (!isLoadedBefore || true) {
-      setTimeout(() => {
-        this.UI.isLoading = false;
-        setTimeout(() => {
-          this.UI.isLoaderOn = false;
-          this.$emit("isLoaded");
-        }, this.LOAD_TIME);
-      }, this.LOAD_TIME);
-      sessionStorage.setItem("isLoadedBefore", JSON.stringify(true));
-    } else {
-      this.UI.isLoaderOn = false;
+    //const isLoadedBefore = sessionStorage.getItem("isLoadedBefore");
+    //if (!isLoadedBefore || true) {
+
+    setTimeout(() => {
       this.UI.isLoading = false;
-    }
-    */
+      setTimeout(() => {
+        this.UI.isLoaderOn = false;
+        this.$emit("isLoaded");
+      }, this.LOAD_TIME);
+    }, this.LOAD_TIME);
+
+    //sessionStorage.setItem("isLoadedBefore", JSON.stringify(true));
   }
 
   private getViewLoaderWrapperClass() {
