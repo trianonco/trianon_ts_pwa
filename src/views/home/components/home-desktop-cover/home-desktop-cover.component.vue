@@ -8,6 +8,10 @@
         :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-01-ICC-V2.jpg')"
         :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-01-ICC-V2.jpg')"
       />
+      <img
+        src="./../../../../shared/assets/images/desktop-cover/G-C-IZQUIERDA.png"
+        style="position: absolute;bottom: 1em;left: 0px;width: 2em;"
+      >
 
       <div class="button" @click="toogleFemaleOpen()">DAMA</div>
       <div
@@ -39,6 +43,10 @@
         :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-02-ICC-V2.jpg')"
         :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-02-ICC-V2.jpg')"
       />
+      <img
+        src="./../../../../shared/assets/images/desktop-cover/G-C-DERECHO.png"
+        style="position: absolute;bottom: 1em;right: 0px;width: 2em;"
+      >
 
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
 
