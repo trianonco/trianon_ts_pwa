@@ -86,7 +86,7 @@ export default {
     }
 
     p {
-      max-width: 600px;
+      max-width: 720px;
     }
 
     img {

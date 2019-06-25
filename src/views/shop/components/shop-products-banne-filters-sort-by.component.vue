@@ -60,7 +60,9 @@
         <img src="./../../../shared/assets/images/search/lupa-icon.png">
         <input type="text" v-model="UX.FilterColor" @change="onColorTyped">
       </div>
-      <div class="products-filters-sort-by-modal-row"></div>
+      <div class="products-filters-sort-by-modal-row">
+        
+      </div>
     </div>
   </div>
 </template>

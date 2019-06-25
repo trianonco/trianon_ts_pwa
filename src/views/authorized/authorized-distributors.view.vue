@@ -138,17 +138,28 @@ export default class ProductView extends Vue {
         return posDistance < 0.01;
       });
     } else {
-      return this.distributorsDB.filter(distributor =>
-        distributor.city
-          .toUpperCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .includes(
-            this.currentSearchKey
-              .toUpperCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-          )
+      return this.distributorsDB.filter(
+        distributor =>
+          distributor.city
+            .toUpperCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .includes(
+              this.currentSearchKey
+                .toUpperCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+            ) ||
+          distributor.department
+            .toUpperCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .includes(
+              this.currentSearchKey
+                .toUpperCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+            )
       );
     }
   }

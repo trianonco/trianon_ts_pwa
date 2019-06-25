@@ -96,7 +96,16 @@ export default class ShopProductsListComponent extends Vue {
       }
     } else if (this.sortBy.by === "color") {
       productsSortedBy = this.productsDB.filter((prod: any) => {
-        return prod.color.includes(this.sortBy.keyword.toUpperCase());
+        return prod.color
+          .toUpperCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .includes(
+            this.sortBy.keyword
+              .toUpperCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          );
       });
     } else if (this.sortBy.by === "name") {
       if (this.sortBy.isAscendent === 1) {
