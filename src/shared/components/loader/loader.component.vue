@@ -12,7 +12,7 @@ import LoaderHelper from "./../../helpers/loader.helper";
 @Component({})
 export default class RouterLoading extends Vue {
   // UI Property
-  public LOAD_TIME: number = 2050;
+  public LOAD_TIME: number = 10050;
   public UI = {
     isLoading: true,
     isLoaderOn: true
