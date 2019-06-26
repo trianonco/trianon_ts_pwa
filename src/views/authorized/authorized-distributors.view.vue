@@ -149,6 +149,7 @@ export default class ProductView extends Vue {
   private currentDistributor: any = {};
 
   public swiperOption: any = {
+    loop: true,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false
