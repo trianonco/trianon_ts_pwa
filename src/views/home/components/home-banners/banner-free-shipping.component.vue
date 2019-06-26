@@ -90,7 +90,7 @@ export default {
 
   div.pic-bg {
     background-color: black;
-    background-image: url("../../../../shared/assets/images/banners/free-shipping-bg.png");
+    background-image: url("../../../../shared/assets/images/banners/free-shipping-bg.jpg");
     background-size: cover;
     color: white;
     display: block;
@@ -185,7 +185,7 @@ export default {
 
     div.pic-bg {
       background-color: #dfcc8d;
-      background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.png");
+      background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.jpg");
       background-size: cover;
 
       padding: 3em;

@@ -46,7 +46,7 @@ export default {
   padding-bottom: 1em;
   box-sizing: border-box;
   background-color: black;
-  background-image: url("../../../../shared/assets/images/banners/address-bg.png");
+  background-image: url("../../../../shared/assets/images/banners/address-bg.jpg");
   background-size: cover;
   background-position: center;
 
@@ -130,7 +130,7 @@ export default {
 @media (min-width: 600px) {
   .banner.address {
     padding-bottom: 3em;
-    background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.png");
+    background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.jpg");
 
     font-family: "Open Sans";
     text-transform: uppercase;
