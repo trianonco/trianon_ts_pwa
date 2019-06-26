@@ -109,7 +109,6 @@ export default class HomeSwiperComponent extends Vue {
     { title: "MONEDEROS Y TARJETEROS" },
     { title: "PORTA BILLETES" },
     { title: "PORTA DOCUMENTOS" },
-    { title: "PORTA LLAVEROS" },
     { title: "PORTA PASAPORTES" }
   ];
 
