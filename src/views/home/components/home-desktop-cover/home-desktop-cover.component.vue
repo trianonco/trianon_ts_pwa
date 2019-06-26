@@ -25,15 +25,15 @@
             :key="index"
             @click="goToShopCategoryByCategoryAndGender(category.title, 'DAMA')"
           >
-            <span>{{category.title}}</span>
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
-              v-if="isBulletActive(category)"
+              v-if="isBulletActive(category.title ,'DAMA')"
             >
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
-              v-if="!isBulletActive(category)"
+              v-if="!isBulletActive(category.title, 'DAMA')"
             >
+            <span>{{category.title}}</span>
           </li>
         </ul>
       </div>
@@ -64,11 +64,11 @@
             <span>{{category.title}}</span>
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
-              v-if="isBulletActive(category)"
+              v-if="isBulletActive(category.title,'HOMBRE')"
             >
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
-              v-if="!isBulletActive(category)"
+              v-if="!isBulletActive(category.title,'HOMBRE')"
             >
           </li>
         </ul>
@@ -94,7 +94,11 @@ export default class HomeSwiperComponent extends Vue {
   private UX: any = {
     isMaleOpen: false,
     isFemaleOpen: false,
-    isZIndex: false
+    isZIndex: false,
+    currentCategorySelected: {
+      category: "",
+      gender: ""
+    }
   };
 
   private MaleCategories: any[] = [
@@ -136,37 +140,28 @@ export default class HomeSwiperComponent extends Vue {
   }
 
   private goToShopCategoryByCategoryAndGender(category: any, gender: string) {
-    console.warn({
-      category: category,
-      gender: gender
-    });
+    this.UX.currentCategorySelected.category = category;
+    this.UX.currentCategorySelected.gender = gender;
 
-    this.$router.push({
-      name: "shopCategoryGender",
-      params: {
-        category: category,
-        gender: gender
-      }
-    });
-
-    /*
-
-    this.selectedItemID = parseInt(id);
     setTimeout(() => {
-      this.selectedItemID = 0;
+      this.UX.currentCategorySelected.category = "";
+      this.UX.currentCategorySelected.gender = "";
+
       this.$router.push({
         name: "shopCategoryGender",
         params: {
-          category: category.title,
+          category: category,
           gender: gender
         }
       });
     }, 500);
-    */
   }
 
-  private isBulletActive(category: any) {
-    return false;
+  private isBulletActive(category: any, gender: any) {
+    return (
+      this.UX.currentCategorySelected.category === category &&
+      this.UX.currentCategorySelected.gender === gender
+    );
   }
 }
 </script>
@@ -234,7 +229,7 @@ div.home-desktop-cover {
         top: 0px;
 
         &.male {
-          right: ~"calc(50vw - 1em)";
+          right: ~"calc(50vw - 0em)";
           top: 0px;
           -webkit-transition: right 500ms ease-in-out;
           -moz-transition: right 500ms ease-in-out;
@@ -294,16 +289,20 @@ div.home-desktop-cover {
           display: block;
           padding: 0px;
           margin: 0px;
-          padding: 1em;
+          padding-top: 3em;
+          padding-left: 3em;
+          padding-right: 3em;
 
           li {
             padding: 0px;
             margin: 0px;
-            padding: 0.5em;
+            padding: 0.75em;
             text-decoration: underline;
             text-align: right;
 
-            font-size: 10px;
+            cursor: pointer;
+
+            font-size: 16px;
 
             display: -ms-flexbox;
             display: -webkit-flex;
@@ -350,11 +349,16 @@ div.home-desktop-cover {
           padding: 0px;
           margin: 0px;
           padding: 1em;
+
+          padding-top: 3em;
+          padding-left: 3em;
+          padding-right: 3em;
           li {
+            cursor: pointer;
             padding: 0px;
             margin: 0px;
-            padding: 0.5em;
-            font-size: 10px;
+            padding: 0.75em;
+            font-size: 16px;
             letter-spacing: 1px;
             text-decoration: underline;
             text-align: right;

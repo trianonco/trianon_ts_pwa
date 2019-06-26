@@ -20,8 +20,8 @@
       <h1>TRIANON ES COLOMBIA</h1>
       <p>
         ENTENDEMOS QUE LA CERCANÍA EN DONDE QUIERA QUE ESTÉS, ES FACILITAR TU VIDA Y RESPETAR TU TIEMPO,
-        POR ELLO, ESTAMOS EN MÁS DE 1.300 DISTRIBUIDORES AUTORIZADOS POR TODA COLOMBIA,
-        TAMBIÉN CONTAMOS CON 5 TIENDAS DIRECTAS UNA EN PALMIRA Y 4 MÁS EN BOGOTÁ.
+        <br>POR ELLO, ESTAMOS EN MÁS DE 1.300 DISTRIBUIDORES AUTORIZADOS POR TODA COLOMBIA,
+        <br>TAMBIÉN CONTAMOS CON 5 TIENDAS DIRECTAS UNA EN PALMIRA Y 4 MÁS EN BOGOTÁ.
       </p>
       <div class="buttons">
         <div>
@@ -36,7 +36,7 @@
           <div class="banner-button gold">
             <img class src="../../../../shared/assets/images/banners/button-place-dark-ico-02.png">
             <h4 @click="goToAuthorizedShops()">
-              <span>TIENDAS</span>
+              <span>TIENDAS TRIANON</span>
             </h4>
           </div>
         </div>
@@ -125,19 +125,27 @@ export default {
         font-family: "TrajanPro";
         text-align: center;
         padding: 1em;
+        padding-bottom: 1.5em;
+        font-size: 18px;
+        transform: scaleY(0.9);
+        letter-spacing: 2px;
       }
       p {
         font-family: "Open Sans";
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
         width: 90%;
-        max-width: 817px;
+        max-width: 938px;
         margin: 0 auto;
-        letter-spacing: 1px;
-        line-height: 1.5em;
+        line-height: 2em;
+        -webkit-transform: scaleY(0.95);
+        transform: scaleY(0.95);
+        letter-spacing: 2px;
+        color: #525252;
       }
 
       .buttons {
+        margin: 1em;
         display: block;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -157,10 +165,23 @@ export default {
         -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center;
+
+        h4 {
+          font-size: 16px !important;
+          width: calc(100% - 3.25em) !important;
+        }
+        img {
+          width: 3em !important;
+        }
+      }
+
+      .banner.authorized.distributors .banner-button.gold {
+        width: 320px;
       }
 
       .banner-button {
         margin: 1em !important;
+        width: 320px !important;
       }
 
       div {

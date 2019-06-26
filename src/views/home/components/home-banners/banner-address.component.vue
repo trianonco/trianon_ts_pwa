@@ -131,15 +131,39 @@ export default {
   .banner.address {
     padding-bottom: 3em;
     background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.png");
+
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 3px;
+    font-weight: 300;
+
+    margin: 0 auto;
+    padding-bottom: 0.5em;
+    line-height: 25px;
+
     div.header {
       background-color: rgba(0, 0, 0, 0);
       color: white;
       padding-top: 3em;
+      .title {
+        font-family: "TrajanPro";
+        text-align: center;
+        padding: 1em;
+        font-size: 16px;
+        img {
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+        }
+      }
     }
     .links {
       width: 80%;
+      padding: 1em 0em;
       a {
         padding: 1em;
+        font-size: 12px;
+        font-weight: 600;
       }
     }
     .mobile-br {

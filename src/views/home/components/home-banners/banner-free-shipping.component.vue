@@ -3,7 +3,7 @@
 <template>
   <div>
     <div class="banner free shipping">
-      <div class="pic-bg">
+      <div class="pic-bg mobile">
         <h2>MEDIOS DE ENVIO</h2>
         <h3>
           !Envíos Gratis!
@@ -12,6 +12,18 @@
           <span>valido solo para colombia</span>
         </h3>
         <h4>Costo de envío a nivel nacional : $8.000 COP</h4>
+        <h4>Costo de envío a nivel internacional: $10 USD</h4>
+      </div>
+      <div class="pic-bg desktop">
+        <h2>MEDIOS DE ENVIO</h2>
+        <h3>
+          !Envíos Gratis!
+          POR COMPRAS SUPERIORES A $100.000 COP
+          <br>
+
+          <h4>(valido solo para colombia) Costo de envío a nivel nacional : $8.000 COP</h4>
+        </h3>
+
         <h4>Costo de envío a nivel internacional: $10 USD</h4>
       </div>
       <div class="gold-bg">
@@ -68,6 +80,13 @@ export default {
   padding: 0em;
   box-sizing: border-box;
   background-color: white;
+
+  .mobile {
+    display: block !important;
+  }
+  .desktop {
+    display: none !important;
+  }
 
   div.pic-bg {
     background-color: black;
@@ -157,10 +176,50 @@ export default {
 
 @media (min-width: 600px) {
   .banner.free.shipping {
+    .mobile {
+      display: none !important;
+    }
+    .desktop {
+      display: block !important;
+    }
+
     div.pic-bg {
       background-color: #dfcc8d;
       background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.png");
       background-size: cover;
+
+      padding: 3em;
+
+      h2 {
+        font-size: 16px;
+        letter-spacing: 4px;
+        font-weight: 300;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-weight: 900;
+        line-height: 2em;
+
+        font-family: "Open Sans" !important;
+
+        transform: scaleY(0.9);
+        padding-top: 5px;
+        padding-bottom: 10px;
+      }
+
+      h4 {
+        font-size: 14px;
+        line-height: 25px;
+        font-weight: 300;
+        font-family: "Open Sans" !important;
+
+        transform: scaleY(0.9);
+      }
     }
     div.gold-bg {
       display: none;
@@ -210,12 +269,16 @@ export default {
     }
 
     h1 {
-      font-size: 13px;
+      font-size: 16px;
       letter-spacing: 4px;
       font-weight: 300;
 
       padding-top: 2em;
       padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 13px;
     }
 
     p {

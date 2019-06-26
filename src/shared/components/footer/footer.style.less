@@ -57,31 +57,45 @@
   }
 
   @media (min-width: 600px) {
-    height: 175px;
+    height: 225px;
+
+    .footer-logo img {
+      width: 150%;
+      position: relative;
+      left: -25%;
+      top: -24px;
+    }
+
+    .footer .footer-copy {
+      display: block;
+    }
+
+    &-title {
+      h2 {
+        #Font-OpenSans("normal");
+        font-weight: 300;
+        font-size: 16px;
+        padding: @1pm;
+        padding-top: 2em;
+        letter-spacing: 2px;
+      }
+    }
 
     &-network {
       padding: 0.5em 1em;
       padding-top: 2em;
       font-family: 'TrajanPro';
 
-      opacity: 0.4;
-      -webkit-transition: all 500s ease-in-out;
-      -moz-transition: all 500s ease-in-out;
-      -ms-transition: all 500s ease-in-out;
-      -o-transition: all 500s ease-in-out;
-      transition: all 500s ease-in-out;
+      opacity: 0.5;
 
       &:hover {
         opacity: 1;
-        -webkit-transition: all 500s ease-in-out;
-        -moz-transition: all 500s ease-in-out;
-        -ms-transition: all 500s ease-in-out;
-        -o-transition: all 500s ease-in-out;
-        transition: all 500s ease-in-out;
       }
+
 
       img {
         width: 80%;
+
       }
     }
   }

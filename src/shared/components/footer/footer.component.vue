@@ -74,6 +74,10 @@ export default {
     }
   }
 
+  .footer-copy {
+    display: none;
+  }
+
   @media (min-width: 600px) {
     .footer-logo {
       .mobile {
@@ -86,12 +90,17 @@ export default {
 
     .footer-copy {
       background-color: #3f3e3d;
+      display: block;
       margin-top: -0.65em;
       padding: 1em;
       letter-spacing: 1px;
       font-size: 12px;
       font-family: "Open Sans";
       color: #9d9d9c;
+
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
     }
   }
 }

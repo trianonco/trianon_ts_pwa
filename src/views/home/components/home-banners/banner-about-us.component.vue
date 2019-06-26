@@ -151,11 +151,15 @@ export default {
       //height: 20vw;
       //min-width: 100px;
       //min-height: 200px;
-      width: 30vw;
-      height: 20vw;
+      width: 32vw;
+      height: 23vw;
+      max-height: 250px;
       object-fit: cover;
       object-position: center;
     }
+  }
+  .banner.desktop.instagram {
+    padding: 2.25em 0em;
   }
 }
 </style>

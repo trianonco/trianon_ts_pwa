@@ -1,40 +1,62 @@
 <template>
   <div class="view authorized-distributors">
-    <!-- Headers -->
-    <HeaderComponent/>
+    <LoaderComponent :time="3000"/>
+    <div>
+      <!-- Headers -->
+      <HeaderComponent/>
 
-    <div class="view-wrapper">
-      <h1 class="title">
-        <span>DISTRIBUIDORES AUTORIZADOS</span>
-      </h1>
+      <div class="view-wrapper">
+        <h1 class="title">
+          <span>DISTRIBUIDORES AUTORIZADOS</span>
+        </h1>
 
-      <h2
-        class="description"
-      >TENDRÁS A TU ALCANCE DIVERSAS REFERENCIAS DE PRODUCTOS TRIANON, TEN EN CUENTA QUE CADA UNO DE LOS DISTRIBUIDORES ESTA SUJETO A INVENTARIO</h2>
+        <h2
+          class="description"
+        >TENDRÁS A TU ALCANCE DIVERSAS REFERENCIAS DE PRODUCTOS TRIANON, TEN EN CUENTA QUE CADA UNO DE LOS DISTRIBUIDORES ESTA SUJETO A INVENTARIO</h2>
 
-      <div class="list-and-map">
-        <div class="search">
-          <div class="search-wrapper">
-            <img alt="TrianonCo Image" src="./../../shared/assets/images/search/lupa-icon.png">
-            <input
-              type="text"
-              placeholder="DEPARTAMENTO O CIUDAD"
-              v-model="currentSearchKey"
-              v-on:keyup.enter="onSubmit"
-            >
+        <div class="list-and-map">
+          <div class="search">
+            <div class="search-wrapper">
+              <img alt="TrianonCo Image" src="./../../shared/assets/images/search/lupa-icon.png">
+              <input
+                type="text"
+                placeholder="DEPARTAMENTO O CIUDAD"
+                v-model="currentSearchKey"
+                v-on:keyup.enter="onSubmit"
+              >
+            </div>
+            <div class="banner">
+              <swiper :options="swiperOption" ref="myDistributorSwiper">
+                <!-- slides -->
+
+                <swiper-slide>
+                  <v-lazy-image
+                    :src="require('./../../shared/assets/images/distributor-swiper/sw1_HD.jpg')"
+                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw1_LOW.jpg')"
+                  />
+                </swiper-slide>
+                <swiper-slide>
+                  <v-lazy-image
+                    :src="require('./../../shared/assets/images/distributor-swiper/sw2_HD.jpg')"
+                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw2_LOW.jpg')"
+                  />
+                </swiper-slide>
+                <swiper-slide>
+                  <v-lazy-image
+                    :src="require('./../../shared/assets/images/distributor-swiper/sw3_HD.jpg')"
+                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw3_LOW.jpg')"
+                  />
+                </swiper-slide>
+              </swiper>
+            </div>
           </div>
-          <img
-            class="banner"
-            src="./../../shared/assets/images/deskt-distributors_Mesa de trabajo 1.png"
-          >
-        </div>
 
-        <GmapMap
-          map-type-id="terrain"
-          style="width: 500px; height: 300px"
-          :center="position"
-          :zoom="16"
-          :options="{
+          <GmapMap
+            map-type-id="terrain"
+            style="width: 500px; height: 300px"
+            :center="position"
+            :zoom="16"
+            :options="{
           zoomControl: true,
           mapTypeControl: false,
           scaleControl: false,
@@ -43,47 +65,48 @@
           fullscreenControl: true,
           disableDefaultUi: false
         }"
-        >
-          <GmapMarker
-            v-if="currentDistributor && currentDistributor.position"
-            :position="currentDistributor.position"
-            :clickable="true"
-            :draggable="false"
-            @click="center=currentDistributor.position"
-          />
-        </GmapMap>
-      </div>
+          >
+            <GmapMarker
+              v-if="currentDistributor && currentDistributor.position"
+              :position="currentDistributor.position"
+              :clickable="true"
+              :draggable="false"
+              @click="center=currentDistributor.position"
+            />
+          </GmapMap>
+        </div>
 
-      <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
-        <i class="fas fa-arrow-up"></i>
-      </div>
+        <div class="goUpButton" v-if="!isFirstPage" @click="goScrollTop()">
+          <i class="fas fa-arrow-up"></i>
+        </div>
 
-      <div class="authorized-distributor-city">
-        <span>{{ currentCity }}</span>
-      </div>
+        <div class="authorized-distributor-city">
+          <span>{{ currentCity }}</span>
+        </div>
 
-      <div v-for="(distributor,index) of distributorsFilteredBySearchKey" v-bind:key="index">
-        <div class="authorized-distributor-card" @click="setCurrentDistributor(distributor)">
-          <div
-            class="authorized-distributor-card-isnew"
-            v-if="isNew(distributor)"
-          >NUEVO DISTRIBUIDOR AUTORIZADO</div>
+        <div v-for="(distributor,index) of distributorsFilteredBySearchKey" v-bind:key="index">
+          <div class="authorized-distributor-card" @click="setCurrentDistributor(distributor)">
+            <div
+              class="authorized-distributor-card-isnew"
+              v-if="isNew(distributor)"
+            >NUEVO DISTRIBUIDOR AUTORIZADO</div>
 
-          <div class="authorized-distributor-card-phone">
-            <span>{{ distributor.city }} {{ distributor.phone}}</span>
-          </div>
-          <div class="authorized-distributor-card-address">
-            <span>DIRECCIÓN: {{ distributor.address}}</span>
-          </div>
-          <div class="authorized-distributor-card-email">
-            <span>{{ distributor.email}}</span>
+            <div class="authorized-distributor-card-phone">
+              <span>{{ distributor.city }} {{ distributor.phone}}</span>
+            </div>
+            <div class="authorized-distributor-card-address">
+              <span>DIRECCIÓN: {{ distributor.address}}</span>
+            </div>
+            <div class="authorized-distributor-card-email">
+              <span>{{ distributor.email}}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <FooterComponent/>
-    <!-- Footers -->
+      <FooterComponent/>
+      <!-- Footers -->
+    </div>
   </div>
 </template>
 
@@ -93,12 +116,19 @@ import VLazyImage from "v-lazy-image";
 
 import HeaderComponent from "../../shared/components/header/header.component.vue";
 import FooterComponent from "../../shared/components/footer/footer.component.vue";
+import LoaderComponent from "./../../shared/components/loader/loader.component.vue";
 
 import ApiDataBase from "./../../shared/database/index";
 import InfiniteLoading from "vue-infinite-loading";
 
 @Component({
-  components: { HeaderComponent, FooterComponent, VLazyImage, InfiniteLoading }
+  components: {
+    HeaderComponent,
+    FooterComponent,
+    VLazyImage,
+    InfiniteLoading,
+    LoaderComponent
+  }
 })
 export default class ProductView extends Vue {
   private apiDB = new ApiDataBase();
@@ -117,6 +147,13 @@ export default class ProductView extends Vue {
   private currentCity: string = "";
   private currentSearchKey: string = "";
   private currentDistributor: any = {};
+
+  public swiperOption: any = {
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false
+    }
+  };
 
   private beforeMount() {
     this.apiDB.setDatabaseByName("SETTINGS-DB");
@@ -205,16 +242,8 @@ export default class ProductView extends Vue {
       (this as any)
         .$getLocation()
         .then((coordinates: any) => {
-          /*
           const lat = coordinates.lat;
           const lng = coordinates.lng;
-          this.position = {
-            lat: lat,
-            lng: lng
-          };
-          */
-          const lat = 4.602472;
-          const lng = -74.108094;
           this.position = {
             lat: lat,
             lng: lng
@@ -223,13 +252,13 @@ export default class ProductView extends Vue {
           this.markers.push({ position: this.position });
         })
         .catch((e: any) => {
-          const lat = 4.602472;
-          const lng = -74.108094;
+          const lat = 4.610292;
+          const lng = -74.100711;
           this.position = {
             lat: lat,
             lng: lng
           };
-          //this.markers.push({ position: this.position });
+          this.markers.push({ position: this.position });
         });
     });
   }
@@ -511,6 +540,12 @@ div.authorized-distributors {
           width: 100%;
           height: 252px;
           object-fit: cover;
+          img {
+            width: 100%;
+            height: 252px;
+            object-fit: cover;
+            object-position: center;
+          }
         }
         .search-wrapper {
         }

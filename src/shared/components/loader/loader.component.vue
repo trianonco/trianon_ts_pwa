@@ -7,10 +7,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import LoaderHelper from "./../../helpers/loader.helper";
 @Component({})
 export default class RouterLoading extends Vue {
+  @Prop()
+  inTime!: number;
+
   // UI Property
   public LOAD_TIME: number = 2000;
   public UI = {
@@ -18,9 +21,15 @@ export default class RouterLoading extends Vue {
     isLoaderOn: true
   };
 
+
+
   public mounted() {
     //const isLoadedBefore = sessionStorage.getItem("isLoadedBefore");
     //if (!isLoadedBefore || true) {
+
+    if (this.inTime) {
+      this.LOAD_TIME = this.inTime;
+    }
 
     setTimeout(() => {
       this.UI.isLoading = false;

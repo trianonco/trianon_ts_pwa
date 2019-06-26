@@ -85,8 +85,21 @@ export default {
       display: block;
     }
 
+    h2 {
+      font-family: "TrajanPro";
+      text-align: center;
+      padding: 1em;
+      font-size: 16px;
+      letter-spacing: 4px;
+      font-weight: 300;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
     p {
-      max-width: 720px;
+      max-width: 910px;
+      font-family: "Open Sans";
+      font-size: 14px;
     }
 
     img {
