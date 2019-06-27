@@ -56,6 +56,7 @@ export default class ShopComponent extends Vue {
   private products: any[] = [];
 
   private mounted() {
+    (this as any).$ga.page("/shop");
     const params = (this.$route as any).params;
 
     // Route Params

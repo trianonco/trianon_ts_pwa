@@ -67,6 +67,9 @@ export default class HomeComponent extends Vue {
     background: "dark"
   };
   private isLoaded: boolean = false;
+  private mounted() {
+    (this as any).$ga.page("/home");
+  }
 }
 </script>
 

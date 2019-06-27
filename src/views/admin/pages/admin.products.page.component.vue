@@ -324,14 +324,19 @@ export default class AdminProductsPageComponent extends Vue {
       "MALETIN"
     ];
     const WORDS_CINTURONES = ["CINTURONES"];
-    const WORDS_LLAVEROS = ["LLAVERO", "LLAVEROS", "POTA LLAVES", "LLAVES"];
+    const WORDS_LLAVEROS = ["LLAVERO", "LLAVEROS"];
     const WORDS_MONEDEROS_Y_TARJETEROS = ["MONEDERO", "TARJETERO", "MONEDAS"];
     const WORDS_PORTA_BILLETES = [
       "PORTA BILLETES",
       "BILLETES",
       "PORTA BILLETE"
     ];
-    const WORDS_PORTA_COSMETICOS = ["PORTA COSMÉTICOS", "COSMETICOS", "PORTA LAPICES"];
+    const WORDS_PORTA_LLAVES = ["PORTA LAVE", "POTA LLAVES"];
+    const WORDS_PORTA_COSMETICOS = [
+      "PORTA COSMÉTICOS",
+      "COSMETICOS",
+      "PORTA LAPICES"
+    ];
     const WORDS_PORTA_DOCUMENTOS = [
       "PORTA DOCUMENTOS",
       "DOCUMENTOS",
@@ -344,6 +349,7 @@ export default class AdminProductsPageComponent extends Vue {
     const FUZZY_SET_LLAVERO = FuzzySet(WORDS_LLAVEROS);
     const FUZZY_SET_MONEDERO = FuzzySet(WORDS_MONEDEROS_Y_TARJETEROS);
     const FUZZY_SET_PORTA_BILLETES = FuzzySet(WORDS_PORTA_BILLETES);
+    const FUZZY_SET_PORTA_LLAVES = FuzzySet(WORDS_PORTA_LLAVES);
     const FUZZY_SET_PORTA_COSMETICOS = FuzzySet(WORDS_PORTA_COSMETICOS);
     const FUZZY_SET_PORTA_DOCUMENTOS = FuzzySet(WORDS_PORTA_DOCUMENTOS);
     const FUZZY_SET_PORTA_PASAPORTES = FuzzySet(WORDS_PORTA_PASAPORTES);
@@ -353,6 +359,7 @@ export default class AdminProductsPageComponent extends Vue {
     const MATCH_LLAVERO = FUZZY_SET_LLAVERO.get(WORD);
     const MATCH_MONEDERO = FUZZY_SET_MONEDERO.get(WORD);
     const MATCH_PORTA_BILLETES = FUZZY_SET_PORTA_BILLETES.get(WORD);
+    const MATCH_PORTA_LLAVES = FUZZY_SET_PORTA_LLAVES.get(WORD);
     const MATCH_PORTA_COSMETICOS = FUZZY_SET_PORTA_COSMETICOS.get(WORD);
     const MATCH_PORTA_DOCUMENTOS = FUZZY_SET_PORTA_DOCUMENTOS.get(WORD);
     const MATCH_PORTA_PASAPORTES = FUZZY_SET_PORTA_PASAPORTES.get(WORD);
@@ -363,6 +370,7 @@ export default class AdminProductsPageComponent extends Vue {
       MATCH_LLAVERO,
       MATCH_MONEDERO,
       MATCH_PORTA_BILLETES,
+      MATCH_PORTA_LLAVES,
       MATCH_PORTA_COSMETICOS,
       MATCH_PORTA_DOCUMENTOS,
       MATCH_PORTA_PASAPORTES
@@ -401,6 +409,7 @@ export default class AdminProductsPageComponent extends Vue {
       CINTURONES: WORDS_CINTURONES,
       LLAVEROS: WORDS_LLAVEROS,
       MONEDEROS_Y_TARJETEROS: WORDS_MONEDEROS_Y_TARJETEROS,
+      PORTA_LLAVES: WORDS_PORTA_LLAVES,
       PORTA_BILLETES: WORDS_PORTA_BILLETES,
       PORTA_COSMETICOS: WORDS_PORTA_COSMETICOS,
       PORTA_DOCUMENTOS: WORDS_PORTA_DOCUMENTOS,
@@ -420,6 +429,7 @@ export default class AdminProductsPageComponent extends Vue {
       CINTURONES: "Cinturones",
       LLAVEROS: "Llaveros",
       MONEDEROS_Y_TARJETEROS: "Monederos y Tarjeteros",
+      PORTA_LLAVES: "Porta Llaves",
       PORTA_BILLETES: "Porta Billetes",
       PORTA_COSMETICOS: "Porta Cosméticos",
       PORTA_DOCUMENTOS: "Porta Documentos",

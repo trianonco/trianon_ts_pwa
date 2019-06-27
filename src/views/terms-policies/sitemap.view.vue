@@ -7,6 +7,23 @@
       <h1>MAPA DE SITIO</h1>
 
       <div class="block white">
+        <img
+          class="bg-icon top-left"
+          src="./../../shared/assets/images/terms/desktop/Recurso 1@4x.png"
+        >
+        <img
+          class="bg-icon top-right"
+          src="./../../shared/assets/images/terms/desktop/Recurso 2@4x.png"
+        >
+        <img
+          class="bg-icon middle-left"
+          src="./../../shared/assets/images/terms/desktop/Recurso 12@4x.png"
+        >
+        <img
+          class="bg-icon middle-right"
+          src="./../../shared/assets/images/terms/desktop/Recurso 13@4x.png"
+        >
+
         <img src="./../../shared/assets/images/terms/sitemap.png">
       </div>
     </div>
@@ -29,7 +46,11 @@ import InfiniteLoading from "vue-infinite-loading";
 @Component({
   components: { HeaderComponent, FooterComponent, VLazyImage, InfiniteLoading }
 })
-export default class TermsAndPoliciesSafe extends Vue {}
+export default class TermsAndPoliciesSafe extends Vue {
+  private mounted() {
+    (this as any).$ga.page("/terms/sitemap");
+  }
+}
 
 //
 </script>
@@ -37,6 +58,9 @@ export default class TermsAndPoliciesSafe extends Vue {}
 <style lang="less">
 @import (reference) "./../../shared/styles/index.less";
 div.view.sitemap .view-wrapper {
+  .bg-icon {
+    display: none;
+  }
   strong {
     font-weight: 900;
   }
@@ -137,6 +161,46 @@ div.view.sitemap .view-wrapper {
         line-height: 1.5em;
       }
     }
+  }
+}
+@media (min-width: 600px) {
+  div.view.sitemap .view-wrapper div.block.white img {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    padding-bottom: 2.5em;
+  }
+  div.view.sitemap .view-wrapper {
+    position: relative;
+    .bg-icon {
+      display: block;
+      position: absolute;
+      width: 5em !important;
+
+      &.top-left {
+        top: 0px;
+        left: 0px;
+      }
+      &.top-right {
+        top: 0px;
+        right: 0px;
+      }
+
+      &.middle-left {
+        top: 65%;
+        left: 0px;
+      }
+      &.middle-right {
+        top: 65%;
+        right: 0px;
+      }
+    }
+  }
+  div.view.sitemap .view-wrapper h1 {
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 16px;
   }
 }
 </style>

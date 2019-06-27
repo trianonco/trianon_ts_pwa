@@ -17,7 +17,11 @@
         <div class="list-and-map">
           <div class="search">
             <div class="search-wrapper">
-              <img alt="TrianonCo Image"  v-on:click="onSubmit" src="./../../shared/assets/images/search/lupa-icon.png">
+              <img
+                alt="TrianonCo Image"
+                v-on:click="onSubmit"
+                src="./../../shared/assets/images/search/lupa-icon.png"
+              >
               <input
                 type="text"
                 placeholder="DEPARTAMENTO O CIUDAD"
@@ -162,7 +166,6 @@ export default class ProductView extends Vue {
   }
 
   private get distributorsFilteredBySearchKey() {
-
     if (this.currentSearchKey === "") {
       const near = this.distributorsDB.filter((distDB: any) => {
         const latDiff2 = Math.pow(
@@ -234,11 +237,12 @@ export default class ProductView extends Vue {
   }
 
   private mounted() {
-   
-   if(this.$route.params.city){
+    (this as any).$ga.page("/authorized/distributors");
+
+    if (this.$route.params.city) {
       this.currentSearchKey = this.$route.params.city;
-   }
-    
+    }
+
     this.db.getAuthorizedDistributors().then((response: any) => {
       console.warn("distributors");
       this.distributorsDB = response.sort((a: any, b: any) => {
@@ -270,13 +274,11 @@ export default class ProductView extends Vue {
   }
 
   private onSubmit() {
-
     window.history.pushState(
       {},
       "Distribuidores Autorizados",
       `/view/authorized/distributors/city/${encodeURI(this.currentSearchKey)}`
     );
-
 
     this.currentCity = JSON.parse(
       JSON.stringify(this.currentSearchKey + "") + ""

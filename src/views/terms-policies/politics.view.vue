@@ -40,7 +40,11 @@ import InfiniteLoading from "vue-infinite-loading";
 @Component({
   components: { HeaderComponent, FooterComponent, VLazyImage, InfiniteLoading }
 })
-export default class TermsAndPoliciesSafe extends Vue {}
+export default class TermsAndPoliciesSafe extends Vue {
+  private mounted() {
+    (this as any).$ga.page("/terms/privacy_policy");
+  }
+}
 
 //
 </script>

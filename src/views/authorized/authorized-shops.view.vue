@@ -133,6 +133,8 @@ export default class AuthorizedShops extends Vue {
   }
 
   private mounted() {
+    (this as any).$ga.page("/authorized/shops");
+
     this.db.getAuthorizedShops().then((response: any) => {
       this.shop = response.sort((a: any, b: any) => {
         return a.city.localeCompare(b.city);

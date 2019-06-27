@@ -132,6 +132,11 @@ export default class ProductView extends Vue {
     const productCategory = params.category ? params.category : "";
     const productRefNoSize = params.ref ? params.ref : "";
 
+    (this as any).$ga.page("/product");
+    (this as any).$ga.page("/product/gender/" + productGender);
+    (this as any).$ga.page("/product/category/" + productCategory);
+    (this as any).$ga.page("/product/ref/" + productRefNoSize);
+
     this.db
       .getProductsByGenderAndCategoriesAndID(
         productGender,
