@@ -141,17 +141,28 @@ export default class AuthorizedShops extends Vue {
       });
     });
 
-    (this as any).$getLocation().then((coordinates: any) => {
-      const lat = coordinates.lat;
-      const lng = coordinates.lng;
-      const coord = {
-        lat: lat,
-        lng: lng
-      };
-      this.position = coord;
-      this.markers.push({ position: this.position });
-      console.log(coord);
-    });
+    (this as any)
+      .$getLocation()
+      .then((coordinates: any) => {
+        const lat = coordinates.lat;
+        const lng = coordinates.lng;
+        const coord = {
+          lat: lat,
+          lng: lng
+        };
+        this.position = coord;
+        this.markers.push({ position: this.position });
+        console.log(coord);
+      })
+      .catch((e: any) => {
+        const lat = 4.610292;
+        const lng = -74.100711;
+        this.position = {
+          lat: lat,
+          lng: lng
+        };
+        this.markers.push({ position: this.position });
+      });
   }
 
   private onSubmit() {
@@ -323,6 +334,8 @@ div.authorized-shops {
   }
 
   div.authorized-shop-card {
+    cursor: pointer;
+
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -336,6 +349,11 @@ div.authorized-shops {
     font-style: normal;
 
     color: black;
+
+    &:hover {
+      opacity: 0.9;
+      background-color: #fafafa;
+    }
 
     span {
       display: inline-block;

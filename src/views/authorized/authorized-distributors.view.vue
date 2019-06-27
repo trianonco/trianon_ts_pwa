@@ -436,6 +436,12 @@ div.authorized-distributors {
 
     color: black;
 
+    cursor: pointer;
+    &:hover {
+      opacity: 0.9;
+      background-color: #fafafa;
+    }
+
     span {
       display: inline-block;
       -webkit-transform: scale(1, 0.8); /* Safari and Chrome */
