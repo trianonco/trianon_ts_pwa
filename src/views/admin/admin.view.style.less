@@ -65,11 +65,27 @@ div.no-module {
     text-align: center;
     font-family: "TrajanPro";
 
+    @media (min-width: 600px) {
+        h1 {
+            padding-top: 5em;
+        }
+    }
+
     img {
         display: block;
         width: 50vw;
         max-width: 200px;
         padding: 1em;
+    }
+
+    @media (min-width: 600px) {
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            max-width: 200px;
+            padding: 1em;
+        }
     }
 
     h5 {
