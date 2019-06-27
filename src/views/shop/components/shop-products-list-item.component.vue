@@ -31,6 +31,7 @@ export default class ShopProductsListItemComponent extends Vue {
   product!: any;
 
   private isNew: boolean = false;
+  private isNot: boolean = false;
   private isPhotoOnStock: boolean = false;
   private isProductOnStock: boolean = false;
   private photo_hd_src: string = "";
@@ -38,8 +39,15 @@ export default class ShopProductsListItemComponent extends Vue {
   private product_code: string = "";
 
   private getProducsListItemClass() {
-    return this.isPhotoOnStock ? "default" : "hidden";
-    //return "default";
+    if (this.isPhotoOnStock) {
+      return "default";
+    } else {
+      if (this.isNot) {
+        return "hidden.bye-gone";
+      } else {
+        return "hidden";
+      }
+    }
   }
 
   private onLoadVLazyImage() {
@@ -67,14 +75,16 @@ export default class ShopProductsListItemComponent extends Vue {
     this.photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
 
     setTimeout(() => {
-      if (this.isProductOnStock === false) {
-      }
-    }, 1000);
+      this.isNot = true;
+      setTimeout(() => {
+        this.isNot = false;
+      }, 100);
+    }, 100);
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import (reference) "./../../../shared/styles/index.less";
 div.products-list-item {
   display: block;
@@ -93,6 +103,10 @@ div.products-list-item {
     z-index: -10000000;
     top: 0px;
     opacity: 0;
+    display: block;
+    &.bye-gone {
+      display: none;
+    }
   }
 
   &.default {
