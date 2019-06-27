@@ -85,7 +85,7 @@ export default class ShopProductsListComponent extends Vue {
     console.warn(this.sortBy);
 
     if (this.sortBy.by === "price") {
-      if (this.sortBy.isAscendent === 1) {
+      if (this.sortBy.isAscendent === -1) {
         productsSortedBy = this.productsDB.sort(function(a: any, b: any) {
           return a.price_cop - b.price_cop;
         });

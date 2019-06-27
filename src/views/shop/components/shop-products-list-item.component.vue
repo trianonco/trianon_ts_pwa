@@ -57,6 +57,19 @@ export default class ShopProductsListItemComponent extends Vue {
     localStorage.setItem("shopOnStock", JSON.stringify(shopOnStock));
   }
 
+  private imageExists(image_url: string) {
+    return new Promise((resolve, reject) => {
+      var img = new Image();
+      img.onload = () => {
+        resolve();
+      };
+      img.onerror = () => {
+        reject();
+      };
+      img.src = image_url;
+    });
+  }
+
   private goToProductView() {
     this.$router.push(
       `/product/gender/${this.product.gender}/category/${
@@ -74,9 +87,13 @@ export default class ShopProductsListItemComponent extends Vue {
     this.photo_thumb_src = `${pathbase}%2Fthumb%2F${filename}?${mediafile}`;
     this.photo_hd_src = `${pathbase}%2Fhd%2F${filename}?${mediafile}`;
 
-    setTimeout(() => {
-      this.isNot = true;
-    }, 3500);
+    this.imageExists(this.photo_thumb_src)
+      .then((response: any) => {
+        this.isNot = false;
+      })
+      .catch((error: any) => {
+        this.isNot = true;
+      });
   }
 }
 </script>
