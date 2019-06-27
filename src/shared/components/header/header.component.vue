@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="header-title">
-      <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA</h1>
+      <h1 v-if="hasTitle()"> - LO MEJOR DE LA MARROQUINERÍA - </h1>
     </div>
   </header>
 </template>
