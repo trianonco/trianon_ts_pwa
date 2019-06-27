@@ -43,7 +43,7 @@ export default class ShopProductsListItemComponent extends Vue {
       return "default";
     } else {
       if (this.isNot) {
-        return "hidden.bye-gone";
+        return "hidden bye-gone";
       } else {
         return "hidden";
       }
@@ -76,10 +76,7 @@ export default class ShopProductsListItemComponent extends Vue {
 
     setTimeout(() => {
       this.isNot = true;
-      setTimeout(() => {
-        this.isNot = false;
-      }, 100);
-    }, 100);
+    }, 3500);
   }
 }
 </script>
@@ -105,7 +102,7 @@ div.products-list-item {
     opacity: 0;
     display: block;
     &.bye-gone {
-      display: none;
+      display: none !important;
     }
   }
 
