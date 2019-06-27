@@ -331,7 +331,7 @@ export default class AdminProductsPageComponent extends Vue {
       "BILLETES",
       "PORTA BILLETE"
     ];
-    const WORDS_PORTA_COSMETICOS = ["PORTA COSMÉTICOS", "COSMETICOS"];
+    const WORDS_PORTA_COSMETICOS = ["PORTA COSMÉTICOS", "COSMETICOS", "PORTA LAPICES"];
     const WORDS_PORTA_DOCUMENTOS = [
       "PORTA DOCUMENTOS",
       "DOCUMENTOS",
