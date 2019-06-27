@@ -232,4 +232,7 @@ div.view.terms .view-wrapper {
     }
   }
 }
+
+@media (min-width: 600px) {
+}
 </style>
