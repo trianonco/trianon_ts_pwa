@@ -16,6 +16,7 @@
     "firebase": "^6.0.2",
     "fuzzyset.js": "0.0.8",
     "git-branch": "^2.0.1",
+    "instafeed.js": "^1.4.1",
     "md5": "^2.2.1",
     "nodemailer": "^6.2.1",
     "register-service-worker": "^1.6.2",

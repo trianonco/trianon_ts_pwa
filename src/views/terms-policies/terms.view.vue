@@ -257,10 +257,9 @@ div.view.terms .view-wrapper {
       display: block !important;
       margin: 0 auto !important;
       line-height: 2em !important;
+      padding-bottom: 1.5em !important;
     }
-    h1 {
-      background-color: white;
-    }
+
     h1,
     h2,
     h3,
@@ -271,6 +270,13 @@ div.view.terms .view-wrapper {
       font-size: 16px !important;
       padding-top: 2em;
       padding-bottom: 1.5em;
+      padding-bottom: 2em !important;
+    }
+    h1 {
+      background-color: white;
+      padding-top: 2em !important;
+
+      padding-bottom: 1em !important;
     }
 
     .desk-gold {
@@ -280,6 +286,12 @@ div.view.terms .view-wrapper {
 
     .desk-black h2 {
       color: white !important;
+      padding-top: 2em !important;
+      padding-bottom: 2em !important;
+    }
+    .desk-black p {
+      padding-top: 1.5em !important;
+      padding-bottom: 1.5em !important;
     }
 
     .desk-white {
