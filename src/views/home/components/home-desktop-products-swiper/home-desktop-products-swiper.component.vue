@@ -10,7 +10,7 @@
               :src-placeholder="getPhotoURLs(product).thumb"
             />
             <div class="info">
-              {{product.description}}
+              {{product.description}} {{product.line}}
               <br>
               <br>
               COLOR {{ product.color }}
