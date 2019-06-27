@@ -104,7 +104,7 @@ div.view.safe .view-wrapper {
 
 @media (min-width: 600px) {
   div.view.safe .view-wrapper {
-    min-height: ~"calc(100vh - 127px - 225px)";
+    min-height: ~"calc(100vh - 127px - 155px);";
     display: block;
     position: relative;
     .bg-icon {

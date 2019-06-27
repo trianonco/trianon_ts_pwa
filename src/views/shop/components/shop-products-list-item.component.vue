@@ -1,5 +1,5 @@
 <template>
-  <div class="products-list-item" :class="getProducsListItemClass()">
+  <div class="products-list-item" :class="getProducsListItemClass()" v-if="!isNot">
     <div class="product-list-item-wrapper" @click="goToProductView()">
       <div class="isNew" v-if="isNew">NUEVO</div>
 
