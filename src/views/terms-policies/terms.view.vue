@@ -6,11 +6,11 @@
     <div class="view-wrapper">
       <h1>TERMINOS DE SERVICIO</h1>
 
-      <div class="block gold">
+      <div class="block gold desk-white">
         <p>Te encuéntras en el sitio web de TRIANON S.A.S, al acceder y utilizar los servicios bajo el dominio www.trianon.com.co se dará por entendida la aceptación y seguimientos a los términos de servicio y políticas de privacidad establecidos por la compañía.</p>
       </div>
 
-      <div class="block white">
+      <div class="block white desk-gold">
         <p>
           TRIANON S.A.S., siempre confiará y asumirá en buena fé, que está contratando directamente con el cliente o con
           su representante legal, para efectuar cualquier tipo de operaciones y no asumirá responsabilidad por suplantación
@@ -35,8 +35,12 @@
         </p>
       </div>
 
-      <div class="block black">
-        <img src="./../../shared/assets/images/terms/black-logo-mobile_Mesa de trabajo 1.png">
+      <div class="block black desk-black">
+        <img
+          class="mobile"
+          src="./../../shared/assets/images/terms/black-logo-mobile_Mesa de trabajo 1.png"
+        >
+        <img class="desktop" src="./../../shared/assets/images/terms/desktop/Recurso 9@4x.png">
         <h2>POLÍTICA DE GARANTÍA</h2>
         <p>
           Nuestros artículos son 100% Colombianos, cuentan con garantía de 6 meses por defectos de fabricación que empiezan
@@ -134,6 +138,12 @@ export default class TermsAndPoliciesSafe extends Vue {
 <style lang="less">
 @import (reference) "./../../shared/styles/index.less";
 div.view.terms .view-wrapper {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
   strong {
     font-weight: 900;
   }
@@ -234,5 +244,49 @@ div.view.terms .view-wrapper {
 }
 
 @media (min-width: 600px) {
+  div.view.terms .view-wrapper {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
+
+    div.block p {
+      width: 650px !important;
+      display: block !important;
+      margin: 0 auto !important;
+      line-height: 2em !important;
+    }
+    h1 {
+      background-color: white;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+      border: none;
+
+      color: black;
+      font-size: 16px !important;
+      padding-top: 2em;
+      padding-bottom: 1.5em;
+    }
+
+    .desk-gold {
+      background-size: 10px 100%;
+      background-image: url("./../../shared/assets/images/terms/gold-bg.png") !important;
+    }
+
+    .desk-black h2 {
+      color: white !important;
+    }
+
+    .desk-white {
+      background-size: 10px 100%;
+      background-image: none !important;
+      background-color: white;
+    }
+  }
 }
 </style>
