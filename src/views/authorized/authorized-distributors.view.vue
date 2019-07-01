@@ -1,9 +1,9 @@
 <template>
   <div class="view authorized-distributors">
-    <LoaderComponent :time="3000"/>
+    <LoaderComponent :time="3000" />
     <div>
       <!-- Headers -->
-      <HeaderComponent/>
+      <HeaderComponent />
 
       <div class="view-wrapper">
         <h1 class="title">
@@ -21,13 +21,13 @@
                 alt="TrianonCo Image"
                 v-on:click="onSubmit"
                 src="./../../shared/assets/images/search/lupa-icon.png"
-              >
+              />
               <input
                 type="text"
                 placeholder="DEPARTAMENTO O CIUDAD"
                 v-model="currentSearchKey"
                 v-on:keyup.enter="onSubmit"
-              >
+              />
             </div>
             <div class="banner">
               <swiper :options="swiperOption" ref="myDistributorSwiper">
@@ -108,7 +108,7 @@
         </div>
       </div>
 
-      <FooterComponent/>
+      <FooterComponent />
       <!-- Footers -->
     </div>
   </div>
@@ -259,6 +259,11 @@ export default class ProductView extends Vue {
             lng: lng
           };
 
+          console.log("");
+          console.log("coordinates");
+          console.log(coordinates);
+          console.log("");
+
           this.markers.push({ position: this.position });
         })
         .catch((e: any) => {
@@ -274,15 +279,27 @@ export default class ProductView extends Vue {
   }
 
   private onSubmit() {
-    window.history.pushState(
-      {},
-      "Distribuidores Autorizados",
-      `/view/authorized/distributors/city/${encodeURI(this.currentSearchKey)}`
-    );
+    if (this.currentSearchKey) {
+      window.history.pushState(
+        {},
+        "Distribuidores Autorizados",
+        `/view/authorized/distributors/city/${encodeURI(this.currentSearchKey)}`
+      );
 
-    this.currentCity = JSON.parse(
-      JSON.stringify(this.currentSearchKey + "") + ""
-    );
+      this.currentCity = JSON.parse(
+        JSON.stringify(this.currentSearchKey + "") + ""
+      );
+    } else {
+      window.history.pushState(
+        {},
+        "Distribuidores Autorizados",
+        `/view/authorized/distributors/`
+      );
+
+      this.currentCity = JSON.parse(
+        JSON.stringify(this.currentSearchKey + "") + ""
+      );
+    }
   }
 
   private handleScroll($event: any) {

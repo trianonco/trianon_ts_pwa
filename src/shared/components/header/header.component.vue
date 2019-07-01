@@ -8,7 +8,7 @@
             class="back"
             src="../../assets/images/headers/back.png"
             alt="Trianon Colombia, Back. Regresa a la vista anterior."
-          >
+          />
           <h3>ATRÁS</h3>
         </div>
       </div>
@@ -20,7 +20,7 @@
           class="logo"
           src="../../assets/images/headers/logo.png"
           alt="Trianon Colombia, La mejor marroquinería."
-        >
+        />
       </div>
 
       <!-- Header :: Nav :: Auth -->
@@ -34,7 +34,7 @@
               class="profile"
               src="../../assets/images/headers/profile.png"
               alt="Trianon Colombia, Profile. Perfil persional. Usuarios de Trianon"
-            >
+            />
             <h3>MI PERFIL</h3>
           </div>
         </div>

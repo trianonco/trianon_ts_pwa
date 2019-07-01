@@ -34,9 +34,17 @@ export default {
     return {
       userFeed: new Instafeed({
         get: "user",
+
+/*
         userId: "8987997106",
         clientId: "924f677fa3854436947ab4372ffa688d",
         accessToken: "8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9",
+*/
+        userId: "1964635671",
+        clientId: "c43aab4601d74dabb1b8f2b4d6e141bd",
+        accessToken: "1964635671.1677ed0.4e98775fde734659a3e8b216c5c09db3",
+        
+
         resolution: "standard_resolution",
         template: `<a href="{{link}}">
           <div class="wrapper-image">

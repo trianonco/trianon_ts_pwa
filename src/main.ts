@@ -14,6 +14,7 @@ import "firebase/storage";
 // Init Vendors & Services //
 firebase.initializeApp(config);
 
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)

@@ -51,79 +51,93 @@
         </div>
       </div>
 
-      <div class="card-content-shipping-info">
-        <h1>INFORMACIÓN DE ENVIO</h1>
-        <input type="text" autocomplete="on" placeholder="DIRECCIÓN" v-model="BUY.address">
-        <input
-          type="text"
-          autocomplete="on"
-          placeholder="PISO O APARTAMENTO"
-          v-model="BUY.address_info"
-        >
-        <input
-          type="text"
-          autocomplete="on"
-          placeholder="BARRIO"
-          v-model="BUY.address_neighborhood"
-        >
-        <input
-          type="text"
-          autocomplete="on"
-          placeholder="DEPARTAMENTO"
-          v-model="BUY.address_department"
-          style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
-        >
-        <input
-          type="text"
-          autocomplete="on"
-          placeholder="MUNICIPIO"
-          v-model="BUY.address_city"
-          style="width:calc(50% - 0.5em);margin-bottom:0px;"
-        >
-        <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
-        <br>
-        <input
-          type="text"
-          autocomplete="on"
-          placeholder="NOMBRE DE QUIEN VA A RECIBIR"
-          v-model="BUY.fullname"
-          style="margin-top:1em"
-        >
-      </div>
-
-      <div class="card-content-phone-and-total">
-        <div class="card-content-phone">
-          <input type="text" placeholder="TU NUMERO CELULAR *" v-model="BUY.phone">
+      <form>
+        <div class="card-content-shipping-info">
+          <h1>INFORMACIÓN DE ENVIO</h1>
+          <input
+            type="text"
+            name="address"
+            autocomplete="on"
+            placeholder="DIRECCIÓN"
+            v-model="BUY.address"
+            required
+          >
+          <input
+            type="text"
+            name="apartment"
+            autocomplete="on"
+            placeholder="PISO O APARTAMENTO"
+            v-model="BUY.address_info"
+          >
+          <input
+            type="text"
+            name="neighbourhood"
+            autocomplete="on"
+            placeholder="BARRIO"
+            v-model="BUY.address_neighborhood"
+            required
+          >
+          <input
+            type="text"
+            autocomplete="on"
+            placeholder="DEPARTAMENTO"
+            v-model="BUY.address_department"
+            style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
+            required
+          >
+          <input
+            type="text"
+            autocomplete="on"
+            placeholder="MUNICIPIO"
+            v-model="BUY.address_city"
+            style="width:calc(50% - 0.5em);margin-bottom:0px;"
+            required
+          >
+          <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
+          <br>
+          <input
+            type="text"
+            autocomplete="on"
+            placeholder="NOMBRE DE QUIEN VA A RECIBIR"
+            v-model="BUY.fullname"
+            style="margin-top:1em"
+            required
+          >
         </div>
 
-        <div class="card-content-total-sum">
-          <h3>SUMA TOTAL DE TU COMPRA:</h3>
-          <h1>{{ getTotalPriceByItem | toCurrency }}</h1>
-        </div>
+        <div class="card-content-phone-and-total">
+          <div class="card-content-phone">
+            <input type="text" placeholder="TU NUMERO CELULAR *" v-model="BUY.phone" required>
+          </div>
 
-        <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem > 100000">
-          <h4>TU COMPRA SUPERA LOS $100.000 COP</h4>
-          <h3>ASÍ QUE EL ENVÍO ES GRATIS</h3>
+          <div class="card-content-total-sum">
+            <h3>SUMA TOTAL DE TU COMPRA:</h3>
+            <h1>{{ getTotalPriceByItem | toCurrency }}</h1>
+          </div>
+
+          <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem > 100000">
+            <h4>TU COMPRA SUPERA LOS $100.000 COP</h4>
+            <h3>ASÍ QUE EL ENVÍO ES GRATIS</h3>
+          </div>
         </div>
-      </div>
+      </form>
 
       <div class="card-content-payment">
         <h1>SELECCIONA UN METODO DE PAGO:</h1>
 
-        <img
-          src="../../../../shared/assets/images/credit-cards2.jpg"
-          width="100%"
-          @click="goToPayU()"
-        >
-
         <form
           ref="payU_Form"
           method="post"
-          action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/"
+          action="https://checkout.payulatam.com/ppp-web-gateway-payu"
         >
-          <input name="merchantId" type="hidden" value="508029">
-          <input name="accountId" type="hidden" value="512321">
-          <input name="referenceCode" type="hidden" value="TestPayU">
+          <img
+            src="../../../../shared/assets/images/credit-cards2.jpg"
+            width="100%"
+            @click="goToPayU()"
+          >
+          <input name="merchantId" type="hidden" :value="getPayMerchantID()">
+          <input name="accountId" type="hidden" :value="getPayAccountID()">
+          <input name="referenceCode" type="hidden" :value="getPayReferenceCode()">
 
           <input name="description" type="hidden" :value="getPayDescription()">
           <input name="amount" type="hidden" :value="getPayAmount()">
@@ -131,14 +145,15 @@
           <input name="taxReturnBase" type="hidden" :value="getPayTaxReturnBase()">
           <input name="currency" type="hidden" :value="getPayCurrency()">
           <input name="signature" type="hidden" :value="getPaySignature()">
-          <input name="test" type="hidden" value="1">
           <input name="buyerEmail" type="hidden" :value="getPayClientEmail()">
-          <input name="responseUrl" type="hidden" :value="getPayUpdateURL()">
-          <input name="confirmationUrl" type="hidden" value="http://www.facebook.com/">
-
-          <input name="shippingAddress" type="hidden" value="calle 93 n 47 - 65">
-          <input name="shippingCity" type="hidden" value="Bogota">
+          <input name="shippingAddress" type="hidden" :value="getPayShippingAddress()">
+          <input name="shippingCity" type="hidden" :value="getPayShippingCity()">
           <input name="shippingCountry" type="hidden" value="CO">
+
+          <input name="test" type="hidden" value="1" v-if="PAYU === PAYU_OPTIONS['TEST']">
+          <input name="responseUrl" type="hidden" :value="getPayUpdateURL()">
+          <input name="confirmationUrl" type="hidden" :value="getPayConfirmationURL()">
+
           <input name="Submit" type="hidden" value="Enviar">
         </form>
       </div>
@@ -152,16 +167,201 @@ import firebase from "firebase/app";
 var md5 = require("md5");
 
 export default {
-  name: "",
+  name: "CardShoppingCartItemComponent",
+
   components: {
     VLazyImage
   },
+
+  data() {
+    return {
+      UX: {
+        isCardOpen: false
+      },
+
+      PAYU_OPTIONS: {
+        TEST: {
+          url: "https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu",
+          apiKey: "4Vj8eK4rloUd272L48hsrarnUA",
+          accountId: "512321",
+          merchantId: "508029"
+        },
+        JORGE_MAYORGA: {
+          url: "https://checkout.payulatam.com/ppp-web-gateway-payu",
+          apiKey: "4bk50ANMJ03RzWeFPVZ4Ca8Tnx",
+          accountId: "672018",
+          merchantId: "669392"
+        },
+        TRIANON: {
+          url: "https://checkout.payulatam.com/ppp-web-gateway-payu",
+          apiKey: "",
+          accountId: "",
+          merchantId: ""
+        }
+      },
+
+      PAYU: {},
+
+      BUY: {
+        ID: "",
+        state: "IN PROCESS: WATING FOR PAYMENT",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        ref: "",
+        items: 0,
+        address: "",
+        address_info: "",
+        address_neighborhood: "",
+        address_department: "",
+        address_city: "",
+        fullname: "",
+        phone: "",
+        total: 0,
+        product: {}
+      }
+    };
+  },
+
+  props: ["item"],
+
+  mounted() {
+    console.clear();
+    console.warn("");
+    console.warn(" ------------------------------------------- ");
+    console.warn(" Proceso de Compra Trianon PWA ");
+    console.warn(" ------------------------------------------ ");
+    console.warn("");
+
+    const envPayName = "JORGE_MAYORGA"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayOptions = this.PAYU_OPTIONS[envPayName];
+    this.PAYU = envPayOptions;
+
+    console.warn({
+      PAYU_SETTINGS: this.PAYU
+    });
+
+    if (envPayName === "JORGE_MAYORGA") {
+      this.BUY.address = "Calle 141 #7b - 86";
+      this.BUY.address_info = "Apto 502";
+      this.BUY.address_neighborhood = "Belmira";
+      this.BUY.address_department = "Bogota";
+      this.BUY.address_city = "Bogota";
+      this.BUY.fullname = "Jorge L. Mayorga";
+      this.BUY.phone = "3005318387";
+    }
+
+    const date = new Date();
+    const browser = JSON.stringify(navigator.userAgent);
+
+    this.BUY.email = JSON.parse(localStorage.getItem("user")).email;
+    this.BUY.ID = md5(date + browser + Math.random());
+
+    console.warn(this.getPayAmount());
+  },
+
   methods: {
+    /**
+     *  GetPay Methods
+     */
+    getPayMerchantID() {
+      return this.PAYU.merchantId;
+    },
+    getPayAccountID() {
+      return this.PAYU.accountId;
+    },
+    getPayReferenceCode() {
+      return this.BUY.ID;
+    },
+    getPayConfirmationURL() {
+      return this.PAYU.confirmationURL;
+    },
+    getPayShippingAddress() {
+      return `${this.BUY.address} ${this.BUY.address_info}`;
+    },
+    getPayShippingCity() {
+      return `${this.BUY.address_department} ${this.BUY.address_city}`;
+    },
+    getPayClientEmail() {
+      return this.BUY.email;
+    },
+    getPayUpdateURL() {
+      const base =
+        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleUpdateBuy?ID=" +
+        this.BUY.ID;
+      return base;
+    },
+    getPayCurrency() {
+      return "COP";
+    },
+    getPayTaxReturnBase() {
+      if (
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
+        this.PAYU === this.PAYU_OPTIONS["TEST"]
+      ) {
+        const price = 12000;
+        return (price * (1 - 0.19)).toFixed(2);
+      } else {
+        const price = this.getTotalPriceByItem;
+        return (price * (1 - 0.19)).toFixed(2);
+      }
+    },
+    getPayTax() {
+      if (
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
+        this.PAYU === this.PAYU_OPTIONS["TEST"]
+      ) {
+        const price = 12000;
+        return (price * (1 - 0.19)).toFixed(2);
+      } else {
+        const price = this.getTotalPriceByItem;
+        return (price * 0.19).toFixed(2);
+      }
+    },
+    getPayAmount() {
+      if (
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
+        this.PAYU === this.PAYU_OPTIONS["TEST"]
+      ) {
+        const price = 12000;
+        return price.toFixed(2);
+      } else {
+        const price =
+          this.getTotalPriceByItem > 100000
+            ? this.getTotalPriceByItem
+            : this.getTotalPriceByItem + 8000;
+        return price.toFixed(2);
+      }
+    },
+    getPayDescription() {
+      return `${this.getProductsInShoppingCart[0].description} ${
+        this.getProductsInShoppingCart[0].line
+      }
+               COLOR : ${this.getProductsInShoppingCart[0].color} REF 
+               ${this.getProductsInShoppingCart[0].ref} 
+               `;
+    },
+    getPaySignature() {
+      console.warn({
+        apiKey: this.PAYU.apiKey,
+        merchandId: this.PAYU.merchantId,
+        referenceCode: this.getPayReferenceCode(),
+        amount: this.getPayAmount(),
+        currency: this.getPayCurrency()
+      });
+      const payu_md5 = md5(
+        `${this.PAYU.apiKey}~${
+          this.PAYU.merchantId
+        }~${this.getPayReferenceCode()}~${this.getPayAmount()}~${this.getPayCurrency()}`
+      );
+      return payu_md5;
+    },
+
     goToPayU() {
       const db = firebase.firestore();
-      this.$refs.payU_Form.submit();
       this.BUY.product = this.item;
+      this.$refs.payU_Form.submit();
 
+      /*
       db.collection("SHOPPING_HISTORY")
         .doc(this.BUY.ID)
         .set(this.BUY)
@@ -172,55 +372,7 @@ export default {
         .catch(function(error) {
           console.error("Error writing document: ", error);
         });
-    },
-
-    getPaySignature() {
-      console.warn("md5 => " + md5("POLII"));
-      const apiKey = "4Vj8eK4rloUd272L48hsrarnUA";
-      const merchandId = "508029";
-      const referenceCode = "TestPayU";
-      const amount = this.getPayAmount();
-      const currency = this.getPayCurrency();
-      ///return "7ee7cf808ce6a39b17481c54f2c57acc";
-      return md5(
-        `${apiKey}~${merchandId}~${referenceCode}~${amount}~${currency}`
-      );
-    },
-
-    getPayClientEmail() {
-      const user_email = JSON.parse(localStorage.getItem("user")).email;
-      this.BUY.email = user_email;
-      return "wallamejorge@hotmail.com";
-    },
-
-    getPayUpdateURL() {
-      const date = new Date();
-      const browser = JSON.stringify(navigator.userAgent);
-      const item = JSON.stringify(this.getProductsInShoppingCart);
-      const ID = md5(date + browser + item + Math.random());
-
-      this.BUY.ID = ID;
-
-      const base =
-        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleUpdateBuy?ID=" +
-        ID;
-
-      return base;
-    },
-    getPayCurrency() {
-      return "COP";
-    },
-    getPayTaxReturnBase() {
-      return (this.getTotalPriceByItem * (1 - 0.19)).toFixed(2);
-    },
-    getPayTax() {
-      return (this.getTotalPriceByItem * 0.19).toFixed(2);
-    },
-    getPayAmount() {
-      return this.getTotalPriceByItem.toFixed(2);
-    },
-    getPayDescription() {
-      return this.getProductsInShoppingCart[0].description;
+        */
     },
 
     doToogleCard() {
@@ -272,34 +424,6 @@ export default {
         });
       return this.BUY.total;
     }
-  },
-  props: ["item"],
-  mounted() {
-    console.warn(this.item);
-  },
-  data() {
-    return {
-      UX: {
-        isCardOpen: false
-      },
-      BUY: {
-        ID: "",
-        state: "IN PROCESS: WATING FOR PAYMENT",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        ref: "",
-        items: 0,
-        address: "",
-        address_info: "",
-        address_neighborhood: "",
-        address_department: "",
-        address_city: "",
-        fullname: "",
-        phone: "",
-        total: 0,
-        product: {}
-      }
-    };
   }
 };
 </script>
