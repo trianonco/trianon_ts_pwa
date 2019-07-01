@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
         'App is being served from cache by a service worker.\n' +
         'For more details, visit https://goo.gl/AFskqB'
       )
+      console.warn('Trianon PWA Service Worker is ready')
     },
     registered() {
       console.log('Service worker has been registered.')
@@ -19,7 +20,6 @@ if (process.env.NODE_ENV === 'production') {
     },
     updatefound() {
       console.log('New content is downloading.')
-
     },
     updated() {
       console.log('New content is available; Refresh...')
