@@ -44,6 +44,7 @@ export default class ProductBuyButtonComponent extends Vue {
     console.warn("getProductsInShoppingCart");
     console.warn(this.getProductsInShoppingCart);
   }
+
   private doAddToCart() {
     const size = JSON.parse(JSON.stringify(this.size || {}) + "");
     if (size.ref) {
@@ -59,6 +60,7 @@ export default class ProductBuyButtonComponent extends Vue {
         this.$store.dispatch("addToCart", this.product);
       }
     }
+    this.$router.push("/view/profile");
     //
     //console.log((this.getProductsInShoppingCart as any[]).length);
   }

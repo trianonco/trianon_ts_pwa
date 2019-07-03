@@ -1,43 +1,41 @@
 <template>
   <div class="login-signin">
     <div class="login-signin-wrapper">
-      <h1 class="title">{{ title }}</h1>
-      <h2 class="subtitle">{{ description }}</h2>
       <div class="login-signin-buttons">
-        <br>
+        <br />
         <div
           class="login-signin-button facebook"
           v-if="!isEmailLoginOpen"
           @click="doLoginFacebook()"
         >
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png" />
           <h1>INGRESA CON FACEBOOK</h1>
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-fb.png" />
         </div>
         <div class="login-signin-button gmail" v-if="!isEmailLoginOpen" @click="doLoginGmail()">
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png" />
           <h1>INGRESA CON GMAIL</h1>
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-gmail.png" />
         </div>
         <div
           class="login-signin-button email"
           @click="doToogleLoginEmail()"
           style="margin-bottom:0px"
         >
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png" />
           <h1>CORREO ELECTRÓNICO</h1>
-          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png">
+          <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png" />
         </div>
-        <br v-if="isEmailLoginOpen">
+        <br v-if="isEmailLoginOpen" />
         <div class="email-login-form" v-if="isEmailLoginOpen">
           <div class="email-login-form-input email">
-            <input type="email" v-model="auth.email" placeholder="CORREO ELECTRONICO">
+            <input type="email" v-model="auth.email" placeholder="CORREO ELECTRÓNICO" />
           </div>
           <div class="email-login-form-input password">
-            <input type="password" v-model="auth.password" placeholder="CONSTRASEÑA">
+            <input type="password" v-model="auth.password" placeholder="CONSTRASEÑA" />
           </div>
           <div class="email-login-form-input password" v-if="isNewUser">
-            <input type="password" v-model="auth.repassword" placeholder="CONFIRMAR CONSTRASEÑA">
+            <input type="password" v-model="auth.repassword" placeholder="CONFIRMAR CONSTRASEÑA" />
             <span class="error" v-if="!isSamePassword">CONTRASEÑAS NO COINCIDEN</span>
           </div>
           <div class="email-login-form-submit login" @click="doLoginEmail()">INICIAR SESIÓN</div>
@@ -46,7 +44,7 @@
             @click="doRecoveryPassword()"
           >¿Olvidaste tu contraseña?</div>
         </div>
-        <br v-if="!isEmailLoginOpen">
+        <br v-if="!isEmailLoginOpen" />
       </div>
     </div>
   </div>
@@ -148,7 +146,8 @@ export default {
 div.login-signin {
   display: block;
   width: 100%;
-  height: @size-login-signin-height;
+  min-height: ~"calc(100vh - 72px - 122px - 193px)";
+  height: auto;
   background-color: @color-black;
   color: white;
 
@@ -269,6 +268,99 @@ div.email-login-form {
     font-style: normal;
     font-size: 12px;
     text-decoration: underline;
+  }
+}
+
+@media (min-width: 600px) {
+  div.login-signin {
+    display: block;
+    width: 100%;
+    min-height: ~"calc(100vh - 72px - 122px - 193px)";
+    height: auto;
+    background-color: white;
+    color: black;
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    &-wrapper {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1em;
+      padding-left: 0px;
+      padding-right: 0.5em;
+      text-align: center;
+      .title {
+        #Font-OpenSans("normal");
+        font-size: 12px;
+        padding-bottom: 12px;
+      }
+      .subtitle {
+        #Font-OpenSans();
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 20px;
+        width: 269px;
+        letter-spacing: 0px;
+        padding-bottom: 12px;
+        margin: 0 auto;
+      }
+    }
+
+    &-buttons {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0em;
+      background-color: white;
+    }
+
+    &-button {
+      #Font-TrajanPro();
+      #Flex-Row-Extremes();
+
+      margin: 0em 1em;
+
+      padding: 1em 1em;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+
+      width: ~"calc(100% - 2em)";
+
+      border: 1px solid @color-yellow;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      h1 {
+        color: black;
+        font-size: 12px;
+        transform: scaleY(0.9);
+        letter-spacing: 1px;
+      }
+      img {
+        width: 10px;
+        padding: 0.5em;
+      }
+    }
   }
 }
 </style>

@@ -22,7 +22,7 @@
               </div>
               <div class="authorized-shop-card-address">
                 <span v-if="shop.address">{{ shop.address}} /</span>
-                <span v-if="shop.phone">TELÉFONO} {{ shop.phone}}</span>
+                <span v-if="shop.phone">TELÉFONO {{ shop.phone}}</span>
               </div>
               <div class="authorized-shop-card-address">
                 <span v-if="shop.schedule">HORARIO DE ATENCIÓN : {{ shop.schedule}}</span>

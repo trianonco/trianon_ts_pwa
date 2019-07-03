@@ -65,4 +65,45 @@ div.login-share {
     #Font-Title();
   }
 }
+
+@media (min-width: 600px) {
+  div.login-share {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    height: 42px;
+
+    background-repeat: repeat-x;
+    background-size: contain;
+
+    #Flex-Col-Center-Center();
+
+    &.theme-gold {
+      background-color: @color-yellow;
+      background-image: url("./../../../shared/assets/images/signin/gold-bg.png");
+    }
+    &.theme-gray {
+      background-color: black;
+      background-image: none;
+      border: 1px solid gold;
+      margin: 1em auto;
+    }
+
+    &-wrapper {
+      display: block;
+      width: fit-content;
+
+      box-sizing: border-box;
+      padding: 1em;
+
+      margin: 0 auto;
+
+      background-color: black;
+      color: @color-white;
+
+      #Font-TrajanPro("normal");
+      #Font-Title();
+    }
+  }
+}
 </style>

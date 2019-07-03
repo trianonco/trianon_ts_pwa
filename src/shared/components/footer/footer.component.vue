@@ -6,17 +6,17 @@
     <div class="footer-networks">
       <div class="footer-network" v-for="icon in icons" v-bind:key="icon.id">
         <a :href="icon.url" target="_blank">
-          <img :src="icon.src" :alt="icon.alt">
+          <img :src="icon.src" :alt="icon.alt" />
         </a>
       </div>
     </div>
     <div class="footer-logo">
-      <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png">
+      <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png" />
       <img
         class="desktop"
         alt="TrianonCo Image"
         src="./../../assets/images/footers/G-C-LÍNEA-TORO-V1.png"
-      >
+      />
     </div>
     <div class="footer-copy desktop">© {{currentYear}} TRIANON S.A.S TODOS LOS DERECHOS RESERVADOS.</div>
   </footer>
@@ -91,7 +91,7 @@ export default {
     .footer-copy {
       background-color: #3f3e3d;
       display: block;
-      margin-top: -0.65em;
+      margin-top: -0em;
       padding: 1em;
       letter-spacing: 1px;
       font-size: 12px;
@@ -101,6 +101,15 @@ export default {
       position: absolute;
       bottom: 0px;
       width: 100%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  div.view.profile {
+    .footer {
+      position: relative;
+      bottom: 0px;
     }
   }
 }

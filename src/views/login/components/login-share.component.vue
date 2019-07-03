@@ -65,4 +65,63 @@ div.login-share {
     #Font-Title();
   }
 }
+
+@media (min-width: 600px) {
+  div.login-share {
+    display: block;
+    width: 100%;
+
+    background-repeat: repeat-x;
+    background-size: contain;
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    #Flex-Col-Center-Center();
+
+    &.theme-gold {
+      background-color: @color-yellow;
+      background-image: url("./../../../shared/assets/images/signin/gold-bg.png");
+      position: relative;
+      top: 2em;
+    }
+    &.theme-gray {
+      background-color: @color-gray;
+      background-image: none;
+    }
+
+    &-wrapper {
+      display: block;
+      width: fit-content;
+
+      box-sizing: border-box;
+      padding: 1em;
+      padding-left: 0.5em;
+
+      margin: 0 auto;
+
+      background-color: black;
+      color: @color-white;
+
+      #Font-TrajanPro("normal");
+      #Font-Title();
+    }
+  }
+}
 </style>

@@ -35,20 +35,16 @@ export const HandleUpdateBuy = functions.https.onRequest((request, response) => 
     try {
         admin.initializeApp(functions.config().firebase);
         const db = admin.firestore();
-
         const ID = request.query.ID;
-
         const propertiesToUpdate = {
             state: 'IN PROCESS: PAYMENT SUCCESSFULL',
             updatedAt: new Date()
         }
-
         const docRef = db.collection("SHOPPING_HISTORY").doc(ID);
-        docRef.update(propertiesToUpdate)
+        docRef.set(propertiesToUpdate)
             .then((doc: any) => {
-
                 //response.send(' ACTUALIZANDO ID ' + ID + ' <br> <br> <br> ' + JSON.stringify(doc))
-                response.redirect('http://localhost:8080/view/profile');
+                response.redirect('https://trianon-co-pwa-dev.web.app/view/profile');
 
             }).catch((error: any) => {
                 response.send("Error getting document:" + JSON.stringify(error));

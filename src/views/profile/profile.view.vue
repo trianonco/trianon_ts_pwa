@@ -1,31 +1,36 @@
 <template>
   <div class="view profile">
     <!-- Home :: View-wrapper -->
-    <div class="view-wrapper">
+    <div class="view-wrapper" style="position: relative;">
       <!-- Header  -->
-      <HeaderComponent :theme="headerTheme"/>
+      <HeaderComponent :theme="headerTheme" />
 
-      <div class="wrapper" v-if="user">
-        <div class="wrapper-title">
-          <span>{{ userName }}, BIENVENIDO A TU PERFIL TRIANON</span>
+      <img class="img-bg-desktop left" src="../../shared/assets/images/product-view-bg-left.png" />
+      <img class="img-bg-desktop right" src="../../shared/assets/images/product-view-bg-right.png" />
+
+      <div class="vw-content">
+        <div class="vw-wrapper" v-if="user">
+          <div class="vw-wrapper-title">
+            <span>{{ userName }}, BIENVENIDO A TU PERFIL TRIANON</span>
+          </div>
+          <div class="vw-wrapper-text">
+            <span>Aquí encontrarás los productos que hayas seleccionado, el estado de envio y los detalles de tus compras.</span>
+          </div>
         </div>
-        <div class="wrapper-text">
-          <span>Aquí encontrarás los productos que hayas seleccionado, el estado de envio y los detalles de tus compras.</span>
-        </div>
+
+        <ProfileEmptyProductsComponent
+          v-if="(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
+        ></ProfileEmptyProductsComponent>
+
+        <ProfileListProductsComponent
+          v-if="!(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
+        ></ProfileListProductsComponent>
+
+        <ProfileShareComponent :theme="'gray'"></ProfileShareComponent>
       </div>
 
-      <ProfileEmptyProductsComponent
-        v-if="(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
-      ></ProfileEmptyProductsComponent>
-
-      <ProfileListProductsComponent
-        v-if="!(cartProducts.length === 0 && inProcessProducts.length === 0 && purchasedProducts.length === 0)"
-      ></ProfileListProductsComponent>
-
-      <ProfileShareComponent :theme="'gray'"></ProfileShareComponent>
-
       <!-- Footers -->
-      <FooterComponent/>
+      <FooterComponent />
     </div>
     <!-- Home // View-wrapper -->
   </div>
@@ -121,7 +126,17 @@ div.view.profile {
 
   text-align: center;
 
-  div.wrapper {
+  .img-bg-desktop {
+    display: none;
+  }
+
+  div.vw-content {
+    min-height: ~"calc(100vh - 193px)";
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  div.vw-wrapper {
     display: block;
     width: 100%;
     padding: 1em;
@@ -150,6 +165,77 @@ div.view.profile {
       font-size: 11px;
       font-weight: 300;
       padding: 0.5em 0em 1em 0em;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  div.view.profile {
+    display: block;
+    width: 100%;
+
+    background-color: white;
+    color: black;
+
+    text-align: center;
+
+    .img-bg-desktop {
+      display: block;
+      position: fixed;
+      width: 5em;
+      bottom: 150px;
+      &.left {
+        left: 0px;
+      }
+      &.right {
+        right: 0px;
+      }
+    }
+
+    div.vw-content {
+      min-height: ~"calc(100vh - 300px)";
+      width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    div.vw-wrapper {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+
+      margin: 0 auto;
+      padding: 1em;
+
+      box-sizing: border-box;
+      #Font-OpenSans();
+
+      &-container {
+        border: 1px solid gray;
+      }
+
+      &-title {
+        color: black;
+        width: fit-content;
+        margin: 0 auto;
+        text-transform: uppercase;
+        #Font-OpenSans();
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 12px;
+        padding: 0.5em 0em 1em 0em;
+      }
+      &-text {
+        color: black;
+        width: 100%;
+        margin: 0 auto;
+        #Font-OpenSans("light");
+        letter-spacing: 1px;
+        line-height: 150%;
+        font-size: 11px;
+        font-weight: 300;
+        padding: 0.5em 0em 1em 0em;
+      }
     }
   }
 }
