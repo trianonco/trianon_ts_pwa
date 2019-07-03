@@ -43,8 +43,8 @@ export const HandleUpdateBuy = functions.https.onRequest((request, response) => 
         const docRef = db.collection("SHOPPING_HISTORY").doc(ID);
         docRef.update(propertiesToUpdate)
             .then((doc: any) => {
-                //response.send(' ACTUALIZANDO ID ' + ID + ' <br> <br> <br> ' + JSON.stringify(doc))
-                response.redirect('https://trianon-co-pwa-dev.web.app/view/profile');
+                response.send(' ACTUALIZANDO ID ' + ID + ' <br> <br> <br> ' + JSON.stringify(doc))
+                //response.redirect('https://trianon-co-pwa-dev.web.app/view/profile');
 
             }).catch((error: any) => {
                 response.send("Error getting document:" + JSON.stringify(error));
