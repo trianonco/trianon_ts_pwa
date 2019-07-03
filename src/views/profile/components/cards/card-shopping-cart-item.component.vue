@@ -129,11 +129,7 @@
           <div class="card-content-payment">
             <h1>SELECCIONA UN METODO DE PAGO:</h1>
 
-            <form
-              ref="payU_Form"
-              method="post"
-              action="https://checkout.payulatam.com/ppp-web-gateway-payu"
-            >
+            <form ref="payU_Form" method="post" :action="PAYU.url">
               <img
                 class="credit-cards-mobile"
                 src="../../../../shared/assets/images/credit-cards2.jpg"
@@ -246,7 +242,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "JORGE_MAYORGA"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
@@ -264,13 +260,30 @@ export default {
       this.BUY.phone = "3005318387";
     }
 
+    if (envPayName === "TEST") {
+      this.BUY.address = "Calle Av Siempre Viva #70c - 86";
+      this.BUY.address_info = "Casa 124";
+      this.BUY.address_neighborhood = "La Soledad";
+      this.BUY.address_department = "Bogota";
+      this.BUY.address_city = "Bogota";
+      this.BUY.fullname = "Jorge L. Mayorga";
+      this.BUY.phone = "3005318387";
+    }
+
     const date = new Date();
     const browser = JSON.stringify(navigator.userAgent);
 
     this.BUY.email = JSON.parse(localStorage.getItem("user")).email;
     this.BUY.ID = md5(date + browser + Math.random());
 
-    console.warn(this.getPayAmount());
+    console.warn({
+      md5: this.getPaySignature(),
+      apiKey: this.getPayA,
+      merchandId: this.getPayMerchantID(),
+      referenceCode: this.getPayReferenceCode(),
+      amount: this.getPayAmount(),
+      currency: this.getPayCurrency()
+    });
   },
 
   methods: {
@@ -325,7 +338,7 @@ export default {
         this.PAYU === this.PAYU_OPTIONS["TEST"]
       ) {
         const price = 12000;
-        return (price * (1 - 0.19)).toFixed(2);
+        return (price * 0.19).toFixed(2);
       } else {
         const price = this.getTotalPriceByItem;
         return (price * 0.19).toFixed(2);
@@ -347,33 +360,22 @@ export default {
       }
     },
     getPayDescription() {
-      return `${this.getProductsInShoppingCart[0].description} ${this.getProductsInShoppingCart[0].line}
-               COLOR : ${this.getProductsInShoppingCart[0].color} REF 
-               ${this.getProductsInShoppingCart[0].ref} 
-               `;
+      return `${this.getProductsInShoppingCart[0].description} ${this.getProductsInShoppingCart[0].line} COLOR : ${this.getProductsInShoppingCart[0].color} REF ${this.getProductsInShoppingCart[0].ref} `;
     },
     getPaySignature() {
-      console.warn({
-        apiKey: this.PAYU.apiKey,
-        merchandId: this.PAYU.merchantId,
-        referenceCode: this.getPayReferenceCode(),
-        amount: this.getPayAmount(),
-        currency: this.getPayCurrency()
-      });
       const payu_md5 = md5(
         `${this.PAYU.apiKey}~${
           this.PAYU.merchantId
         }~${this.getPayReferenceCode()}~${this.getPayAmount()}~${this.getPayCurrency()}`
       );
+
       return payu_md5;
     },
 
     goToPayU() {
       const db = firebase.firestore();
       this.BUY.product = this.item;
-      this.$refs.payU_Form.submit();
 
-      /*
       db.collection("SHOPPING_HISTORY")
         .doc(this.BUY.ID)
         .set(this.BUY)
@@ -384,7 +386,6 @@ export default {
         .catch(function(error) {
           console.error("Error writing document: ", error);
         });
-        */
     },
 
     doToogleCard() {

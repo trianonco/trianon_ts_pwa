@@ -41,7 +41,7 @@ export const HandleUpdateBuy = functions.https.onRequest((request, response) => 
             updatedAt: new Date()
         }
         const docRef = db.collection("SHOPPING_HISTORY").doc(ID);
-        docRef.set(propertiesToUpdate)
+        docRef.update(propertiesToUpdate)
             .then((doc: any) => {
                 //response.send(' ACTUALIZANDO ID ' + ID + ' <br> <br> <br> ' + JSON.stringify(doc))
                 response.redirect('https://trianon-co-pwa-dev.web.app/view/profile');
@@ -51,7 +51,7 @@ export const HandleUpdateBuy = functions.https.onRequest((request, response) => 
             });
 
     } catch (e) {
-        response.send("error en el try catch !!!!!!");
+        response.send(" <h1> error en el try catch !!!!!! </h1> " + "<p>" + JSON.stringify(e) + "</p>");
     }
     //response.send("Hello from HandleUpdateBuy Firebase!");
 });
