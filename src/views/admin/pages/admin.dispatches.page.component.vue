@@ -4,47 +4,47 @@
     <form>
       <div class="queue-card" v-for="(item, index) of queue" v-bind:key="index">
         <h1>ID {{item.ID}}</h1>
-        <h1>Fecha de Compra : {{ getDate(item.createdAt)}}</h1>
-        <h1>Producto : {{ item.ref }}</h1>
-        <h1>Email : {{item.email}}</h1>
-        <h1>Teléfono : {{item.phone}}</h1>
+        <h1>Fecha de Compra : {{ getDate(item.meta.createdAt)}}</h1>
+        <h1>Producto : {{ item.products[0].ref }}</h1>
+        <h1>Email : {{item.shipping.email}}</h1>
+        <h1>Teléfono : {{item.shipping.phone}}</h1>
         <div class="queue-card-row states">
           <div class="state" @click="setState(item,'IN PROCESS: PAYMENT SUCCESSFULL')">
             <img
               src="./../../../shared/assets/images/in-process/s0-green.png"
               v-if="isStateInStock(item)"
-            >
+            />
             <img
               src="./../../../shared/assets/images/in-process/s0-yellow.png"
               v-if="!isStateInStock(item)"
-            >
+            />
           </div>
           <div class="state" @click="setState(item,'IN PROCESS: IN DISPATCHES')">
             <img
               src="./../../../shared/assets/images/in-process/s1-green.png"
               v-if="isStateInDispatch(item)"
-            >
+            />
             <img
               src="./../../../shared/assets/images/in-process/s1-yellow.png"
               v-if="!isStateInDispatch(item)"
-            >
+            />
           </div>
           <div class="state" @click="setState(item,'IN PROCESS: IN SHIPPING')">
             <img
               src="./../../../shared/assets/images/in-process/s2-green.png"
               v-if="isStateInShipping(item)"
-            >
+            />
             <img
               src="./../../../shared/assets/images/in-process/s2-yellow.png"
               v-if="!isStateInShipping(item)"
-            >
+            />
           </div>
         </div>
         <div class="queue-card-row"></div>
       </div>
     </form>
     <div class="loader" v-if="isLoading">
-      <img src="./../../../shared/assets/images/ajax-loader.gif" width="25px">
+      <img src="./../../../shared/assets/images/ajax-loader.gif" width="25px" />
     </div>
   </div>
 </template>

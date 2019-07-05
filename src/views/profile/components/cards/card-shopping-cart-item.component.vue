@@ -61,39 +61,47 @@
               <input
                 type="text"
                 name="address"
+                :class="isInputError('address')"
                 autocomplete="on"
                 placeholder="DIRECCIÓN"
-                v-model="BUY.address"
+                v-model="BUY.shipping.address"
                 required
               />
               <input
                 type="text"
                 name="apartment"
+                :class="isInputError('info')"
                 autocomplete="on"
                 placeholder="PISO O APARTAMENTO"
-                v-model="BUY.address_info"
+                v-model="BUY.shipping.info"
+                required
               />
               <input
                 type="text"
                 name="neighbourhood"
+                :class="isInputError('neighbourhood')"
                 autocomplete="on"
                 placeholder="BARRIO"
-                v-model="BUY.address_neighborhood"
+                v-model="BUY.shipping.neighbourhood"
                 required
               />
+
               <input
                 type="text"
+                :class="isInputError('department')"
                 autocomplete="on"
                 placeholder="DEPARTAMENTO"
-                v-model="BUY.address_department"
+                v-model="BUY.shipping.department"
                 style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
                 required
               />
+
               <input
                 type="text"
+                :class="isInputError('city')"
                 autocomplete="on"
                 placeholder="MUNICIPIO"
-                v-model="BUY.address_city"
+                v-model="BUY.shipping.city"
                 style="width:calc(50% - 0.5em);margin-bottom:0px;"
                 required
               />
@@ -101,17 +109,25 @@
               <br />
               <input
                 type="text"
+                :class="isInputError('name')"
                 autocomplete="on"
                 placeholder="NOMBRE DE QUIEN VA A RECIBIR"
-                v-model="BUY.fullname"
+                v-model="BUY.shipping.name"
                 style="margin-top:1em"
                 required
               />
+              <textarea v-model="BUY.comment" placeholder="COMENTARIOS ADICIONALES"></textarea>
             </div>
 
             <div class="card-content-phone-and-total">
               <div class="card-content-phone">
-                <input type="text" placeholder="TU NUMERO CELULAR *" v-model="BUY.phone" required />
+                <input
+                  type="text"
+                  :class="isInputError('phone')"
+                  placeholder="TU NUMERO CELULAR *"
+                  v-model="BUY.shipping.phone"
+                  required
+                />
               </div>
 
               <div class="card-content-total-sum">
@@ -186,7 +202,8 @@ export default {
   data() {
     return {
       UX: {
-        isCardOpen: false
+        isCardOpen: false,
+        isEmpty: true
       },
 
       PAYU_OPTIONS: {
@@ -215,19 +232,42 @@ export default {
       BUY: {
         ID: "",
         state: "IN PROCESS: WATING FOR PAYMENT",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        ref: "",
-        items: 0,
-        address: "",
-        address_info: "",
-        address_neighborhood: "",
-        address_department: "",
-        address_city: "",
-        fullname: "",
-        phone: "",
-        total: 0,
-        product: {}
+        email : "",
+
+        meta: {
+          items: 0,
+          total: 0.0,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+
+        shipping: {
+          address: "",
+          info: "",
+          neighbourhood: "",
+          department: "",
+          city: "",
+          country: "",
+          name: "",
+          phone: "",
+          email: "",
+          tracker_code: "",
+          shipping_company: ""
+        },
+
+        billing: {
+          number: "",
+          subtotal_price: "",
+          total_price: "",
+          shipping_price: "",
+          name: "",
+          phone: "",
+          email: ""
+        },
+
+        comment: "",
+
+        products: []
       }
     };
   },
@@ -251,34 +291,35 @@ export default {
     });
 
     if (envPayName === "JORGE_MAYORGA") {
-      this.BUY.address = "Calle 141 #7b - 86";
-      this.BUY.address_info = "Apto 502";
-      this.BUY.address_neighborhood = "Belmira";
-      this.BUY.address_department = "Bogota";
-      this.BUY.address_city = "Bogota";
-      this.BUY.fullname = "Jorge L. Mayorga";
-      this.BUY.phone = "3005318387";
+      this.BUY.shipping.address = "Calle 141 #7b - 86";
+      this.BUY.shipping.info = "Apto 502";
+      this.BUY.shipping.neighbourhood = "Belmira";
+      this.BUY.shipping.department = "Bogota";
+      this.BUY.shipping.city = "Bogota";
+      this.BUY.shipping.name = "Jorge L. Mayorga";
+      this.BUY.shipping.phone = "3005318387";
     }
 
     if (envPayName === "TEST") {
-      this.BUY.address = "Calle Av Siempre Viva #70c - 86";
-      this.BUY.address_info = "Casa 124";
-      this.BUY.address_neighborhood = "La Soledad";
-      this.BUY.address_department = "Bogota";
-      this.BUY.address_city = "Bogota";
-      this.BUY.fullname = "Jorge L. Mayorga";
-      this.BUY.phone = "3005318387";
+      this.BUY.shipping.address = "Calle Av Siempre Viva #70c - 86";
+      this.BUY.shipping.info = "Casa 124";
+      this.BUY.shipping.neighbourhood = "La Soledad";
+      this.BUY.shipping.department = "Bogota";
+      this.BUY.shipping.city = "Bogota";
+      this.BUY.shipping.name = "Jorge L. Mayorga";
+      this.BUY.shipping.phone = "3005318387";
     }
 
     const date = new Date();
     const browser = JSON.stringify(navigator.userAgent);
 
-    this.BUY.email = JSON.parse(localStorage.getItem("user")).email;
-    this.BUY.ID = md5(date + browser + Math.random());
+    this.BUY.shipping.email = JSON.parse(localStorage.getItem("user")).email;
+    this.BUY.email = this.BUY.shipping.email;
+    this.BUY.ID = md5(date + browser + Math.random() + this.item.ref);
 
     console.warn({
       md5: this.getPaySignature(),
-      apiKey: this.getPayA,
+      apiKey: this.PAY.apiKey,
       merchandId: this.getPayMerchantID(),
       referenceCode: this.getPayReferenceCode(),
       amount: this.getPayAmount(),
@@ -303,13 +344,13 @@ export default {
       return this.PAYU.confirmationURL;
     },
     getPayShippingAddress() {
-      return `${this.BUY.address} ${this.BUY.address_info}`;
+      return `${this.BUY.shipping.address} ${this.BUY.shipping.info}`;
     },
     getPayShippingCity() {
-      return `${this.BUY.address_department} ${this.BUY.address_city}`;
+      return `${this.BUY.shipping.department} ${this.BUY.shipping.city}`;
     },
     getPayClientEmail() {
-      return this.BUY.email;
+      return this.BUY.shipping.email;
     },
     getPayUpdateURL() {
       const base =
@@ -360,7 +401,7 @@ export default {
       }
     },
     getPayDescription() {
-      return `${this.getProductsInShoppingCart[0].description} ${this.getProductsInShoppingCart[0].line} COLOR : ${this.getProductsInShoppingCart[0].color} REF ${this.getProductsInShoppingCart[0].ref} `;
+      return `${this.item.description} ${this.item.line} COLOR : ${this.item.color} REF ${this.item.ref} `;
     },
     getPaySignature() {
       const payu_md5 = md5(
@@ -373,33 +414,72 @@ export default {
     },
 
     goToPayU() {
-      const db = firebase.firestore();
-      this.BUY.product = this.item;
+      this.UX.isEmpty = false;
+      if (
+        true ||
+        (this.BUY.shipping.address &&
+          this.BUY.shipping.info &&
+          this.BUY.shipping.neighbourhood &&
+          this.BUY.shipping.department &&
+          this.BUY.shipping.city &&
+          this.BUY.shipping.name &&
+          this.BUY.shipping.phone)
+      ) {
+        this.BUY.shipping.country = "COLOMBIA";
 
-      db.collection("SHOPPING_HISTORY")
-        .doc(this.BUY.ID)
-        .set(this.BUY)
-        .then(() => {
-          console.log("Document successfully written!");
-          this.$refs.payU_Form.submit();
-        })
-        .catch(function(error) {
-          console.error("Error writing document: ", error);
-        });
+        this.BUY.billing.number = "N/A";
+        this.BUY.billing.subtotal_price = parseFloat(this.getTotalPriceByItem);
+        this.BUY.billing.shipping_price =
+          this.getTotalPriceByItem > 100000 ? 0 : 8000;
+        this.BUY.billing.total_price =
+          this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
+        this.BUY.billing.name = this.BUY.shipping.name;
+        this.BUY.billing.phone = this.BUY.shipping.phone;
+        this.BUY.billing.email = this.BUY.shipping.email;
+
+        this.BUY.products = [];
+        this.BUY.products.push(this.item);
+        this.BUY.products[0]["quantity"] = this.BUY.meta.items;
+        this.BUY.products[0]["subtotal"] =
+          this.BUY.meta.items * this.item.price_cop;
+
+        const db = firebase.firestore();
+
+        db.collection("SHOPPING_HISTORY")
+          .doc(this.BUY.ID)
+          .set(this.BUY)
+          .then(() => {
+            console.log("Document successfully written!");
+            this.$refs.payU_Form.submit();
+          })
+          .catch(function(error) {
+            alert("ERRROR EN LA BASE DE DATOS, CONTACTE AL ADMIN");
+            console.error("Error writing document: ", error);
+          });
+      }
+    },
+
+    isInputError(field) {
+      if (this.UX.isEmpty) {
+        return "default";
+      } else {
+        if (this.BUY.shipping[field]) {
+          return "default";
+        } else {
+          return "error";
+        }
+      }
     },
 
     doToogleCard() {
       this.UX.isCardOpen = !this.UX.isCardOpen;
     },
-
     addProductoToShoppingCart() {
       this.$store.dispatch("addToCart", this.item);
     },
-
     removeProductoToShoppingCart() {
       this.$store.dispatch("removeFromCart", this.item);
     },
-
     getPhotoSRC_HD(ref_photo_code) {
       const product_token = "18c776df-f5a7-45a0-9012-16f780381d92";
       const filename = `${ref_photo_code}-01.jpg`;
@@ -429,13 +509,13 @@ export default {
       return items;
     },
     getTotalPriceByItem() {
-      this.BUY.items = this.getProductsInShoppingCart.length;
-      this.BUY.total = this.getProductsInShoppingCart
+      this.BUY.meta.items = this.getProductsInShoppingCart.length;
+      this.BUY.meta.total = this.getProductsInShoppingCart
         .map(item => item.price_cop)
         .reduce(function(valorAnterior, valorActual) {
           return valorAnterior + valorActual;
         });
-      return this.BUY.total;
+      return this.BUY.meta.total;
     }
   }
 };
@@ -619,6 +699,27 @@ export default {
       padding: 2em 0em;
     }
     input {
+      display: inline-block;
+      width: 100%;
+      border: none;
+
+      box-sizing: border-box;
+      padding: 1.5em;
+      margin-bottom: 1.5em;
+
+      font-family: "TrajanPro";
+      font-size: 0.5em;
+      font-display: block;
+      letter-spacing: 2px;
+      text-align: center;
+
+      border: 1px solid #fff;
+      &.error {
+        border: 1px solid rgba(255, 50, 50, 0.85);
+      }
+    }
+
+    textarea {
       display: inline-block;
       width: 100%;
       border: none;

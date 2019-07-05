@@ -4,15 +4,22 @@
       <!-- --------------------------------------------------------------------------------- -->
       <!-- -- SHOPPING CART ITEMS ---------------------------------------------------------- -->
       <!-- --------------------------------------------------------------------------------- -->
+      <!--
+      <h4>CARRITO DE COMPRAS</h4>
+      -->
       <div class="cards-shopping-cart-items" v-for="(item,index) of cartProducts" :key="index">
         <CardShoppingCartItemComponent :item="item"></CardShoppingCartItemComponent>
       </div>
+
       <!-- --------------------------------------------------------------------------------- -->
 
       <!-- --------------------------------------------------------------------------------- -->
       <!-- -- IN PROCESS ITEMS ------------------------------------------------------------- -->
       <!-- --------------------------------------------------------------------------------- -->
-
+      <!--
+      <div style="background-color:black;width:100%; padding:0.33em;" />
+      <h4>COMPRAS EN PROCESO</h4>
+      -->
       <div class="cards-in-process-items" v-for="(item,index) of inProcessProducts" :key="index">
         <CardInProcessItemComponent :item="item"></CardInProcessItemComponent>
       </div>
@@ -22,12 +29,16 @@
       <!-- --------------------------------------------------------------------------------- -->
       <!-- -- PURCHASED ITEMS -------------------------------------------------------------- -->
       <!-- --------------------------------------------------------------------------------- -->
+
       <!--
+      <div style="background-color:black;width:100%; padding:0.33em;" />
+      <h4>COMPRAS FINALIZADAS</h4>
+      -->
+
       <div class="cards-purchased-items" v-for="(item,index) of purchasedProducts" :key="index">
-          {{ index }}
         <CardPurchasedItemComponent :item="item"></CardPurchasedItemComponent>
       </div>
-      -->
+
       <!-- --------------------------------------------------------------------------------- -->
     </div>
   </div>
@@ -69,7 +80,7 @@ export default class ProfileListProductsComponent extends Vue {
   }
 
   get purchasedProducts() {
-    return [...new Set(this.$store.state.inProcessModule.products)];
+    return this.getUnique(this.$store.state.inProcessCartModule.products, "ID");
   }
 
   getUnique(arr: any[], comp: any) {
@@ -91,5 +102,9 @@ export default class ProfileListProductsComponent extends Vue {
 @import (reference) "../../../shared/styles/index.less";
 div.no-empty-shopping-cart {
   padding-top: 0em !important;
+
+  h4 {
+    padding: 0.5em;
+  }
 }
 </style>

@@ -14,8 +14,8 @@
         >
       </div>
 
-      <div class="card-header-title" v-if="item.product.description">
-        <h1>{{item.product.description }} {{item.product.ref}}</h1>
+      <div class="card-header-title" v-if="item.products[0].description">
+        <h1>{{item.products[0].description }} {{item.products[0].ref}}</h1>
       </div>
 
       <div class="card-header-see-more">
@@ -30,9 +30,9 @@
     </div>
 
     <div class="card-content" v-if="UX.isCardOpen">
-      <div class="card-content-title" v-if="item.product.price_cop">
+      <div class="card-content-title" v-if="item.products[0].price_cop">
         <h1>ESTADO : PROCESO DE ENVIO</h1>
-        <h2>PRECIO : {{ item.product.price_cop | toCurrency }} | COMPRA : {{ getDate(item.updatedAt) }}</h2>
+        <h2>PRECIO : {{ item.products[0].price_cop | toCurrency }} | COMPRA : {{ getDate(item.meta.updatedAt) }}</h2>
         <h4>
           <a target="_blank" :href="getFacturaLink()" download>DESCARGAR FACTURA</a>
         </h4>
@@ -114,12 +114,9 @@ export default {
     },
 
     getFacturaLink() {
-      const filename = "ComprobantePSE20190605172640.pdf";
-      return (
-        "https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F" +
-        filename +
-        "?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7"
-      );
+      const ID = this.item.ID; 
+      const path = `https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7`;
+      return path
     },
 
     getDate(data) {
