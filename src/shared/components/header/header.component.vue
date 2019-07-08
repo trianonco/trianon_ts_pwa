@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="header-title">
-      <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA</h1>
+      <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA *</h1>
     </div>
   </header>
 </template>
@@ -73,11 +73,11 @@ export default class HeaderComponent extends Vue {
   }
 
   private goToLogin() {
-    //this.$router.push("/view/signin");
+    this.$router.push("/view/signin");
   }
 
   private goToProfile() {
-    //this.$router.push("/view/profile");
+    this.$router.push("/view/profile");
   }
 
   private goToBack() {
