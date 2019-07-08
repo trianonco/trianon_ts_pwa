@@ -4,60 +4,60 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSansLight-Italic.2c06d851.ttf"
   },
   {
+    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
+    "url": "/PWA_V2/redirect.html"
+  },
+  {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/PWA_V2/robots.txt"
   },
   {
-    "revision": "10ba07da64cc6a490da4ac3af4dd238b",
-    "url": "/PWA_V2/fonts/OpenSans.10ba07da.ttf"
+    "revision": "be95e66a21b26c932482f3db7b84b410",
+    "url": "/PWA_V2/fonts/OpenSans-Italic.be95e66a.eot"
   },
   {
     "revision": "b95d44964ab3222c198c",
-    "url": "/PWA_V2/css/AuthorizedShops.4aa0a016.css"
-  },
-  {
-    "revision": "b6394297adf636bb521d",
-    "url": "/PWA_V2/css/about.58132e3d.css"
+    "url": "/PWA_V2/js/AuthorizedShops.68ba1dce.js"
   },
   {
     "revision": "b6394297adf636bb521d",
     "url": "/PWA_V2/js/about.ce75601e.js"
   },
   {
-    "revision": "cf3cdba486261d047fc4",
-    "url": "/PWA_V2/css/admin.cf128fad.css"
+    "revision": "bfe0522711522156ef72c996805bfcb4",
+    "url": "/PWA_V2/maintain.html"
   },
   {
     "revision": "cf3cdba486261d047fc4",
     "url": "/PWA_V2/js/admin.1b72a6d9.js"
   },
   {
-    "revision": "bc2030baf5c5209b362d",
-    "url": "/PWA_V2/css/app.d56069ee.css"
+    "revision": "ca0df4668fdb2af24973",
+    "url": "/PWA_V2/js/terms.view.9d5ca007.js"
   },
   {
-    "revision": "bc2030baf5c5209b362d",
-    "url": "/PWA_V2/js/app.d1594096.js"
+    "revision": "9e2a83506b7d8d8fda47",
+    "url": "/PWA_V2/js/app.d39fa20c.js"
   },
   {
-    "revision": "d9e92dcf9f7e180076cc",
-    "url": "/PWA_V2/css/chunk-vendors.fc6db382.css"
+    "revision": "33301b0fbfdf29084c46",
+    "url": "/PWA_V2/js/sitemap.view.18c87097.js"
   },
   {
     "revision": "d9e92dcf9f7e180076cc",
     "url": "/PWA_V2/js/chunk-vendors.69a105ea.js"
   },
   {
-    "revision": "02e70b751d42c0fb4c69",
-    "url": "/PWA_V2/css/politics.view.d89b69a0.css"
+    "revision": "cb05153d5f71de147d16",
+    "url": "/PWA_V2/js/shopProduct.3ff3b2d1.js"
   },
   {
     "revision": "02e70b751d42c0fb4c69",
     "url": "/PWA_V2/js/politics.view.fab5a767.js"
   },
   {
-    "revision": "f887ea2589eb45b05c3a",
-    "url": "/PWA_V2/css/profile.36ebed62.css"
+    "revision": "3a7745e0a8c4d18d7aad",
+    "url": "/PWA_V2/js/shop.8d19d14d.js"
   },
   {
     "revision": "f887ea2589eb45b05c3a",
@@ -65,43 +65,43 @@ self.__precacheManifest = [
   },
   {
     "revision": "f9598f3e80860283ef59",
-    "url": "/PWA_V2/css/safe.view.308620fa.css"
-  },
-  {
-    "revision": "f9598f3e80860283ef59",
     "url": "/PWA_V2/js/safe.view.3a22a348.js"
   },
   {
-    "revision": "3a7745e0a8c4d18d7aad",
-    "url": "/PWA_V2/css/shop.2c063b5a.css"
+    "revision": "8165c1ec52bb9262b2105edc8032a5db",
+    "url": "/PWA_V2/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
-    "revision": "3a7745e0a8c4d18d7aad",
-    "url": "/PWA_V2/js/shop.8d19d14d.js"
+    "revision": "f9598f3e80860283ef59",
+    "url": "/PWA_V2/css/safe.view.308620fa.css"
+  },
+  {
+    "revision": "8052fbba71c2874cf158ad71b8f0024f",
+    "url": "/PWA_V2/index.html"
   },
   {
     "revision": "cb05153d5f71de147d16",
     "url": "/PWA_V2/css/shopProduct.1bedf7c7.css"
   },
   {
-    "revision": "cb05153d5f71de147d16",
-    "url": "/PWA_V2/js/shopProduct.3ff3b2d1.js"
+    "revision": "def58d3acf9e73549074ebf05a16b351",
+    "url": "/PWA_V2/img/sw3_HD.def58d3a.jpg"
   },
   {
     "revision": "33301b0fbfdf29084c46",
     "url": "/PWA_V2/css/sitemap.view.4d27cc49.css"
   },
   {
-    "revision": "33301b0fbfdf29084c46",
-    "url": "/PWA_V2/js/sitemap.view.18c87097.js"
+    "revision": "0ed125d90c2f1d32a5eacbbb1cd17547",
+    "url": "/PWA_V2/img/black-logo-mobile_Mesa de trabajo 1.0ed125d9.png"
   },
   {
     "revision": "ca0df4668fdb2af24973",
     "url": "/PWA_V2/css/terms.view.d8869131.css"
   },
   {
-    "revision": "ca0df4668fdb2af24973",
-    "url": "/PWA_V2/js/terms.view.9d5ca007.js"
+    "revision": "ba368c5186d38b1e7f1798c3e9fd9af2",
+    "url": "/PWA_V2/img/garatian-line-header-desktop.ba368c51.png"
   },
   {
     "revision": "70ca29858f72c41622469b8d4d57fd23",
@@ -228,12 +228,12 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSans.90327f5a.woff"
   },
   {
-    "revision": "cee4f07ed7988e917b69db983549fe65",
-    "url": "/PWA_V2/fonts/OpenSans-Extrabold.cee4f07e.woff"
-  },
-  {
     "revision": "4c7b8237f45b448efb609f5d8e3997a9",
     "url": "/PWA_V2/fonts/OpenSans-Semibold.4c7b8237.woff"
+  },
+  {
+    "revision": "cee4f07ed7988e917b69db983549fe65",
+    "url": "/PWA_V2/fonts/OpenSans-Extrabold.cee4f07e.woff"
   },
   {
     "revision": "90327f5ac43d0fbc708f3653ffc0a043",
@@ -252,6 +252,14 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/TrajanPro-Regular.b11f35f7.otf"
   },
   {
+    "revision": "427dc6119e442413329f5901bab5161d",
+    "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.427dc611.eot"
+  },
+  {
+    "revision": "1245824481137ab66a6f540116a569ab",
+    "url": "/PWA_V2/fonts/OpenSans-BoldItalic.12458244.eot"
+  },
+  {
     "revision": "f42a8498d930df4e0d764a8c67b18fed",
     "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
@@ -260,32 +268,24 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSansLight-Italic.ecbfae59.eot"
   },
   {
-    "revision": "1245824481137ab66a6f540116a569ab",
-    "url": "/PWA_V2/fonts/OpenSans-BoldItalic.12458244.eot"
-  },
-  {
-    "revision": "427dc6119e442413329f5901bab5161d",
-    "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.427dc611.eot"
-  },
-  {
     "revision": "98aa0f4c29a23e6d23b5",
     "url": "/PWA_V2/js/AuthorizedDistributors.665cae6d.js"
   },
   {
-    "revision": "b95d44964ab3222c198c",
-    "url": "/PWA_V2/js/AuthorizedShops.68ba1dce.js"
+    "revision": "10ba07da64cc6a490da4ac3af4dd238b",
+    "url": "/PWA_V2/fonts/OpenSans.10ba07da.ttf"
   },
   {
-    "revision": "be95e66a21b26c932482f3db7b84b410",
-    "url": "/PWA_V2/fonts/OpenSans-Italic.be95e66a.eot"
-  },
-  {
-    "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
-    "url": "/PWA_V2/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
+    "revision": "6730b39fab096a938ea610f7ed909c5f",
+    "url": "/PWA_V2/img/s2-yellow.6730b39f.png"
   },
   {
     "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
     "url": "/PWA_V2/fonts/OpenSans-Italic.e6c21381.ttf"
+  },
+  {
+    "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
+    "url": "/PWA_V2/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
   },
   {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
@@ -296,24 +296,24 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
-    "revision": "8165c1ec52bb9262b2105edc8032a5db",
-    "url": "/PWA_V2/fonts/OpenSans-Semibold.8165c1ec.eot"
-  },
-  {
     "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
     "url": "/PWA_V2/fonts/OpenSans-Bold.0fc8bb5a.ttf"
-  },
-  {
-    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
-    "url": "/PWA_V2/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/PWA_V2/fonts/OpenSans.885e3d6f.eot"
   },
   {
+    "revision": "3a7745e0a8c4d18d7aad",
+    "url": "/PWA_V2/css/shop.2c063b5a.css"
+  },
+  {
     "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
     "url": "/PWA_V2/fonts/OpenSans-Extrabold.fa25da4a.eot"
+  },
+  {
+    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
+    "url": "/PWA_V2/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
@@ -328,8 +328,8 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
-    "revision": "4036090917114a9f089af14dc8b9dffc",
-    "url": "/PWA_V2/fonts/TrajanPro-Regular.40360909.eot"
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/PWA_V2/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "e1d396939867c493f06f2bbc071993d9",
@@ -340,8 +340,8 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/TrajanPro-Bold.14633e00.ttf"
   },
   {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/PWA_V2/fonts/TrajanPro-Regular.e8425e8a.ttf"
+    "revision": "4036090917114a9f089af14dc8b9dffc",
+    "url": "/PWA_V2/fonts/TrajanPro-Regular.40360909.eot"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -508,32 +508,32 @@ self.__precacheManifest = [
     "url": "/PWA_V2/img/Recurso 5@4x.82458eea.png"
   },
   {
-    "revision": "6730b39fab096a938ea610f7ed909c5f",
-    "url": "/PWA_V2/img/s2-yellow.6730b39f.png"
+    "revision": "f887ea2589eb45b05c3a",
+    "url": "/PWA_V2/css/profile.36ebed62.css"
   },
   {
-    "revision": "ba368c5186d38b1e7f1798c3e9fd9af2",
-    "url": "/PWA_V2/img/garatian-line-header-desktop.ba368c51.png"
+    "revision": "02e70b751d42c0fb4c69",
+    "url": "/PWA_V2/css/politics.view.d89b69a0.css"
   },
   {
-    "revision": "0ed125d90c2f1d32a5eacbbb1cd17547",
-    "url": "/PWA_V2/img/black-logo-mobile_Mesa de trabajo 1.0ed125d9.png"
+    "revision": "d9e92dcf9f7e180076cc",
+    "url": "/PWA_V2/css/chunk-vendors.fc6db382.css"
   },
   {
-    "revision": "def58d3acf9e73549074ebf05a16b351",
-    "url": "/PWA_V2/img/sw3_HD.def58d3a.jpg"
+    "revision": "9e2a83506b7d8d8fda47",
+    "url": "/PWA_V2/css/app.3d4ec3e8.css"
   },
   {
-    "revision": "69b78ab3233768bde32b1e3e9cf150ae",
-    "url": "/PWA_V2/index.html"
+    "revision": "cf3cdba486261d047fc4",
+    "url": "/PWA_V2/css/admin.cf128fad.css"
   },
   {
-    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
-    "url": "/PWA_V2/redirect.html"
+    "revision": "b6394297adf636bb521d",
+    "url": "/PWA_V2/css/about.58132e3d.css"
   },
   {
-    "revision": "bfe0522711522156ef72c996805bfcb4",
-    "url": "/PWA_V2/maintain.html"
+    "revision": "b95d44964ab3222c198c",
+    "url": "/PWA_V2/css/AuthorizedShops.4aa0a016.css"
   },
   {
     "revision": "98aa0f4c29a23e6d23b5",
