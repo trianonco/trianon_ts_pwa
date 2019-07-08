@@ -29,3 +29,24 @@ AuthName "www"
 Order Allow,Deny
 deny from all
 </Files>
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////
+
+
+
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} trianon\.com\.co [NC]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /PWA_V2/$1 [L]
