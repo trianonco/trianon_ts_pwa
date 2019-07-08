@@ -17,8 +17,8 @@ RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule . /index.php [L]
-RewriteRule ./../trianon.com.co/trianon_ts_pwa_dev/index.html [L]
+RewriteRule . /index.php [L]
+#RewriteRule ./../trianon.com.co/trianon_ts_pwa_dev/index.html [L]
 </IfModule>
 
 # END WordPress
