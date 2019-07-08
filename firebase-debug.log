@@ -1,0 +1,87 @@
+[debug] [2019-07-08T02:37:59.915Z] ----------------------------------------------------------------------
+[debug] [2019-07-08T02:37:59.923Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\walla\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-07-08T02:37:59.923Z] CLI Version:   6.11.0
+[debug] [2019-07-08T02:37:59.923Z] Platform:      win32
+[debug] [2019-07-08T02:37:59.923Z] Node Version:  v10.14.1
+[debug] [2019-07-08T02:37:59.925Z] Time:          Sun Jul 07 2019 21:37:59 GMT-0500 (GMT-05:00)
+[debug] [2019-07-08T02:37:59.925Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-08T02:37:59.952Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-08T02:37:59.954Z] > authorizing via signed-in user
+[debug] [2019-07-08T02:37:59.954Z] [iam] checking project trianon-co-pwa-dev for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2019-07-08T02:37:59.958Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/trianon-co-pwa-dev:testIamPermissions  
+
+[debug] [2019-07-08T02:38:00.662Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-08T02:38:00.667Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/trianon-co-pwa-dev  
+ 
+[debug] [2019-07-08T02:38:01.063Z] <<< HTTP RESPONSE 200
+[warn] !  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'trianon-co-pwa-dev'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script.
+[info] i  database: checking rules syntax...
+[debug] [2019-07-08T02:38:28.368Z] >>> HTTP REQUEST PUT https://trianon-co-pwa-dev.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2019-07-08T02:38:28.997Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database trianon-co-pwa-dev is valid
+[debug] [2019-07-08T02:38:29.002Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/trianon-co-pwa-dev  
+ 
+[debug] [2019-07-08T02:38:29.892Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2019-07-08T02:38:29.901Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev:test  
+
+[debug] [2019-07-08T02:38:30.196Z] <<< HTTP RESPONSE 200
+[info] +  storage: rules file storage.rules compiled successfully
+[info] i  firestore: checking firestore.rules for compilation errors...
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[debug] [2019-07-08T02:38:30.202Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/trianon-co-pwa-dev:test  
+
+[debug] [2019-07-08T02:38:30.404Z] <<< HTTP RESPONSE 200
+[info] +  firestore: rules file firestore.rules compiled successfully
+[debug] [2019-07-08T02:38:30.408Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@google-cloud/storage": "^3.0.2",
+    "cors": "^2.8.5",
+    "firebase-admin": "~7.0.0",
+    "firebase-functions": "^2.3.0",
+    "handlebars": "^4.1.2",
+    "handlebars-intl": "^1.1.2",
+    "html-pdf": "^2.2.0",
+    "nodemailer": "^6.2.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-07-08T02:38:30.412Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/trianon-co-pwa-dev?view=CONSUMER_VIEW  
+ 
+[debug] [2019-07-08T02:38:30.414Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/trianon-co-pwa-dev?view=CONSUMER_VIEW  
+ 
+[debug] [2019-07-08T02:38:31.669Z] <<< HTTP RESPONSE 200

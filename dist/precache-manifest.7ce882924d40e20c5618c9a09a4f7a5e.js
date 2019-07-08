@@ -252,20 +252,20 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/TrajanPro-Regular.b11f35f7.otf"
   },
   {
-    "revision": "427dc6119e442413329f5901bab5161d",
-    "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.427dc611.eot"
-  },
-  {
-    "revision": "1245824481137ab66a6f540116a569ab",
-    "url": "/PWA_V2/fonts/OpenSans-BoldItalic.12458244.eot"
-  },
-  {
     "revision": "f42a8498d930df4e0d764a8c67b18fed",
     "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
   {
     "revision": "ecbfae5924935c60785e9e2a36f8e05f",
     "url": "/PWA_V2/fonts/OpenSansLight-Italic.ecbfae59.eot"
+  },
+  {
+    "revision": "1245824481137ab66a6f540116a569ab",
+    "url": "/PWA_V2/fonts/OpenSans-BoldItalic.12458244.eot"
+  },
+  {
+    "revision": "427dc6119e442413329f5901bab5161d",
+    "url": "/PWA_V2/fonts/OpenSans-SemiboldItalic.427dc611.eot"
   },
   {
     "revision": "98aa0f4c29a23e6d23b5",
@@ -276,16 +276,16 @@ self.__precacheManifest = [
     "url": "/PWA_V2/js/AuthorizedShops.68ba1dce.js"
   },
   {
-    "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
-    "url": "/PWA_V2/fonts/OpenSans-Italic.e6c21381.ttf"
+    "revision": "be95e66a21b26c932482f3db7b84b410",
+    "url": "/PWA_V2/fonts/OpenSans-Italic.be95e66a.eot"
   },
   {
     "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
     "url": "/PWA_V2/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
   },
   {
-    "revision": "be95e66a21b26c932482f3db7b84b410",
-    "url": "/PWA_V2/fonts/OpenSans-Italic.be95e66a.eot"
+    "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
+    "url": "/PWA_V2/fonts/OpenSans-Italic.e6c21381.ttf"
   },
   {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
@@ -296,12 +296,12 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/PWA_V2/fonts/OpenSans-Bold.0fc8bb5a.ttf"
-  },
-  {
     "revision": "8165c1ec52bb9262b2105edc8032a5db",
     "url": "/PWA_V2/fonts/OpenSans-Semibold.8165c1ec.eot"
+  },
+  {
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/PWA_V2/fonts/OpenSans-Bold.0fc8bb5a.ttf"
   },
   {
     "revision": "22d4a36b7d366b2b213801c716dfb0b7",
@@ -320,28 +320,28 @@ self.__precacheManifest = [
     "url": "/PWA_V2/fonts/OpenSans_1.885e3d6f.eot"
   },
   {
-    "revision": "5299020bf84d03883fa452ee7478c60f",
-    "url": "/PWA_V2/fonts/OpenSans-Light.5299020b.ttf"
-  },
-  {
-    "revision": "e1d396939867c493f06f2bbc071993d9",
-    "url": "/PWA_V2/fonts/OpenSans-Light.e1d39693.eot"
-  },
-  {
     "revision": "27b48950afd77b0e4aaa98981c1b8813",
     "url": "/PWA_V2/fonts/TrajanPro-Bold.27b48950.eot"
   },
   {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/PWA_V2/fonts/TrajanPro-Regular.e8425e8a.ttf"
+    "revision": "5299020bf84d03883fa452ee7478c60f",
+    "url": "/PWA_V2/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
     "revision": "4036090917114a9f089af14dc8b9dffc",
     "url": "/PWA_V2/fonts/TrajanPro-Regular.40360909.eot"
   },
   {
+    "revision": "e1d396939867c493f06f2bbc071993d9",
+    "url": "/PWA_V2/fonts/OpenSans-Light.e1d39693.eot"
+  },
+  {
     "revision": "14633e007efb0b390d06cd0a30789962",
     "url": "/PWA_V2/fonts/TrajanPro-Bold.14633e00.ttf"
+  },
+  {
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/PWA_V2/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -488,12 +488,12 @@ self.__precacheManifest = [
     "url": "/PWA_V2/img/about-us-bg.3b571b6a.png"
   },
   {
-    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
-    "url": "/PWA_V2/img/gender-female-categories-bg.bb2f9242.jpg"
-  },
-  {
     "revision": "33afe2d672465540ebf88d91894e4818",
     "url": "/PWA_V2/img/gender-male-categories-bg.33afe2d6.jpg"
+  },
+  {
+    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
+    "url": "/PWA_V2/img/gender-female-categories-bg.bb2f9242.jpg"
   },
   {
     "revision": "3f2160a720a766f91a5a268ae4ecee73",
@@ -524,16 +524,16 @@ self.__precacheManifest = [
     "url": "/PWA_V2/img/sw3_HD.def58d3a.jpg"
   },
   {
-    "revision": "c60c4ef0362282148e86e2203bb004db",
+    "revision": "69b78ab3233768bde32b1e3e9cf150ae",
     "url": "/PWA_V2/index.html"
-  },
-  {
-    "revision": "bfe0522711522156ef72c996805bfcb4",
-    "url": "/PWA_V2/maintain.html"
   },
   {
     "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
     "url": "/PWA_V2/redirect.html"
+  },
+  {
+    "revision": "bfe0522711522156ef72c996805bfcb4",
+    "url": "/PWA_V2/maintain.html"
   },
   {
     "revision": "98aa0f4c29a23e6d23b5",
