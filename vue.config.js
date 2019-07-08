@@ -1,3 +1,4 @@
 module.exports = {
-    productionSourceMap: false
+    productionSourceMap: false,
+    baseUrl: '/PWA_V2/'
 };
