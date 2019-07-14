@@ -6,14 +6,17 @@
         v-bind:key="index"
         @click="adminOpenPanelByTitle(page.title)"
       >
-        <span class="panels-menu-button" :class="isActive(page.title)">{{ page.titulo}}</span>
+        <span
+          class="panels-menu-button"
+          :class="isActive(page.title)"
+          v-show="isUserAllowedByPageTitle(page.title)"
+        >{{ page.titulo }}</span>
       </a>
     </Slide>
   </div>
 </template>
 <script lang="ts">
-import { Slide } from "vue-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide`
-
+import { Slide } from "vue-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide` v-show="secureMenu[page.title].includes(email)"
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
   components: { Slide }
@@ -21,13 +24,54 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class AdminPanelsMenuComponent extends Vue {
   @Prop({ default: [] })
   pages!: any[];
+  email: string = "";
 
   public currentPanelTitle: string = "";
+  private secureMenu = [
+    {
+      title: "Title",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Dispatches",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Users",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Swiper",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Banners",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Products",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "Categories",
+      users: ["jl.mayorga236@gmail.com"]
+    },
+    {
+      title: "DistributorsAndSHops",
+      users: ["jl.mayorga236@gmail.com"]
+    }
+  ];
 
   private mounted() {
-    console.warn("");
-    console.warn(" PANELS MENU COMPONENT MOUNTED ");
-    console.warn("");
+    const user = JSON.parse(localStorage.getItem("user") || "");
+    this.email = user.email;
+  }
+
+  private isUserAllowedByPageTitle(title: string) {
+    const isUserAllowed = this.secureMenu.filter(
+      (sMenu: any) => sMenu.title === title && sMenu.users.includes(this.email)
+    );
+    return isUserAllowed.length > 0;
   }
 
   private adminOpenPanelByTitle(title: string) {

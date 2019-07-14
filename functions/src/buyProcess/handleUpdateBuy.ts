@@ -34,16 +34,14 @@ export default function (request: any, response: any): Promise<any> {
             orderData.meta['createdAt'] = getDateString(orderData.meta.createdAt.toDate());
             orderData.meta['updatedAt'] = getDateString(orderData.meta.updatedAt.toDate());
 
-            const inVoiceHTML = await get_HTML_InVoice(orderData);
-            const inVoiceURL = await get_PDF_InVoice(inVoiceHTML, id);
+            //const inVoiceHTML = await get_HTML_InVoice(orderData);
+            //const inVoiceURL = await get_PDF_InVoice(inVoiceHTML, id);
 
-            const emailHTML = await get_HTML_Email(orderData, inVoiceURL);
-            const emailStatus = await send_SMTP_Email(orderData, emailHTML);
+            //const emailHTML = await get_HTML_Email(orderData, inVoiceURL);
+            //const emailStatus = await send_SMTP_Email(orderData, emailHTML);
 
             resolve({
-                isUpdated: isUpdated,
-                emailHTML: emailHTML,
-                emailStatus: emailStatus
+                isUpdated: isUpdated
             });
 
 

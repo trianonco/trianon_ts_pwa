@@ -1,5 +1,10 @@
 import * as functions from 'firebase-functions';
+
 import HandleUpdateBuyMethod from './buyProcess/handleUpdateBuy';
+
+import HandleUpdateInStockProcessMethod from './stockProcess/handleUpdateInStockProcess';
+import HandleUpdateInShippingProcessMethod from './shippingProcess/handleUpdateInShippingProcess';
+import HandleUpdateInDeliveredProcessMethod from './deliveryProcess/handleUpdateInDeliveredProcess';
 
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
@@ -18,111 +23,110 @@ const gcs = new Storage();
 const bucket = gcs.bucket('trianon-co-pwa-dev.appspot.com');
 
 
-export const helloWorld = functions.https.onRequest((request, response) => {
 
-    // ------------------------------------ //
-    //
-    // ------------------------------------ //
-    const user = {
-        "date": new Date().toISOString(),
-        "firstname": "Guillaume",
-    };
-    const options = {
-        "format": 'A4',
-        "orientation": "portrait"
-    };
+export const HandleUpdateInBuy = functions.https.onRequest((request, response) => {
+    cors(request, response, () => {
 
-    const localTemplate = path.join(os.tmpdir(), 'localTemplate.html');
-    const localPDFFile = path.join(os.tmpdir(), 'localPDFFile.pdf');
-
-    bucket.file('Misc/template.html')
-        .download({ destination: localTemplate })
-        .then(() => {
-
-            const source = fs.readFileSync(localTemplate, 'utf8');
-            const html = handlebars.compile(source)(user);
-
-            pdf.create(html, options).toFile(localPDFFile, function (err: any, res: any) {
-                if (err) {
-                    console.log(err);
-                    return response.send("PDF creation error");
-                }
-                console.log("pdf created locally");
-
-                return bucket.upload(localPDFFile, { destination: user.firstname + '.pdf', metadata: { contentType: 'application/pdf' } }).then(() => {
-                    response.send("PDF created and uploaded!");
-                }).catch((error: any) => {
-                    console.error(error);
-                    response.send("PDF created and uploaded!");
+        // CREAR COMPRA
+        HandleUpdateBuyMethod(request, response)
+            .then((responseOrder: any) => {
+                cors(request, response, () => {
+                    response.redirect('http://trianon.com.co/view/profile')
                 });
-            });
+            })
+            .catch((errorString: any) => response.send(JSON.stringify(errorString)));
+    });
+});
 
+export const HandleUpdateInStock = functions.https.onRequest((request, response) => {
+    cors(request, response, () => {
 
+        // ACTUALIZA COMPRA 
+        // CORREO A USUARIO
+        HandleUpdateInStockProcessMethod(request, response)
+            .then((responseOrder: any) => {
+                cors(request, response, () => {
+                    response.send(JSON.stringify({
+                        method: 'HandleUpdateInStock',
+                        status: 'OK',
+                        message: 'SHOP BUY PROCESS ::  ITEM NOW IS IN STOCK',
+                        data: {}
+                    }));
+                });
+            })
+            .catch((errorString: any) => response.send(JSON.stringify(errorString)));
 
-        }).catch((error: any) => {
-            response.send(JSON.stringify({
-                error: error
-            }));
-        })
+    });
+});
 
+export const HandleUpdateInShipping = functions.https.onRequest((request, response) => {
+    cors(request, response, () => {
 
+        // ACTUALIZA COMPRA DATOS DE ENVIO
+        // CORREO A USUARIO
+        HandleUpdateInShippingProcessMethod(request, response)
+            .then((responseOrder: any) => {
+                cors(request, response, () => {
+                    response.send(JSON.stringify({
+                        method: 'HandleUpdateInShipping',
+                        status: 'OK',
+                        message: 'SHOP BUY PROCESS ::  ITEM NOW IS IN SHIPPING',
+                        data: {}
+                    }));
+                });
+            })
+            .catch((errorString: any) => response.send(JSON.stringify(errorString)));
 
-    /*
-     bucket.file('template.html').download({ destination: localTemplate }).then(() => {
-         console.log("template downloaded locally");
-         const source = fs.readFileSync(localTemplate, 'utf8');
-         const html = handlebars.compile(source)(user);
-         console.log("template compiled with user data", html);
- 
-      
-         pdf.create(html, options).toFile(localPDFFile, function (err: any, res: any) {
-             if (err) {
-                 console.log(err);
-                 return response.send("PDF creation error");
-             }
-             console.log("pdf created locally");
- 
-             return bucket.upload(localPDFFile, { destination: user.name + '.pdf', metadata: { contentType: 'application/pdf' } }).then(() => {
-                 response.send("PDF created and uploaded!");
-             }).catch((error: any) => {
-                 console.error(error);
-                 response.send("PDF created and uploaded!");
-             });
-         });
-       
-     });
-       */
+    });
+});
+
+export const HandleUpdateInDelivered = functions.https.onRequest((request, response) => {
+    cors(request, response, () => {
+
+        // ACTUALIZA COMPRA A ENTREGADO
+        // CORREO A USUARIO
+        HandleUpdateInDeliveredProcessMethod(request, response)
+            .then((responseOrder: any) => {
+                cors(request, response, () => {
+                    response.send(JSON.stringify({
+                        method: 'HandleUpdateInDelivered',
+                        status: 'OK',
+                        message: 'SHOP BUY PROCESS ::  ITEM NOW IS DELIVERED TO CUSTOMER',
+                        data: {}
+                    }));
+                });
+            })
+            .catch((errorString: any) => response.send(JSON.stringify(errorString)));
+
+    });
 });
 
 
 
 
 
+/*
+HandleUpdateBuyMethod(request, response)
+    .then((responseOrder: any) => {
+        cors(request, response, () => {
+            response.redirect('http://localhost:8080/view/profile')
+        });
+    })
+    .catch((errorString: any) => response.send(JSON.stringify(errorString)))
 
 
-
-
-
-
-
-
-
-
-
-
-
-export const HandleNewBuy = functions.https.onRequest((request, response) => {
-    //response.send(JSON.stringify(request));
-    response.send("Hello from HandleNewBuy Firebase!");
-});
-export const HandleUpdateBuy = functions.https.onRequest((request, response) => {
-    HandleUpdateBuyMethod(request, response)
+export const HandleUpdateInTemp = functions.https.onRequest((request, response) => {
+    HandleUpdateInProcessMethod(request, response)
         .then((responseOrder: any) => {
             cors(request, response, () => {
-                //ACA VA LA REDIRECCIÓN A PROFILE CON TODO EXITOSO
-                //response.send(JSON.stringify(responseOrder))
-                response.redirect('http://localhost:8080/view/profile')
+                response.send(JSON.stringify(responseOrder));
+                //response.redirect('http://localhost:8080/view/profile')
             });
         })
-        .catch((errorString: any) => response.send(JSON.stringify(errorString)))
+        .catch((errorString: any) => {
+            cors(request, response, () => {
+                response.send(JSON.stringify(errorString))
+            })
+        });
 });
+*/

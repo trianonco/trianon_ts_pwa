@@ -2,7 +2,7 @@
   <div class="view admin">
     <div class="wrapper">
       <!-- Headers -->
-      <HeaderComponent/>
+      <HeaderComponent />
 
       <!-- Panels -->
       <div class="panels">
@@ -15,7 +15,7 @@
         <div class="panels-content">
           <div class="panel no-module" style="padding:2em" v-if="!currentPageTitle">
             <h1>Trianon Panel de Admin</h1>
-            <img src="./../../shared/assets/images/headers/logo.png">
+            <img src="./../../shared/assets/images/headers/logo.png" />
             <h5>Selecciona un modulo del menu</h5>
           </div>
 
@@ -28,9 +28,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Footers -->
-      <FooterComponent/>
     </div>
   </div>
 </template>

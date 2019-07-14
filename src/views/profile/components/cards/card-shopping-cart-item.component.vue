@@ -232,7 +232,7 @@ export default {
       BUY: {
         ID: "",
         state: "IN PROCESS: WATING FOR PAYMENT",
-        email : "",
+        email: "",
 
         meta: {
           items: 0,
@@ -252,7 +252,9 @@ export default {
           phone: "",
           email: "",
           tracker_code: "",
-          shipping_company: ""
+          tracker_link: "",
+          shipping_company: "",
+          delivery_date: ""
         },
 
         billing: {
@@ -319,7 +321,7 @@ export default {
 
     console.warn({
       md5: this.getPaySignature(),
-      apiKey: this.PAY.apiKey,
+      apiKey: this.PAYU.apiKey,
       merchandId: this.getPayMerchantID(),
       referenceCode: this.getPayReferenceCode(),
       amount: this.getPayAmount(),
@@ -354,7 +356,7 @@ export default {
     },
     getPayUpdateURL() {
       const base =
-        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleUpdateBuy?ID=" +
+        "https://us-central1-trianon-co-pwa-dev.cloudfunctions.net/HandleUpdateInBuy?ID=" +
         this.BUY.ID;
       return base;
     },
@@ -895,7 +897,7 @@ export default {
       &-photo {
         display: block;
         width: 100%;
-        height: 412px;
+        height: 450px;
         object-fit: cover;
         padding: 1em;
         box-sizing: border-box;

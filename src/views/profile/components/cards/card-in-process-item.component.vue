@@ -6,12 +6,12 @@
           alt="TrianonCo Image"
           src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
           v-if="!UX.isCardOpen"
-        >
+        />
         <img
           alt="TrianonCo Image"
           src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
           v-if="UX.isCardOpen"
-        >
+        />
       </div>
 
       <div class="card-header-title" v-if="item.products[0].description">
@@ -26,7 +26,7 @@
         class="card-header-triangle"
         v-if="UX.isCardOpen"
         src="./../../../../shared/assets/images/gray-arrow.png"
-      >
+      />
     </div>
 
     <div class="card-content" v-if="UX.isCardOpen">
@@ -48,33 +48,33 @@
           <img
             src="./../../../../shared/assets/images/in-process/s0-green.png"
             v-if="isStateInStock()"
-          >
+          />
           <img
             src="./../../../../shared/assets/images/in-process/s0-yellow.png"
             v-if="!isStateInStock()"
-          >
+          />
           <h5>EN FÁBRICA</h5>
         </div>
         <div class="status-icon-dispatches">
           <img
             src="./../../../../shared/assets/images/in-process/s1-green.png"
             v-if="isStateInDispatches()"
-          >
+          />
           <img
             src="./../../../../shared/assets/images/in-process/s1-yellow.png"
             v-if="!isStateInDispatches()"
-          >
+          />
           <h5>DESPACHOS</h5>
         </div>
         <div class="status-icon-shipping">
           <img
             src="./../../../../shared/assets/images/in-process/s2-green.png"
             v-if="isStateInShipping()"
-          >
+          />
           <img
             src="./../../../../shared/assets/images/in-process/s2-yellow.png"
             v-if="!isStateInShipping()"
-          >
+          />
           <h5>EN ENVIO</h5>
         </div>
       </div>
@@ -104,19 +104,19 @@ export default {
     },
 
     isStateInStock() {
-      return this.item.state.includes("IN PROCESS: PAYMENT SUCCESSFULL");
+      return this.item.state.includes("IN PROCESS: IN FACTORY");
     },
     isStateInDispatches() {
-      return this.item.state.includes("IN PROCESS: IN DISPATCHES");
+      return this.item.state.includes("IN PROCESS: IN SHIPPING");
     },
     isStateInShipping() {
-      return this.item.state.includes("IN PROCESS: IN SHIPPING");
+      return this.item.state.includes("IN PROCESS: IN DELIVERED");
     },
 
     getFacturaLink() {
-      const ID = this.item.ID; 
+      const ID = this.item.ID;
       const path = `https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7`;
-      return path
+      return path;
     },
 
     getDate(data) {
