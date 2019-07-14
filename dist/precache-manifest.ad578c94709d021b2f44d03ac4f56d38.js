@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "ecbfae5924935c60785e9e2a36f8e05f",
-    "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
+    "revision": "2c06d8510807447c42162c50f5f736d6",
+    "url": "/fonts/OpenSansLight-Italic.2c06d851.ttf"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
@@ -32,12 +32,12 @@ self.__precacheManifest = [
     "url": "/js/admin.42a073ad.js"
   },
   {
-    "revision": "a00584329773770a878f",
-    "url": "/css/app.81cbb0ec.css"
+    "revision": "37ef9c349331367c54ed",
+    "url": "/css/app.b2fed5ce.css"
   },
   {
-    "revision": "a00584329773770a878f",
-    "url": "/js/app.ceb718a7.js"
+    "revision": "37ef9c349331367c54ed",
+    "url": "/js/app.c4f5ef71.js"
   },
   {
     "revision": "b0ab8edb4f0a5ecf2a25",
@@ -184,12 +184,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.5ef05461.woff2"
   },
   {
-    "revision": "b6a93c57aff7c0a760b81509194452b0",
-    "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
-  },
-  {
     "revision": "6c2e393339dd894f6464b9e923aa6b9a",
     "url": "/fonts/OpenSans-Extrabold.6c2e3933.woff2"
+  },
+  {
+    "revision": "b6a93c57aff7c0a760b81509194452b0",
+    "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
   },
   {
     "revision": "5ef05461d1158f05fa25662bbd968005",
@@ -208,12 +208,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSansLight-Italic.dc5dda5c.woff"
   },
   {
-    "revision": "6ad659c0c8246df36fc8bab6fa2f0966",
-    "url": "/fonts/OpenSans-Italic.6ad659c0.woff"
-  },
-  {
     "revision": "db92f5a3582fbe6289eb1f5beaaaa0f2",
     "url": "/fonts/OpenSans-ExtraboldItalic.db92f5a3.woff"
+  },
+  {
+    "revision": "6ad659c0c8246df36fc8bab6fa2f0966",
+    "url": "/fonts/OpenSans-Italic.6ad659c0.woff"
   },
   {
     "revision": "5982be5666dbac0413d9ac38b011d87b",
@@ -228,12 +228,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.90327f5a.woff"
   },
   {
-    "revision": "4c7b8237f45b448efb609f5d8e3997a9",
-    "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
-  },
-  {
     "revision": "cee4f07ed7988e917b69db983549fe65",
     "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
+  },
+  {
+    "revision": "4c7b8237f45b448efb609f5d8e3997a9",
+    "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
   },
   {
     "revision": "90327f5ac43d0fbc708f3653ffc0a043",
@@ -252,6 +252,10 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Regular.b11f35f7.otf"
   },
   {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
+  },
+  {
     "revision": "427dc6119e442413329f5901bab5161d",
     "url": "/fonts/OpenSans-SemiboldItalic.427dc611.eot"
   },
@@ -260,12 +264,8 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
   },
   {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
-  },
-  {
-    "revision": "2c06d8510807447c42162c50f5f736d6",
-    "url": "/fonts/OpenSansLight-Italic.2c06d851.ttf"
+    "revision": "ecbfae5924935c60785e9e2a36f8e05f",
+    "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
   },
   {
     "revision": "98aa0f4c29a23e6d23b5",
@@ -276,40 +276,40 @@ self.__precacheManifest = [
     "url": "/js/AuthorizedShops.68ba1dce.js"
   },
   {
-    "revision": "be95e66a21b26c932482f3db7b84b410",
-    "url": "/fonts/OpenSans-Italic.be95e66a.eot"
+    "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
+    "url": "/fonts/OpenSans-Italic.e6c21381.ttf"
   },
   {
     "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
     "url": "/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
   },
   {
-    "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
-    "url": "/fonts/OpenSans-Italic.e6c21381.ttf"
+    "revision": "be95e66a21b26c932482f3db7b84b410",
+    "url": "/fonts/OpenSans-Italic.be95e66a.eot"
   },
   {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
     "url": "/fonts/OpenSans_1.10ba07da.ttf"
   },
   {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
-  },
-  {
     "revision": "55bfb3e43457ec893f128c2d73f76457",
     "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
-  },
-  {
-    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
-    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans.885e3d6f.eot"
   },
   {
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
+  },
+  {
     "revision": "8165c1ec52bb9262b2105edc8032a5db",
     "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
+  },
+  {
+    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
+    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
   },
   {
     "revision": "22d4a36b7d366b2b213801c716dfb0b7",
@@ -336,12 +336,12 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Regular.40360909.eot"
   },
   {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
-  },
-  {
     "revision": "14633e007efb0b390d06cd0a30789962",
     "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
+  },
+  {
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -524,7 +524,7 @@ self.__precacheManifest = [
     "url": "/img/sw3_HD.def58d3a.jpg"
   },
   {
-    "revision": "ed6a45c537ede2cb5fed7d7a9b587090",
+    "revision": "8e5a970116fcecc10762a41a94fede38",
     "url": "/index.html"
   },
   {
