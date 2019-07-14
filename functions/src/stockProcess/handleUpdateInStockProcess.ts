@@ -117,8 +117,14 @@ function get_HTML_InVoice(order: any) {
 function get_PDF_InVoice(html: any, id: string) {
     return new Promise((resolve: any, reject: any) => {
         const options = {
-            "format": 'A4',
-            "orientation": "portrait"
+            "format": 'letter',
+            "orientation": "portrait",
+            "border": {
+                "top": "0",            // default is 0, units: mm, cm, in, px
+                "right": "0",
+                "bottom": "0",
+                "left": "0"
+            },
         };
         const localPDFFile = path.join(os.tmpdir(), 'localPDFFile.pdf');
         pdf.create(html, options).toFile(localPDFFile, function (err: any, res: any) {
