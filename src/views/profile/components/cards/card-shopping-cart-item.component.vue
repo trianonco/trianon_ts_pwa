@@ -293,13 +293,13 @@ export default {
     });
 
     if (envPayName === "JORGE_MAYORGA") {
-      this.BUY.shipping.address = "Calle 141 #7b - 86";
-      this.BUY.shipping.info = "Apto 502";
-      this.BUY.shipping.neighbourhood = "Belmira";
-      this.BUY.shipping.department = "Bogota";
-      this.BUY.shipping.city = "Bogota";
-      this.BUY.shipping.name = "Jorge L. Mayorga";
-      this.BUY.shipping.phone = "3005318387";
+      //this.BUY.shipping.address = "Calle 141 #7b - 86";
+      //this.BUY.shipping.info = "Apto 502";
+      //this.BUY.shipping.neighbourhood = "Belmira";
+      //this.BUY.shipping.department = "Bogota";
+      //this.BUY.shipping.city = "Bogota";
+      //this.BUY.shipping.name = "Jorge L. Mayorga";
+      //this.BUY.shipping.phone = "3005318387";
     }
 
     if (envPayName === "TEST") {
