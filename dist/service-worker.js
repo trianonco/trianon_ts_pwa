@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.44f197b4225f7f9b8b30ced9bae584f4.js"
+  "/precache-manifest.6c0d24cc74902c973468463652eae4d3.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "trianon_ts_pwa"});

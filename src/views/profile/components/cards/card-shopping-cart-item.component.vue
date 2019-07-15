@@ -303,6 +303,7 @@ export default {
     }
 
     if (envPayName === "TEST") {
+    /*
       this.BUY.shipping.address = "Calle Av Siempre Viva #70c - 86";
       this.BUY.shipping.info = "Casa 124";
       this.BUY.shipping.neighbourhood = "La Soledad";
@@ -310,6 +311,7 @@ export default {
       this.BUY.shipping.city = "Bogota";
       this.BUY.shipping.name = "Jorge L. Mayorga";
       this.BUY.shipping.phone = "3005318387";
+      */
     }
 
     const date = new Date();
