@@ -1,8 +1,8 @@
 <template>
   <div class="product info-banner">
-    <br>
+    <br />
     <div class="product-reference">Referencia : {{ref_code}} - {{ref_color_code}}</div>
-    <br>
+    <br />
 
     <div v-if="sizes.length > 1">
       <select class="form-control" v-model="selected" @change="changeSize">

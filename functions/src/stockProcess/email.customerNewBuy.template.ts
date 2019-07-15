@@ -90,10 +90,7 @@ export default function (TEMPLATE: any) {
 
                             <table width="500px" bgcolor="#fff" style="font-size: 8px; letter-spacing: 1px; ">
                                 <tr>
-                                    <td align="center" valign="bottom" width="10px">
-                                        <img src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Misc%2Fsmart-pic-left.jpg?alt=media&token=0cbf7e1f-ff31-40bf-ad30-3fddd7e398c5"
-                                            width="100%">
-                                    </td>
+                                    
                                     <td align="center" valign="top" width="300px">
 
                                         <h2
@@ -119,10 +116,7 @@ export default function (TEMPLATE: any) {
 
 
                                     </td>
-                                    <td align="center" valign="bottom" width="10px">
-                                        <img src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Misc%2Fsmart-pic-right.jpg?alt=media&token=0393661a-0058-4127-bbc1-fc96421eafdd"
-                                            width="100%">
-                                    </td>
+                                    
                                 </tr>
 
                             </table>

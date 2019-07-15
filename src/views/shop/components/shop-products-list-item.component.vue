@@ -10,6 +10,7 @@
         @load="onLoadVLazyImage()"
       />
 
+      <h2 class="price">{{ product.ref }}</h2>
       <h2 class="price">{{ parseFloat(product.price_cop) | toCurrency}}</h2>
 
       <h2 class="name">{{ product.description }} {{ product.line }}</h2>
@@ -72,9 +73,7 @@ export default class ShopProductsListItemComponent extends Vue {
 
   private goToProductView() {
     this.$router.push(
-      `/product/gender/${this.product.gender}/category/${
-        this.product.category
-      }/ref/${this.product.ref_photo_code}`
+      `/product/gender/${this.product.gender}/category/${this.product.category}/ref/${this.product.ref_photo_code}`
     );
   }
   private mounted() {

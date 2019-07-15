@@ -1,7 +1,7 @@
 <template>
   <div class="view product">
     <!-- Headers -->
-    <HeaderComponent/>
+    <HeaderComponent />
 
     <div class="view-wrapper">
       <ProductHeaderComponent></ProductHeaderComponent>
@@ -36,18 +36,24 @@
                 <span
                   v-if="isCinturon(productObj) && productObj.height"
                 >TALLA : {{ productObj.height }}</span>
+                <br />
+                <br />
                 <span
                   v-if="productObj.width && productObj.width !== '-' && productObj.width !== '-'"
                 >ANCHO : {{ productObj.width }}</span>
+                <br />
+                <br />
                 <span
                   v-if="!isCinturon(productObj) && productObj.height && productObj.height !== '-' && productObj.height !== '-'"
                 >ALTO : {{ productObj.height }}</span>
+                <br />
+                <br />
                 <span
                   v-if="!isCinturon(productObj) && productObj.depth && productObj.depth !== '-' && productObj.depth !== '- '"
                 >PROFUNDO : {{ productObj.depth }}</span>
               </h3>
             </div>
-            <img class="symbol" src="./../../shared/assets/images/icon-symbol.png">
+            <img class="symbol" src="./../../shared/assets/images/icon-symbol.png" />
           </div>
         </div>
       </div>
@@ -61,7 +67,7 @@
       ></ProductInfoBannerComponent>
     </div>
 
-    <FooterComponent/>
+    <FooterComponent />
     <!-- Footers -->
   </div>
 </template>
