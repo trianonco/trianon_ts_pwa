@@ -1,21 +1,21 @@
 export default {
 
 
-
     pagination: {
         el: ".swiper-pagination",
         clickable: true
     },
 
-    grabCursor: true,
 
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
 
+    initialSlide: 25,
+    spaceBetween: 30,
     slidesPerView: 5,
-    spaceBetween: 0,
-
+    loop: true,
+    loopedSlides: 5,
 
 }

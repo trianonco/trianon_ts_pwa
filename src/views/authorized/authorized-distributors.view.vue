@@ -34,21 +34,18 @@
                 <!-- slides -->
 
                 <swiper-slide>
-                  <v-lazy-image
+                  <img
                     :src="require('./../../shared/assets/images/distributor-swiper/sw1_HD.jpg')"
-                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw1_LOW.jpg')"
                   />
                 </swiper-slide>
                 <swiper-slide>
-                  <v-lazy-image
+                  <img
                     :src="require('./../../shared/assets/images/distributor-swiper/sw2_HD.jpg')"
-                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw2_LOW.jpg')"
                   />
                 </swiper-slide>
                 <swiper-slide>
-                  <v-lazy-image
+                  <img
                     :src="require('./../../shared/assets/images/distributor-swiper/sw3_HD.jpg')"
-                    :src-placeholder="require('./../../shared/assets/images/distributor-swiper/sw3_LOW.jpg')"
                   />
                 </swiper-slide>
               </swiper>
@@ -155,7 +152,7 @@ export default class ProductView extends Vue {
   public swiperOption: any = {
     loop: true,
     autoplay: {
-      delay: 2500,
+      delay: 4500,
       disableOnInteraction: false
     }
   };

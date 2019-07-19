@@ -181,9 +181,9 @@ div.view.profile {
 
     .img-bg-desktop {
       display: block;
-      position: fixed;
-      width: 5em;
-      bottom: 150px;
+      position: absolute !important;
+      width: 7em;
+      bottom: 200px;
       &.left {
         left: 0px;
       }

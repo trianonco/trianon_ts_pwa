@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper home-desktop-products-swiper">
+  <div class="swiper home-desktop-products-swiper" v-if="isMounted">
     <swiper :options="swiperOption" ref="homeProductSwiper">
       <!-- slides -->
       <swiper-slide v-for="(product, index) of products" v-bind:key="index">
@@ -18,10 +18,6 @@
           </div>
         </div>
       </swiper-slide>
-      <!-- Optional controls
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-      -->
     </swiper>
   </div>
 </template>
@@ -55,6 +51,8 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
   private productsDB: any[] = [];
   private products: any[] = [];
 
+  private isMounted: boolean = false;
+
   private get swiper() {
     return (this.$refs.homeProductSwiper as any).swiper;
   }
@@ -80,81 +78,249 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
   private beforeMount() {
     this.apiDB.setDatabaseByName("SHOP-DB");
     this.db = this.apiDB.getDatabase();
-
-    const gender = "HOMBRE";
-    const category = "BILLETERAS";
-
+    this.productsDB = [];
     this.db
-      .getProductsByGenderAndCategories(gender, category)
+      .getProductsByGenderAndCategories("HOMBRE", "BILLETERAS")
       .then(async (products: any) => {
-        const unique = this.removeDuplicates(products, "ref_photo_code");
-        this.productsDB = unique;
-        this.products = this.shuffleArray(
-          this.productsDB.filter(
-            (product: any) =>
-              product.ref_photo_code.includes("HB1212-01") ||
-              product.ref_photo_code.includes("HB1212-12") ||
-              product.ref_photo_code.includes("HJ1255-01") ||
-              product.ref_photo_code.includes("HJ1255-07") ||
-              product.ref_photo_code.includes("HJ1256-01") ||
-              product.ref_photo_code.includes("HM1206-04") ||
-              product.ref_photo_code.includes("HT1242-04") ||
-              product.ref_photo_code.includes("HT1251-01") ||
-              product.ref_photo_code.includes("HT1251-04") ||
-              product.ref_photo_code.includes("HT1252-04") ||
-              product.ref_photo_code.includes("HT1252-15") ||
-              product.ref_photo_code.includes("HT1251-01") ||
-              product.ref_photo_code.includes("HA157-01") ||
-              product.ref_photo_code.includes("HA157-04") ||
-              product.ref_photo_code.includes("HB148-01") ||
-              product.ref_photo_code.includes("HB148-15") ||
-              product.ref_photo_code.includes("HG158-01") ||
-              product.ref_photo_code.includes("HK159-01") ||
-              product.ref_photo_code.includes("HK159-15") ||
-              product.ref_photo_code.includes("HK160-07") ||
-              product.ref_photo_code.includes("HK160-08") ||
-              product.ref_photo_code.includes("HK160-15") ||
-              product.ref_photo_code.includes("HM154-01") ||
-              product.ref_photo_code.includes("HM154-04") ||
-              product.ref_photo_code.includes("HR156-01") ||
-              product.ref_photo_code.includes("DF170-01") ||
-              product.ref_photo_code.includes("DF230-15") ||
-              product.ref_photo_code.includes("DF5230-32") ||
-              product.ref_photo_code.includes("DF5231-15") ||
-              product.ref_photo_code.includes("DF5231-32") ||
-              product.ref_photo_code.includes("DP5216-02") ||
-              product.ref_photo_code.includes("DP5216-07") ||
-              product.ref_photo_code.includes("DP5216-08") ||
-              product.ref_photo_code.includes("DP5217-02") ||
-              product.ref_photo_code.includes("DP5217-07") ||
-              product.ref_photo_code.includes("DP5234-02") ||
-              product.ref_photo_code.includes("DP5234-15") ||
-              product.ref_photo_code.includes("DP5235-02") ||
-              product.ref_photo_code.includes("DP236-15") ||
-              product.ref_photo_code.includes("DS5210-04") ||
-              product.ref_photo_code.includes("DS5210-07") ||
-              product.ref_photo_code.includes("DS5210-32") ||
-              product.ref_photo_code.includes("DS5211-04") ||
-              product.ref_photo_code.includes("DS5211-07") ||
-              product.ref_photo_code.includes("DS5211-32") ||
-              product.ref_photo_code.includes("DF5173-01") ||
-              product.ref_photo_code.includes("DL2147-01") ||
-              product.ref_photo_code.includes("DL2147-07") ||
-              product.ref_photo_code.includes("DL2147-22") ||
-              product.ref_photo_code.includes("DP2159-07") ||
-              product.ref_photo_code.includes("DP2159-08") ||
-              product.ref_photo_code.includes("DP2163-02") ||
-              product.ref_photo_code.includes("DP2163-15") ||
-              product.ref_photo_code.includes("DS2162-04") ||
-              product.ref_photo_code.includes("DS2162-07") ||
-              product.ref_photo_code.includes("DS2162-32") ||
-              product.ref_photo_code.includes("HT1241-15")
-          )
-        );
+        this.productsDB = [
+          ...this.productsDB,
+          ...this.removeDuplicates(products, "ref_photo_code")
+        ];
+        this.db
+          .getProductsByGenderAndCategories("DAMA", "BILLETERAS")
+          .then(async (products: any) => {
+            this.productsDB = [
+              ...this.productsDB,
+              ...this.removeDuplicates(products, "ref_photo_code")
+            ];
+            this.db
+              .getProductsByGenderAndCategories("HOMBRE", "BOLSOS_Y_MALETINES")
+              .then(async (products: any) => {
+                this.productsDB = [
+                  ...this.productsDB,
+                  ...this.removeDuplicates(products, "ref_photo_code")
+                ];
+                this.db
+                  .getProductsByGenderAndCategories(
+                    "DAMA",
+                    "BOLSOS_Y_MALETINES"
+                  )
+                  .then(async (products: any) => {
+                    this.productsDB = [
+                      ...this.productsDB,
+                      ...this.removeDuplicates(products, "ref_photo_code")
+                    ];
+                    this.db
+                      .getProductsByGenderAndCategories("HOMBRE", "CINTURONES")
+                      .then(async (products: any) => {
+                        this.productsDB = [
+                          ...this.productsDB,
+                          ...this.removeDuplicates(products, "ref_photo_code")
+                        ];
+                        this.db
+                          .getProductsByGenderAndCategories(
+                            "DAMA",
+                            "CINTURONES"
+                          )
+                          .then(async (products: any) => {
+                            this.productsDB = [
+                              ...this.productsDB,
+                              ...this.removeDuplicates(
+                                products,
+                                "ref_photo_code"
+                              )
+                            ];
+                            this.products = this.shuffleArray(
+                              this.productsDB.filter(
+                                (product: any) =>
+                                  product.ref_photo_code.includes(
+                                    "HB1212-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HB1212-12"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HJ1255-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HJ1255-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HJ1256-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM1206-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1242-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1251-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1251-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1252-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1252-15"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HT1251-01"
+                                  ) ||
+                                  product.ref_photo_code.includes("HA157-01") ||
+                                  product.ref_photo_code.includes("HA157-04") ||
+                                  product.ref_photo_code.includes("HB148-01") ||
+                                  product.ref_photo_code.includes("HB148-15") ||
+                                  product.ref_photo_code.includes("HG158-01") ||
+                                  product.ref_photo_code.includes("HK159-01") ||
+                                  product.ref_photo_code.includes("HK159-15") ||
+                                  product.ref_photo_code.includes("HK160-07") ||
+                                  product.ref_photo_code.includes("HK160-08") ||
+                                  product.ref_photo_code.includes("HK160-15") ||
+                                  product.ref_photo_code.includes("HM154-01") ||
+                                  product.ref_photo_code.includes("HM154-04") ||
+                                  product.ref_photo_code.includes("HR156-01") ||
+                                  product.ref_photo_code.includes("DF170-01") ||
+                                  product.ref_photo_code.includes("DF230-15") ||
+                                  product.ref_photo_code.includes(
+                                    "DF5230-32"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DF5231-15"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DF5231-32"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5216-02"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5216-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5216-08"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5217-02"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5217-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5234-02"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5234-15"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP5235-02"
+                                  ) ||
+                                  product.ref_photo_code.includes("DP236-15") ||
+                                  product.ref_photo_code.includes(
+                                    "DS5210-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS5210-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS5210-32"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS5211-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS5211-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS5211-32"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DF5173-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DL2147-01"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DL2147-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DL2147-22"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP2159-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP2159-08"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP2163-02"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DP2163-15"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS2162-04"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS2162-07"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DS2162-32"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HC628-1028"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HC628-1728"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HC629-1028"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HC629-1128"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HC629-1728"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM636-0128"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM636-0428"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM636-0728"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM636-0128"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "HM636-0328"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DA617-0808"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DA617-1508"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DA617-2208"
+                                  ) ||
+                                  product.ref_photo_code.includes(
+                                    "DA617-1508"
+                                  ) ||
+                                  product.ref_photo_code.includes("HT1241-15")
+                              )
+                            );
 
-        console.warn({
-          productsDB: this.productsDB
-        });
+                            this.isMounted = true;
+                          });
+                      });
+                  });
+              });
+          });
       });
   }
 

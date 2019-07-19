@@ -30,19 +30,19 @@ export default class AdminPanelsMenuComponent extends Vue {
   private secureMenu = [
     {
       title: "Title",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "Dispatches",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "Users",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "Swiper",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "Banners",
@@ -50,15 +50,15 @@ export default class AdminPanelsMenuComponent extends Vue {
     },
     {
       title: "Products",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "Categories",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     },
     {
       title: "DistributorsAndSHops",
-      users: ["jl.mayorga236@gmail.com"]
+      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
     }
   ];
 

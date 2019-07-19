@@ -34,7 +34,12 @@
         <h1>ESTADO : PROCESO DE ENVIO</h1>
         <h2>PRECIO : {{ item.products[0].price_cop | toCurrency }} | COMPRA : {{ getDate(item.meta.updatedAt) }}</h2>
         <h4>
-          <a target="_blank" :href="getFacturaLink()" download>DESCARGAR FACTURA</a>
+          <a
+            target="_blank"
+            :href="getFacturaLink()"
+            download
+            v-if="item.state === 'IN PROCESS: IN SHIPPING' || item.state === 'IN PROCESS: IN DELIVERED'"
+          >DESCARGAR FACTURA</a>
         </h4>
       </div>
 
@@ -80,10 +85,17 @@
       </div>
 
       <div class="card-content-tracking-code">
-        <div class="wrapper">OBTENER CÓDIGO DE RASTREO</div>
+        <div
+          class="wrapper"
+          v-if="item.state !== 'IN PROCESS: IN SHIPPING' && item.state !== 'IN PROCESS: IN DELIVERED'"
+        >OBTENER CÓDIGO DE RASTREO</div>
+        <div
+          class="wrapper"
+          v-if="item.state === 'IN PROCESS: IN SHIPPING' || item.state === 'IN PROCESS: IN DELIVERED'"
+        >{{item.shipping.shipping_company}} : {{ item.shipping.tracker_code}}</div>
       </div>
 
-      <h5 class="tracking-code-msg">( CÓDIGO DISPONIBLE EN 2 Ó 3 DÍAS HÁBILES )</h5>
+      <h5 class="tracking-code-msg">( CÓDIGO DISPONIBLE EN 48 HORAS )</h5>
     </div>
   </div>
 </template>
@@ -548,4 +560,15 @@ export default {
     }
   }
 }
+
+@media (min-width: 600px) {
+  .card.inprocess {
+    .card-header {
+      &-triangle {
+        left: ~"calc(50% - 1em)";
+      }
+    }
+  }
+}
+//
 </style>

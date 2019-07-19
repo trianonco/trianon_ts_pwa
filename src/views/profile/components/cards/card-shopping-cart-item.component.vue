@@ -109,7 +109,6 @@
               <br />
               <input
                 type="text"
-                :class="isInputError('name')"
                 autocomplete="on"
                 placeholder="NOMBRE DE QUIEN VA A RECIBIR"
                 v-model="BUY.shipping.name"
@@ -221,9 +220,9 @@ export default {
         },
         TRIANON: {
           url: "https://checkout.payulatam.com/ppp-web-gateway-payu",
-          apiKey: "",
+          apiKey: "0t4jk46T6YA78S2dios6WQBSbP",
           accountId: "",
-          merchantId: ""
+          merchantId: "542713"
         }
       },
 
@@ -303,7 +302,6 @@ export default {
     }
 
     if (envPayName === "TEST") {
-    /*
       this.BUY.shipping.address = "Calle Av Siempre Viva #70c - 86";
       this.BUY.shipping.info = "Casa 124";
       this.BUY.shipping.neighbourhood = "La Soledad";
@@ -311,7 +309,6 @@ export default {
       this.BUY.shipping.city = "Bogota";
       this.BUY.shipping.name = "Jorge L. Mayorga";
       this.BUY.shipping.phone = "3005318387";
-      */
     }
 
     const date = new Date();
@@ -420,14 +417,12 @@ export default {
     goToPayU() {
       this.UX.isEmpty = false;
       if (
-        true ||
-        (this.BUY.shipping.address &&
-          this.BUY.shipping.info &&
-          this.BUY.shipping.neighbourhood &&
-          this.BUY.shipping.department &&
-          this.BUY.shipping.city &&
-          this.BUY.shipping.name &&
-          this.BUY.shipping.phone)
+        this.BUY.shipping.address &&
+        this.BUY.shipping.info &&
+        this.BUY.shipping.neighbourhood &&
+        this.BUY.shipping.department &&
+        this.BUY.shipping.city &&
+        this.BUY.shipping.phone
       ) {
         this.BUY.shipping.country = "COLOMBIA";
 
@@ -437,7 +432,9 @@ export default {
           this.getTotalPriceByItem > 100000 ? 0 : 8000;
         this.BUY.billing.total_price =
           this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
-        this.BUY.billing.name = this.BUY.shipping.name;
+        this.BUY.billing.name = this.BUY.shipping.name
+          ? this.BUY.shipping.name
+          : JSON.parse(localStorage.getItem("user")).displayName;
         this.BUY.billing.phone = this.BUY.shipping.phone;
         this.BUY.billing.email = this.BUY.shipping.email;
 
