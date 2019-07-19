@@ -4,7 +4,7 @@
     v-if="isMounted"
     style="position:relative; top:0px;"
   >
-    <div style="display:block; width:calc(100% - 2em); margin: 0 auto;">
+    <div style="display:block; width:calc(100% - 6em); margin: 0 auto;">
       <swiper :options="swiperOption" ref="homeProductSwiper">
         <!-- slides -->
         <swiper-slide v-for="(product, index) of products" v-bind:key="index">
