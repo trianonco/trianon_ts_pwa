@@ -1,24 +1,33 @@
 <template>
-  <div class="swiper home-desktop-products-swiper" v-if="isMounted">
-    <swiper :options="swiperOption" ref="homeProductSwiper">
-      <!-- slides -->
-      <swiper-slide v-for="(product, index) of products" v-bind:key="index">
-        <div class="product-card" @click="goToProductView(product)">
-          <div class="wrapper">
-            <v-lazy-image
-              :src="getPhotoURLs(product).hd"
-              :src-placeholder="getPhotoURLs(product).thumb"
-            />
-            <div class="info">
-              {{product.description}} {{product.line}}
-              <br />
-              <br />
-              COLOR {{ product.color }}
+  <div
+    class="swiper home-desktop-products-swiper"
+    v-if="isMounted"
+    style="position:relative; top:0px;"
+  >
+    <div style="display:block; width:calc(100% - 2em); margin: 0 auto;">
+      <swiper :options="swiperOption" ref="homeProductSwiper">
+        <!-- slides -->
+        <swiper-slide v-for="(product, index) of products" v-bind:key="index">
+          <div class="product-card" @click="goToProductView(product)">
+            <div class="wrapper">
+              <v-lazy-image
+                :src="getPhotoURLs(product).hd"
+                :src-placeholder="getPhotoURLs(product).thumb"
+              />
+              <div class="info">
+                {{product.description}} {{product.line}}
+                <br />
+                <br />
+                COLOR {{ product.color }}
+              </div>
             </div>
           </div>
-        </div>
-      </swiper-slide>
-    </swiper>
+        </swiper-slide>
+      </swiper>
+    </div>
+
+    <div class="swiper-button-prev" style="position:absolute; top: 50%;left:10px;width:30px"></div>
+    <div class="swiper-button-next" style="position:absolute; top: 50%;right:10px;width:30px"></div>
   </div>
 </template>
 

@@ -13,7 +13,7 @@ export default {
     },
 
     initialSlide: 25,
-    spaceBetween: 30,
+    spaceBetween: 35,
     slidesPerView: 5,
     loop: true,
     loopedSlides: 5,

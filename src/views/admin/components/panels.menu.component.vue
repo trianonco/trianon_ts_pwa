@@ -38,7 +38,7 @@ export default class AdminPanelsMenuComponent extends Vue {
     },
     {
       title: "Users",
-      users: ["jl.mayorga236@gmail.com","luiska93@hotmail.com"]
+      users: ["jl.mayorga236@gmail.com"]
     },
     {
       title: "Swiper",

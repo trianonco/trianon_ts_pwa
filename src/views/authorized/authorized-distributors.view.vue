@@ -34,19 +34,13 @@
                 <!-- slides -->
 
                 <swiper-slide>
-                  <img
-                    :src="require('./../../shared/assets/images/distributor-swiper/sw1_HD.jpg')"
-                  />
+                  <img :src="require('./../../shared/assets/images/distributor-swiper/sw1_HD.jpg')" />
                 </swiper-slide>
                 <swiper-slide>
-                  <img
-                    :src="require('./../../shared/assets/images/distributor-swiper/sw2_HD.jpg')"
-                  />
+                  <img :src="require('./../../shared/assets/images/distributor-swiper/sw2_HD.jpg')" />
                 </swiper-slide>
                 <swiper-slide>
-                  <img
-                    :src="require('./../../shared/assets/images/distributor-swiper/sw3_HD.jpg')"
-                  />
+                  <img :src="require('./../../shared/assets/images/distributor-swiper/sw3_HD.jpg')" />
                 </swiper-slide>
               </swiper>
             </div>
@@ -93,7 +87,7 @@
             >NUEVO DISTRIBUIDOR AUTORIZADO</div>
 
             <div class="authorized-distributor-card-phone">
-              <span>{{ distributor.city }} {{ distributor.phone}}</span>
+              <span>{{ distributor.city }} TEL : {{ distributor.phone}} /</span>
             </div>
             <div class="authorized-distributor-card-address">
               <span>DIRECCIÓN: {{ distributor.address}}</span>
