@@ -52,6 +52,10 @@ Vue.use(VueGoogleMaps, {
 });
 
 
+import Meta from 'vue-meta';
+Vue.use(Meta);
+
+
 
 console.clear();
 console.log('');
