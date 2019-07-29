@@ -23,14 +23,6 @@ $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.ap
 
 
 $vue_pwa_html_template = file_get_contents("index.html");
-
-echo '<h1>TRIANON 4 </h1>';
-echo $TITLE ;
-echo '<br>' ;
-echo $DESCRIPTION  ;
-echo '<br>' ;
-echo $IMAGE_SRC ;
-echo '<br>' ;
 echo $vue_pwa_html_template ;
 
 
