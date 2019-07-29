@@ -50,7 +50,7 @@ $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 $vue_pwa_html_template = file_get_contents("index-app.html");
 
 
-$vue_pwa_html_template = str_replace('<title>TRIANON | Productos 100% colombianos</title>', $vue_pwa_html_meta_title, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace('<title>TRIANON | Productos 100% colombianos</title>', '<title>'.$vue_pwa_html_meta_title.'</title>', $vue_pwa_html_template);
 $vue_pwa_html_template = str_replace('META AUTHOR', $vue_pwa_html_meta_author, $vue_pwa_html_template);
 $vue_pwa_html_template = str_replace('META KEYWORDS', $vue_pwa_html_meta_keywords, $vue_pwa_html_template);
 $vue_pwa_html_template = str_replace('META DESCRIPTION', $vue_pwa_html_meta_description, $vue_pwa_html_template);
