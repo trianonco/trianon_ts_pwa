@@ -3,12 +3,6 @@
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
 
-echo '<h1>TRIANON 3 </h1>';
-echo $REQUEST_URI;
-
-/*
-
-
 $GENDER_KEY = array_search('gender', $REQUEST_URI_PARAMETERS ) + 1;
 $CATEGORY_KEY = array_search('category', $REQUEST_URI_PARAMETERS ) + 1;
 $DESCRIPTION_KEY = array_search('description', $REQUEST_URI_PARAMETERS ) + 1;
@@ -22,6 +16,14 @@ $DESCRIPTION_VALUE = $REQUEST_URI_PARAMETERS[$DESCRIPTION_KEY];
 $COLOR_VALUE = $REQUEST_URI_PARAMETERS[$COLOR_KEY];
 $LINE_VALUE = $REQUEST_URI_PARAMETERS[$LINE_KEY];
 $PHOTO_VALUE = $REQUEST_URI_PARAMETERS[$PHOTO_KEY];
+
+echo '<h1>TRIANON 3 </h1>';
+echo $REQUEST_URI;
+
+/*
+
+
+
 
 $TITLE = '"TRIANON | ' + $DESCRIPTION_VALUE + ' ' + $COLOR_VALUE + ' ' + $GENDER_VALUE + ' ' + $LINE_VALUE + ' '  + ' | Fabricación de marroquinería y accesorios en cuero "';
 $DESCRIPTION = '"TRIANON | Manufactura 100% Colombiana, una tradición desde 1935."';
