@@ -50,6 +50,7 @@ $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 $vue_pwa_html_template0 = '<head><meta name=author content="@{META_AUTHOR}"></head> <h1>TRIANON</h1>';
 $vue_pwa_html_template2 = str_replace('@{META_AUTHOR}', $vue_pwa_html_meta_author, $vue_pwa_html_template0);
 
+echo '<h1>OLI</h1>';
 echo $vue_pwa_html_template2 ;
 
 
