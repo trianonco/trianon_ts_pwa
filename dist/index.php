@@ -47,10 +47,10 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = '"https://www.trianon.com.co/"';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
-$vue_pwa_html_template0 = '<head><meta name="author" content=META_AUTHOR></head> <h1>TRIANON</h1>';
-$vue_pwa_html_template2 = str_replace('content=META_AUTHOR', $vue_pwa_html_meta_author, $vue_pwa_html_template0);
+$vue_pwa_html_template0 = '<head><meta name="author" content="META_AUTHOR"></head> <h1>TRIANON</h1>';
+$vue_pwa_html_template2 = str_replace('META_AUTHOR', $vue_pwa_html_meta_author, $vue_pwa_html_template0);
 
-echo '<h1>OLI 2</h1>';
+echo '<h1>TRIANON EN MANTENIMIENTO </h1>';
 echo $vue_pwa_html_template2 ;
 
 
