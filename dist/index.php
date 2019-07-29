@@ -1,4 +1,8 @@
 <?php
+
+echo '<h1>TRIANON</h1>';
+
+/*
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
 
@@ -66,11 +70,11 @@ $vue_pwa_html_template = str_replace("@{META_OG_SITE_NAME}",  $vue_pwa_html_meta
 
  $vue_pwa_html_meta_URL = $_SERVER['REQUEST_URI'];
 $vue_pwa_html_template = str_replace("@{META_PHP_URL}",  $vue_pwa_html_meta_URL, $vue_pwa_html_template);
-
+*/
 
 
 
  
-echo '<h1>TRIANON</h1>';
+
 
 ?>
