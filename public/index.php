@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1>TRIANON</h1>';
+echo '<h1>TRIANON 2 </h1>';
 
 /*
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
