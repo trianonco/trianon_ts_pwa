@@ -26,6 +26,7 @@ $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.ap
 
 
 $vue_pwa_html_template = file_get_contents("index.html");
+
 $vue_pwa_html_meta_title= '"TRIANON | Fabricación de marroquinería y accesorios en cuero"';
 $vue_pwa_html_meta_author = '"JORGE LUIS MAYORGA TABORDA"';
 $vue_pwa_html_meta_description = $DESCRIPTION;
@@ -46,27 +47,10 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = '"https://www.trianon.com.co/"';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
-$vue_pwa_html_template = str_replace("@{META_TITLE}", $vue_pwa_html_meta_title, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_AUTHOR}", $vue_pwa_html_meta_author, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_KEYWORDS}", $vue_pwa_html_meta_keywords, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_DESCRIPTION}", $vue_pwa_html_meta_description, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_IMAGE}", $vue_pwa_html_meta_image, $vue_pwa_html_template);
- 
-$vue_pwa_html_template = str_replace("@{META_SCHEMA_NAME}",  $vue_pwa_html_meta_schema_name, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_SCHEMA_DESCRIPTION}",  $vue_pwa_html_meta_schema_description, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_SCHEMA_IMAGE}",  $vue_pwa_html_meta_schema_image, $vue_pwa_html_template);
- 
-$vue_pwa_html_template = str_replace("@{META_TWITTER_TITLE}",  $vue_pwa_html_meta_twitter_title, $vue_pwa_html_template);
-$vue_pwa_html_template= str_replace("@{META_TWITTER_CARD}",  $vue_pwa_html_meta_twitter_card, $vue_pwa_html_template);
-$vue_pwa_html_template= str_replace("@{META_TWITTER_DESCRIPTION}",  $vue_pwa_html_meta_twitter_description, $vue_pwa_html_template);
- 
-$vue_pwa_html_template = str_replace("@{META_OG_TITLE}",  $vue_pwa_html_meta_og_title, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_OG_DESCRIPTION}",  $vue_pwa_html_meta_og_description, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_OG_IMAGE}",  $vue_pwa_html_meta_og_image, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_OG_URL}",  $vue_pwa_html_meta_og_url, $vue_pwa_html_template);
-$vue_pwa_html_template = str_replace("@{META_OG_SITE_NAME}",  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
+$vue_pwa_html_template0 = '<head><meta name=author content="@{META_AUTHOR}"></head> <h1>TRIANON</h1>';
+$vue_pwa_html_template2 = str_replace('@{META_AUTHOR}', $vue_pwa_html_meta_author, $vue_pwa_html_template0);
 
-echo $vue_pwa_html_template ;
+echo $vue_pwa_html_template2 ;
 
 
 /*
