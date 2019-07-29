@@ -18,7 +18,7 @@ export default {
 
   metaInfo() {
     return {
-      title: " TRIANON** | Fabricación de marroquinería y accesorios en cuero ",
+      title: " TRIANON | Fabricación de marroquinería y accesorios en cuero ",
       meta: [
         { name: "author", content: "Jorge Luis Mayorga Taborda" },
         {
