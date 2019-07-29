@@ -71,6 +71,6 @@ $vue_pwa_html_template = str_replace("@{META_PHP_URL}",  $vue_pwa_html_meta_URL,
 
 
  
- print $vue_pwa_html_template;
+echo '<h1>TRIANON</h1>';
 
 ?>
