@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(-1);
+ini_set('display_errors','On');
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
@@ -26,7 +26,7 @@ $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.ap
 
 
 $vue_pwa_html_template = file_get_contents("index.html");
-echo $vue_pwa_html_template ;
+//echo $vue_pwa_html_template ;
 
 
 /*
