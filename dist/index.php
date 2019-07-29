@@ -30,6 +30,8 @@ echo '<br>' ;
 echo $DESCRIPTION  ;
 echo '<br>' ;
 echo $IMAGE_SRC ;
+echo '<br>' ;
+echo $vue_pwa_html_template ;
 /*
 
 
