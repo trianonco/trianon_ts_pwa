@@ -1,10 +1,13 @@
 <?php
 
-echo '<h1>TRIANON 3 </h1>';
-
-/*
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
+
+echo '<h1>TRIANON 3 </h1>';
+echo $REQUEST_URI;
+
+/*
+
 
 $GENDER_KEY = array_search('gender', $REQUEST_URI_PARAMETERS ) + 1;
 $CATEGORY_KEY = array_search('category', $REQUEST_URI_PARAMETERS ) + 1;
