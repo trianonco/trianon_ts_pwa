@@ -64,7 +64,7 @@ $vue_pwa_html_template = str_replace("@{META_OG_URL}",  $vue_pwa_html_meta_og_ur
 $vue_pwa_html_template = str_replace("@{META_OG_SITE_NAME}",  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
 
 
- $vue_pwa_html_meta_URL = $_SERVER['REQUEST_URI'];
+$vue_pwa_html_meta_URL = $_SERVER['REQUEST_URI'];
 $vue_pwa_html_template = str_replace("@{META_PHP_URL}",  $vue_pwa_html_meta_URL, $vue_pwa_html_template);
 
 
