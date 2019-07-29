@@ -260,12 +260,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
   },
   {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
-  },
-  {
     "revision": "ecbfae5924935c60785e9e2a36f8e05f",
     "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
+  },
+  {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
   {
     "revision": "05cb165500848d34ff71",
@@ -308,28 +308,32 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
   },
   {
-    "revision": "8165c1ec52bb9262b2105edc8032a5db",
-    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
-  },
-  {
     "revision": "22d4a36b7d366b2b213801c716dfb0b7",
     "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
+  },
+  {
+    "revision": "8165c1ec52bb9262b2105edc8032a5db",
+    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans_1.885e3d6f.eot"
   },
   {
-    "revision": "e1d396939867c493f06f2bbc071993d9",
-    "url": "/fonts/OpenSans-Light.e1d39693.eot"
-  },
-  {
     "revision": "27b48950afd77b0e4aaa98981c1b8813",
     "url": "/fonts/TrajanPro-Bold.27b48950.eot"
   },
   {
+    "revision": "e1d396939867c493f06f2bbc071993d9",
+    "url": "/fonts/OpenSans-Light.e1d39693.eot"
+  },
+  {
     "revision": "5299020bf84d03883fa452ee7478c60f",
     "url": "/fonts/OpenSans-Light.5299020b.ttf"
+  },
+  {
+    "revision": "14633e007efb0b390d06cd0a30789962",
+    "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
   },
   {
     "revision": "4036090917114a9f089af14dc8b9dffc",
@@ -338,10 +342,6 @@ self.__precacheManifest = [
   {
     "revision": "e8425e8a393b5d1e7fe417f43e520c54",
     "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
-  },
-  {
-    "revision": "14633e007efb0b390d06cd0a30789962",
-    "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -476,12 +476,12 @@ self.__precacheManifest = [
     "url": "/img/about-us-bg.3b571b6a.png"
   },
   {
-    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
-    "url": "/img/gender-female-categories-bg.bb2f9242.jpg"
-  },
-  {
     "revision": "33afe2d672465540ebf88d91894e4818",
     "url": "/img/gender-male-categories-bg.33afe2d6.jpg"
+  },
+  {
+    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
+    "url": "/img/gender-female-categories-bg.bb2f9242.jpg"
   },
   {
     "revision": "3f2160a720a766f91a5a268ae4ecee73",
@@ -520,7 +520,7 @@ self.__precacheManifest = [
     "url": "/js/AuthorizedShops.fcae10e7.js"
   },
   {
-    "revision": "6a89e558d7686d940d051b12b030e3dd",
+    "revision": "5253de96f94cdd6671b5f3fc29e9fef1",
     "url": "/index.php"
   },
   {
