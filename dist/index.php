@@ -26,7 +26,7 @@ $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.ap
 
 
 $vue_pwa_html_template = file_get_contents("index.html");
-//echo $vue_pwa_html_template ;
+echo $vue_pwa_html_template ;
 
 
 /*
