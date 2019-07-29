@@ -40,26 +40,8 @@ import HomeBannerCreditCardsComponent from "./components/home-banners/banner-cre
 import HomeBannerFreeShippingComponent from "./components/home-banners/banner-free-shipping.component.vue";
 import HomeBannerGuaranteeComponent from "./components/home-banners/banner-guarantee.component.vue";
 import HomeBannerAddressComponent from "./components/home-banners/banner-address.component.vue";
-
-@Component({
-  components: {
-    VLazyImage,
-    LoaderComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeDekstopCoverComponent,
-    HomeDesktopProductsSwiperComponent,
-    HomeSwiperComponent,
-    HomeGenderButtonsComponent,
-    HomeSearchBarComponent,
-    HomeBannerAuthorizedDistributorsComponent,
-    HomeBannerAuthorizedShopsComponent,
-    HomeBannerAboutUsComponent,
-    HomeBannerCreditCardsComponent,
-    HomeBannerFreeShippingComponent,
-    HomeBannerGuaranteeComponent,
-    HomeBannerAddressComponent
-  },
+/*
+,
   metaInfo() {
     return {
       title: " TRIANON | Fabricación de marroquinería y accesorios en cuero ",
@@ -131,6 +113,26 @@ import HomeBannerAddressComponent from "./components/home-banners/banner-address
         }
       ]
     };
+  }
+  */
+@Component({
+  components: {
+    VLazyImage,
+    LoaderComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeDekstopCoverComponent,
+    HomeDesktopProductsSwiperComponent,
+    HomeSwiperComponent,
+    HomeGenderButtonsComponent,
+    HomeSearchBarComponent,
+    HomeBannerAuthorizedDistributorsComponent,
+    HomeBannerAuthorizedShopsComponent,
+    HomeBannerAboutUsComponent,
+    HomeBannerCreditCardsComponent,
+    HomeBannerFreeShippingComponent,
+    HomeBannerGuaranteeComponent,
+    HomeBannerAddressComponent
   }
 })
 export default class HomeComponent extends Vue {

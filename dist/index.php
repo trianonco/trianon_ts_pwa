@@ -17,11 +17,11 @@ $LINE_VALUE = $REQUEST_URI_PARAMETERS[$LINE_KEY];
 $PHOTO_VALUE = $REQUEST_URI_PARAMETERS[$PHOTO_KEY];
 
 $TITLE = '"TRIANON | ' + $DESCRIPTION_VALUE + ' ' + $COLOR_VALUE + ' ' + $GENDER_VALUE + ' ' + $LINE_VALUE + ' '  + ' | Fabricación de marroquinería y accesorios en cuero "';
-$DESCRIPTION = 'TRIANON | Manufactura 100% Colombiana, una tradición desde 1935.';
-$IMAGE_SRC = 'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2' + $PHOTO_VALUE + '?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01';
+$DESCRIPTION = '"TRIANON | Manufactura 100% Colombiana, una tradición desde 1935."';
+$IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2' + $PHOTO_VALUE + '?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01"';
 
 
-$vue_pwa_html_template = file_get_contents('./index-deploy.html');
+$vue_pwa_html_template = file_get_contents('./index.html');
 
 $vue_pwa_html_meta_title= '"TRIANON | Fabricación de marroquinería y accesorios en cuero"';
 $vue_pwa_html_meta_author = '"JORGE LUIS MAYORGA TABORDA"';
@@ -43,34 +43,34 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = '"https://www.trianon.com.co/"';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
- $vue_pwa_html_meta_rendered = str_replace("@{META_TITLE}", $vue_pwa_html_meta_title, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_AUTHOR}", $vue_pwa_html_meta_author, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_KEYWORDS}", $vue_pwa_html_meta_keywords, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_DESCRIPTION}", $vue_pwa_html_meta_description, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_IMAGE}", $vue_pwa_html_meta_image, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_TITLE}", $vue_pwa_html_meta_title, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_AUTHOR}", $vue_pwa_html_meta_author, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_KEYWORDS}", $vue_pwa_html_meta_keywords, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_DESCRIPTION}", $vue_pwa_html_meta_description, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_IMAGE}", $vue_pwa_html_meta_image, $vue_pwa_html_template);
  
- $vue_pwa_html_meta_rendered = str_replace("@{META_SCHEMA_NAME}",  $vue_pwa_html_meta_schema_name, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_SCHEMA_DESCRIPTION}",  $vue_pwa_html_meta_schema_description, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_SCHEMA_IMAGE}",  $vue_pwa_html_meta_schema_image, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_SCHEMA_NAME}",  $vue_pwa_html_meta_schema_name, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_SCHEMA_DESCRIPTION}",  $vue_pwa_html_meta_schema_description, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_SCHEMA_IMAGE}",  $vue_pwa_html_meta_schema_image, $vue_pwa_html_template);
  
- $vue_pwa_html_meta_rendered = str_replace("@{META_TWITTER_TITLE}",  $vue_pwa_html_meta_twitter_title, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_TWITTER_CARD}",  $vue_pwa_html_meta_twitter_card, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_TWITTER_DESCRIPTION}",  $vue_pwa_html_meta_twitter_description, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_TWITTER_TITLE}",  $vue_pwa_html_meta_twitter_title, $vue_pwa_html_template);
+$vue_pwa_html_template= str_replace("@{META_TWITTER_CARD}",  $vue_pwa_html_meta_twitter_card, $vue_pwa_html_template);
+$vue_pwa_html_template= str_replace("@{META_TWITTER_DESCRIPTION}",  $vue_pwa_html_meta_twitter_description, $vue_pwa_html_template);
  
- $vue_pwa_html_meta_rendered = str_replace("@{META_OG_TITLE}",  $vue_pwa_html_meta_og_title, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_OG_DESCRIPTION}",  $vue_pwa_html_meta_og_description, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_OG_IMAGE}",  $vue_pwa_html_meta_og_image, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_OG_URL}",  $vue_pwa_html_meta_og_url, $vue_pwa_html_template);
- $vue_pwa_html_meta_rendered = str_replace("@{META_OG_SITE_NAME}",  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_OG_TITLE}",  $vue_pwa_html_meta_og_title, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_OG_DESCRIPTION}",  $vue_pwa_html_meta_og_description, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_OG_IMAGE}",  $vue_pwa_html_meta_og_image, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_OG_URL}",  $vue_pwa_html_meta_og_url, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_OG_SITE_NAME}",  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
 
 
  $vue_pwa_html_meta_URL = $_SERVER['REQUEST_URI'];
- $vue_pwa_html_meta_rendered = str_replace("@{META_PHP_URL}",  $vue_pwa_html_meta_URL, $vue_pwa_html_template);
+$vue_pwa_html_template = str_replace("@{META_PHP_URL}",  $vue_pwa_html_meta_URL, $vue_pwa_html_template);
 
 
 
 
  
- print $vue_pwa_html_meta_rendered;
+ print $vue_pwa_html_template;
 
 ?>
