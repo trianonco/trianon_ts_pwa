@@ -25,7 +25,7 @@ $DESCRIPTION = '"TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 193
 $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01"';
 
 
-$vue_pwa_html_template = file_get_contents("index.html");
+//$vue_pwa_html_template = file_get_contents("index.html");
 
 $vue_pwa_html_meta_title= '"TRIANON | Fabricación de marroquinería y accesorios en cuero"';
 $vue_pwa_html_meta_author = '"JORGE LUIS MAYORGA TABORDA"';
