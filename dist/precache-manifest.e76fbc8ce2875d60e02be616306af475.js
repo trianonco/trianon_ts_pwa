@@ -104,12 +104,12 @@ self.__precacheManifest = [
     "url": "/js/terms.view.cb2b2cac.js"
   },
   {
-    "revision": "70ca29858f72c41622469b8d4d57fd23",
-    "url": "/img/free-shipping-bg.70ca2985.jpg"
-  },
-  {
     "revision": "b30889f991656f695c540ec37bb970ee",
     "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
+  },
+  {
+    "revision": "70ca29858f72c41622469b8d4d57fd23",
+    "url": "/img/free-shipping-bg.70ca2985.jpg"
   },
   {
     "revision": "224567239257f8a6bf7cc70c12f0c184",
@@ -192,12 +192,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
   },
   {
-    "revision": "b55272c8d5196c7dc77cb39f95cdba9d",
-    "url": "/fonts/OpenSans-Light.b55272c8.woff2"
-  },
-  {
     "revision": "5ef05461d1158f05fa25662bbd968005",
     "url": "/fonts/OpenSans_1.5ef05461.woff2"
+  },
+  {
+    "revision": "b55272c8d5196c7dc77cb39f95cdba9d",
+    "url": "/fonts/OpenSans-Light.b55272c8.woff2"
   },
   {
     "revision": "b12afbdbd6b6049d3772777bb9750460",
@@ -236,12 +236,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
   },
   {
-    "revision": "87051a9d79eb9fc8c317b5777320f78d",
-    "url": "/fonts/OpenSans-Light.87051a9d.woff"
-  },
-  {
     "revision": "90327f5ac43d0fbc708f3653ffc0a043",
     "url": "/fonts/OpenSans_1.90327f5a.woff"
+  },
+  {
+    "revision": "87051a9d79eb9fc8c317b5777320f78d",
+    "url": "/fonts/OpenSans-Light.87051a9d.woff"
   },
   {
     "revision": "12d2fa3dcf227b9538084a6bcfeafcf0",
@@ -256,12 +256,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-SemiboldItalic.427dc611.eot"
   },
   {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
-  },
-  {
     "revision": "1245824481137ab66a6f540116a569ab",
     "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
+  },
+  {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
   {
     "revision": "ecbfae5924935c60785e9e2a36f8e05f",
@@ -280,6 +280,10 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Italic.be95e66a.eot"
   },
   {
+    "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
+    "url": "/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
+  },
+  {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
     "url": "/fonts/OpenSans_1.10ba07da.ttf"
   },
@@ -288,20 +292,16 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Italic.e6c21381.ttf"
   },
   {
-    "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
-    "url": "/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
-  },
-  {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
-  },
-  {
     "revision": "55bfb3e43457ec893f128c2d73f76457",
     "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans.885e3d6f.eot"
+  },
+  {
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
   },
   {
     "revision": "8165c1ec52bb9262b2105edc8032a5db",
@@ -324,6 +324,10 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Bold.27b48950.eot"
   },
   {
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
+  },
+  {
     "revision": "e1d396939867c493f06f2bbc071993d9",
     "url": "/fonts/OpenSans-Light.e1d39693.eot"
   },
@@ -332,16 +336,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
-    "revision": "14633e007efb0b390d06cd0a30789962",
-    "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
-  },
-  {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
-  },
-  {
     "revision": "4036090917114a9f089af14dc8b9dffc",
     "url": "/fonts/TrajanPro-Regular.40360909.eot"
+  },
+  {
+    "revision": "14633e007efb0b390d06cd0a30789962",
+    "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -516,16 +516,16 @@ self.__precacheManifest = [
     "url": "/index.html"
   },
   {
-    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
-    "url": "/redirect.html"
+    "revision": "bfe0522711522156ef72c996805bfcb4",
+    "url": "/maintain.html"
   },
   {
     "revision": "392afe5797241ee6ab28cf23539d8284",
     "url": "/index.php"
   },
   {
-    "revision": "bfe0522711522156ef72c996805bfcb4",
-    "url": "/maintain.html"
+    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
+    "url": "/redirect.html"
   },
   {
     "revision": "05cb165500848d34ff71",
