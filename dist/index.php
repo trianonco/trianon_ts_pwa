@@ -17,7 +17,7 @@ $COLOR_VALUE = $REQUEST_URI_PARAMETERS[$COLOR_KEY];
 $LINE_VALUE = $REQUEST_URI_PARAMETERS[$LINE_KEY];
 $PHOTO_VALUE = $REQUEST_URI_PARAMETERS[$PHOTO_KEY];
 
-$TITLE = '"TRIANON | '.$DESCRIPTION_VALUE.' '.$COLOR_VALUE.' '.$GENDER_VALUE.' '.$LINE_VALUE.' '.' | Fabricación de marroquinería y accesorios en cuero "';
+$TITLE = '"TRIANON | '.$DESCRIPTION_VALUE.' '.$COLOR_VALUE.' '.$GENDER_VALUE.' '.$LINE_VALUE.' '.' Fabricación de marroquinería y accesorios en cuero "';
 
 
 
