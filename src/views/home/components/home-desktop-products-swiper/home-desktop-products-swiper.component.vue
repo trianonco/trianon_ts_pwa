@@ -66,8 +66,16 @@ export default class HomeDesktopProductsSwiperComponent extends Vue {
     return (this.$refs.homeProductSwiper as any).swiper;
   }
   private goToProductView(product: any) {
+    const filename = `${product.ref_photo_code}-01.jpg`;
+    const url_gender = `gender/${product.gender}`;
+    const url_category = `category/${product.category}`;
+    const url_ref = `ref/${product.ref_photo_code}`;
+    const url_description = `description/${product.description}`;
+    const url_color = `color/${product.color}`;
+    const url_line = `line/${product.line}`;
+    const url_photo = `photo/${filename}`;
     this.$router.push(
-      `/product/gender/${product.gender}/category/${product.category}/ref/${product.ref_photo_code}`
+      `/product/${url_gender}/${url_category}/${url_ref}/${url_description}/${url_color}/${url_line}/${url_photo}`
     );
   }
   private getPhotoURLs(productObj: any) {

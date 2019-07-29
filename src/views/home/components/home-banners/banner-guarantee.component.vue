@@ -5,21 +5,21 @@
       class="mobile"
       alt="TrianonCo Image"
       src="../../../../shared/assets/images/banners/guarantee-header.png"
-    >
+    />
     <img
       class="desktop"
       alt="TrianonCo Image"
       src="../../../../shared/assets/images/banners/garatian-line-header-desktop.png"
-    >
+    />
     <div class="banner-title">
       <h2>GARANTÍA DIRECTA</h2>
       <p>
         Los productos de pequeña marroquinería han sido diseñados para ser llevados en el bolsillo interno de sacos, chaquetas, camisas, bolsos y maletines; el uso inadecuado en otros bolsillos deforman el producto,
         el cual esta garantizado en su manufactura. Las rayas y variaciones de tono son características naturales del cuero y no constituyen defecto.
       </p>
-      <br>
+      <br />
       <p>La garantía no cubre daños ocasionados por el usuario tales como: rasgaduras, manchas de tinta ó variaciones de coloración por solventes y limpiadores.</p>
-      <br>
+      <br />
     </div>
   </div>
 </template>
@@ -100,9 +100,6 @@ export default {
       max-width: 910px;
       font-family: "Open Sans";
       font-size: 14px;
-    }
-
-    img {
     }
   }
 }
