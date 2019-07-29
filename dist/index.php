@@ -19,8 +19,10 @@ $PHOTO_VALUE = urldecode($REQUEST_URI_PARAMETERS[$PHOTO_KEY]);
 
 $TITLE = '"TRIANON | '.$DESCRIPTION_VALUE.' '.$COLOR_VALUE.' '.$GENDER_VALUE.' '.$LINE_VALUE.' '.' FABRICACIóN DE MARROQUINERíA Y ACCESORIOS EN CUERO "';
 $DESCRIPTION = '"TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 1935."';
-$IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01"';
+$IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01"';
 
+
+$vue_pwa_html_template = file_get_contents('./index.html');
 
 echo '<h1>TRIANON 4 </h1>';
 echo $TITLE ;
