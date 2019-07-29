@@ -25,7 +25,7 @@ $DESCRIPTION = '"TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 193
 $IMAGE_SRC = '"https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01"';
 
 
-//$vue_pwa_html_template = file_get_contents("index.html");
+$vue_pwa_html_template = file_get_contents("index-app.html");
 
 $vue_pwa_html_meta_title= '"TRIANON | Fabricación de marroquinería y accesorios en cuero"';
 $vue_pwa_html_meta_author = ' JORGE LUIS MAYORGA TABORDA ';
@@ -47,11 +47,9 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = '"https://www.trianon.com.co/"';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
-$vue_pwa_html_template0 = '<head><meta name="author" content="META_AUTHOR"></head> <h1>TRIANON</h1>';
-$vue_pwa_html_template2 = str_replace('META_AUTHOR', $vue_pwa_html_meta_author, $vue_pwa_html_template0);
+$vue_pwa_html_template = str_replace('<title>TRIANON | Productos 100% colombianos</title>', $vue_pwa_html_meta_title, $vue_pwa_html_template);
 
-echo '<h1>TRIANON EN MANTENIMIENTO </h1>';
-echo $vue_pwa_html_template2 ;
+echo $vue_pwa_html_template ;
 
 
 /*
