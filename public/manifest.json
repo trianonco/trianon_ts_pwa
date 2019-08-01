@@ -1,6 +1,6 @@
 {
-  "name": "TRIANON | Fabricación de marroquinería y accesorios en cuero como billeteras, bolsos, llaveros, porta llaveros, monederos, portadocumentos y cosmetiqueros.",
-  "short_name": "TRINAON | Fabricación de marroquinería",
+  "name": "TRIANON | Fabricación de marroquinería y accesorios en cuero",
+  "short_name": "TRINAON",
   "icons": [{
     "src": "./img/icons/android-chrome-192x192.png",
     "sizes": "192x192",
@@ -10,7 +10,7 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000"
