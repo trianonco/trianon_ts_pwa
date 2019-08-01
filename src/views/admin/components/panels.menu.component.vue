@@ -9,7 +9,7 @@
         <span
           class="panels-menu-button"
           :class="isActive(page.title)"
-          v-show="isUserAllowedByPageTitle(page.title)"
+          v-if="isUserAllowedByPageTitle(page.title)"
         >{{ page.titulo }}</span>
       </a>
     </Slide>
@@ -65,6 +65,10 @@ export default class AdminPanelsMenuComponent extends Vue {
   private mounted() {
     const user = JSON.parse(localStorage.getItem("user") || "");
     this.email = user.email;
+    console.warn('')
+    console.warn('this.email')
+    console.warn(this.email)
+    console.warn('')
   }
 
   private isUserAllowedByPageTitle(title: string) {
