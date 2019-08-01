@@ -4,6 +4,8 @@
       <a
         v-for="(page,index) of pages"
         v-bind:key="index"
+        :class="isActive(page.title)"
+        v-if="isUserAllowedByPageTitle(page.title)"
         @click="adminOpenPanelByTitle(page.title)"
       >
         <span class="panels-menu-button">{{ page.titulo }}</span>
@@ -12,8 +14,8 @@
   </div>
 </template>
 <script lang="ts">
-// v-if="isUserAllowedByPageTitle(page.title)"
-// :class="isActive(page.title)"
+//
+//
 import { Slide } from "vue-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide` v-show="secureMenu[page.title].includes(email)"
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
