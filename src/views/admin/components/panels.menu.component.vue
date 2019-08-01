@@ -4,11 +4,13 @@
       <a
         v-for="(page,index) of pages"
         v-bind:key="index"
-        :class="isActive(page.title)"
-        v-if="isUserAllowedByPageTitle(page.title)"
         @click="adminOpenPanelByTitle(page.title)"
       >
-        <span class="panels-menu-button">{{ page.titulo }}</span>
+        <span
+          class="panels-menu-button"
+          :class="isActive(page.title)"
+          v-if="isUserAllowedByPageTitle(page.title)"
+        >{{ page.titulo }}</span>
       </a>
     </Slide>
   </div>
