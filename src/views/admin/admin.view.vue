@@ -14,7 +14,7 @@
         <!-- Content -->
         <div class="panels-content">
           <div class="panel no-module" style="padding:2em" v-if="!currentPageTitle">
-            <h1>Trianon Panel de Admin</h1>
+            <h1>Trianon Panel de Admin*</h1>
             <img src="./../../shared/assets/images/headers/logo.png" />
             <h5>Selecciona un modulo del menu</h5>
           </div>
