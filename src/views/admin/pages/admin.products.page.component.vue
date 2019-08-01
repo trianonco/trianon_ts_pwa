@@ -186,7 +186,7 @@ export default class AdminProductsPageComponent extends Vue {
       },
       {
         gender: "HOMBRE",
-        category: "PORTA LLAVES",
+        category: "PORTA_LLAVES",
         data: PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_LLAVES
       },
       {
@@ -236,7 +236,7 @@ export default class AdminProductsPageComponent extends Vue {
       },
       {
         gender: "DAMA",
-        category: "PORTA LLAVES",
+        category: "PORTA_LLAVES",
         data: PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_LLAVES
       },
       {
@@ -284,7 +284,8 @@ export default class AdminProductsPageComponent extends Vue {
         category: PRODUCTS_TO_DB[i].category,
         products: JSON.stringify(PRODUCTS_TO_DB[i].data)
       };
-
+      console.warn(document_data);
+      console.log("");
       const isLoaded = await this.db.setShopProducts(
         collection_name,
         document_name,

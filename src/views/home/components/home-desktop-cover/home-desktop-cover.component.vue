@@ -11,7 +11,7 @@
       <img
         src="./../../../../shared/assets/images/desktop-cover/G-C-IZQUIERDA.png"
         style="position: absolute;bottom: 1em;left: 0px;width: 2em;"
-      >
+      />
 
       <div class="button" @click="toogleFemaleOpen()">DAMA</div>
       <div
@@ -28,11 +28,11 @@
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
               v-if="isBulletActive(category.title ,'DAMA')"
-            >
+            />
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
               v-if="!isBulletActive(category.title, 'DAMA')"
-            >
+            />
             <span>{{category.title}}</span>
           </li>
         </ul>
@@ -46,7 +46,7 @@
       <img
         src="./../../../../shared/assets/images/desktop-cover/G-C-DERECHO.png"
         style="position: absolute;bottom: 1em;right: 0px;width: 2em;"
-      >
+      />
 
       <div class="button" @click="UX.isMaleOpen = !UX.isMaleOpen; ">HOMBRE</div>
 
@@ -65,11 +65,11 @@
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gold.png"
               v-if="isBulletActive(category.title,'HOMBRE')"
-            >
+            />
             <img
               src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
               v-if="!isBulletActive(category.title,'HOMBRE')"
-            >
+            />
           </li>
         </ul>
       </div>
@@ -108,7 +108,7 @@ export default class HomeSwiperComponent extends Vue {
     { title: "LLAVEROS" },
     { title: "MONEDEROS Y TARJETEROS" },
     { title: "PORTA BILLETES" },
-    //{ title: "PORTA LLAVEROS" },
+    { title: "PORTA LLAVES" },
     { title: "PORTA DOCUMENTOS" },
     { title: "PORTA PASAPORTES" }
   ];
@@ -120,7 +120,7 @@ export default class HomeSwiperComponent extends Vue {
     { title: "LLAVEROS" },
     { title: "MONEDEROS Y TARJETEROS" },
     { title: "PORTA BILLETES" },
-    //{ title: "PORTA COSMÉTICOS" },
+    { title: "PORTA COSMETICOS" },
     { title: "PORTA DOCUMENTOS" },
     { title: "PORTA PASAPORTES" }
   ];

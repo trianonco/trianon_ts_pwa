@@ -10,22 +10,28 @@ export default class ShopDataBase {
         console.log('USER-DB')
     }
 
-    public async setShopProducts(collection_name:string, document_name:string , document_data:string): Promise<any> {
-        return new Promise( (resolve, reject) => {
+    public async setShopProducts(collection_name: string, document_name: string, document_data: string): Promise<any> {
+        return new Promise((resolve, reject) => {
             const collectionRef = this.db.collection(collection_name);
             const documentRef = document_name;
+
+            console.error('');
+            console.log(' documentRef => ' + documentRef);
+            console.log('')
+            console.log(document_data);
+            console.log('')
             collectionRef.doc(documentRef).set(document_data)
-            .then((response: any) => {
-                resolve(response);
-            })
-            .catch((error: any) => {
-                reject(error);
-            })
+                .then((response: any) => {
+                    resolve(response);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
 
         });
     }
 
-    public async getProductsByGenderAndCategoriesFromFirebase(gender:string, category:string) {
+    public async getProductsByGenderAndCategoriesFromFirebase(gender: string, category: string) {
         return new Promise(async (resolve: any, reject: any) => {
             const collection_name = 'PRODUCTS';
             const document_name = `PRODUCTS_GENDER_${gender.toUpperCase()}_CATEGORY_${category.replace(/\s+/g, '_').toUpperCase()}`;
@@ -56,17 +62,17 @@ export default class ShopDataBase {
 
 
 
-    
 
-    public async getProductsByGenderAndCategories(gender:string, category:string) {
+
+    public async getProductsByGenderAndCategories(gender: string, category: string) {
         return new Promise(async (resolve: any, reject: any) => {
             const sessionStorageName = `PRODUCTS_LOCAL_DATABASE_SHOP_GENDER_${gender.toUpperCase()}_CATEGORIES_${category.replace(/\s+/g, '_').toUpperCase()}`;
             const sessionStorageData = sessionStorage.getItem(sessionStorageName);
 
-            if(sessionStorageData && false){
+            if (sessionStorageData && false) {
                 //resolve(JSON.parse(sessionStorageData));
-            }else{
-                this.getProductsByGenderAndCategoriesFromFirebase(gender,category).then( (response:any) => {
+            } else {
+                this.getProductsByGenderAndCategoriesFromFirebase(gender, category).then((response: any) => {
                     //sessionStorage.setItem(sessionStorageName,JSON.stringify(response))
                     resolve(response);
                 })
@@ -75,11 +81,11 @@ export default class ShopDataBase {
     };
 
 
-    public async getProductsByGenderAndCategoriesAndID(gender:string, category:string, ref_photo_code:string) {
+    public async getProductsByGenderAndCategoriesAndID(gender: string, category: string, ref_photo_code: string) {
         return new Promise(async (resolve: any, reject: any) => {
-          
-            this.getProductsByGenderAndCategories(gender,category).then( (products:any) => {
-                const prod = products.filter( (product: any) => product.ref_photo_code.replace(' ','') === ref_photo_code);
+
+            this.getProductsByGenderAndCategories(gender, category).then((products: any) => {
+                const prod = products.filter((product: any) => product.ref_photo_code.replace(' ', '') === ref_photo_code);
                 resolve(prod)
             });
         });
