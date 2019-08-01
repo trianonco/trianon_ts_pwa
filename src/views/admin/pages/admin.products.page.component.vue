@@ -13,7 +13,7 @@
       </div>
     </form>
     <div class="loader" v-if="isLoading">
-      <img src="./../../../shared/assets/images/ajax-loader.gif" width="25px">
+      <img src="./../../../shared/assets/images/ajax-loader.gif" width="25px" />
     </div>
   </div>
 </template>
@@ -95,6 +95,10 @@ export default class AdminProductsPageComponent extends Vue {
       (product: any) =>
         product.gender === "HOMBRE" && product.category === "LLAVEROS"
     );
+    const PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_LLAVES = this.PRODUCTS.filter(
+      (product: any) =>
+        product.gender === "HOMBRE" && product.category === "PORTA LLAVES"
+    );
     const PRODUCTS_GENDER_HOMBRE_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(
       (product: any) =>
         product.gender === "HOMBRE" &&
@@ -132,6 +136,10 @@ export default class AdminProductsPageComponent extends Vue {
     const PRODUCTS_GENDER_DAMA_CATEGORY_LLAVEROS = this.PRODUCTS.filter(
       (product: any) =>
         product.gender === "DAMA" && product.category === "LLAVEROS"
+    );
+    const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_LLAVES = this.PRODUCTS.filter(
+      (product: any) =>
+        product.gender === "DAMA" && product.category === "PORTA LLAVES"
     );
     const PRODUCTS_GENDER_DAMA_CATEGORY_MONEDEROS_Y_TARJETEROS = this.PRODUCTS.filter(
       (product: any) =>
@@ -175,6 +183,11 @@ export default class AdminProductsPageComponent extends Vue {
         gender: "HOMBRE",
         category: "LLAVEROS",
         data: PRODUCTS_GENDER_HOMBRE_CATEGORY_LLAVEROS
+      },
+      {
+        gender: "HOMBRE",
+        category: "PORTA LLAVES",
+        data: PRODUCTS_GENDER_HOMBRE_CATEGORY_PORTA_LLAVES
       },
       {
         gender: "HOMBRE",
@@ -223,6 +236,11 @@ export default class AdminProductsPageComponent extends Vue {
       },
       {
         gender: "DAMA",
+        category: "PORTA LLAVES",
+        data: PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_LLAVES
+      },
+      {
+        gender: "DAMA",
         category: "MONEDEROS_Y_TARJETEROS",
         data: PRODUCTS_GENDER_DAMA_CATEGORY_MONEDEROS_Y_TARJETEROS
       },
@@ -260,15 +278,13 @@ export default class AdminProductsPageComponent extends Vue {
 
     for (let i = 0; i < PRODUCTS_TO_DB.length; i++) {
       const collection_name = "PRODUCTS";
-      const document_name = `PRODUCTS_GENDER_${
-        PRODUCTS_TO_DB[i].gender
-      }_CATEGORY_${PRODUCTS_TO_DB[i].category}`;
+      const document_name = `PRODUCTS_GENDER_${PRODUCTS_TO_DB[i].gender}_CATEGORY_${PRODUCTS_TO_DB[i].category}`;
       const document_data = {
         gender: PRODUCTS_TO_DB[i].gender,
         category: PRODUCTS_TO_DB[i].category,
         products: JSON.stringify(PRODUCTS_TO_DB[i].data)
       };
-      console.warn(document_name);
+
       const isLoaded = await this.db.setShopProducts(
         collection_name,
         document_name,

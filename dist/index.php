@@ -7,29 +7,28 @@ $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
 $isProductURL = (array_search('gender', $REQUEST_URI_PARAMETERS )  == 0) ? false : true;
 
 if($isProductURL){
-$GENDER_KEY = array_search('gender', $REQUEST_URI_PARAMETERS ) + 1;
-$CATEGORY_KEY = array_search('category', $REQUEST_URI_PARAMETERS ) + 1;
-$DESCRIPTION_KEY = array_search('description', $REQUEST_URI_PARAMETERS ) + 1;
-$COLOR_KEY = array_search('color', $REQUEST_URI_PARAMETERS ) + 1;
-$LINE_KEY = array_search('line', $REQUEST_URI_PARAMETERS ) + 1;
-$PHOTO_KEY = array_search('photo', $REQUEST_URI_PARAMETERS ) + 1;
+  $GENDER_KEY = array_search('gender', $REQUEST_URI_PARAMETERS ) + 1;
+  $CATEGORY_KEY = array_search('category', $REQUEST_URI_PARAMETERS ) + 1;
+  $DESCRIPTION_KEY = array_search('description', $REQUEST_URI_PARAMETERS ) + 1;
+  $COLOR_KEY = array_search('color', $REQUEST_URI_PARAMETERS ) + 1;
+  $LINE_KEY = array_search('line', $REQUEST_URI_PARAMETERS ) + 1;
+  $PHOTO_KEY = array_search('photo', $REQUEST_URI_PARAMETERS ) + 1;
 
-$GENDER_VALUE = urldecode($REQUEST_URI_PARAMETERS[$GENDER_KEY]);
-$CATEGORY_VALUE = urldecode($REQUEST_URI_PARAMETERS[$CATEGORY_KEY]);
-$DESCRIPTION_VALUE = urldecode($REQUEST_URI_PARAMETERS[$DESCRIPTION_KEY]);
-$COLOR_VALUE = urldecode($REQUEST_URI_PARAMETERS[$COLOR_KEY]);
-$LINE_VALUE = urldecode($REQUEST_URI_PARAMETERS[$LINE_KEY]);
-$PHOTO_VALUE = urldecode($REQUEST_URI_PARAMETERS[$PHOTO_KEY]);
+  $GENDER_VALUE = urldecode($REQUEST_URI_PARAMETERS[$GENDER_KEY]);
+  $CATEGORY_VALUE = urldecode($REQUEST_URI_PARAMETERS[$CATEGORY_KEY]);
+  $DESCRIPTION_VALUE = urldecode($REQUEST_URI_PARAMETERS[$DESCRIPTION_KEY]);
+  $COLOR_VALUE = urldecode($REQUEST_URI_PARAMETERS[$COLOR_KEY]);
+  $LINE_VALUE = urldecode($REQUEST_URI_PARAMETERS[$LINE_KEY]);
+  $PHOTO_VALUE = urldecode($REQUEST_URI_PARAMETERS[$PHOTO_KEY]);
 
-$TITLE = 'TRIANON | '.$DESCRIPTION_VALUE.' '.$COLOR_VALUE.' '.$GENDER_VALUE.' '.$LINE_VALUE.' '.' FABRICACIÓN DE MARROQUINERíA Y ACCESORIOS EN CUERO ';
-$DESCRIPTION = 'TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 1935. ';
-$IMAGE_SRC = 'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01';
+  $TITLE = 'TRIANON | '.$DESCRIPTION_VALUE.' '.$COLOR_VALUE.' '.$GENDER_VALUE.' '.$LINE_VALUE.' '.' FABRICACIÓN DE MARROQUINERÍA Y ACCESORIOS EN CUERO ';
+  $DESCRIPTION = 'TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIÓN DESDE 1935. ';
+  $IMAGE_SRC = 'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01';
 
 }else{
-  $TITLE = 'TRIANON | FABRICACIÓN DE MARROQUINERíA Y ACCESORIOS EN CUERO ';
-$DESCRIPTION = 'TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 1935. ';
-$IMAGE_SRC = 'https://www.trianon.com.co/img/logo.01e54327.png';
-  
+  $TITLE = 'TRIANON | FABRICACIÓN DE MARROQUINERÍA Y ACCESORIOS EN CUERO ';
+  $DESCRIPTION = 'TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 1935. ';
+  $IMAGE_SRC = 'https://www.trianon.com.co/img/logo.01e54327.png';
 }
 
 $vue_pwa_html_meta_title= 'TRIANON | Fabricación de marroquinería y accesorios en cuero';
