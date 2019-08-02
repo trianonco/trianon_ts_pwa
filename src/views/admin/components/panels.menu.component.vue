@@ -32,7 +32,11 @@ export default class AdminPanelsMenuComponent extends Vue {
     },
     {
       title: "Dispatches",
-      users: ["jl.mayorga236@gmail.com", "luiska93@hotmail.com"]
+      users: [
+        "jl.mayorga236@gmail.com",
+        "luiska93@hotmail.com",
+        "despachos.web.trianon@gmail.com"
+      ]
     },
     {
       title: "Users",
@@ -48,7 +52,11 @@ export default class AdminPanelsMenuComponent extends Vue {
     },
     {
       title: "Products",
-      users: ["jl.mayorga236@gmail.com", "luiska93@hotmail.com"]
+      users: [
+        "jl.mayorga236@gmail.com",
+        "luiska93@hotmail.com",
+        "sistemas.web.trianon@gmail.com"
+      ]
     },
     {
       title: "Categories",
@@ -56,7 +64,11 @@ export default class AdminPanelsMenuComponent extends Vue {
     },
     {
       title: "DistributorsAndSHops",
-      users: ["jl.mayorga236@gmail.com", "luiska93@hotmail.com"]
+      users: [
+        "jl.mayorga236@gmail.com",
+        "luiska93@hotmail.com",
+        "distribuidores.web.trianon@gmail.com"
+      ]
     }
   ];
 

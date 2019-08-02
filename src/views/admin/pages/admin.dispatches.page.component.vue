@@ -8,10 +8,11 @@
         style="display:inline-block;
       width:fit-content; vertical-align:top"
       >
-        <div v-if="item.ID" class="queue-card">
+        <div v-if="item.ID && isOnDate(item)" class="queue-card">
           <div class="queue-card-header" style="text-align:left">
-            <span style="font-weight:900;">{{item.products[0].ref}}</span>
-            <span style="font-weight:100; font-size:0.7em">/ {{item.ID}}</span>
+            <span style="font-weight:900;">{{item.products[0].ref}} /</span>
+            <br />
+            <span style="font-weight:100; font-size:0.7em">{{item.ID}}</span>
           </div>
 
           <center>
@@ -183,6 +184,28 @@ export default class AdminTitlePageComponent extends Vue {
           this.queue.push(doc_data);
         });
       });
+  }
+
+  private isOnDate(item: any): boolean {
+    let isOnDateFlag = false;
+    try {
+      const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+      const date = item.meta.updatedAt.toDate();
+      const now = new Date();
+      const diffDays = Math.round(
+        Math.abs((now.getTime() - date.getTime()) / oneDay)
+      );
+
+      if (diffDays > 15 && item.state === "IN PROCESS: IN DELIVERED") {
+        isOnDateFlag = false;
+      } else {
+        isOnDateFlag = true;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+
+    return isOnDateFlag;
   }
 
   private getDate(data: any) {

@@ -79,6 +79,8 @@ export default class AdminProductsPageComponent extends Vue {
       "----------------------------------------------------------------------"
     );
 
+    this.isLoading = true;
+
     const PRODUCTS_GENDER_HOMBRE_CATEGORY_BILLETERAS = this.PRODUCTS.filter(
       (product: any) =>
         product.gender === "HOMBRE" && product.category === "BILLETERAS"
@@ -292,6 +294,8 @@ export default class AdminProductsPageComponent extends Vue {
         document_data
       );
     }
+
+    this.isLoading = false;
   }
   private clear() {
     this.PRODUCTS = [];

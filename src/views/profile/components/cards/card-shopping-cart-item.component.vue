@@ -221,7 +221,7 @@ export default {
         TRIANON: {
           url: "https://checkout.payulatam.com/ppp-web-gateway-payu",
           apiKey: "0t4jk46T6YA78S2dios6WQBSbP",
-          accountId: "",
+          accountId: "xxxxxxx",
           merchantId: "542713"
         }
       },
