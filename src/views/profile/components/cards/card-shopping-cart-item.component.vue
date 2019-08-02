@@ -445,7 +445,7 @@ export default {
           this.BUY.meta.items * this.item.price_cop;
 
         const db = firebase.firestore();
-/*
+        /*
         db.collection("SHOPPING_HISTORY")
           .doc(this.BUY.ID)
           .set(this.BUY)
