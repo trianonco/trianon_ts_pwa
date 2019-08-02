@@ -74,11 +74,11 @@ export default class HeaderComponent extends Vue {
   }
 
   private goToLogin() {
-    //this.$router.push("/view/signin");
+    this.$router.push("/view/signin");
   }
 
   private goToProfile() {
-    //this.$router.push("/view/profile");
+    this.$router.push("/view/profile");
   }
 
   private goToBack() {
