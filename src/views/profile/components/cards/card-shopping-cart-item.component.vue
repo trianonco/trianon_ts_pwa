@@ -221,7 +221,7 @@ export default {
         TRIANON: {
           url: "https://checkout.payulatam.com/ppp-web-gateway-payu",
           apiKey: "0t4jk46T6YA78S2dios6WQBSbP",
-          accountId: "xxxxxxx",
+          accountId: "544845",
           merchantId: "542713"
         }
       },
@@ -283,7 +283,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TRIANON"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
@@ -292,13 +292,13 @@ export default {
     });
 
     if (envPayName === "JORGE_MAYORGA") {
-      //this.BUY.shipping.address = "Calle 141 #7b - 86";
-      //this.BUY.shipping.info = "Apto 502";
-      //this.BUY.shipping.neighbourhood = "Belmira";
-      //this.BUY.shipping.department = "Bogota";
-      //this.BUY.shipping.city = "Bogota";
-      //this.BUY.shipping.name = "Jorge L. Mayorga";
-      //this.BUY.shipping.phone = "3005318387";
+      this.BUY.shipping.address = "Calle 141 #7b - 86";
+      this.BUY.shipping.info = "Apto 502";
+      this.BUY.shipping.neighbourhood = "Belmira";
+      this.BUY.shipping.department = "Bogota";
+      this.BUY.shipping.city = "Bogota";
+      this.BUY.shipping.name = "Jorge L. Mayorga";
+      this.BUY.shipping.phone = "3005318387";
     }
 
     if (envPayName === "TEST") {
@@ -444,20 +444,20 @@ export default {
         this.BUY.products[0]["subtotal"] =
           this.BUY.meta.items * this.item.price_cop;
 
-        const db = firebase.firestore();
-        /*
-        db.collection("SHOPPING_HISTORY")
-          .doc(this.BUY.ID)
-          .set(this.BUY)
-          .then(() => {
-            console.log("Document successfully written!");
-            this.$refs.payU_Form.submit();
-          })
-          .catch(function(error) {
-            alert("ERRROR EN LA BASE DE DATOS, CONTACTE AL ADMIN");
-            console.error("Error writing document: ", error);
-          });
-          */
+        if (location.host !== "www.trianon.com.co" || true) {
+          const db = firebase.firestore();
+          db.collection("SHOPPING_HISTORY")
+            .doc(this.BUY.ID)
+            .set(this.BUY)
+            .then(() => {
+              console.log("Document successfully written!");
+              this.$refs.payU_Form.submit();
+            })
+            .catch(function(error) {
+              alert("ERRROR EN LA BASE DE DATOS, CONTACTE AL ADMIN");
+              console.error("Error writing document: ", error);
+            });
+        }
       }
     },
 
