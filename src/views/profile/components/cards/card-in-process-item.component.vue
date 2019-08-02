@@ -1,5 +1,5 @@
 <template>
-  <div class="card inprocess" v-if="item">
+  <div class="card inprocess" v-if="item.state === 'IN PROCESS: IN FACTORY' ">
     <div class="card-header" @click="doToogleCard()">
       <div class="card-header-bullet">
         <img
