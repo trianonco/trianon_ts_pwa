@@ -26,13 +26,13 @@ if($isProductURL){
   $IMAGE_SRC = 'https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F'.$PHOTO_VALUE.'?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01';
 
 }else{
-  $TITLE = 'TRIANON | FABRICACIÓN DE MARROQUINERÍA Y ACCESORIOS EN CUERO ';
+  $TITLE = 'TRIANON **  | FABRICACIÓN DE MARROQUINERÍA Y ACCESORIOS EN CUERO ';
   $DESCRIPTION = 'TRIANON | MANUFACTURA 100% COLOMBIANA, UNA TRADICIóN DESDE 1935. ';
   $IMAGE_SRC = 'https://www.trianon.com.co/img/logo.01e54327.png';
 }
 
-$vue_pwa_html_meta_title= 'TRIANON | Fabricación de marroquinería y accesorios en cuero';
-$vue_pwa_html_meta_author = ' JORGE LUIS MAYORGA TABORDA ';
+$vue_pwa_html_meta_title= $TITLE;
+$vue_pwa_html_meta_author = 'jl.mayorga236@gmail.com';
 $vue_pwa_html_meta_description = $DESCRIPTION;
 $vue_pwa_html_meta_image = $IMAGE_SRC;
 $vue_pwa_html_meta_keywords= 'billeteras,billeteras colombia,envio a toda colombia,trianon,trianonshoponline,pagosonline,tienda en linea trianon,bolsos,bolsos en cuero,regalo mama ,regalo papa colombia,regalo navidad colombia,pago seguro en linea,cinturon trianon,dia del padre,billete';
@@ -76,7 +76,7 @@ $vue_pwa_html_template = str_replace('META OG IMAGE',  $vue_pwa_html_meta_og_ima
 $vue_pwa_html_template = str_replace('META OG URL',  $vue_pwa_html_meta_og_url, $vue_pwa_html_template);
 $vue_pwa_html_template = str_replace('META OG SITE NAME',  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
 
-echo $vue_pwa_html_template ;
-
+//echo $vue_pwa_html_template ;
+echo 'Test Trianon';
 
 ?>
