@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "vue-cli-service build && git add * && git commit -m Deploy && git push"
+    "pre-deploy": "vue-cli-service build && rd /s /Q dist && git add * && git commit -m CleanDeploy && git push",
+    "deploy": "npm run pre-deploy && vue-cli-service build && git add * && git commit -m Deploy && git push"
   },
   "dependencies": {
     "axios": "^0.18.0",
