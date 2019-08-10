@@ -123,6 +123,20 @@
     fbq('init', '984344015003425');
     fbq('track', 'PageView');
   </script>
+
+  <script>
+    const currentURL = window.location.href;
+    const currentTime = (new Date()).getTime();
+
+    if (!currentURL === 'http://trianon.com.co/' || currentURL === 'http://trianon.com.co') {
+      const version = currentTime;
+      window.location.href = 'http://trianon.com.co/?v=' + version;
+    } else {
+      console.warn('')
+      console.warn(' Website is Running the last version')
+      console.warn('')
+    }
+  </script>
   <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=984344015003425&ev=PageView&noscript=1" /></noscript>
   <!-- End Facebook Pixel Code -->
