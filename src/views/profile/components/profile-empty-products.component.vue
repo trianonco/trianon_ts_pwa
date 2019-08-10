@@ -15,7 +15,7 @@
         />
         <p
           class="normal"
-        >¿Qué esperas?, descubre los articulos considerados lo mejor de la arroquinería.</p>
+        >¿Qué esperas?, descubre los articulos considerados lo mejor de la marroquinería.</p>
         <p class="light">¡ Toca el simbolo + para empezar!</p>
       </div>
     </div>
