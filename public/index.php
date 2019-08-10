@@ -1,5 +1,8 @@
 <?php
-header('Content-type: text/html; charset=UTF-8');
+
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header("Content-Type: application/xml; charset=utf-8");
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_URI_PARAMETERS = explode('/', $REQUEST_URI);
