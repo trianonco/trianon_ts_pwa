@@ -83,6 +83,6 @@ header("Cache-Control: no-store, no-cache, must-rSomething is wrongidate, max-ag
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 header("Content-Type: text/html; charset=utf-8");
-echo 'Test Trianon';
+echo $vue_pwa_html_template ;
 
 ?>
