@@ -28,10 +28,11 @@
               <span>{{ productObj.price_cop | toCurrency }}</span>
             </h2>
             <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize"></ProductBuyButtonComponent>
+
             <div class="referencia">
               <h3>REFERENCIA : {{ productObj.ref }}</h3>
             </div>
-            <div class="tallas">
+            <div class="tallas" v-if="!(productSizes.length > 1)">
               <h3>
                 <span
                   v-if="isCinturon(productObj) && productObj.height"
@@ -53,6 +54,27 @@
                 >PROFUNDO : {{ productObj.depth }}</span>
               </h3>
             </div>
+
+            <div class="tallas" v-if="productSizes.length > 1" style="display:block; width:100%">
+              <select class="form-control" v-model="selected" @change="onChangeSize">
+                <option
+                  v-for="(size, index) of productSizes"
+                  v-bind:value="index"
+                  v-bind:key="index"
+                >
+                  <span
+                    v-if="size.size.height && size.size.height !== '-' && size.size.height !== 'NA'"
+                  >{{ size.size.height.includes('T') ? 'TALLA' : 'Alto' }}: {{size.size.height}}</span>
+                  <span
+                    v-if="size.size.width  && size.size.width  !== '-' && size.size.width  !== 'NA'"
+                  >, Ancho: {{size.size.width}}</span>
+                  <span
+                    v-if="size.size.depth  && size.size.depth  !== '-' && size.size.depth  !== '- ' && size.size.depth  !== ' -' && size.size.depth  !== 'NA'"
+                  >, Profundo : {{size.size.depth}}</span>
+                </option>
+              </select>
+            </div>
+
             <img class="symbol" src="./../../shared/assets/images/icon-symbol.png" />
           </div>
         </div>
@@ -190,6 +212,7 @@ export default class ProductView extends Vue {
   private isProductLoaded: boolean = false;
   private productSlideIndex: number = 0;
   private selectedByDropdownSize: any = {};
+  public selected: number = 0;
 
   private apiDB = new ApiDataBase();
   private db: any = {};
@@ -252,10 +275,19 @@ export default class ProductView extends Vue {
         this.isProductLoaded = true;
         this.productSizes = products_sizes;
       });
+
+    if (this.productSizes && this.productSizes[0]) {
+      const size = JSON.parse(JSON.stringify(this.productSizes[0]) + "");
+      this.onChangeSize(size);
+      //this.$emit("onChangeSize", size);
+    }
   }
 
   private onChangeSize($event: any) {
-    this.selectedByDropdownSize = $event;
+    const size = JSON.parse(
+      JSON.stringify(this.productSizes[this.selected]) + ""
+    );
+    this.selectedByDropdownSize = size;
   }
 
   private getPhotoURLs(n: number) {
@@ -275,6 +307,15 @@ export default class ProductView extends Vue {
   private goToSwiperSlide(n: number) {
     //(this.$refs.productSwiper as any).swiper.slideTo(n, 1000, true);
     this.productSlideIndex = n;
+  }
+
+  private changeSize($event: any) {
+    if (this.productSizes && this.selected) {
+      const size = JSON.parse(
+        JSON.stringify(this.productSizes[this.selected]) + ""
+      );
+      this.$emit("onChangeSize", size);
+    }
   }
 }
 </script>
@@ -462,6 +503,40 @@ div.product {
         div.photos {
         }
       }
+    }
+  }
+
+  select {
+    background: none;
+    padding: 1em;
+    margin: 1em;
+    font-family: inherit;
+    color: gray;
+    width: 80%;
+    box-sizing: border-box;
+    text-align: center;
+
+    display: block;
+    margin: 0 auto;
+    option {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
     }
   }
 }

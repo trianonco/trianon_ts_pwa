@@ -47,6 +47,7 @@ export default class ProductBuyButtonComponent extends Vue {
 
   private doAddToCart() {
     const size = JSON.parse(JSON.stringify(this.size || {}) + "");
+    console.log(size);
     if (size.ref) {
       const product = JSON.parse(JSON.stringify(this.product || {}) + "");
       product["ref"] = size.ref;

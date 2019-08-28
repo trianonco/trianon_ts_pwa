@@ -79,7 +79,7 @@ $vue_pwa_html_template = str_replace('META OG SITE NAME',  $vue_pwa_html_meta_og
 
 
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Cache-Control: no-store, no-cache, must-rSomething is wrongidate, max-age=0");
+header("Cache-Control: no-store, no-cache, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 header("Content-Type: text/html; charset=utf-8");

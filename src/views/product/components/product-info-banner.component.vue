@@ -4,7 +4,7 @@
     <div class="product-reference">Referencia : {{ref_code}} - {{ref_color_code}}</div>
     <br />
 
-    <div v-if="sizes.length > 1">
+    <div v-if="sizes.length > 1" class="mobile">
       <select class="form-control" v-model="selected" @change="changeSize">
         <option v-for="(size, index) of sizes" v-bind:value="index" v-bind:key="index">
           <span
@@ -96,6 +96,14 @@ div.product.info-banner {
       -ms-flex-align: center;
       align-items: center;
     }
+  }
+}
+.mobile {
+  display: inherit;
+}
+@media (min-width: 600px) {
+  .mobile {
+    display: none;
   }
 }
 </style>

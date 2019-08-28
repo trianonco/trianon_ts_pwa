@@ -75,13 +75,16 @@ export default class ShopProductsListItemComponent extends Vue {
     const filename = `${this.product.ref_photo_code}-01.jpg`;
 
     ///product/gender/:gender/category/:category/product_ref/:ref/product_name/:product_name/product_description/:product_description/product_photo_ref/:product_photo_ref
-    const url_gender = `gender/${this.product.gender}`;
-    const url_category = `category/${this.product.category}`;
-    const url_ref = `ref/${this.product.ref_photo_code}`;
-    const url_description = `description/${this.product.description}`;
-    const url_color = `color/${this.product.color}`;
-    const url_line = `line/${this.product.line}`;
-    const url_photo = `photo/${filename}`;
+    const url_gender = `gender/${this.product.gender.replace("/", "-")}`;
+    const url_category = `category/${this.product.category.replace("/", "-")}`;
+    const url_ref = `ref/${this.product.ref_photo_code.replace("/", "-")}`;
+    const url_description = `description/${this.product.description.replace(
+      "/",
+      "-"
+    )}`;
+    const url_color = `color/${this.product.color.replace("/", "-")}`;
+    const url_line = `line/${this.product.line.replace("/", "-")}`;
+    const url_photo = `photo/${filename.replace("/", "-")}`;
     this.$router.push(
       `/product/${url_gender}/${url_category}/${url_ref}/${url_description}/${url_color}/${url_line}/${url_photo}`
     );
