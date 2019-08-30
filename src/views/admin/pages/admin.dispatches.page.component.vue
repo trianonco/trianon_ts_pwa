@@ -10,7 +10,7 @@
       >
         <div v-if="item.ID && isOnDate(item)" class="queue-card">
           <div class="queue-card-header" style="text-align:left">
-            <span style="font-weight:900;">{{item.products[0].ref}} /</span>
+            <span style="font-weight:900;">{{item.products[0].ref}}  {{isOnDate(item)}}/</span>
             <br />
             <span style="font-weight:100; font-size:0.7em">{{item.ID}}</span>
           </div>
@@ -187,7 +187,7 @@ export default class AdminTitlePageComponent extends Vue {
   }
 
   private isOnDate(item: any): boolean {
-    let isOnDateFlag = false;
+    let isOnDateFlag = true;
     try {
       const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
       const date = item.meta.updatedAt.toDate();
@@ -196,11 +196,20 @@ export default class AdminTitlePageComponent extends Vue {
         Math.abs((now.getTime() - date.getTime()) / oneDay)
       );
 
-      if (diffDays > 15 && item.state === "IN PROCESS: IN DELIVERED") {
+
+      if(item.state === "IN PROCESS: IN DELIVERED"){
+      if (diffDays > 15) {
         isOnDateFlag = false;
       } else {
         isOnDateFlag = true;
       }
+      }
+
+      if(item.state === "IN PROCESS: WATING FOR PAYMENT"){
+        isOnDateFlag = false;
+      }
+
+
     } catch (e) {
       console.error(e);
     }
