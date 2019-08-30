@@ -34,6 +34,10 @@
       </div>
 
       <div class="cols">
+
+
+
+
         <div class="col">
           <div class="card-content-wrapper">
             <v-lazy-image
@@ -53,7 +57,13 @@
               <span>+</span>
             </div>
           </div>
+
+          <textarea  class="comment-area" v-model="BUY.comment" placeholder="COMENTARIOS ADICIONALES"></textarea>
         </div>
+
+
+
+
         <div class="col">
           <form>
             <div class="card-content-shipping-info">
@@ -115,7 +125,17 @@
                 style="margin-top:1em"
                 required
               />
-              <textarea v-model="BUY.comment" placeholder="COMENTARIOS ADICIONALES"></textarea>
+              <input
+                type="text"
+                :class="isInputError('cc')"
+                autocomplete="on"
+                placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
+                v-model="BUY.shipping.cc"
+                style="margin-top:1em"
+                required
+              />
+              
+              
             </div>
 
             <div class="card-content-phone-and-total">
@@ -262,6 +282,7 @@ export default {
           total_price: "",
           shipping_price: "",
           name: "",
+          cc: "",
           phone: "",
           email: ""
         },
@@ -283,7 +304,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "TRIANON"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
@@ -422,11 +443,14 @@ export default {
         this.BUY.shipping.neighbourhood &&
         this.BUY.shipping.department &&
         this.BUY.shipping.city &&
-        this.BUY.shipping.phone
+        this.BUY.shipping.phone &&
+        this.BUY.shipping.cc
       ) {
         this.BUY.shipping.country = "COLOMBIA";
 
         this.BUY.billing.number = "N/A";
+                this.BUY.billing.cc = this.BUY.shipping.cc;
+
         this.BUY.billing.subtotal_price = parseFloat(this.getTotalPriceByItem);
         this.BUY.billing.shipping_price =
           this.getTotalPriceByItem > 100000 ? 0 : 8000;
@@ -841,7 +865,30 @@ export default {
   }
 }
 
+
+.card-content{
+  .comment-area{
+    display: none;
+    width: 100%;
+    min-height: 95px;
+    box-sizing: border-box;
+    padding: 1em;
+
+  }
+}
 @media (min-width: 600px) {
+
+  .card-content{
+  .comment-area{
+      display: block;
+          min-height: 95px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+
+  }
+}
+
   .card-header {
     &-triangle {
       left: ~"calc(50% - 1em)";
