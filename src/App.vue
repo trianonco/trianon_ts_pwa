@@ -8,7 +8,7 @@ export default {
   components: {},
 
   mounted() {
-    localStorage.setItem("shopOnStock", JSON.stringify([]));
+    localStorage.setItem("shopOnStock", JSON.stringify([]));  
   },
   data() {
     return {

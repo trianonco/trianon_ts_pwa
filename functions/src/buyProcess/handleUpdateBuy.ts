@@ -39,8 +39,8 @@ export default function(request: any, response: any): Promise<any> {
       const inVoiceHTML = await get_HTML_InVoice(orderData);
       const inVoiceURL = await get_PDF_InVoice(inVoiceHTML, id);
 
-      //const emailHTML = await get_HTML_Email(orderData, inVoiceURL);
-      //const emailStatus = await send_SMTP_Email(orderData, emailHTML);
+      const emailHTML = await get_HTML_Email(orderData, inVoiceURL);
+      const emailStatus = await send_SMTP_Email(orderData, emailHTML);
 
       resolve({
         isUpdated: isUpdated
@@ -189,7 +189,7 @@ function send_SMTP_Email(order: any, html: any) {
   return new Promise((resolve, reject) => {
     const mailOptions = {
       from: 'Pagos  y Compras Trianon <pagos@trianon.com.co>',
-      to: order.billing.email,
+      to: 'sistemas.web.trianon@gmail.com',
       subject: 'COMPRA EXITOSA TRIANON ' + order.products[0].description,
       html: html
     };

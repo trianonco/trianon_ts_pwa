@@ -50,7 +50,7 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = 'https://www.trianon.com.co/';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
-$vue_pwa_html_meta_updated = date("Y/m/d g:i:s A");
+$vue_pwa_html_meta_updated = date("Y/m/d g:i:s A")." --- ".rand()." END DATE";
 
 
 
