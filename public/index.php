@@ -82,11 +82,14 @@ $vue_pwa_html_template = str_replace('META UPDATED',  $vue_pwa_html_meta_updated
 //echo $vue_pwa_html_template ;
 
 
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Cache-Control: no-store, no-cache, max-age=0");
+header('Expires: Sun, 01 Jan 2014 00:00:00 GMT');
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Cache-Control: post-check=0, pre-check=0', FALSE);
+header('Pragma: no-cache');
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
-header("Content-Type: text/html; charset=utf-8");
 
 echo $vue_pwa_html_template ;
 
