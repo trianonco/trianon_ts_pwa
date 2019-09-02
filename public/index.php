@@ -50,6 +50,8 @@ $vue_pwa_html_meta_og_image = $IMAGE_SRC;
 $vue_pwa_html_meta_og_url = 'https://www.trianon.com.co/';
 $vue_pwa_html_meta_og_site_name = '"TRIANON"';
 
+$vue_pwa_html_meta_updated = date("Y/m/d g:i:s A");
+
 
 
 $vue_pwa_html_template = file_get_contents("index-app.html");
@@ -75,6 +77,8 @@ $vue_pwa_html_template = str_replace('META OG IMAGE',  $vue_pwa_html_meta_og_ima
 $vue_pwa_html_template = str_replace('META OG URL',  $vue_pwa_html_meta_og_url, $vue_pwa_html_template);
 $vue_pwa_html_template = str_replace('META OG SITE NAME',  $vue_pwa_html_meta_og_site_name, $vue_pwa_html_template);
 
+$vue_pwa_html_template = str_replace('META UPDATED',  $vue_pwa_html_meta_updated, $vue_pwa_html_template);
+
 //echo $vue_pwa_html_template ;
 
 
@@ -83,6 +87,7 @@ header("Cache-Control: no-store, no-cache, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 header("Content-Type: text/html; charset=utf-8");
+
 echo $vue_pwa_html_template ;
 
 ?>
