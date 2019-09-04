@@ -45,6 +45,7 @@ import AdminPanelsMenuComponent from "./components/panels.menu.component.vue";
 import AdminTitle from "./pages/admin.title.page.component.vue";
 import AdminDispatches from "./pages/admin.dispatches.page.component.vue";
 import AdminUsers from "./pages/admin.users.page.component.vue";
+import AdminOrders from "./pages/admin.orders.page.component.vue";
 import AdminSwiper from "./pages/admin.swiper.page.component.vue";
 import AdminBanners from "./pages/admin.banners.page.component.vue";
 import AdminProducts from "./pages/admin.products.page.component.vue";
@@ -78,6 +79,11 @@ export default class AdminViewComponent extends Vue {
       title: "Dispatches",
       titulo: "Despachos",
       component: AdminDispatches
+    },
+    {
+      title: "Orders",
+      titulo: "Ordenes de Compra",
+      component: AdminOrders
     },
     {
       title: "Users",
