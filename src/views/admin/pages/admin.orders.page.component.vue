@@ -3,14 +3,13 @@
       <div class="wrapper">
           
           <h1>ORDENES DE COMPRA</h1>
-          
-          <div class="navbar">
-              <div class="search-section"></div>
-              <div class="filter-section"></div>
-          </div>
 
           <div class="orders">
-        
+              
+               <vue-good-table
+                    :columns="columns"
+                    :rows="rows"/>
+
           </div>
 
       </div>
@@ -19,14 +18,87 @@
 
 <script lang="ts">
 import VLazyImage from "v-lazy-image";
+import 'vue-good-table/dist/vue-good-table.css'
+import { VueGoodTable } from 'vue-good-table';
 
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  components: {},
+  components: {
+      VueGoodTable
+  },
   name: "AdminOrdersPageComponent"
 })
-export default class AdminOrdersPageComponent extends Vue {}
+export default class AdminOrdersPageComponent extends Vue {
+
+    private ORDER_STATE = 'IN PROCESS: PAYMENT SUCCESSFULL';
+
+    public columns: any = [
+        {
+          label: 'Ref',
+          field: 'ref',
+        },
+        {
+          label: 'Email',
+          field: 'email',
+          type: 'string',
+        },
+        {
+          label: 'Telefóno',
+          field: 'phone',
+          type: 'string',
+        },
+        {
+          label: 'Producto',
+          field: 'product',
+          type: 'string',
+        },
+        {
+          label: 'Foto',
+          field: 'photo',
+          html: true,
+        },
+        {
+          label: 'InVoice',
+          field: 'invoice',
+          html: true,
+        },
+        {
+          label: 'Fecha Compra',
+          field: 'createdAt',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd',
+          dateOutputFormat: 'dd MM yyyy',
+        }
+      ];
+    public rows: any =  [
+        {
+            ref: 'REF_OERFEF_eRF',
+            email: 'wallamejorge@hotmail.com',
+            phone: '300531837',
+            product: 'BOTAS NEGRAS',
+            photo: '<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2FHR156-01-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">',
+            invoice : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> DESCARGAR </a>'
+        },
+         {
+            ref: 'REF_OERFEF_eRF',
+            email: 'wallamejorge@hotmail.com',
+            phone: '300531837',
+            product: 'BOTAS NEGRAS',
+            photo: '<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2FHR156-01-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">',
+            invoice : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> DESCARGAR </a>'
+        },
+         {
+            ref: 'REF_OERFEF_eRF',
+            email: 'wallamejorge@hotmail.com',
+            phone: '300531837',
+            product: 'BOTAS NEGRAS',
+            photo: '<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2FHR156-01-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">',
+            invoice : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> DESCARGAR </a>'
+        }
+      ];
+    
+}
 </script>
 
 <style lang="less">
