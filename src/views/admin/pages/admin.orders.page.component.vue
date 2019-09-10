@@ -168,9 +168,7 @@ export default class AdminOrdersPageComponent extends Vue {
 
       public downloadInvoices():void{
           const urls = this.inVoices;
-          var fileURL = "https://cdn.sstatic.net/clc/img/jobs/bg-remote-header-sm.png";
-          var fileName = "test.pdf";
-          this.download_file(fileURL, fileName); // fix function name
+ 
       }
     
 download_file(fileURL:string, fileName:string) {

@@ -24,7 +24,7 @@
         <br>TAMBIÉN CONTAMOS CON 5 TIENDAS DIRECTAS UNA EN PALMIRA Y 4 MÁS EN BOGOTÁ.
       </p>
       <div class="buttons">
-        <div>
+        <div style="    padding: 0em 2em;">
           <div class="banner-button gold">
             <img class src="../../../../shared/assets/images/banners/button-place-ico-02.png">
             <h4 @click="goToAuthorizedDistributors()">
@@ -32,7 +32,7 @@
             </h4>
           </div>
         </div>
-        <div>
+        <div style="    padding: 0em 2em;">
           <div class="banner-button gold">
             <img class src="../../../../shared/assets/images/banners/button-place-dark-ico-02.png">
             <h4 @click="goToAuthorizedShops()">
