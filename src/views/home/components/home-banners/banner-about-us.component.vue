@@ -123,6 +123,10 @@ export default {
       padding-bottom: 10px;
       padding-top: 10px;
       line-height: 16px;
+
+      padding-left: 4em;
+    padding-right: 7em;
+    
     }
   }
   .banner-button {

@@ -18,7 +18,7 @@
         el cual esta garantizado en su manufactura. Las rayas y variaciones de tono son características naturales del cuero y no constituyen defecto.
       </p>
       <br />
-      <p>La garantía no cubre daños ocasionados por el usuario tales como: rasgaduras, manchas de tinta ó variaciones de coloración por solventes y limpiadores.</p>
+      <p style="padding-bottom: 2em;">La garantía no cubre daños ocasionados por el usuario tales como: rasgaduras, manchas de tinta ó variaciones de coloración por solventes y limpiadores.</p>
       <br />
     </div>
   </div>
@@ -100,6 +100,7 @@ export default {
       max-width: 910px;
       font-family: "Open Sans";
       font-size: 14px;
+      padding-bottom: 0em;
     }
   }
 }

@@ -131,6 +131,7 @@ export default {
   .banner.address {
     padding-bottom: 3em;
     background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.jpg");
+    background-position: top;
 
     font-family: "Open Sans";
     text-transform: uppercase;
@@ -145,12 +146,15 @@ export default {
     div.header {
       background-color: rgba(0, 0, 0, 0);
       color: white;
-      padding-top: 3em;
+      padding-top: 1em;
+      margin-bottom: 0em;
       .title {
         font-family: "TrajanPro";
         text-align: center;
         padding: 1em;
         font-size: 16px;
+            padding: 1em;
+    padding-top: 0em;
         img {
           -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
           filter: grayscale(100%);

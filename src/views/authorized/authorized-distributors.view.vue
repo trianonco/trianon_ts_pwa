@@ -553,6 +553,7 @@ div.authorized-distributors {
       letter-spacing: 0px;
       text-transform: lowercase;
       padding-bottom: 1em;
+          padding-top: 1em;
       span {
         letter-spacing: 1px;
       }

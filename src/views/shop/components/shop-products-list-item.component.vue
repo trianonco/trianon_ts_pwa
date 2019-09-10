@@ -10,12 +10,11 @@
         @load="onLoadVLazyImage()"
       />
 
-      <h2 class="price">{{ product.ref }}</h2>
       <h2 class="price">{{ parseFloat(product.price_cop) | toCurrency}}</h2>
 
       <h2 class="name">{{ product.description }} {{ product.line }}</h2>
 
-      <h2 class="color">Color {{ product.color}}</h2>
+      <h2 class="color">COLOR {{ product.color}}</h2>
     </div>
   </div>
 </template>
@@ -176,32 +175,43 @@ div.products-list-item {
 
   .price {
     display: block;
-    background-color: #575656;
+    background-color: #706f6f;
     color: white;
     text-align: center;
     padding: 0.5em;
     margin-bottom: 1px;
     font-size: 12px;
+    padding: 1em;
+    margin-bottom: 1px;
+    font-size: 15px;
+    letter-spacing: 3px;
     #Font-TrajanPro();
   }
 
   .name {
     display: block;
-    background-color: #575656;
+    background-color: #706f6f;
     color: white;
     text-align: center;
     padding: 0.5em;
     font-size: 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding-bottom: 0px;
+    padding-top: 16px;
     #Font-TrajanPro();
   }
 
   .color {
     display: block;
-    background-color: #575656;
+    background-color: #706f6f;
     color: white;
     text-align: center;
     padding: 0.5em;
     font-size: 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding-bottom: 16px;
     #Font-TrajanPro();
   }
 }

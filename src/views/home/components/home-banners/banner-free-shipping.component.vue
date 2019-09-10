@@ -21,10 +21,11 @@
           POR COMPRAS SUPERIORES A $100.000 COP
           <br>
 
-          <h4>(valido solo para colombia) Costo de envío a nivel nacional : $8.000 COP</h4>
+          <h4 >(valido solo para colombia) Costo de envío a nivel nacional : $8.000 COP <br> 
+         <span style="display:none"> Costo de envío a nivel internacional: $10 USD </span>
+          </h4>
         </h3>
 
-        <h4>Costo de envío a nivel internacional: $10 USD</h4>
       </div>
       <div class="gold-bg">
         <div class="message">COMPRAS INTERNACIONALES</div>
@@ -188,7 +189,7 @@ export default {
       background-image: url("../../../../shared/assets/images/banners/free-shipping-bg-desktop_Mesa de trabajo 1.jpg");
       background-size: cover;
 
-      padding: 3em;
+      padding: 1.5em;
 
       h2 {
         font-size: 16px;
@@ -226,6 +227,7 @@ export default {
     }
   }
   .banner.desktop.credit-cards {
+    padding: 0px;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -274,7 +276,7 @@ export default {
       font-weight: 300;
 
       padding-top: 2em;
-      padding-bottom: 10px;
+    padding-bottom: 1.5em;
     }
 
     h2 {
@@ -286,9 +288,10 @@ export default {
       font-family: "Open Sans";
       font-size: 14px;
       margin: 0 auto;
-      letter-spacing: 2px;
       line-height: 1.5em;
       padding-bottom: 2em;
+          padding-bottom: 4px;
+          letter-spacing: 1px;
     }
 
     .corner {

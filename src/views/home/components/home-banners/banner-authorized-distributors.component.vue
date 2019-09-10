@@ -129,6 +129,7 @@ export default {
         font-size: 18px;
         transform: scaleY(0.9);
         letter-spacing: 2px;
+            padding-bottom: 0.85em;
       }
       p {
         font-family: "Open Sans";
@@ -137,11 +138,14 @@ export default {
         width: 90%;
         max-width: 938px;
         margin: 0 auto;
-        line-height: 2em;
+        line-height: 1.85em;
         -webkit-transform: scaleY(0.95);
         transform: scaleY(0.95);
         letter-spacing: 2px;
         color: #525252;
+
+        transform: scaleY(0.85);
+
       }
 
       .buttons {
@@ -180,7 +184,7 @@ export default {
       }
 
       .banner-button {
-        margin: 1em !important;
+        margin: 0em !important;
         width: 320px !important;
       }
 

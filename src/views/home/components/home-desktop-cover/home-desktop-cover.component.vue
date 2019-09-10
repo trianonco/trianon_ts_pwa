@@ -13,7 +13,7 @@
         style="position: absolute;bottom: 1em;left: 0px;width: 2em;"
       />
 
-      <div class="button" @click="toogleFemaleOpen()">DAMA</div>
+      <div class="button" @click="toogleFemaleOpen()">MUJER</div>
       <div
         class="categories female"
         v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
@@ -297,7 +297,10 @@ div.home-desktop-cover {
             padding: 0px;
             margin: 0px;
             padding: 0.75em;
-            text-decoration: underline;
+            font-weight: bold;
+            &:hover{
+              text-decoration: underline;
+            }
             text-align: right;
 
             cursor: pointer;
@@ -322,6 +325,11 @@ div.home-desktop-cover {
             -webkit-align-items: center;
             -ms-flex-align: center;
             align-items: center;
+            span{
+              transform: scaleY(0.8);
+              font-weight: 300;
+              letter-spacing: 2px;
+            }
             img {
               width: 10px;
               padding: 0.5em;
@@ -354,6 +362,11 @@ div.home-desktop-cover {
           padding-left: 3em;
           padding-right: 3em;
           li {
+
+             &:hover{
+              text-decoration: underline;
+            }
+
             cursor: pointer;
             padding: 0px;
             margin: 0px;
@@ -383,6 +396,11 @@ div.home-desktop-cover {
             img {
               width: 10px;
               padding: 0.5em;
+            }
+                      span{
+              transform: scaleY(0.8);
+              font-weight: 300;
+              letter-spacing: 2px;
             }
           }
           color: #fff;
