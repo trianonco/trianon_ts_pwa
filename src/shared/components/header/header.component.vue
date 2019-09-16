@@ -24,7 +24,7 @@
       </div>
 
       <!-- Header :: Nav :: Auth -->
-      <div class="header-nav-auth"  >
+      <div class="header-nav-auth"  @mouseenter="UX.showEditProfile = false">
         <div class="header-nav-auth-login" v-if="hasLogin()" @click="goToLogin()">
           <h3>INICIAR SESIÓN</h3>
         </div>
