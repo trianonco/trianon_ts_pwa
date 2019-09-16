@@ -24,18 +24,21 @@
       </div>
 
       <!-- Header :: Nav :: Auth -->
-      <div class="header-nav-auth">
+      <div class="header-nav-auth"  >
         <div class="header-nav-auth-login" v-if="hasLogin()" @click="goToLogin()">
           <h3>INICIAR SESIÓN</h3>
         </div>
-        <div class="header-nav-auth-profile" v-if="hasProfile()" @click="goToProfile()">
+        <div class="header-nav-auth-profile" v-if="hasProfile()" >
           <div class="wrapper">
             <img
               class="profile"
               src="../../assets/images/headers/profile.png"
               alt="Trianon Colombia, Profile. Perfil persional. Usuarios de Trianon"
             />
-            <h3>MI PERFIL</h3>
+            <h3 @mouseenter="UX.showEditProfile = true" @click="goToProfile()" >MI PERFIL</h3>
+            <div class="edit-profile-dropdown" v-if="UX.showEditProfile" >
+              <h3 @click="goToEditProfile()">EDITAR PERFIL</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -61,7 +64,9 @@ export default class HeaderComponent extends Vue {
 
   // UI Property
   public UI = {};
-  public UX = {};
+  public UX = {
+    showEditProfile: false
+  };
 
   // Helpers
   public routerHelper = new RouterHelper();
@@ -79,6 +84,10 @@ export default class HeaderComponent extends Vue {
 
   private goToProfile() {
     this.$router.push("/view/profile");
+  }
+
+  private goToEditProfile(){
+    this.$router.push('/view/edit-profile')
   }
 
   private goToBack() {
@@ -118,6 +127,10 @@ header .header-title {
   #constructor-header-title();
 }
 
+header .edit-profile-dropdown{
+  display: none;
+}
+
 @media (min-width: 600px) {
   header {
     #constructor-desktop-header();
@@ -130,5 +143,16 @@ header .header-title {
   header .header-title {
     #constructor-desktop-header-title();
   }
+  header .edit-profile-dropdown{
+    display: block;
+  text-decoration: underline;
+    position: fixed;
+    top: 45px;
+    width: auto;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    color: gray;
+    z-index: 10000000;
+}
 }
 </style>

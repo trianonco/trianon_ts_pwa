@@ -7,8 +7,8 @@
       <!--
       <h4>CARRITO DE COMPRAS</h4>
       -->
-      <div class="cards-shopping-cart-items" v-for="(item,index) of cartProducts" :key="index">
-        <CardShoppingCartItemComponent :item="item"></CardShoppingCartItemComponent>
+      <div class="cards-shopping-cart-items" v-for="(item,index) of cartProducts">
+        <CardShoppingCartItemComponent :items="cartProducts" :item="item" :isLast="index === (cartProducts.length - 1)"></CardShoppingCartItemComponent>
       </div>
 
       <!-- --------------------------------------------------------------------------------- -->
@@ -17,11 +17,9 @@
       <!-- -- IN PROCESS ITEMS ------------------------------------------------------------- -->
       <!-- --------------------------------------------------------------------------------- -->
       <!--
-      <div style="background-color:black;width:100%; padding:0.33em;" />
-      <h4>COMPRAS EN PROCESO</h4>
       -->
-      <div class="cards-in-process-items" v-for="(item,index) of inProcessProducts" :key="index">
-        <CardInProcessItemComponent :item="item"></CardInProcessItemComponent>
+      <div class="cards-in-process-items" v-for="(item,index) of inProcessProducts">
+        <CardInProcessItemComponent :items="inProcessProducts" :item="item"></CardInProcessItemComponent>
       </div>
 
       <!-- --------------------------------------------------------------------------------- -->
@@ -35,8 +33,8 @@
       <h4>COMPRAS FINALIZADAS</h4>
       -->
 
-      <div class="cards-purchased-items" v-for="(item,index) of purchasedProducts" :key="index">
-        <CardPurchasedItemComponent :item="item"></CardPurchasedItemComponent>
+      <div class="cards-purchased-items" v-for="(item,index) of purchasedProducts">
+        <!-- <CardPurchasedItemComponent :item="item"></CardPurchasedItemComponent> -->
       </div>
 
       <!-- --------------------------------------------------------------------------------- -->

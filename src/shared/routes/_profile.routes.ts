@@ -15,5 +15,11 @@ export const PROFILE_ROUTES = [
                 });
         }
 
+    },
+    {
+        path: "/view/edit-profile",
+        name: "edit-profile",
+        component: () => import(/* webpackChunkName: "profile" */ "./../../views/profile/edit-profile.view.vue"),
+
     }
 ];

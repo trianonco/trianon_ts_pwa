@@ -35,172 +35,222 @@
 
       <div class="cols">
 
+          <div class="col">
+            <div class="card-content-wrapper">
+              <v-lazy-image
+                class="card-content-wrapper-photo"
+                :src="getPhotoSRC_HD(item.ref_photo_code)"
+                :src-placeholder="getPhotoSRC_THUMB(item.ref_photo_code)"
+              />
+            </div>
+            <div class="card-content-quantity">
+              <div class="card-content-quantity-remove" @click="removeProductoToShoppingCart()">
+                <span>-</span>
+              </div>
+              <div class="card-content-quantity-number">
+                <span>
+                  CANTIDAD: 
+                  
+                {{
 
+                  getProductsInShoppingCart.filter(
+                    product =>
+                      product && product.ref_photo_code === item.ref_photo_code
+                  ).length
 
+                }}
 
-        <div class="col">
-          <div class="card-content-wrapper">
-            <v-lazy-image
-              class="card-content-wrapper-photo"
-              :src="getPhotoSRC_HD(item.ref_photo_code)"
-              :src-placeholder="getPhotoSRC_THUMB(item.ref_photo_code)"
-            />
+                </span>
+              </div>
+              <div class="card-content-quantity-add" @click="addProductoToShoppingCart()">
+                <span>+</span>
+              </div>
+            </div>
+
+            <textarea  v-if="isLast" class="comment-area" v-model="BUY.comment" placeholder="COMENTARIOS ADICIONALES"></textarea>
           </div>
-          <div class="card-content-quantity">
-            <div class="card-content-quantity-remove" @click="removeProductoToShoppingCart()">
-              <span>-</span>
-            </div>
-            <div class="card-content-quantity-number">
-              <span>CANTIDAD: {{getProductsInShoppingCart.length}}</span>
-            </div>
-            <div class="card-content-quantity-add" @click="addProductoToShoppingCart()">
-              <span>+</span>
-            </div>
-          </div>
 
-          <textarea  class="comment-area" v-model="BUY.comment" placeholder="COMENTARIOS ADICIONALES"></textarea>
-        </div>
+          <div class="col">
 
+            <div v-if="!isLast && isDesktop" style="
+                                      height:500px;
+                                      display: -ms-flexbox;
+                                      display: -webkit-flex;
+                                      display: flex;
+                                      -webkit-flex-direction: column;
+                                      -ms-flex-direction: column;
+                                      flex-direction: column;
+                                      -webkit-flex-wrap: wrap;
+                                      -ms-flex-wrap: wrap;
+                                      flex-wrap: wrap;
+                                      -webkit-justify-content: center;
+                                      -ms-flex-pack: center;
+                                      justify-content: center;
+                                      -webkit-align-content: center;
+                                      -ms-flex-line-pack: center;
+                                      align-content: center;
+                                      -webkit-align-items: center;
+                                      -ms-flex-align: center;
+                                      align-items: center;">
 
+              <h1>¡COMPRARÁS MÁS DE UN PRODUCTO!</h1>
+              <hr style="margin-bottom: 23px;
+                          width: 80%;
+                          display: block;
+                          margin-top: 23px;">
+              <h2 style="
+                          width: 100%;
+                          letter-spacing: 1px;
+                          line-height: 1.5em;
+                          font-size: 13px;
+                          padding: 1em;
+                          box-sizing: border-box;
+                          padding-top: 0px;
+              "> 
+                  PODRÁS AÑADIR LA INFORMACIÓN DE ENVIÓ Y REALIZAR TU PAGO EN LA PARTE INFERIOR
+              </h2>
+              <img src="../../../../shared/assets/images/icon-symbol.png" style="width: 5em;">
 
-
-        <div class="col">
-          <form>
-            <div class="card-content-shipping-info">
-              <h1>INFORMACIÓN DE ENVIO</h1>
-              <input
-                type="text"
-                name="address"
-                :class="isInputError('address')"
-                autocomplete="on"
-                placeholder="DIRECCIÓN"
-                v-model="BUY.shipping.address"
-                required
-              />
-              <input
-                type="text"
-                name="apartment"
-                :class="isInputError('info')"
-                autocomplete="on"
-                placeholder="PISO O APARTAMENTO"
-                v-model="BUY.shipping.info"
-                required
-              />
-              <input
-                type="text"
-                name="neighbourhood"
-                :class="isInputError('neighbourhood')"
-                autocomplete="on"
-                placeholder="BARRIO"
-                v-model="BUY.shipping.neighbourhood"
-                required
-              />
-
-              <input
-                type="text"
-                :class="isInputError('department')"
-                autocomplete="on"
-                placeholder="DEPARTAMENTO"
-                v-model="BUY.shipping.department"
-                style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
-                required
-              />
-
-              <input
-                type="text"
-                :class="isInputError('city')"
-                autocomplete="on"
-                placeholder="MUNICIPIO"
-                v-model="BUY.shipping.city"
-                style="width:calc(50% - 0.5em);margin-bottom:0px;"
-                required
-              />
-              <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
-              <br />
-              <input
-                type="text"
-                autocomplete="on"
-                placeholder="NOMBRE DE QUIEN VA A RECIBIR"
-                v-model="BUY.shipping.name"
-                style="margin-top:1em"
-                required
-              />
-              <input
-                type="text"
-                :class="isInputError('cc')"
-                autocomplete="on"
-                placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
-                v-model="BUY.shipping.cc"
-                style="margin-top:1em"
-                required
-              />
-              
-              
             </div>
 
-            <div class="card-content-phone-and-total">
-              <div class="card-content-phone">
+            <form v-if="isLast">
+              <div class="card-content-shipping-info">
+                <h1>INFORMACIÓN DE ENVIO</h1>
                 <input
                   type="text"
-                  :class="isInputError('phone')"
-                  placeholder="TU NUMERO CELULAR *"
-                  v-model="BUY.shipping.phone"
+                  name="address"
+                  :class="isInputError('address')"
+                  autocomplete="on"
+                  placeholder="DIRECCIÓN"
+                  v-model="BUY.shipping.address"
                   required
                 />
+                <input
+                  type="text"
+                  name="apartment"
+                  :class="isInputError('info')"
+                  autocomplete="on"
+                  placeholder="PISO O APARTAMENTO"
+                  v-model="BUY.shipping.info"
+                  required
+                />
+                <input
+                  type="text"
+                  name="neighbourhood"
+                  :class="isInputError('neighbourhood')"
+                  autocomplete="on"
+                  placeholder="BARRIO"
+                  v-model="BUY.shipping.neighbourhood"
+                  required
+                />
+
+                <input
+                  type="text"
+                  :class="isInputError('department')"
+                  autocomplete="on"
+                  placeholder="DEPARTAMENTO"
+                  v-model="BUY.shipping.department"
+                  style="width:calc(50% - 0.5em);margin-right:1em;margin-bottom:0px;"
+                  required
+                />
+
+                <input
+                  type="text"
+                  :class="isInputError('city')"
+                  autocomplete="on"
+                  placeholder="MUNICIPIO"
+                  v-model="BUY.shipping.city"
+                  style="width:calc(50% - 0.5em);margin-bottom:0px;"
+                  required
+                />
+                <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
+                <br />
+                <input
+                  type="text"
+                  autocomplete="on"
+                  placeholder="NOMBRE DE QUIEN VA A RECIBIR"
+                  v-model="BUY.shipping.name"
+                  style="margin-top:1em"
+                  required
+                />
+                <input
+                  type="text"
+                  :class="isInputError('cc')"
+                  autocomplete="on"
+                  placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
+                  v-model="BUY.shipping.cc"
+                  style="margin-top:1em"
+                  required
+                />
+                
+                
               </div>
 
-              <div class="card-content-total-sum">
-                <h3>SUMA TOTAL DE TU COMPRA:</h3>
-                <h1>{{ getTotalPriceByItem | toCurrency }}</h1>
+              <div class="card-content-phone-and-total">
+                <div class="card-content-phone">
+                  <input
+                    type="text"
+                    :class="isInputError('phone')"
+                    placeholder="TU NUMERO CELULAR *"
+                    v-model="BUY.shipping.phone"
+                    required
+                  />
+                </div>
+
+                <div class="card-content-total-sum">
+                  <h3>SUMA TOTAL DE TU COMPRA:</h3>
+                  <h1>{{ getTotalPriceByItem | toCurrency }}</h1>
+                </div>
+
+                <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem > 100000">
+                  <h4>TU COMPRA SUPERA LOS $100.000 COP</h4>
+                  <h3>ASÍ QUE EL ENVÍO ES GRATIS</h3>
+                </div>
               </div>
-
-              <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem > 100000">
-                <h4>TU COMPRA SUPERA LOS $100.000 COP</h4>
-                <h3>ASÍ QUE EL ENVÍO ES GRATIS</h3>
-              </div>
-            </div>
-          </form>
-
-          <div class="card-content-payment">
-            <h1>SELECCIONA UN METODO DE PAGO:</h1>
-
-            <form ref="payU_Form" method="post" :action="PAYU.url">
-              <img
-                class="credit-cards-mobile"
-                src="../../../../shared/assets/images/credit-cards2.jpg"
-                width="100%"
-                @click="goToPayU()"
-              />
-
-              <img
-                class="credit-cards-desktop"
-                src="../../../../shared/assets/images/credit-cards-desktops_Mesa de trabajo 1.jpg"
-                width="100%"
-                @click="goToPayU()"
-              />
-              <input name="merchantId" type="hidden" :value="getPayMerchantID()" />
-              <input name="accountId" type="hidden" :value="getPayAccountID()" />
-              <input name="referenceCode" type="hidden" :value="getPayReferenceCode()" />
-
-              <input name="description" type="hidden" :value="getPayDescription()" />
-              <input name="amount" type="hidden" :value="getPayAmount()" />
-              <input name="tax" type="hidden" :value="getPayTax()" />
-              <input name="taxReturnBase" type="hidden" :value="getPayTaxReturnBase()" />
-              <input name="currency" type="hidden" :value="getPayCurrency()" />
-              <input name="signature" type="hidden" :value="getPaySignature()" />
-              <input name="buyerEmail" type="hidden" :value="getPayClientEmail()" />
-              <input name="shippingAddress" type="hidden" :value="getPayShippingAddress()" />
-              <input name="shippingCity" type="hidden" :value="getPayShippingCity()" />
-              <input name="shippingCountry" type="hidden" value="CO" />
-
-              <input name="test" type="hidden" value="1" v-if="PAYU === PAYU_OPTIONS['TEST']" />
-              <input name="responseUrl" type="hidden" :value="getPayUpdateURL()" />
-              <input name="confirmationUrl" type="hidden" :value="getPayConfirmationURL()" />
-
-              <input name="Submit" type="hidden" value="Enviar" />
             </form>
+
+            <div v-if="isLast" class="card-content-payment">
+              <h1>SELECCIONA UN METODO DE PAGO:</h1>
+
+              <form ref="payU_Form" method="post" :action="PAYU.url">
+                <img
+                  class="credit-cards-mobile"
+                  src="../../../../shared/assets/images/credit-cards2.jpg"
+                  width="100%"
+                  @click="goToPayU()"
+                />
+
+                <img
+                  class="credit-cards-desktop"
+                  src="../../../../shared/assets/images/credit-cards-desktops_Mesa de trabajo 1.jpg"
+                  width="100%"
+                  @click="goToPayU()"
+                />
+                <input name="merchantId" type="hidden" :value="getPayMerchantID()" />
+                <input name="accountId" type="hidden" :value="getPayAccountID()" />
+                <input name="referenceCode" type="hidden" :value="getPayReferenceCode()" />
+
+                <input name="description" type="hidden" :value="getPayDescription()" />
+                <input name="amount" type="hidden" :value="getPayAmount()" />
+                <input name="tax" type="hidden" :value="getPayTax()" />
+                <input name="taxReturnBase" type="hidden" :value="getPayTaxReturnBase()" />
+                <input name="currency" type="hidden" :value="getPayCurrency()" />
+                <input name="signature" type="hidden" :value="getPaySignature()" />
+                <input name="buyerEmail" type="hidden" :value="getPayClientEmail()" />
+                <input name="shippingAddress" type="hidden" :value="getPayShippingAddress()" />
+                <input name="shippingCity" type="hidden" :value="getPayShippingCity()" />
+                <input name="shippingCountry" type="hidden" value="CO" />
+
+                <input name="test" type="hidden" value="1" v-if="PAYU === PAYU_OPTIONS['TEST']" />
+                <input name="responseUrl" type="hidden" :value="getPayUpdateURL()" />
+                <input name="confirmationUrl" type="hidden" :value="getPayConfirmationURL()" />
+
+                <input name="Submit" type="hidden" value="Enviar" />
+              </form>
+            </div>
+
           </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -294,7 +344,7 @@ export default {
     };
   },
 
-  props: ["item"],
+  props: ["items","item","isLast"],
 
   mounted() {
     console.clear();
@@ -385,40 +435,34 @@ export default {
     },
     getPayTaxReturnBase() {
       if (
-        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
-        this.PAYU === this.PAYU_OPTIONS["TEST"]
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"]
       ) {
         const price = 12000;
         return (price * (1 - 0.19)).toFixed(2);
       } else {
-        const price = this.getTotalPriceByItem;
+        const price =  parseFloat(this.BUY.billing.total_price);
         return (price * (1 - 0.19)).toFixed(2);
       }
     },
     getPayTax() {
       if (
-        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
-        this.PAYU === this.PAYU_OPTIONS["TEST"]
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"]
       ) {
         const price = 12000;
         return (price * 0.19).toFixed(2);
       } else {
-        const price = this.getTotalPriceByItem;
+        const price = parseFloat(this.BUY.billing.total_price);
         return (price * 0.19).toFixed(2);
       }
     },
     getPayAmount() {
       if (
-        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"] ||
-        this.PAYU === this.PAYU_OPTIONS["TEST"]
+        this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"]
       ) {
         const price = 12000;
         return price.toFixed(2);
       } else {
-        const price =
-          this.getTotalPriceByItem > 100000
-            ? this.getTotalPriceByItem
-            : this.getTotalPriceByItem + 8000;
+        const price = parseFloat(this.BUY.billing.total_price);
         return price.toFixed(2);
       }
     },
@@ -449,13 +493,8 @@ export default {
         this.BUY.shipping.country = "COLOMBIA";
 
         this.BUY.billing.number = "N/A";
-                this.BUY.billing.cc = this.BUY.shipping.cc;
+        this.BUY.billing.cc = this.BUY.shipping.cc;
 
-        this.BUY.billing.subtotal_price = parseFloat(this.getTotalPriceByItem);
-        this.BUY.billing.shipping_price =
-          this.getTotalPriceByItem > 100000 ? 0 : 8000;
-        this.BUY.billing.total_price =
-          this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
         this.BUY.billing.name = this.BUY.shipping.name
           ? this.BUY.shipping.name
           : JSON.parse(localStorage.getItem("user")).displayName;
@@ -463,12 +502,23 @@ export default {
         this.BUY.billing.email = this.BUY.shipping.email;
 
         this.BUY.products = [];
-        this.BUY.products.push(this.item);
-        this.BUY.products[0]["quantity"] = this.BUY.meta.items;
-        this.BUY.products[0]["subtotal"] =
-          this.BUY.meta.items * this.item.price_cop;
+      
+        this.BUY.products = this.items;
+        this.BUY.products.map((product) => {
+          const productsSameRef = this.$store.state.shoppingCartModule.products.filter(cartProduct => cartProduct.ref === product.ref );
+          product["quantity"] = productsSameRef.length;
+          product["subtotal"] = product["quantity"] * product.price_cop;
+        })
 
-        if (location.host !== "www.trianon.com.co" || true) {
+        this.BUY.billing.subtotal_price = parseFloat(
+            this.BUY.products.map(product => product["subtotal"])
+                             .reduce((accumulator, currentValue) => parseFloat(accumulator + '') + parseFloat(currentValue + ''))
+        );
+        this.BUY.billing.shipping_price = this.BUY.billing.subtotal_price > 100000 ? 0 : 8000;
+        this.BUY.billing.total_price = this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
+
+
+        if (location.host === "www.trianon.com.co" || true) {
           const db = firebase.firestore();
           db.collection("SHOPPING_HISTORY")
             .doc(this.BUY.ID)
@@ -526,12 +576,22 @@ export default {
     }
   },
   computed: {
+
+
+    isDesktop(){
+      var w = window.innerWidth;
+      return w > 600;
+    },
+
     getProductsInShoppingCart() {
+      /*
       const items = this.$store.state.shoppingCartModule.products.filter(
         product =>
           product && product.ref_photo_code === this.item.ref_photo_code
       );
-      this.BUY.ref = items[0].ref;
+      */
+      const items = this.$store.state.shoppingCartModule.products;
+      //this.BUY.ref = items.reduce((currentItem, acumulateItem) => `${currentItem.ref} - ${acumulateItem}`);
       return items;
     },
     getTotalPriceByItem() {
@@ -945,7 +1005,7 @@ export default {
         display: block;
         width: 100%;
         height: 450px;
-        object-fit: cover;
+        object-fit: contain;
         padding: 1em;
         box-sizing: border-box;
         margin: 0 auto;

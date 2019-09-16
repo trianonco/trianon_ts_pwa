@@ -134,19 +134,27 @@ export default class AdminOrdersPageComponent extends Vue {
                 doc_date = (`${day}-${month}-${year}`);
               }
 
+              const refs = doc_data.products.map((product:any) => product.ref).reduce((accumulator: any, currentValue: any) => accumulator + ' ' + currentValue, '');
+              const photos =  doc_data.products.map((product:any) => product.ref_photo_code).reduce((accumulator: any, currentValue: any) =>  
+                 ' <br> ' + 
+                 `<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F${decodeURI(currentValue).replace(' ','')}-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">` + 
+                 accumulator + ' <br> '
+              , '');
+              const products = doc_data.products.map((product:any) => product.description).reduce((accumulator: any, currentValue: any) => accumulator + ' ' + currentValue);
               const doc_queue = {
-                ref: doc_data.ref,
+                ref: refs,
                 email: doc_data.shipping.email,
                 phone: doc_data.shipping.phone,
-                product: doc_data.products[0].description ,
+                product: products,
                 createdAt: doc_date,
-                photo: `<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2F${decodeURI(doc_data.ref).replace(' ','')}-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">`,
-            invoice : `<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${doc_data.ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="${doc_data.ID}" target="_blank"> DESCARGAR </a>`
+                photo: photos,
+         
+                invoice : `<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${doc_data.ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="${doc_data.ID}" target="_blank"> DESCARGAR </a>`
               }
-              console.warn(doc_data)
-              if(doc_data.state === this.ORDER_STATE){              this.queue.push(doc_queue);
-}
-
+              if(doc_data.state === this.ORDER_STATE || doc_data.state === 'IN PROCESS: IN FACTORY'){              
+               this.queue.push(doc_queue);
+               console.warn(doc_queue)
+               }
             });
           });
 

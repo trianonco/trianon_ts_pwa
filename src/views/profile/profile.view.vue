@@ -194,7 +194,7 @@ div.view.profile {
 
     div.vw-content {
       min-height: ~"calc(100vh - 300px)";
-      width: 700px;
+      width: 900px;
       margin: 0 auto;
       position: relative;
     }

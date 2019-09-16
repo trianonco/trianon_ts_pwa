@@ -46,7 +46,7 @@ export default {
         
 
         resolution: "standard_resolution",
-        template: `<a href="{{link}}">
+        template: `<a href="{{link}}" target="_blank">
           <div class="wrapper-image">
             <img src="{{image}}"/>
           </div>
