@@ -30,11 +30,21 @@
         </div>
         <div class="header-nav-auth-profile" v-if="hasProfile()" >
           <div class="wrapper">
+            <div>
             <img
               class="profile"
               src="../../assets/images/headers/profile.png"
-              alt="Trianon Colombia, Profile. Perfil persional. Usuarios de Trianon"
+              alt="Trianon Colombia, Profile. Perfil personal. Usuarios de Trianon"
             />
+            <label style="position: relative;
+    top: -6px;
+    left: 5px;
+    background-color: white;
+    padding: 1px 3px;
+    border-radius: 100%;
+    color: black;
+    font-weight: 900;">{{shoppingCart.length}}</label>
+            </div>
             <h3 @mouseenter="UX.showEditProfile = true" @click="goToProfile()" >MI PERFIL</h3>
             <div class="edit-profile-dropdown" v-if="UX.showEditProfile" >
               <h3 @click="goToEditProfile()">EDITAR PERFIL</h3>
@@ -108,6 +118,10 @@ export default class HeaderComponent extends Vue {
 
   private hasTitle() {
     return this.routerHelper.hasTitle(this.$router.currentRoute.name || "none");
+  }
+
+  get shoppingCart(){
+    return this.$store.state.shoppingCartModule.products;
   }
 }
 </script>

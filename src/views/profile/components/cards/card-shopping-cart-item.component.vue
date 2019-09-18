@@ -481,6 +481,8 @@ export default {
 
     goToPayU() {
       this.UX.isEmpty = false;
+      console.clear();
+      console.error('IS THE FINAL COUNTDOWN!!!')
       if (
         this.BUY.shipping.address &&
         this.BUY.shipping.info &&
