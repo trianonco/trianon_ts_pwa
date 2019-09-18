@@ -116,6 +116,8 @@ export default class HeaderComponent extends Vue {
   }
 
   get shoppingCart(){
+    console.warn('this.$store.state.shoppingCartModule.products')
+    console.warn(this.$store.state.shoppingCartModule.products)
     return this.$store.state.shoppingCartModule.products;
   }
 }
