@@ -36,8 +36,8 @@
               src="../../assets/images/headers/profile.png"
               alt="Trianon Colombia, Profile. Perfil personal. Usuarios de Trianon"
             />
-            <label class="header-shopping-cart">
-              <span v-if="shoppingCart.length > 0">{{shoppingCart.length}}</span>
+            <label class="header-shopping-cart" v-if="shoppingCart.length > 0">
+              <span>{{shoppingCart.length}}</span>
             </label>
             </div>
             <h3 @mouseenter="UX.showEditProfile = true" @click="goToProfile()" >MI PERFIL</h3>
