@@ -36,14 +36,9 @@
               src="../../assets/images/headers/profile.png"
               alt="Trianon Colombia, Profile. Perfil personal. Usuarios de Trianon"
             />
-            <label style="position: relative;
-    top: -6px;
-    left: 5px;
-    background-color: white;
-    padding: 1px 3px;
-    border-radius: 100%;
-    color: black;
-    font-weight: 900;">{{shoppingCart.length}}</label>
+            <label class="header-shopping-cart">
+              <span v-if="shoppingCart.length > 0">{{shoppingCart.length}}</span>
+            </label>
             </div>
             <h3 @mouseenter="UX.showEditProfile = true" @click="goToProfile()" >MI PERFIL</h3>
             <div class="edit-profile-dropdown" v-if="UX.showEditProfile" >
@@ -145,6 +140,17 @@ header .edit-profile-dropdown{
   display: none;
 }
 
+
+.header-shopping-cart{
+    position: relative;
+    top: -6px;
+    left: 5px;
+    background-color: white;
+    padding: 1px 3px;
+    border-radius: 100%;
+    color: black;
+    font-weight: 900;
+}
 @media (min-width: 600px) {
   header {
     #constructor-desktop-header();
