@@ -73,6 +73,7 @@ export default class AdminPanelsMenuComponent extends Vue {
       users: [
         "jl.mayorga236@gmail.com",
         "luiska93@hotmail.com",
+        "sistemas.web.trianon@gmail.com",
         "distribuidores.web.trianon@gmail.com"
       ]
     }
