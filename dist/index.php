@@ -31,7 +31,7 @@ if($isProductURL){
 }
 
 $vue_pwa_html_meta_title= $TITLE;
-$vue_pwa_html_meta_author = 'jl.mayorga236@gmail.com :: v3';
+$vue_pwa_html_meta_author = 'jl.mayorga236@gmail.com :: v4';
 $vue_pwa_html_meta_description = $DESCRIPTION;
 $vue_pwa_html_meta_image = $IMAGE_SRC;
 $vue_pwa_html_meta_keywords= 'billeteras,billeteras colombia,envio a toda colombia,trianon,trianonshoponline,pagosonline,tienda en linea trianon,bolsos,bolsos en cuero,regalo mama ,regalo papa colombia,regalo navidad colombia,pago seguro en linea,cinturon trianon,dia del padre,billete';

@@ -17,6 +17,9 @@
                 <div slot="selected-row-actions">
                   <button style="display:block" @click="downloadInvoices()"> Descargar InVoices </button>
                 </div>
+                <div slot="selected-row-actions">
+                  <button style="display:block" @click="deleteOrder()"> Borrar </button>
+                </div>
               </vue-good-table>
 
           </div>
@@ -49,7 +52,7 @@ const payOnClick= (id: any)=> `
     });
     
   
-`
+`;
 
 @Component({
   components: {
@@ -109,6 +112,11 @@ export default class AdminOrdersPageComponent extends Vue {
           label: 'InVoice',
           field: 'invoice',
           html: true,
+        },
+        {
+          label: 'Delete',
+          field: 'delete',
+          html: true,
         }
       ];
     public rows: any =  [
@@ -118,7 +126,8 @@ export default class AdminOrdersPageComponent extends Vue {
             phone: '300531837',
             product: 'BOTAS NEGRAS',
             photo: '<img style="width:50px" src="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-Products-Photos%2Fhd%2FHR156-01-01.jpg?alt=media&token=c392cfe1-c92e-4bb8-97f1-cf815a641f01">',
-            invoice : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> DESCARGAR </a>'
+            invoice : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> DESCARGAR </a>',
+            delete : '<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F07f3518fcbc0d26abd6ec782d01a827b.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="w3logo"> BORRAR </a>'
         }
       ];
 
@@ -162,6 +171,7 @@ export default class AdminOrdersPageComponent extends Vue {
                       
                 `,
                 photo: photos,
+                delete : `<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${doc_data.ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7"${doc_data.ID}"  target="_blank"> BORRAR </a>`,
                 invoice : `<a href="https://firebasestorage.googleapis.com/v0/b/trianon-co-pwa-dev.appspot.com/o/Shop-InVoices%2F${doc_data.ID}.pdf?alt=media&token=f0f2ab54-4e49-4d22-9e79-ab18233e4af7" download="${doc_data.ID}" target="_blank"> DESCARGAR </a>`
               }
               if(doc_data.state ==='IN PROCESS: PAYMENT SUCCESSFULL' || doc_data.state === 'IN PROCESS: IN FACTORY' || doc_data.state === 'IN PROCESS: WATING FOR PAYMENT'){              

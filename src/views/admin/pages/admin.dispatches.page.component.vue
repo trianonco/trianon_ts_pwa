@@ -3,7 +3,7 @@
     <h1>DESPACHOS</h1>
     <form>
       <div
-        v-for="(item, index) of queue"
+        v-for="(item, index) of queueSorted"
         v-bind:key="index"
         style="display:inline-block;
       width:fit-content; vertical-align:top"
@@ -186,6 +186,12 @@ export default class AdminTitlePageComponent extends Vue {
       });
   }
 
+  get queueSorted() {
+    const queueSorted = this.queue.sort((a, b) => 
+      {  return b.meta.createdAt.seconds - a.meta.createdAt.seconds }
+    );
+    return queueSorted;
+  }
   private isOnDate(item: any): boolean {
     let isOnDateFlag = true;
     try {
