@@ -11,7 +11,7 @@ export const PROFILE_ROUTES = [
                     next();
                 })
                 .catch(() => {
-                    next("/");
+                    next("/view/signin");
                 });
         }
 
