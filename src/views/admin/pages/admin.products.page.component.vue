@@ -288,11 +288,14 @@ export default class AdminProductsPageComponent extends Vue {
       };
       console.warn(document_data);
       console.log("");
+
+
       const isLoaded = await this.db.setShopProducts(
         collection_name,
         document_name,
         document_data
       );
+
     }
 
     this.isLoading = false;
@@ -363,7 +366,7 @@ export default class AdminProductsPageComponent extends Vue {
       "DOCUMENTOS",
       "PORTA DOCUMENTO"
     ];
-    const WORDS_PORTA_PASAPORTES = ["PASAPORTES", "PORTA PASAPORTE"];
+    const WORDS_PORTA_PASAPORTES = ["PASAPORTES", "PORTA PASAPORTE", "PORTA AFEITES", "AFEITADORES", "AFEITE"];
     const FUZZY_SET_BILLETERA = FuzzySet(WORDS_BILLTERAS);
     const FUZZY_SET_MORRAL = FuzzySet(WORDS_MORRALES);
     const FUZZY_SET_CINTURON = FuzzySet(WORDS_CINTURONES);
