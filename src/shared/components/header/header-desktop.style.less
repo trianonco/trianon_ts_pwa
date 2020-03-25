@@ -13,7 +13,7 @@
 
     width: 100%;
     height: @size-header-height + @2pm + 28em;
-    height: 136px;
+    height: 136px + 60px;
 
     box-sizing: border-box;
     padding: @0pm ;
@@ -198,6 +198,21 @@
 
         letter-spacing: 3px;
         transform: scaleY(0.8);
+    }
+
+    h2{
+        font-size: 12px;
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: @1pm - 10px;
+        position: relative;
+        top: 1.2em;
+        text-align: center;
+
+        letter-spacing: 3px;
+        transform: scaleY(0.8);  
+
+        line-height: 1.75em !important;
     }
 
 }

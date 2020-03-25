@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './shared/routes/index.routes'
 import store from './shared/store/store'
-import './registerServiceWorker'
+//import './registerServiceWorker'
 
 import { config } from "./shared/database/firebase.config";
 import firebase from "firebase/app";
