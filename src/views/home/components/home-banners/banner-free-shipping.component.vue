@@ -12,7 +12,7 @@
           <span>valido solo para colombia</span>
         </h3>
         <h4>Costo de envío a nivel nacional : $8.000 COP</h4>
-        <h4>Costo de envío a nivel internacional: $10 USD</h4>
+        <!-- <h4>Costo de envío a nivel internacional: $10 USD</h4> -->
       </div>
       <div class="pic-bg desktop">
         <h2>MEDIOS DE ENVIO</h2>
@@ -27,9 +27,9 @@
         </h3>
 
       </div>
-      <div class="gold-bg">
+      <!-- <div class="gold-bg">
         <div class="message">COMPRAS INTERNACIONALES</div>
-      </div>
+      </div> -->
     </div>
     <div class="banner desktop credit-cards">
       <h1>METODOS DE PAGO</h1>

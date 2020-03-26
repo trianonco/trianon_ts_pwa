@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "b30889f991656f695c540ec37bb970ee",
-    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
+    "revision": "70ca29858f72c41622469b8d4d57fd23",
+    "url": "/img/free-shipping-bg.70ca2985.jpg"
   },
   {
     "revision": "bfe0522711522156ef72c996805bfcb4",
     "url": "/maintain.html"
   },
   {
-    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
-    "url": "/redirect.html"
-  },
-  {
     "revision": "735ab4f94fbcd57074377afca324c813",
     "url": "/robots.txt"
+  },
+  {
+    "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
+    "url": "/redirect.html"
   },
   {
     "revision": "224567239257f8a6bf7cc70c12f0c184",
@@ -124,8 +124,8 @@ self.__precacheManifest = [
     "url": "/js/safe.view~ea1f58e8.ff191b1c.js"
   },
   {
-    "revision": "0fc54dc0107a4ffefb51",
-    "url": "/js/app~23262c47.9ee3b0fd.js"
+    "revision": "95afb378e8237346a491",
+    "url": "/js/app~23262c47.b9ab1535.js"
   },
   {
     "revision": "8db37c7e802e376e62a3",
@@ -176,7 +176,7 @@ self.__precacheManifest = [
     "url": "/js/profile~7f46da39.8deb92af.js"
   },
   {
-    "revision": "aa7ca21d56080e984c4c",
+    "revision": "9bee07f0c1e523aeb62f",
     "url": "/js/app~9c71575f.334bcad5.js"
   },
   {
@@ -320,7 +320,7 @@ self.__precacheManifest = [
     "url": "/index.php"
   },
   {
-    "revision": "ad436832805514d536298d7d08c2b82b",
+    "revision": "8e7c011fa87042ddbf1ba0a8c24d621b",
     "url": "/index.html"
   },
   {
@@ -376,16 +376,16 @@ self.__precacheManifest = [
     "url": "/css/shopProduct~31ecd969.490d9b91.css"
   },
   {
-    "revision": "33afe2d672465540ebf88d91894e4818",
-    "url": "/img/gender-male-categories-bg.33afe2d6.jpg"
+    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
+    "url": "/img/gender-female-categories-bg.bb2f9242.jpg"
   },
   {
     "revision": "1661da42017bf7c1fbef",
     "url": "/css/shopProduct~c6fb0b04.10c9b76b.css"
   },
   {
-    "revision": "bb2f9242f18d4f0997e7b50724e33f26",
-    "url": "/img/gender-female-categories-bg.bb2f9242.jpg"
+    "revision": "33afe2d672465540ebf88d91894e4818",
+    "url": "/img/gender-male-categories-bg.33afe2d6.jpg"
   },
   {
     "revision": "123e352abf4482bf5366",
@@ -432,8 +432,8 @@ self.__precacheManifest = [
     "url": "/js/AuthorizedDistributors~31ecd969.9303f093.js"
   },
   {
-    "revision": "70ca29858f72c41622469b8d4d57fd23",
-    "url": "/img/free-shipping-bg.70ca2985.jpg"
+    "revision": "b30889f991656f695c540ec37bb970ee",
+    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
   },
   {
     "revision": "181530c467a7e4046648e5fe3544413f",
@@ -496,12 +496,20 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Regular.d8f414ea.woff"
   },
   {
+    "revision": "807c4e98897a908ae67063a7201f0c75",
+    "url": "/fonts/OpenSans-Bold.807c4e98.woff2"
+  },
+  {
     "revision": "37baa26cbd5af36fac7435cd1b1205c8",
     "url": "/fonts/OpenSans-SemiboldItalic.37baa26c.woff2"
   },
   {
-    "revision": "807c4e98897a908ae67063a7201f0c75",
-    "url": "/fonts/OpenSans-Bold.807c4e98.woff2"
+    "revision": "5ef05461d1158f05fa25662bbd968005",
+    "url": "/fonts/OpenSans.5ef05461.woff2"
+  },
+  {
+    "revision": "b6a93c57aff7c0a760b81509194452b0",
+    "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
   },
   {
     "revision": "6c2e393339dd894f6464b9e923aa6b9a",
@@ -509,15 +517,7 @@ self.__precacheManifest = [
   },
   {
     "revision": "5ef05461d1158f05fa25662bbd968005",
-    "url": "/fonts/OpenSans.5ef05461.woff2"
-  },
-  {
-    "revision": "5ef05461d1158f05fa25662bbd968005",
     "url": "/fonts/OpenSans_1.5ef05461.woff2"
-  },
-  {
-    "revision": "b6a93c57aff7c0a760b81509194452b0",
-    "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
   },
   {
     "revision": "b55272c8d5196c7dc77cb39f95cdba9d",
@@ -552,12 +552,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.90327f5a.woff"
   },
   {
-    "revision": "cee4f07ed7988e917b69db983549fe65",
-    "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
-  },
-  {
     "revision": "4c7b8237f45b448efb609f5d8e3997a9",
     "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
+  },
+  {
+    "revision": "cee4f07ed7988e917b69db983549fe65",
+    "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
   },
   {
     "revision": "87051a9d79eb9fc8c317b5777320f78d",
@@ -620,6 +620,10 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
+  },
+  {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans.885e3d6f.eot"
   },
@@ -632,16 +636,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
+    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
+    "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans_1.885e3d6f.eot"
-  },
-  {
-    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
-    "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
     "revision": "e1d396939867c493f06f2bbc071993d9",
@@ -656,16 +656,16 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
   },
   {
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
+  },
+  {
     "revision": "4036090917114a9f089af14dc8b9dffc",
     "url": "/fonts/TrajanPro-Regular.40360909.eot"
   },
   {
     "revision": "27b48950afd77b0e4aaa98981c1b8813",
     "url": "/fonts/TrajanPro-Bold.27b48950.eot"
-  },
-  {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -812,7 +812,7 @@ self.__precacheManifest = [
     "url": "/css/app~1c84dc9b.32d594b5.css"
   },
   {
-    "revision": "0fc54dc0107a4ffefb51",
+    "revision": "95afb378e8237346a491",
     "url": "/css/app~23262c47.f9e4ab57.css"
   },
   {
@@ -828,8 +828,8 @@ self.__precacheManifest = [
     "url": "/css/app~85ae0087.0c47b731.css"
   },
   {
-    "revision": "aa7ca21d56080e984c4c",
-    "url": "/css/app~9c71575f.2b95ed64.css"
+    "revision": "9bee07f0c1e523aeb62f",
+    "url": "/css/app~9c71575f.1213a573.css"
   },
   {
     "revision": "bec71446c8d405b66da1",
