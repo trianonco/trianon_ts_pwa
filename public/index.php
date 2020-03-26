@@ -54,7 +54,7 @@ $vue_pwa_html_meta_updated = date("Y/m/d g:i:s A")." --- ".rand()." END DATE";
 
 
 
-$vue_pwa_html_template = file_get_contents("index-app.html");
+$vue_pwa_html_template = file_get_contents("index-app-v2.html");
 
 
 $vue_pwa_html_template = str_replace('<title>TRIANON | Productos 100% colombianos</title>', '<title>'.$vue_pwa_html_meta_title.'</title>', $vue_pwa_html_template);
@@ -91,6 +91,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-echo $vue_pwa_html_template ;
+echo 'NETWORK CONN ERROR' ;
+//echo $vue_pwa_html_template ;
 
 ?>

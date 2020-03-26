@@ -1,13 +1,13 @@
 module.exports = {
     productionSourceMap: false,
-    indexPath: 'index-app.html',
+    indexPath: 'index-app-v2.html',
     //publicPath: '/PWA_V2/',
     configureWebpack: {
         optimization: {
         splitChunks: {
-                minSize: 20000,
-                maxSize: 25000,
-            }
+                minSize: 100,
+                maxSize: 10000000,
+        }
       }
     }
 };
