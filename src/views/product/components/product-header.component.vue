@@ -15,7 +15,7 @@
     </div>
     <div class="product header desktop">
       <h1>
-        <span>UNA TRADICIÓN DESDE 1935. 100% COLOMBIANA</span>
+        <span>UNA TRADICIÓN DESDE 1935, 100% COLOMBIANA</span>
       </h1>
     </div>
   </div>
