@@ -271,7 +271,7 @@ export default {
   data() {
     return {
       UX: {
-        isCardOpen: false,
+        isCardOpen: true,
         isEmpty: true
       },
 

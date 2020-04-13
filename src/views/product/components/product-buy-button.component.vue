@@ -65,13 +65,19 @@ export default class ProductBuyButtonComponent extends Vue {
       this.$router.push("/view/profile");
     } else {
 
+      if (this.product.category === "CINTURONES" ) {
         this.hasChoosenSize = true;
         this.$emit('showModalSizeError')
+      } else {
+          this.$store.dispatch("addToCart", this.product);
+          this.$router.push("/view/profile");
+      }
       
       }
     } else {
       if (this.product.category !== "CINTURONES") {
         this.$store.dispatch("addToCart", this.product);
+         this.$router.push("/view/profile");
       }
     }
     
