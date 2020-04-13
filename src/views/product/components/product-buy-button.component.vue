@@ -34,6 +34,11 @@ export default class ProductBuyButtonComponent extends Vue {
   @Prop()
   size!: any;
 
+  @Prop()
+  hasChoosenSize!: boolean;
+
+
+
   get getProductsInShoppingCart() {
     return this.$store.state.shoppingCartModule.products.filter(
       (product: IShopProduct) =>
@@ -47,7 +52,7 @@ export default class ProductBuyButtonComponent extends Vue {
 
   private doAddToCart() {
     const size = JSON.parse(JSON.stringify(this.size || {}) + "");
-    console.log(size);
+
     if (size.ref) {
       const product = JSON.parse(JSON.stringify(this.product || {}) + "");
       product["ref"] = size.ref;
@@ -55,13 +60,21 @@ export default class ProductBuyButtonComponent extends Vue {
       product["width"] = size.size.width;
       product["depth"] = size.size.depth;
 
+    if(this.hasChoosenSize){
       this.$store.dispatch("addToCart", product);
+      this.$router.push("/view/profile");
+    } else {
+
+        this.hasChoosenSize = true;
+        this.$emit('showModalSizeError')
+      
+      }
     } else {
       if (this.product.category !== "CINTURONES") {
         this.$store.dispatch("addToCart", this.product);
       }
     }
-    this.$router.push("/view/profile");
+    
     //
     //console.log((this.getProductsInShoppingCart as any[]).length);
   }

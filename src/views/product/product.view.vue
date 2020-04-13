@@ -12,7 +12,7 @@
           <ProductPriceComponent :price="productPrice"></ProductPriceComponent>
           <ProductDescriptionComponent :description="productDescription" :color="productColor"></ProductDescriptionComponent>
           <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
-          <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize"></ProductBuyButtonComponent>
+          <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize" :hasChoosenSize="hasSelectedSize" @showModalSizeError="showSizeModal"></ProductBuyButtonComponent>
         </div>
 
         <div class="view-wrapper-frame-content desktop" v-if="isProductLoaded">
@@ -27,7 +27,7 @@
             <h2>
               <span>{{ productObj.price_cop | toCurrency }}</span>
             </h2>
-            <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize"></ProductBuyButtonComponent>
+            <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize" :hasChoosenSize="hasSelectedSize" @showModalSizeError="showSizeModal"></ProductBuyButtonComponent>
 
             <div class="referencia">
               <h3>REFERENCIA : {{ productObj.ref }}</h3>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="tallas" v-if="productSizes.length > 1" style="display:block; width:100%">
-              <select class="form-control" v-model="selected" @change="onChangeSize">
+              <select class="form-control" v-model="selected" @change="onChangeSize($event, true)">
                 <option
                   v-for="(size, index) of productSizes"
                   v-bind:value="index"
@@ -85,12 +85,48 @@
         :ref_code="productObj.ref_code"
         :ref_color_code="productObj.ref_color_code"
         :ref_size_code="productObj.ref_size_code"
-        @onChangeSize="onChangeSize"
+        @onChangeSize="onChangeSize($event, true)"
       ></ProductInfoBannerComponent>
     </div>
 
     <FooterComponent />
     <!-- Footers -->
+
+    <div class="modal-size" v-if="isShowModalSize">
+      <div class="modal-size--wrapper">
+        <h1> Aún no has seleccionado ninguna talla. <br><br>  </h1> 
+          
+        <h2> ¿ Estas seguro que tu talla es  : <br><br>
+
+            <div v-if="selectedByDropdownSize">
+                  <div v-if="selectedByDropdownSize.hasOwnProperty('size')">
+
+                  {{ selectedByDropdownSize.size.height.includes('T') ? 'TALLA' : 'Alto' }}: {{selectedByDropdownSize.size.height}}
+
+                  ?
+<!--
+              
+                    <span v-if="selectedByDropdownSize.size.height && selectedByDropdownSize.size.height !== '-' && selectedByDropdownSize.size.height !== 'NA'">
+                    {{ selectedByDropdownSize.size.height.includes('T') ? 'TALLA' : 'Alto' }}: {{selectedByDropdownSize.size.height}}
+                    </span>
+
+                    <span v-if="selectedByDropdownSize.size.width  && selectedByDropdownSize.size.width  !== '-' && selectedByDropdownSize.size.width  !== 'NA'">
+                      , Ancho: {{selectedByDropdownSize.size.width}}
+                    </span>
+
+                    <span v-if="selectedByDropdownSize.size.depth && selectedByDropdownSize.size.depth  !== '-' && size.size.depth  !== '- ' && selectedByDropdownSize.size.depth  !== ' -' && selectedByDropdownSize.size.depth  !== 'NA'">
+                      , Profundo : {{selectedByDropdownSize.size.depth}}
+                    </span>  
+-->
+          
+
+              </div>
+            </div>
+         
+          
+        </h2>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -211,11 +247,22 @@ export default class ProductView extends Vue {
   private productDescription: string = "";
   private isProductLoaded: boolean = false;
   private productSlideIndex: number = 0;
-  private selectedByDropdownSize: any = {};
+  private selectedByDropdownSize: any = {
+    ref: '',
+    size: {
+      height:'',
+      weight:'',
+      depth: ''
+    }
+  };
   public selected: number = 0;
+
+  private isShowModalSize: boolean = false;
 
   private apiDB = new ApiDataBase();
   private db: any = {};
+
+  private hasSelectedSize:boolean = false;
 
   private beforeMount() {
     this.apiDB.setDatabaseByName("SHOP-DB");
@@ -224,6 +271,21 @@ export default class ProductView extends Vue {
 
   private isCinturon(productObj: any) {
     return productObj && productObj.height.slice(0, 1) === "T";
+  }
+
+  private showSizeModal(){
+    console.clear()
+    console.log(' =========== showSizeModal() ============ ')
+    console.log(' this.isShowModalSize ')
+    console.log(this.isShowModalSize)
+    console.log(' selectedByDropdownSize ')
+    console.log(this.selectedByDropdownSize)
+    this.isShowModalSize = true;
+
+    setTimeout(() => {
+      this.isShowModalSize = false;
+    }, 6000)
+   
   }
 
   private mounted() {
@@ -276,18 +338,31 @@ export default class ProductView extends Vue {
         this.productSizes = products_sizes;
       });
 
+    setTimeout(() => {
+        if (this.productSizes && this.productSizes.length > 0 && this.productSizes[0]) {
+        const size = JSON.parse(JSON.stringify(this.productSizes[0]) + "");
+        this.onChangeSize(size);
+      }
+    }, 2600)
+
     if (this.productSizes && this.productSizes[0]) {
       const size = JSON.parse(JSON.stringify(this.productSizes[0]) + "");
       this.onChangeSize(size);
       //this.$emit("onChangeSize", size);
     }
+    
   }
 
-  private onChangeSize($event: any) {
+  private onChangeSize($event: any, userSelected?: boolean) {
     const size = JSON.parse(
       JSON.stringify(this.productSizes[this.selected]) + ""
     );
     this.selectedByDropdownSize = size;
+    console.log($event);
+    console.log('');
+    if(userSelected){
+      this.hasSelectedSize = true;
+    }
   }
 
   private getPhotoURLs(n: number) {
@@ -540,4 +615,69 @@ div.product {
     }
   }
 }
+
+.modal-size{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  color:white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000000000000;
+
+   display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+}
+
+.modal-size--wrapper{
+
+    display: block;
+  width: 300px;
+  height: auto;
+  background-color: white;
+  color: black;
+  padding: 1.5em;
+ h1{
+       font-family: 'TrajanPro';
+   font-size: 16px;
+    padding: -2px;
+    position: relative;
+    top: 0.25em;
+    text-align: center;
+    letter-spacing: 2px;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+ }
+ h2{
+       font-family: 'TrajanPro';
+   font-size: 12px;
+    padding: -2px;
+    position: relative;
+    top: 0.25em;
+    text-align: center;
+    letter-spacing: 2px;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+ }
+}
+
 </style>
