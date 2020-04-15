@@ -490,7 +490,10 @@ export default {
         this.BUY.shipping.department &&
         this.BUY.shipping.city &&
         this.BUY.shipping.phone &&
-        this.BUY.shipping.cc
+        this.BUY.shipping.cc && 
+        this.BUY.shipping.phone !== this.BUY.shipping.cc &&
+        this.BUY.shipping.name.length > 5 && 
+        this.BUY.shipping.name.split(' ').length > 1
       ) {
         this.BUY.shipping.country = "COLOMBIA";
 
@@ -538,6 +541,22 @@ export default {
     },
 
     isInputError(field) {
+
+      if(field == 'phone'){
+        if(this.BUY.shipping['phone'] === this.BUY.shipping['cc']){
+          return "error";
+        }
+        if(this.BUY.shipping['phone'].length < 7 || this.BUY.shipping['phone'].length  > 15){
+          return "error";
+        }
+      }
+
+        if(field == 'name'){
+          if(this.BUY.shipping['name'].length < 5 || this.BUY.shipping['name'].split(' ').length < 2){
+            return "error";
+          }
+      }
+
       if (this.UX.isEmpty) {
         return "default";
       } else {
@@ -794,6 +813,7 @@ export default {
       box-sizing: border-box;
       padding: 1.5em;
       margin-bottom: 1.5em;
+      text-transform: uppercase;
 
       font-family: "TrajanPro";
       font-size: 0.5em;
@@ -803,7 +823,7 @@ export default {
 
       border: 1px solid #fff;
       &.error {
-        border: 1px solid rgba(255, 50, 50, 0.85);
+        border: 2px solid rgba(255, 50, 50, 0.85);
       }
     }
 
