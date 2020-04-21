@@ -163,23 +163,25 @@
                   style="width:calc(50% - 0.5em);margin-bottom:0px;"
                   required
                 />
-                <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span>
-                <br />
+                
                 <input
                   type="text"
                   autocomplete="on"
-                  placeholder="NOMBRE DE QUIEN VA A RECIBIR"
+                  placeholder="NOMBRES Y APELLIDOS"
                   v-model="BUY.shipping.name"
-                  style="margin-top:1em"
+                  style="margin-top:12px; margin-bottom: 12px"
                   required
                 />
+                
+                <!-- <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span> -->
+
                 <input
                   type="text"
                   :class="isInputError('cc')"
                   autocomplete="on"
                   placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
                   v-model="BUY.shipping.cc"
-                  style="margin-top:1em"
+                  style="margin-top:0PX; margin-bottom: 0px"
                   required
                 />
                 
@@ -1086,8 +1088,11 @@ export default {
         padding: 1.5em;
         margin-bottom: 1.5em;
 
+        box-sizing:border-box;
+
+
         font-family: "TrajanPro";
-        font-size: 0.5em;
+        font-size: 0.55em;
         font-display: block;
         letter-spacing: 2px;
         text-align: center;
