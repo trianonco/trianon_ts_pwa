@@ -1,7 +1,7 @@
 <template>
   <div class="products-filters-sort-by">
     <div class="products-filters-sort-by-wrapper">
-      <h1>Filtrar por :</h1>
+      <h1>FILTRAR POR :</h1>
 
       <div
         class="filter"

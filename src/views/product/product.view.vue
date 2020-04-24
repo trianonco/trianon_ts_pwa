@@ -8,8 +8,8 @@
 
       <div class="view-wrapper-frame">
         <div class="view-wrapper-frame-content mobile" v-if="isProductLoaded">
-          <ProductSwiperComponent :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
-          <ProductPriceComponent :price="productPrice"></ProductPriceComponent>
+          <ProductSwiperComponent :discount="productDiscount" :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
+          <ProductPriceComponent :price="productPrice" :discount="productDiscount"></ProductPriceComponent>
           <ProductDescriptionComponent :description="productDescription" :color="productColor"></ProductDescriptionComponent>
           <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
           <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize" :hasChoosenSize="hasSelectedSize" @showModalSizeError="showSizeModal"></ProductBuyButtonComponent>
@@ -17,16 +17,21 @@
 
         <div class="view-wrapper-frame-content desktop" v-if="isProductLoaded">
           <div class="view-wrapper-frame-content-col">
-            <ProductSwiperComponent :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
+            <ProductSwiperComponent :discount="productDiscount" :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
             <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
           </div>
           <div class="view-wrapper-frame-content-col">
             <h1>
               <span>{{ productObj.description }} {{ productObj.line}} / {{ productObj.color }}</span>
             </h1>
+
             <h2>
-              <span>{{ productObj.price_cop | toCurrency }}</span>
+              <span>{{ (parseFloat(productObj.price_cop )*(1 - 0.01*parseFloat(productDiscount || 0))) | toCurrency}} </span>
+              <span v-if="productDiscount != 0" style=" color: #a6a6a6;
+    text-decoration: line-through;
+    font-size: 20px;">{{ (parseFloat(productObj.price_cop )) | toCurrency }}</span>
             </h2>
+
             <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize" :hasChoosenSize="hasSelectedSize" @showModalSizeError="showSizeModal"></ProductBuyButtonComponent>
 
             <div class="referencia">
@@ -289,11 +294,13 @@ export default class ProductView extends Vue {
   }
 
   private mounted() {
+
     // Route Params
     const params = (this.$route as any).params;
     const productGender = params.gender ? params.gender : "";
     const productCategory = params.category ? params.category : "";
     const productRefNoSize = params.ref ? params.ref : "";
+    
 
     (this as any).$ga.page("/product");
     (this as any).$ga.page("/product/gender/" + productGender);
@@ -329,7 +336,7 @@ export default class ProductView extends Vue {
         this.productPrice = this.productObj.price_cop;
         this.productDescription = this.productObj.description;
         this.productColor = this.productObj.color;
-        this.productDiscount = this.productObj.discount;
+        this.productDiscount = this.productObj.discount; // TODO, REMOVE  HARDCODED 20 this.productObj.discount || 
         const refCode = this.productObj.ref_code;
         const refColorCode = this.productObj.ref_color_code;
         const gender = this.productObj.gender;

@@ -3,6 +3,8 @@
     <div class="product-list-item-wrapper" @click="goToProductView()">
       <div class="isNew" v-if="isNew">NUEVO</div>
 
+      <ui-floating-discount v-if="product.discount && product.discount != 0" :discount="product.discount" ></ui-floating-discount>
+
       <v-lazy-image
         class="photo"
         :src="photo_hd_src"
@@ -10,7 +12,9 @@
         @load="onLoadVLazyImage()"
       />
 
-      <h2 class="price">{{ parseFloat(product.price_cop) | toCurrency}}</h2>
+      <h2 class="price">
+         <ui-price-tag :price="product.price_cop" :discount="product.discount"></ui-price-tag>
+      </h2>
 
       <h2 class="name">{{ product.description }} {{ product.line }}</h2>
 
@@ -21,10 +25,17 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import UIFloatingDiscountComponent from "../../../shared/components/labels/ui-floating-discount.vue";
+import UIPriceTagComponent from "../../../shared/components/labels/ui-price-tag.vue";
 import VLazyImage from "v-lazy-image";
 
+
 @Component({
-  components: { VLazyImage }
+  components: { 
+    VLazyImage,
+    'ui-floating-discount' : UIFloatingDiscountComponent,
+    'ui-price-tag': UIPriceTagComponent
+   }
 })
 export default class ShopProductsListItemComponent extends Vue {
   @Prop()

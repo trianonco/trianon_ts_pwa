@@ -133,6 +133,7 @@ export default class HeaderComponent extends Vue {
 header {
   #constructor-header();
   background-color: white;
+  color:black;
 }
 header .header-nav {
   #constructor-header-nav();
@@ -150,10 +151,10 @@ header .edit-profile-dropdown{
     position: relative;
     top: -6px;
     left: 5px;
-    background-color: white;
+    background-color: #9b9b9b;
+    color: white;
     padding: 1px 3px;
     border-radius: 100%;
-    color: black;
     font-weight: 900;
 }
 @media (min-width: 600px) {
@@ -178,6 +179,13 @@ header .edit-profile-dropdown{
     letter-spacing: 1px;
     color: gray;
     z-index: 10000000;
+}
+.header-shopping-cart{
+    position: relative;
+    top: -6px;
+    left: 5px;
+    background-color: white;
+    color: #9b9b9b;
 }
 }
 </style>

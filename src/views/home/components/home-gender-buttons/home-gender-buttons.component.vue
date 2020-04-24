@@ -125,6 +125,10 @@ div.gender-buttons.home-gender-buttons {
 div.gender-buttons {
   text-align: center;
   #constructor-gender-buttons();
+  h3{
+    align-items: baseline;
+    line-height: 100%;
+  }
 }
 div.gender-contents {
   #constructor-gender-contents();

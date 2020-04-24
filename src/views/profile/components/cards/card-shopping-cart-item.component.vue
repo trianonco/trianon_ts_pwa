@@ -30,7 +30,7 @@
     <div class="card-content" v-if="UX.isCardOpen">
       <div class="card-content-title">
         <h1>ESTADO : PROCESO DE COMPRA</h1>
-        <h2>PRECIO : {{ item.price_cop | toCurrency }}</h2>
+        <h2>PRECIO : {{ parseFloat(item.price_cop)*(1 - 0.01*parseFloat(item.discount)) | toCurrency }}</h2>
       </div>
 
       <div class="cols">
@@ -176,7 +176,7 @@
                 <!-- <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span> -->
 
                 <input
-                  type="text"
+                  type="number"
                   :class="isInputError('cc')"
                   autocomplete="on"
                   placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
@@ -191,7 +191,7 @@
               <div class="card-content-phone-and-total">
                 <div class="card-content-phone">
                   <input
-                    type="text"
+                    type="number"
                     :class="isInputError('phone')"
                     placeholder="TU NUMERO CELULAR *"
                     v-model="BUY.shipping.phone"
@@ -349,6 +349,7 @@ export default {
   props: ["items","item","isLast"],
 
   mounted() {
+
     console.clear();
     console.warn("");
     console.warn(" ------------------------------------------- ");
@@ -485,17 +486,32 @@ export default {
       this.UX.isEmpty = false;
       console.clear();
       console.error('IS THE FINAL COUNTDOWN!!!')
-      if (
-        this.BUY.shipping.address &&
-        this.BUY.shipping.info &&
-        this.BUY.shipping.neighbourhood &&
-        this.BUY.shipping.department &&
-        this.BUY.shipping.city &&
-        this.BUY.shipping.phone &&
-        this.BUY.shipping.cc && 
+
+      const isOk = 
+        this.BUY.shipping.address    && this.BUY.shipping.address.length > 0 &&
+        this.BUY.shipping.info && this.BUY.shipping.info.length > 0 &&
+        this.BUY.shipping.neighbourhood && this.BUY.shipping.neighbourhood.length > 0 &&
+        this.BUY.shipping.department && this.BUY.shipping.department.length > 0 &&
+        this.BUY.shipping.city && this.BUY.shipping.city.length > 0 &&
+        this.BUY.shipping.phone && this.BUY.shipping.phone.length > 0 && isNumber(this.BUY.shipping.phone)
+        this.BUY.shipping.cc && this.BUY.shipping.cc.length > 0 &&
         this.BUY.shipping.phone !== this.BUY.shipping.cc &&
-        this.BUY.shipping.name.length > 5 && 
-        this.BUY.shipping.name.split(' ').length > 1
+        this.BUY.shipping.name.length > 1;
+
+        console.log({
+          r1:this.BUY.shipping.address    && this.BUY.shipping.address.length > 0,
+          r2:this.BUY.shipping.info && this.BUY.shipping.info.length > 0,
+          r3:this.BUY.shipping.neighbourhood && this.BUY.shipping.neighbourhood.length > 0 ,
+          r4:this.BUY.shipping.department && this.BUY.shipping.department.length > 0,
+          r5:this.BUY.shipping.city && this.BUY.shipping.city.length > 0,
+          r6:this.BUY.shipping.phone && this.BUY.shipping.phone.length > 0,
+          r7:this.BUY.shipping.cc && this.BUY.shipping.cc.length > 0,
+          r8:this.BUY.shipping.phone !== this.BUY.shipping.cc,
+          r9:this.BUY.shipping.name.length > 1,
+        })
+
+      if (
+        isOk
       ) {
         this.BUY.shipping.country = "COLOMBIA";
 
@@ -514,7 +530,7 @@ export default {
         this.BUY.products.map((product) => {
           const productsSameRef = this.$store.state.shoppingCartModule.products.filter(cartProduct => cartProduct.ref === product.ref );
           product["quantity"] = productsSameRef.length;
-          product["subtotal"] = product["quantity"] * product.price_cop;
+          product["subtotal"] = product["quantity"] * product.price_cop*(1 - 0.01*(product.discount));
         })
 
         this.BUY.billing.subtotal_price = parseFloat(
@@ -525,7 +541,7 @@ export default {
         this.BUY.billing.total_price = this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
 
 
-        if (location.host === "www.trianon.com.co" || true) {
+        if (location.host === "www.trianon.com.co") {
           const db = firebase.firestore();
           db.collection("SHOPPING_HISTORY")
             .doc(this.BUY.ID)
@@ -538,7 +554,13 @@ export default {
               alert("ERRROR EN LA BASE DE DATOS, CONTACTE AL ADMIN");
               console.error("Error writing document: ", error);
             });
+        } else {
+       
         }
+      } else{
+            console.clear()
+            console.error('this.BUY')
+            console.error(this.BUY)
       }
     },
 
@@ -620,7 +642,7 @@ export default {
     getTotalPriceByItem() {
       this.BUY.meta.items = this.getProductsInShoppingCart.length;
       this.BUY.meta.total = this.getProductsInShoppingCart
-        .map(item => item.price_cop)
+        .map(item => item.price_cop*(1 - 0.01*parseFloat(item.discount)))
         .reduce(function(valorAnterior, valorActual) {
           return valorAnterior + valorActual;
         });
@@ -942,9 +964,25 @@ export default {
 
     .credit-cards-desktop {
       display: none;
+      cursor: pointer;
+      opacity: 1;
+      -webkit-transition: all 300ms ease-in-out;
+-moz-transition: all 300ms ease-in-out;
+-ms-transition: all 300ms ease-in-out;
+-o-transition: all 300ms ease-in-out;
+transition: all 300ms ease-in-out;
+      &:hover{
+        opacity: 0.8;
+        -webkit-transition: all 300ms ease-in-out;
+-moz-transition: all 300ms ease-in-out;
+-ms-transition: all 300ms ease-in-out;
+-o-transition: all 300ms ease-in-out;
+transition: all 300ms ease-in-out;
+      }
     }
     .credit-cards-mobile {
       display: block;
+      cursor: pointer;
     }
   }
 }
@@ -1197,9 +1235,11 @@ export default {
 
       .credit-cards-desktop {
         display: block;
+        cursor: pointer;
       }
       .credit-cards-mobile {
         display: none;
+        cursor: pointer;
       }
     }
   }

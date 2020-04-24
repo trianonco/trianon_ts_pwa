@@ -1,6 +1,9 @@
 <template>
   <div class="product swiper">
     <div class="product-photo-swiper">
+
+      <ui-floating-discount v-if="discount != 0" :discount="discount" ></ui-floating-discount>
+
       <swiper :options="swiperOption" ref="productSwiper">
         <!-- slides -->
         <swiper-slide
@@ -27,10 +30,12 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import VLazyImage from "v-lazy-image";
+import UIFloatingDiscountComponent from "../../../shared/components/labels/ui-floating-discount.vue";
 
 @Component({
   components: {
-    VLazyImage
+    VLazyImage,
+    'ui-floating-discount': UIFloatingDiscountComponent
   }
 })
 export default class ProductSwiperComponent extends Vue {
@@ -39,6 +44,9 @@ export default class ProductSwiperComponent extends Vue {
 
   @Prop()
   slideIndex!: number;
+
+  @Prop()
+  discount!: number;
 
   @Watch("slideIndex")
   onPropertyChanged(value: number, oldValue: number) {
@@ -87,6 +95,7 @@ div.product.swiper {
     width: 100%;
     box-sizing: border-box;
     padding: 1px;
+    position:relative;
   }
 
   .swiper-button-prev,
@@ -95,11 +104,39 @@ div.product.swiper {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
   }
+
+  .floating-discount{
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #62549f;
+      color: white;
+      padding: 0.5em 0.83em;
+      font-weight: 600;
+      z-index: 1000;
+   h5{
+        padding:0px;
+        margin:0px;
+        font-family: 'Open Sans';
+        font-display: block;
+        transform: scaleY(0.92);
+   }
+  }
 }
 
 @media (min-width: 600px) {
   div.product.swiper {
     border: 1px solid gray;
+  }
+   .floating-discount{
+    h5{
+          padding:0px;
+          margin:0px;
+          font-family: 'Open Sans';
+          font-display: block;
+          transform: scaleY(0.92);
+    }
   }
 }
 </style>
