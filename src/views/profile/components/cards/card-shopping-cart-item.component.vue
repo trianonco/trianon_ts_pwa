@@ -508,6 +508,7 @@ export default {
           r7:this.BUY.shipping.cc && this.BUY.shipping.cc.length > 0,
           r8:this.BUY.shipping.phone !== this.BUY.shipping.cc,
           r9:this.BUY.shipping.name.length > 1,
+          isOk
         })
 
       if (
@@ -541,7 +542,7 @@ export default {
         this.BUY.billing.total_price = this.BUY.billing.subtotal_price + this.BUY.billing.shipping_price;
 
 
-        if (location.host === "www.trianon.com.co") {
+        if (location.host === "www.trianon.com.co" || true) {
           const db = firebase.firestore();
           db.collection("SHOPPING_HISTORY")
             .doc(this.BUY.ID)

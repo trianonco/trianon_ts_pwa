@@ -8,16 +8,16 @@ self.__precacheManifest = [
     "url": "/maintain.html"
   },
   {
-    "revision": "735ab4f94fbcd57074377afca324c813",
-    "url": "/robots.txt"
-  },
-  {
     "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
     "url": "/redirect.html"
   },
   {
-    "revision": "1245824481137ab66a6f540116a569ab",
-    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
+    "revision": "735ab4f94fbcd57074377afca324c813",
+    "url": "/robots.txt"
+  },
+  {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
   {
     "revision": "0e8513da371f98cb1d4e",
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/js/sitemap.view~ea1f58e8.29b94bc4.js"
   },
   {
-    "revision": "5de2be647118d1d5e1d5",
-    "url": "/js/app~d0ae3f07.22d93a54.js"
+    "revision": "d0a7d766b06790735573",
+    "url": "/js/app~d0ae3f07.87a43ed8.js"
   },
   {
     "revision": "5b3e7abe1badc129ee09",
@@ -80,12 +80,12 @@ self.__precacheManifest = [
     "url": "/js/safe.view~ea1f58e8.a8d7624e.js"
   },
   {
-    "revision": "80d647bc9a3c710a8ac8",
-    "url": "/js/profile~31ecd969.dc75b6af.js"
+    "revision": "1250dd6a510aaa58e1cd",
+    "url": "/js/profile~31ecd969.16eca7a6.js"
   },
   {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
+    "revision": "55bfb3e43457ec893f128c2d73f76457",
+    "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
     "revision": "f87e28e90efe8d71100f",
@@ -112,7 +112,7 @@ self.__precacheManifest = [
     "url": "/css/shop~shopProduct~9a640a1b.e41800aa.css"
   },
   {
-    "revision": "cef39ae19eec264a98b72805b9b5a8c3",
+    "revision": "9ec6d6df6aab16105f6fd4c0a4b399b3",
     "url": "/index.html"
   },
   {
@@ -132,12 +132,12 @@ self.__precacheManifest = [
     "url": "/img/black-logo-mobile_Mesa de trabajo 1.0ed125d9.png"
   },
   {
-    "revision": "b30889f991656f695c540ec37bb970ee",
-    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
-  },
-  {
     "revision": "70ca29858f72c41622469b8d4d57fd23",
     "url": "/img/free-shipping-bg.70ca2985.jpg"
+  },
+  {
+    "revision": "b30889f991656f695c540ec37bb970ee",
+    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
   },
   {
     "revision": "224567239257f8a6bf7cc70c12f0c184",
@@ -268,12 +268,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans_1.90327f5a.woff"
   },
   {
-    "revision": "87051a9d79eb9fc8c317b5777320f78d",
-    "url": "/fonts/OpenSans-Light.87051a9d.woff"
-  },
-  {
     "revision": "12d2fa3dcf227b9538084a6bcfeafcf0",
     "url": "/fonts/TrajanPro-Bold.12d2fa3d.otf"
+  },
+  {
+    "revision": "87051a9d79eb9fc8c317b5777320f78d",
+    "url": "/fonts/OpenSans-Light.87051a9d.woff"
   },
   {
     "revision": "b11f35f77210c651367969365f87af24",
@@ -284,8 +284,8 @@ self.__precacheManifest = [
     "url": "/js/AuthorizedDistributors~31ecd969.6f0a3b41.js"
   },
   {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
+    "revision": "1245824481137ab66a6f540116a569ab",
+    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
   },
   {
     "revision": "ba368c5186d38b1e7f1798c3e9fd9af2",
@@ -304,24 +304,24 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.10ba07da.ttf"
   },
   {
-    "revision": "be95e66a21b26c932482f3db7b84b410",
-    "url": "/fonts/OpenSans-Italic.be95e66a.eot"
-  },
-  {
     "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
     "url": "/fonts/OpenSans-ExtraboldItalic.58e9b403.eot"
-  },
-  {
-    "revision": "10ba07da64cc6a490da4ac3af4dd238b",
-    "url": "/fonts/OpenSans_1.10ba07da.ttf"
   },
   {
     "revision": "e6c21381ad4f8eaff7c5bbbb2623befa",
     "url": "/fonts/OpenSans-Italic.e6c21381.ttf"
   },
   {
-    "revision": "55bfb3e43457ec893f128c2d73f76457",
-    "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
+    "revision": "be95e66a21b26c932482f3db7b84b410",
+    "url": "/fonts/OpenSans-Italic.be95e66a.eot"
+  },
+  {
+    "revision": "10ba07da64cc6a490da4ac3af4dd238b",
+    "url": "/fonts/OpenSans_1.10ba07da.ttf"
+  },
+  {
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
   },
   {
     "revision": "6730b39fab096a938ea610f7ed909c5f",
@@ -336,24 +336,28 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
-    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
-    "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
-  },
-  {
     "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
     "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
+  },
+  {
+    "revision": "22d4a36b7d366b2b213801c716dfb0b7",
+    "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
     "revision": "5299020bf84d03883fa452ee7478c60f",
     "url": "/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
+    "revision": "27b48950afd77b0e4aaa98981c1b8813",
+    "url": "/fonts/TrajanPro-Bold.27b48950.eot"
+  },
+  {
     "revision": "e1d396939867c493f06f2bbc071993d9",
     "url": "/fonts/OpenSans-Light.e1d39693.eot"
   },
   {
-    "revision": "27b48950afd77b0e4aaa98981c1b8813",
-    "url": "/fonts/TrajanPro-Bold.27b48950.eot"
+    "revision": "885e3d6f49fb6783494654e69793e802",
+    "url": "/fonts/OpenSans_1.885e3d6f.eot"
   },
   {
     "revision": "4036090917114a9f089af14dc8b9dffc",
@@ -366,10 +370,6 @@ self.__precacheManifest = [
   {
     "revision": "e8425e8a393b5d1e7fe417f43e520c54",
     "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
-  },
-  {
-    "revision": "885e3d6f49fb6783494654e69793e802",
-    "url": "/fonts/OpenSans_1.885e3d6f.eot"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -524,7 +524,7 @@ self.__precacheManifest = [
     "url": "/img/Recurso 5@4x.82458eea.png"
   },
   {
-    "revision": "80d647bc9a3c710a8ac8",
+    "revision": "1250dd6a510aaa58e1cd",
     "url": "/css/profile~31ecd969.bba2bf5e.css"
   },
   {
@@ -540,7 +540,7 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors~d939e436.23d90689.css"
   },
   {
-    "revision": "5de2be647118d1d5e1d5",
+    "revision": "d0a7d766b06790735573",
     "url": "/css/app~d0ae3f07.c2ff9e3d.css"
   },
   {
