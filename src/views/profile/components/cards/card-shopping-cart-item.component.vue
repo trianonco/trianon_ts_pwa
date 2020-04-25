@@ -493,7 +493,7 @@ export default {
         this.BUY.shipping.neighbourhood && this.BUY.shipping.neighbourhood.length > 0 &&
         this.BUY.shipping.department && this.BUY.shipping.department.length > 0 &&
         this.BUY.shipping.city && this.BUY.shipping.city.length > 0 &&
-        this.BUY.shipping.phone && this.BUY.shipping.phone.length > 0 && isNumber(this.BUY.shipping.phone)
+        this.BUY.shipping.phone && this.BUY.shipping.phone.length > 0 && 
         this.BUY.shipping.cc && this.BUY.shipping.cc.length > 0 &&
         this.BUY.shipping.phone !== this.BUY.shipping.cc &&
         this.BUY.shipping.name.length > 1;
