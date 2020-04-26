@@ -2,7 +2,7 @@
   <div class="product swiper">
     <div class="product-photo-swiper">
 
-      <ui-floating-discount v-if="discount != 0" :discount="discount" ></ui-floating-discount>
+      <ui-floating-discount v-if="discount && discount != 0 && parseInt(discount+'',10) > 0" :discount="discount" ></ui-floating-discount>
 
       <swiper :options="swiperOption" ref="productSwiper">
         <!-- slides -->
