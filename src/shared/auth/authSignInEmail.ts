@@ -61,21 +61,22 @@ export default class AuthEmail {
                 .createUserWithEmailAndPassword(email, password)
                 .then((response: any) => {
 
-                    var token = response.credential.accessToken;
+                    console.warn('CREANDO USARIO EXITOSO')
+                    console.warn({response})
+
                     var user = response.user;
                     localStorage.setItem("user", JSON.stringify(user));
 
-
                     const trianonUser = {
-                        name: user.displayName,
-                        email: user.email,
-                        password: password,
+                        name: user.displayName || '',
+                        email: user.email || '',
+                        password: password || '',
                         phoneNumber: user.phoneNumber || ' ',
-                        photoUrl: user.photoURL,
+                        photoUrl: user.photoURL || '',
                         birthday: '',
                         gender: '',
-                        createdAt: user.metadata.creationTime,
-                        lastSignInAt: user.metadata.lastSignInTime
+                        createdAt: user.metadata.creationTime || '',
+                        lastSignInAt: user.metadata.lastSignInTime || ''
                     }
 
                     firebase.firestore().collection("USERS")
@@ -87,7 +88,7 @@ export default class AuthEmail {
                         })
                         .catch((error: any) => {
                             console.error("Error writing document: ", error);
-                            reject();
+                            reject(error);
                         });
                 })
                 .catch((error: any) => {
@@ -98,8 +99,8 @@ export default class AuthEmail {
                     var email = error.email;
                     var credential = error.credential;
 
-                    console.error(errorCode);
-                    reject();
+                    console.error(error);
+                    reject(error);
                 });
         });
     }

@@ -643,7 +643,7 @@ export default {
     getTotalPriceByItem() {
       this.BUY.meta.items = this.getProductsInShoppingCart.length;
       this.BUY.meta.total = this.getProductsInShoppingCart
-        .map(item => item.price_cop*(1 - 0.01*parseFloat(item.discount)))
+        .map(item => item.price_cop*(1 - 0.01*parseFloat(item.discount || 0)))
         .reduce(function(valorAnterior, valorActual) {
           return valorAnterior + valorActual;
         });

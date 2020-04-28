@@ -13,7 +13,9 @@
       </div>
       <div class="signin-cols">
         <div class="signin-col">
+
           <LoginSigninComponent></LoginSigninComponent>
+          
         </div>
         <div class="signin-col">
           <div class="signin-p desktop">

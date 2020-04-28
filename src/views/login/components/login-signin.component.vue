@@ -27,23 +27,49 @@
           <img alt="TrianonCo Image" src="../../../shared/assets/images/signin/bullet-email.png" />
         </div>
         <br v-if="isEmailLoginOpen" />
+
+
+
+
         <div class="email-login-form" v-if="isEmailLoginOpen">
+
           <div class="email-login-form-input email">
             <input type="email" v-model="auth.email" placeholder="CORREO ELECTRÓNICO" />
           </div>
+
           <div class="email-login-form-input password">
             <input type="password" v-model="auth.password" placeholder="CONSTRASEÑA" />
           </div>
+
+
           <div class="email-login-form-input password" v-if="isNewUser">
             <input type="password" v-model="auth.repassword" placeholder="CONFIRMAR CONSTRASEÑA" />
-            <span class="error" v-if="!isSamePassword">CONTRASEÑAS NO COINCIDEN</span>
+            <span class="error" v-if="!isSamePassword || ERROR_EMAIL">
+               <div v-if="!isSamePassword"> CONTRASEÑAS NO COINCIDEN </div>
+               <div v-if="ERROR_EMAIL"> {{ ERROR_EMAIL }} </div>
+              </span> 
           </div>
+
           <div class="email-login-form-submit login" @click="doLoginEmail()">INICIAR SESIÓN</div>
+          
+          
+          <div
+            class="email-login-form-label recovery-password"
+            @click="doSignUp()"
+          >¿Crear cuenta?
+          </div>
+
           <div
             class="email-login-form-label recovery-password"
             @click="doRecoveryPassword()"
-          >¿Olvidaste tu contraseña?</div>
+          >¿Olvidaste tu contraseña?
+          </div>
+
+          
         </div>
+
+
+
         <br v-if="!isEmailLoginOpen" />
       </div>
     </div>
@@ -60,6 +86,11 @@ export default {
   name: "LoginSigninComponent",
 
   methods: {
+
+    doSignUp(){
+        this.isNewUser = true;
+    },
+
     doLoginGmail() {
       const authProvider = new AuthGmail();
       authProvider
@@ -102,7 +133,11 @@ export default {
             .then(response => {
               this.$router.push("/view/profile/");
             })
-            .catch(error => {});
+            .catch(error => {
+              console.error('HAY UN HIJUEPUTA ERROR ACA COÑO')
+              console.error(error)
+              this.ERROR_EMAIL = error;
+            });
         }
       }
     },
@@ -135,6 +170,7 @@ export default {
       isNewUser: false,
       isEmailLoginOpen: false,
       title: "INICIO DE SESIÓN",
+      ERROR_EMAIL: '',
       description: DEFAULT_DESCRIPTION
     };
   }
