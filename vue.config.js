@@ -5,8 +5,8 @@ module.exports = {
     configureWebpack: {
         optimization: {
         splitChunks: {
-                minSize: 3501,
-                maxSize: 59900,
+                minSize: 5000,
+                maxSize: 67000,
         }
       }
     }

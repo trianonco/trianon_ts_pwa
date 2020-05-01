@@ -55,7 +55,7 @@
           
           <div
             class="email-login-form-label recovery-password"
-            @click="doSignUp()"
+            @click="doSignUp()" v-if="!isNewUser"
           >¿Crear cuenta?
           </div>
 
