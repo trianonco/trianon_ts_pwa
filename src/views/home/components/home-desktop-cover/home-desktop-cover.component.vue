@@ -5,8 +5,8 @@
       v-bind:class="{ active: UX.isFemaleOpen ,  default : !UX.isFemaleOpen }"
     >
       <v-lazy-image
-        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03.png')"
-        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03-1040X615-BAJA.png')"
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03-v2.png')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03-1040X615-BAJA-v2.png')"
       />
       <img
         src="./../../../../shared/assets/images/desktop-cover/G-C-IZQUIERDA.png"
@@ -40,8 +40,8 @@
     </div>
     <div class="male-category" v-bind:class="{ active: UX.isMaleOpen, default: !UX.isMaleOpen }">
       <v-lazy-image
-        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04.png')"
-        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04-1040X615-BAJA.png')"
+        :src="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04-v2.png')"
+        :src-placeholder="require('./../../../../shared/assets/images/desktop-cover/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04-1040X615-BAJA-v2.png')"
       />
       <img
         src="./../../../../shared/assets/images/desktop-cover/G-C-DERECHO.png"
