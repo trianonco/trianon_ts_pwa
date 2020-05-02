@@ -154,7 +154,7 @@ export default class AdminProductsPageComponent extends Vue {
     );
     const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_COSMETICOS = this.PRODUCTS.filter(
       (product: any) =>
-        product.gender === "DAMA" && product.category === "PORTA COSMÉTICOS"
+        product.gender === "DAMA" && product.category === "PORTA COSMÉTICOS" && product.category === "PORTA COSMETICOS"
     );
     const PRODUCTS_GENDER_DAMA_CATEGORY_PORTA_DOCUMENTOS = this.PRODUCTS.filter(
       (product: any) =>

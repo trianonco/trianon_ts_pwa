@@ -34,7 +34,8 @@ export default class ShopDataBase {
     public async getProductsByGenderAndCategoriesFromFirebase(gender: string, category: string) {
         return new Promise(async (resolve: any, reject: any) => {
             const collection_name = 'PRODUCTS';
-            const document_name = `PRODUCTS_GENDER_${gender.toUpperCase()}_CATEGORY_${category.replace(/\s+/g, '_').toUpperCase()}`;
+            const document_name = `PRODUCTS_GENDER_${gender.toUpperCase()}_CATEGORY_${category.replace(/\s+/g, '_').toUpperCase()}`.replace('COSMÉTICOS','COSMETICOS');
+            console.warn({document_name})
             const collectionRef = this.db.collection(collection_name);
             collectionRef.doc(document_name).get()
                 .then((doc: any) => {
