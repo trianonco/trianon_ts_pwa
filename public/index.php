@@ -54,7 +54,7 @@ $vue_pwa_html_meta_updated = date("Y/m/d g:i:s A")." --- ".rand()." END DATE";
 
 
 
-$vue_pwa_html_template = file_get_contents("index-app-v6.html");
+$vue_pwa_html_template = file_get_contents("index-app-v8.html");
 
 
 $vue_pwa_html_template = str_replace('<title>TRIANON | Productos 100% colombianos</title>', '<title>'.$vue_pwa_html_meta_title.'</title>', $vue_pwa_html_template);
