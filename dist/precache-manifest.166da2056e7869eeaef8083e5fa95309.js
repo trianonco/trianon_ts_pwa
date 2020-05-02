@@ -112,8 +112,8 @@ self.__precacheManifest = [
     "url": "/js/shopProduct~c6fb0b04.82d71d00.js"
   },
   {
-    "revision": "0e565a08c0caeeeff88b",
-    "url": "/js/app~1c84dc9b.6c039a53.js"
+    "revision": "7dae18afe32e8144dc56",
+    "url": "/js/app~1c84dc9b.f62c0cec.js"
   },
   {
     "revision": "6169081c0a518b617e8b",
@@ -148,8 +148,8 @@ self.__precacheManifest = [
     "url": "/js/app~8bf57231.0af58a3c.js"
   },
   {
-    "revision": "4588ec8c01c780f30f99",
-    "url": "/js/app~916756f4.954a902d.js"
+    "revision": "ffb82d64811b54e60d1e",
+    "url": "/js/app~916756f4.da0eb55f.js"
   },
   {
     "revision": "a46733acf1e8c2c7430d",
@@ -296,8 +296,8 @@ self.__precacheManifest = [
     "url": "/js/politics.view~f980149d.5c9b3120.js"
   },
   {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
+    "revision": "2c06d8510807447c42162c50f5f736d6",
+    "url": "/fonts/OpenSansLight-Italic.2c06d851.ttf"
   },
   {
     "revision": "e389f0ebd606e96efbd3",
@@ -316,7 +316,7 @@ self.__precacheManifest = [
     "url": "/css/profile~2df2e4fd.ff8a23e5.css"
   },
   {
-    "revision": "86e2cc9b74b7d3af2bfb53a3c8861a2e",
+    "revision": "43180c3c99f30eb32b4bd8bc8e08e589",
     "url": "/index.html"
   },
   {
@@ -444,10 +444,6 @@ self.__precacheManifest = [
     "url": "/img/product-view-bg-right.2626e217.png"
   },
   {
-    "revision": "26ca86e68e8a6c47e6522f58a0771f0c",
-    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-01-ICC-V2.26ca86e6.png"
-  },
-  {
     "revision": "ab62c52745b626f741e67d97b31f5f4e",
     "url": "/img/sw1_HD.ab62c527.jpg"
   },
@@ -536,12 +532,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.90327f5a.woff"
   },
   {
-    "revision": "cee4f07ed7988e917b69db983549fe65",
-    "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
-  },
-  {
     "revision": "4c7b8237f45b448efb609f5d8e3997a9",
     "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
+  },
+  {
+    "revision": "cee4f07ed7988e917b69db983549fe65",
+    "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
   },
   {
     "revision": "90327f5ac43d0fbc708f3653ffc0a043",
@@ -560,12 +556,16 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Regular.b11f35f7.otf"
   },
   {
-    "revision": "1245824481137ab66a6f540116a569ab",
-    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
-  },
-  {
     "revision": "427dc6119e442413329f5901bab5161d",
     "url": "/fonts/OpenSans-SemiboldItalic.427dc611.eot"
+  },
+  {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
+  },
+  {
+    "revision": "1245824481137ab66a6f540116a569ab",
+    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
   },
   {
     "revision": "b189bbc4e19ebe6d634f",
@@ -574,10 +574,6 @@ self.__precacheManifest = [
   {
     "revision": "ecbfae5924935c60785e9e2a36f8e05f",
     "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
-  },
-  {
-    "revision": "2c06d8510807447c42162c50f5f736d6",
-    "url": "/fonts/OpenSansLight-Italic.2c06d851.ttf"
   },
   {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
@@ -600,44 +596,48 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans_1.10ba07da.ttf"
   },
   {
-    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
-    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
-  },
-  {
     "revision": "55bfb3e43457ec893f128c2d73f76457",
     "url": "/fonts/OpenSans-Bold.55bfb3e4.eot"
   },
   {
-    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
-    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
+    "revision": "0fc8bb5af95997edafd9e975b3eb3ed7",
+    "url": "/fonts/OpenSans-Bold.0fc8bb5a.ttf"
   },
   {
     "revision": "885e3d6f49fb6783494654e69793e802",
     "url": "/fonts/OpenSans.885e3d6f.eot"
   },
   {
-    "revision": "8165c1ec52bb9262b2105edc8032a5db",
-    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
+    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
+    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
   },
   {
-    "revision": "885e3d6f49fb6783494654e69793e802",
-    "url": "/fonts/OpenSans_1.885e3d6f.eot"
+    "revision": "8165c1ec52bb9262b2105edc8032a5db",
+    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
     "revision": "22d4a36b7d366b2b213801c716dfb0b7",
     "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
-    "revision": "e1d396939867c493f06f2bbc071993d9",
-    "url": "/fonts/OpenSans-Light.e1d39693.eot"
+    "revision": "885e3d6f49fb6783494654e69793e802",
+    "url": "/fonts/OpenSans_1.885e3d6f.eot"
+  },
+  {
+    "revision": "5299020bf84d03883fa452ee7478c60f",
+    "url": "/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
     "revision": "27b48950afd77b0e4aaa98981c1b8813",
     "url": "/fonts/TrajanPro-Bold.27b48950.eot"
   },
   {
-    "revision": "5299020bf84d03883fa452ee7478c60f",
-    "url": "/fonts/OpenSans-Light.5299020b.ttf"
+    "revision": "e1d396939867c493f06f2bbc071993d9",
+    "url": "/fonts/OpenSans-Light.e1d39693.eot"
+  },
+  {
+    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
+    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "4036090917114a9f089af14dc8b9dffc",
@@ -646,10 +646,6 @@ self.__precacheManifest = [
   {
     "revision": "14633e007efb0b390d06cd0a30789962",
     "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
-  },
-  {
-    "revision": "e8425e8a393b5d1e7fe417f43e520c54",
-    "url": "/fonts/TrajanPro-Regular.e8425e8a.ttf"
   },
   {
     "revision": "01e54327c725cb883c1148ca422004bc",
@@ -692,6 +688,10 @@ self.__precacheManifest = [
     "url": "/img/bullet-email.ec552eb5.png"
   },
   {
+    "revision": "edf16d5c6c6436927508d29358bd4c8c",
+    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04-1040X615-BAJA.edf16d5c.png"
+  },
+  {
     "revision": "d0e20613f858d59d357709d78106d009",
     "url": "/img/address-bg.d0e20613.jpg"
   },
@@ -704,10 +704,6 @@ self.__precacheManifest = [
     "url": "/img/Recurso 9@4x.920ba5c3.png"
   },
   {
-    "revision": "76a80ea97cd1744972b819b25b5291a9",
-    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-BAJA-02-ICC-V2.76a80ea9.png"
-  },
-  {
     "revision": "2c0fb16d67b381a97243128d0ac72f13",
     "url": "/img/credit-cards2.2c0fb16d.jpg"
   },
@@ -718,10 +714,6 @@ self.__precacheManifest = [
   {
     "revision": "7eb09fad16795c62d29ace821832d47b",
     "url": "/img/product-view-bg-left.7eb09fad.png"
-  },
-  {
-    "revision": "725ae96ecf8c754f9b6040dfa48134ca",
-    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-02-ICC-V2.725ae96e.jpg"
   },
   {
     "revision": "30905ce38825cdd2374f262ff06fcb35",
@@ -740,8 +732,12 @@ self.__precacheManifest = [
     "url": "/img/Recurso 6@4x.2c64455b.png"
   },
   {
-    "revision": "ef2e75cd8fae3f003c032ae330f49fcd",
-    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-ALTA-01-ICC-V2.ef2e75cd.jpg"
+    "revision": "70cd064ce25fb4c160b122d4c0078844",
+    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03-1040X615-BAJA.70cd064c.png"
+  },
+  {
+    "revision": "2d4e7fd5d9dcd7d0334f3b4f16fb2808",
+    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-04.2d4e7fd5.png"
   },
   {
     "revision": "da8f677184fbe2175f0306718786a428",
@@ -750,6 +746,10 @@ self.__precacheManifest = [
   {
     "revision": "0276c390a0a552fc251bd77d6e6e3ec5",
     "url": "/img/bullet-fb.0276c390.png"
+  },
+  {
+    "revision": "93090d817ffab04cc6eee7e0e74f2542",
+    "url": "/img/TRIANON-IMÁGENES-CARRUSEL-COMPUTADOR-03.93090d81.png"
   },
   {
     "revision": "3f8117c799af85197742a3a0e3dee859",
@@ -792,7 +792,7 @@ self.__precacheManifest = [
     "url": "/css/admin~efb1a8cf.15dfbb3a.css"
   },
   {
-    "revision": "0e565a08c0caeeeff88b",
+    "revision": "7dae18afe32e8144dc56",
     "url": "/css/app~1c84dc9b.ab10cd1f.css"
   },
   {
