@@ -178,7 +178,8 @@
                 <input
                   type="number"
                   :class="isInputError('cc')"
-                  autocomplete="on"
+                  autocomplete=""
+                  name="CC_NUMBER"
                   placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
                   v-model="BUY.shipping.cc"
                   style="margin-top:0PX; margin-bottom: 0px"
@@ -192,8 +193,10 @@
                 <div class="card-content-phone">
                   <input
                     type="number"
+                    name="PHONE_NUMBER"
+                    autocomplete=""
                     :class="isInputError('phone')"
-                    placeholder="TU NUMERO CELULAR *"
+                    placeholder="TU NUMERO CELULAR"
                     v-model="BUY.shipping.phone"
                     required
                   />

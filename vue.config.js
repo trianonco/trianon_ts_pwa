@@ -1,6 +1,6 @@
 module.exports = {
     productionSourceMap: false,
-    indexPath: 'index-app-v8.html',
+    indexPath: 'index-app-v0.1.html',
     //publicPath: '/PWA_V2/',
     configureWebpack: {
         optimization: {
