@@ -176,9 +176,9 @@
                 <!-- <span>EN CASO DE QUE OTRA PERSONA RECIBA TU PRODUCTO:</span> -->
 
                 <input
-                  type="number"
+                  type="text"
                   :class="isInputError('cc')"
-                  autocomplete=""
+                  autocomplete="off"
                   name="CC_NUMBER"
                   placeholder="ID/ CEDULA DE CIUDADANÍA/ NIT"
                   v-model="BUY.shipping.cc"
@@ -194,7 +194,7 @@
                   <input
                     type="number"
                     name="PHONE_NUMBER"
-                    autocomplete=""
+                     autocomplete="off"
                     :class="isInputError('phone')"
                     placeholder="TU NUMERO CELULAR"
                     v-model="BUY.shipping.phone"
