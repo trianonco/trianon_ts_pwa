@@ -204,13 +204,20 @@
 
                 <div class="card-content-total-sum">
                   <h3>SUMA TOTAL DE TU COMPRA:</h3>
-                  <h1>{{ getTotalPriceByItem | toCurrency }}</h1>
+                  <h1>{{ (getTotalPriceByItem + 8000) | toCurrency }}</h1>
                 </div>
 
-                <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem > 100000">
+                <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem >= 100000">
                   <h4>TU COMPRA SUPERA LOS $100.000 COP</h4>
                   <h3>ASÍ QUE EL ENVÍO ES GRATIS</h3>
                 </div>
+
+                <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem < 100000">
+                  <h4>TU COMPRA ES INFERIOR A LOS $100.000 COP</h4>
+                  <h3>ASÍ QUE EL COSTO DEL ENVÍO ES $8.000COP</h3>
+                  <h5 style="padding-top: 5px;font-size: 0.95em;">* incluido en  la suma total de tu compra</h5>
+                </div>
+
               </div>
             </form>
 
@@ -360,7 +367,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "TRIANON"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
