@@ -204,7 +204,7 @@
 
                 <div class="card-content-total-sum">
                   <h3>SUMA TOTAL DE TU COMPRA:</h3>
-                  <h1>{{ (getTotalPriceByItem + 8000) | toCurrency }}</h1>
+                  <h1>{{ (getTotalPriceByItemWithShipping) | toCurrency }}</h1>
                 </div>
 
                 <div class="card-content-if-free-shipping" v-if="getTotalPriceByItem >= 100000">
@@ -367,7 +367,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "TRIANON"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
@@ -658,6 +658,10 @@ export default {
           return valorAnterior + valorActual;
         });
       return this.BUY.meta.total;
+    },
+
+    getTotalPriceByItemWithShipping(){
+      return this.getTotalPriceByItem < 100000 ? this.getTotalPriceByItem + 8000 : this.getTotalPriceByItem 
     }
   }
 };
