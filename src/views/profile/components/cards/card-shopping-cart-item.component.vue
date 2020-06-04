@@ -367,7 +367,7 @@ export default {
     console.warn(" ------------------------------------------ ");
     console.warn("");
 
-    const envPayName = "TEST"; // JORGE_MAYORGA o TEST o TRIANON
+    const envPayName = "TRIANON"; // JORGE_MAYORGA o TEST o TRIANON
     const envPayOptions = this.PAYU_OPTIONS[envPayName];
     this.PAYU = envPayOptions;
 
