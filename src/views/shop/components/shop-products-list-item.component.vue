@@ -13,7 +13,7 @@
       />
 
       <h2 class="price">
-         <ui-price-tag :price="product.price_cop" :discount="product.discount"></ui-price-tag>
+         <ui-price-tag :price="getPrice(product)" :discount="product.discount"></ui-price-tag>
       </h2>
 
       <h2 class="name">{{ product.description }} {{ product.line }}</h2>
@@ -25,9 +25,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { getPrice } from './../../../shared/helpers/priceNoIVA.helper'
 import UIFloatingDiscountComponent from "../../../shared/components/labels/ui-floating-discount.vue";
 import UIPriceTagComponent from "../../../shared/components/labels/ui-price-tag.vue";
 import VLazyImage from "v-lazy-image";
+
 
 
 @Component({
@@ -38,6 +40,7 @@ import VLazyImage from "v-lazy-image";
    }
 })
 export default class ShopProductsListItemComponent extends Vue {
+  
   @Prop()
   product!: any;
 
@@ -48,6 +51,11 @@ export default class ShopProductsListItemComponent extends Vue {
   private photo_hd_src: string = "";
   private photo_thumb_src: string = "";
   private product_code: string = "";
+
+    
+  public getPrice(product: any){
+    return getPrice(product);
+  }
 
   private getProducsListItemClass() {
     if (this.isPhotoOnStock) {

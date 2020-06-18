@@ -9,7 +9,7 @@
       <div class="view-wrapper-frame">
         <div class="view-wrapper-frame-content mobile" v-if="isProductLoaded">
           <ProductSwiperComponent :discount="productDiscount" :photos="productPhotos" :slideIndex="productSlideIndex"></ProductSwiperComponent>
-          <ProductPriceComponent :price="productPrice" :discount="productDiscount"></ProductPriceComponent>
+          <ProductPriceComponent :price="getPrice(productObj)" :discount="productDiscount"></ProductPriceComponent>
           <ProductDescriptionComponent :description="productDescription" :color="productColor"></ProductDescriptionComponent>
           <ProductPhotosComponent :photos="productPhotos" @goToSwiperSlide="goToSwiperSlide"></ProductPhotosComponent>
           <ProductBuyButtonComponent :product="productObj" :size="selectedByDropdownSize" :hasChoosenSize="hasSelectedSize" @showModalSizeError="showSizeModal"></ProductBuyButtonComponent>
@@ -26,7 +26,7 @@
             </h1>
 
             <h2>
-              <span>{{ (parseFloat(productObj.price_cop )*(1 - 0.01*parseFloat(productDiscount || 0))) | toCurrency}} </span>
+              <span>{{ (parseFloat( getPrice(productObj) )*(1 - 0.01*parseFloat(productDiscount || 0))) | toCurrency}} </span>
               <span v-if="productDiscount != 0" style=" color: #a6a6a6;
     text-decoration: line-through;
     font-size: 20px;">{{ (parseFloat(productObj.price_cop )) | toCurrency }}</span>
@@ -155,6 +155,7 @@ import IShopProduct from "./../../shared/models/IShopProduct.model";
 import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
 
 import ApiDataBase from "./../../shared/database/index";
+import { getPrice } from '../../shared/helpers/priceNoIVA.helper';
 
 @Component({
   components: {
@@ -274,6 +275,10 @@ export default class ProductView extends Vue {
     this.db = this.apiDB.getDatabase();
   }
 
+  public getPrice(product: any) {
+    return getPrice(product);
+  }
+
   private isCinturon(productObj: any) {
     return productObj && productObj.height.slice(0, 1) === "T";
   }
@@ -289,7 +294,7 @@ export default class ProductView extends Vue {
 
     setTimeout(() => {
       this.isShowModalSize = false;
-    }, 6000)
+    }, 5000)
    
   }
 

@@ -30,7 +30,7 @@
     <div class="card-content" v-if="UX.isCardOpen">
       <div class="card-content-title">
         <h1>ESTADO : PROCESO DE COMPRA</h1>
-        <h2>PRECIO : {{ parseFloat(item.price_cop)*(1 - 0.01*parseFloat(item.discount)) | toCurrency }}</h2>
+        <h2>PRECIO : {{ parseFloat(getPrice(item))*(1 - 0.01*parseFloat(item.discount)) | toCurrency }}</h2>
       </div>
 
       <div class="cols">
@@ -222,8 +222,13 @@
             </form>
 
             <div v-if="isLast" class="card-content-payment">
-              <h1>SELECCIONA UN METODO DE PAGO:</h1>
-
+              <br>
+              <br>
+              <br>
+              <h1> SELECCIONA UN METODO DE PAGO:</h1>
+            
+              <br>
+              <br>
               <form ref="payU_Form" method="post" :action="PAYU.url">
                 <img
                   class="credit-cards-mobile"
@@ -271,6 +276,7 @@
 <script>
 import VLazyImage from "v-lazy-image";
 import firebase from "firebase/app";
+import { getPrice } from '../../../../shared/helpers/priceNoIVA.helper';
 var md5 = require("md5");
 
 export default {
@@ -446,15 +452,19 @@ export default {
     getPayCurrency() {
       return "COP";
     },
+
+
     getPayTaxReturnBase() {
       if (
         this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"]
       ) {
         const price = 12000;
-        return (price * (1 - 0.19)).toFixed(2);
+        //return (price * (1 - 0.19)).toFixed(2);
+        return 0;
       } else {
         const price =  parseFloat(this.BUY.billing.total_price);
-        return (price * (1 - 0.19)).toFixed(2);
+        //return (price * (1 - 0.19)).toFixed(2);
+        return 0;
       }
     },
     getPayTax() {
@@ -462,10 +472,12 @@ export default {
         this.PAYU === this.PAYU_OPTIONS["JORGE_MAYORGA"]
       ) {
         const price = 12000;
-        return (price * 0.19).toFixed(2);
+        //return (price * 0.19).toFixed(2);
+        return 0;
       } else {
         const price = parseFloat(this.BUY.billing.total_price);
-        return (price * 0.19).toFixed(2);
+        //return (price * 0.19).toFixed(2);
+        return 0;
       }
     },
     getPayAmount() {
@@ -475,7 +487,7 @@ export default {
         const price = 12000;
         return price.toFixed(2);
       } else {
-        const price = parseFloat(this.BUY.billing.total_price);
+        const price = parseFloat(this.BUY.billing.total_price + '');
         return price.toFixed(2);
       }
     },
@@ -541,7 +553,7 @@ export default {
         this.BUY.products.map((product) => {
           const productsSameRef = this.$store.state.shoppingCartModule.products.filter(cartProduct => cartProduct.ref === product.ref );
           product["quantity"] = productsSameRef.length;
-          product["subtotal"] = product["quantity"] * product.price_cop*(1 - 0.01*(product.discount));
+          product["subtotal"] = product["quantity"] * getPrice(product)*(1 - 0.01*(product.discount));
         })
 
         this.BUY.billing.subtotal_price = parseFloat(
@@ -575,6 +587,10 @@ export default {
       }
     },
 
+
+getPrice(product){
+  return getPrice(product);
+},
     isInputError(field) {
 
       if(field == 'phone'){
@@ -653,7 +669,7 @@ export default {
     getTotalPriceByItem() {
       this.BUY.meta.items = this.getProductsInShoppingCart.length;
       this.BUY.meta.total = this.getProductsInShoppingCart
-        .map(item => item.price_cop*(1 - 0.01*parseFloat(item.discount || 0)))
+        .map(item => getPrice(item)*(1 - 0.01*parseFloat(item.discount || 0)))
         .reduce(function(valorAnterior, valorActual) {
           return valorAnterior + valorActual;
         });

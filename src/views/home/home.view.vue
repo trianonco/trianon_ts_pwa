@@ -3,6 +3,10 @@
     <LoaderComponent @isLoaded="isLoaded = true" />
     <div class="view-wrapper">
       <HeaderComponent :theme="headerTheme" />
+
+      <img class="covid-banner mobile" src="../../shared/assets/images/BANNER3.png">
+      <img class="covid-banner desktop" src="../../shared/assets/images/overlapImage-2.png">
+
       <HomeSwiperComponent></HomeSwiperComponent>
       <HomeDekstopCoverComponent></HomeDekstopCoverComponent>
       <HomeDesktopProductsSwiperComponent></HomeDesktopProductsSwiperComponent>
@@ -155,5 +159,24 @@ div.cover {
   img {
     width: 100%;
   }
+}
+
+.covid-banner.desktop{
+  width: 100%;
+  display: none;
+}
+.covid-banner.mobile{
+  width: 100%;
+  display: block;
+}
+@media only screen and (max-width: 600px) {
+  .covid-banner.desktop{
+  width: 100%;
+   display: block;
+}
+.covid-banner.mobile{
+  width: 100%;
+  display: none;
+}
 }
 </style>  

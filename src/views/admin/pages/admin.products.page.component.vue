@@ -347,8 +347,8 @@ export default class AdminProductsPageComponent extends Vue {
       "PAPELERA",
       "MALETIN"
     ];
-    const WORDS_CINTURONES = ["CINTURONES"];
-    const WORDS_LLAVEROS = ["LLAVERO", "LLAVEROS"];
+    const WORDS_CINTURONES = ["CINTURONES"]; // SI IVA
+    const WORDS_LLAVEROS = ["LLAVERO", "LLAVEROS"]; // SI IVA
     const WORDS_MONEDEROS_Y_TARJETEROS = ["MONEDERO", "TARJETERO", "MONEDAS"];
     const WORDS_PORTA_BILLETES = [
       "PORTA BILLETES",
