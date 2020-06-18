@@ -50,8 +50,13 @@
     </div>
     <div class="header-title">
       <h1 v-if="hasTitle()">LO MEJOR DE LA MARROQUINERÍA</h1>
+      <!--
       <h2>
         solidarios ante la situación sanitaria sobre el coronavirus covid-19 y en apoyo a nuestros colaboradores, los envíos de las compras mediante la página web, se realizarán a partir del 27 de abril de 2020.
+      </h2>
+      -->
+      <h2>
+        TRIANON CUIDA DE TÍ, CUIDA DE TODOS.
       </h2>
       <!-- <h1 v-if="hasTitle()">100% COLOMBIANO</h1> -->
     </div>
