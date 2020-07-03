@@ -4,10 +4,9 @@
     <div class="view-wrapper">
       <HeaderComponent :theme="headerTheme" />
 
-<!--
       <img class="covid-banner mobile" src="../../shared/assets/images/BANNER3.png">
       <img class="covid-banner desktop" src="../../shared/assets/images/overlapImage-2.png">
--->
+
       <HomeSwiperComponent></HomeSwiperComponent>
       <HomeDekstopCoverComponent></HomeDekstopCoverComponent>
       <HomeDesktopProductsSwiperComponent></HomeDesktopProductsSwiperComponent>
