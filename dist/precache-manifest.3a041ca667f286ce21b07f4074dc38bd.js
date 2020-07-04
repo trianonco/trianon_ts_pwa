@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "1245824481137ab66a6f540116a569ab",
-    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
+    "revision": "ecbfae5924935c60785e9e2a36f8e05f",
+    "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
   },
   {
     "revision": "bfe0522711522156ef72c996805bfcb4",
     "url": "/maintain.html"
   },
   {
-    "revision": "735ab4f94fbcd57074377afca324c813",
-    "url": "/robots.txt"
-  },
-  {
     "revision": "dadb3ed10943a11cf84bcb2717d29e0c",
     "url": "/redirect.html"
+  },
+  {
+    "revision": "735ab4f94fbcd57074377afca324c813",
+    "url": "/robots.txt"
   },
   {
     "revision": "10ba07da64cc6a490da4ac3af4dd238b",
@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/js/admin~748942c6.5fc19e94.js"
   },
   {
-    "revision": "5a774dabb27ccf27c0ad",
+    "revision": "0ad1f26d643ef5440d00",
     "url": "/css/app~d0ae3f07.577e7592.css"
   },
   {
-    "revision": "5a774dabb27ccf27c0ad",
-    "url": "/js/app~d0ae3f07.feabf7b5.js"
+    "revision": "0ad1f26d643ef5440d00",
+    "url": "/js/app~d0ae3f07.f1824be5.js"
   },
   {
     "revision": "2bce87a7dfc6eb9b6ecf",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "/js/politics.view~31ecd969.5c9dc652.js"
   },
   {
-    "revision": "08580e8f95523ce2180a",
+    "revision": "6610c78586b21962b810",
     "url": "/css/profile~31ecd969.9dfae4d4.css"
   },
   {
-    "revision": "08580e8f95523ce2180a",
-    "url": "/js/profile~31ecd969.e49ea789.js"
+    "revision": "6610c78586b21962b810",
+    "url": "/js/profile~31ecd969.9e793eb5.js"
   },
   {
     "revision": "e969dc2699e2b387d56e",
@@ -88,20 +88,20 @@ self.__precacheManifest = [
     "url": "/js/safe.view~31ecd969.4e8d357c.js"
   },
   {
-    "revision": "78c88500878d2d36c218",
+    "revision": "e9692578c8c4b9c09492",
     "url": "/css/shopProduct~31ecd969.5b832c84.css"
   },
   {
-    "revision": "78c88500878d2d36c218",
-    "url": "/js/shopProduct~31ecd969.1a0243b7.js"
+    "revision": "e9692578c8c4b9c09492",
+    "url": "/js/shopProduct~31ecd969.bc40ae65.js"
   },
   {
-    "revision": "518a7f1af93acfd860c6",
+    "revision": "b3fcc6238e077fb09c2b",
     "url": "/css/shop~31ecd969.d796e408.css"
   },
   {
-    "revision": "518a7f1af93acfd860c6",
-    "url": "/js/shop~31ecd969.9300a862.js"
+    "revision": "b3fcc6238e077fb09c2b",
+    "url": "/js/shop~31ecd969.81b3477d.js"
   },
   {
     "revision": "310534e40fd53af510b3",
@@ -120,12 +120,12 @@ self.__precacheManifest = [
     "url": "/js/terms.view~31ecd969.9624356a.js"
   },
   {
-    "revision": "b30889f991656f695c540ec37bb970ee",
-    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
-  },
-  {
     "revision": "70ca29858f72c41622469b8d4d57fd23",
     "url": "/img/free-shipping-bg.70ca2985.jpg"
+  },
+  {
+    "revision": "b30889f991656f695c540ec37bb970ee",
+    "url": "/img/free-shipping-bg-desktop_Mesa de trabajo 1.b30889f9.jpg"
   },
   {
     "revision": "224567239257f8a6bf7cc70c12f0c184",
@@ -192,10 +192,6 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-SemiboldItalic.37baa26c.woff2"
   },
   {
-    "revision": "807c4e98897a908ae67063a7201f0c75",
-    "url": "/fonts/OpenSans-Bold.807c4e98.woff2"
-  },
-  {
     "revision": "5ef05461d1158f05fa25662bbd968005",
     "url": "/fonts/OpenSans.5ef05461.woff2"
   },
@@ -208,12 +204,16 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Semibold.b6a93c57.woff2"
   },
   {
-    "revision": "5ef05461d1158f05fa25662bbd968005",
-    "url": "/fonts/OpenSans_1.5ef05461.woff2"
+    "revision": "807c4e98897a908ae67063a7201f0c75",
+    "url": "/fonts/OpenSans-Bold.807c4e98.woff2"
   },
   {
     "revision": "b55272c8d5196c7dc77cb39f95cdba9d",
     "url": "/fonts/OpenSans-Light.b55272c8.woff2"
+  },
+  {
+    "revision": "5ef05461d1158f05fa25662bbd968005",
+    "url": "/fonts/OpenSans_1.5ef05461.woff2"
   },
   {
     "revision": "b12afbdbd6b6049d3772777bb9750460",
@@ -244,12 +244,12 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.90327f5a.woff"
   },
   {
-    "revision": "4c7b8237f45b448efb609f5d8e3997a9",
-    "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
-  },
-  {
     "revision": "cee4f07ed7988e917b69db983549fe65",
     "url": "/fonts/OpenSans-Extrabold.cee4f07e.woff"
+  },
+  {
+    "revision": "4c7b8237f45b448efb609f5d8e3997a9",
+    "url": "/fonts/OpenSans-Semibold.4c7b8237.woff"
   },
   {
     "revision": "90327f5ac43d0fbc708f3653ffc0a043",
@@ -268,16 +268,12 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Regular.b11f35f7.otf"
   },
   {
-    "revision": "ecbfae5924935c60785e9e2a36f8e05f",
-    "url": "/fonts/OpenSansLight-Italic.ecbfae59.eot"
-  },
-  {
-    "revision": "f42a8498d930df4e0d764a8c67b18fed",
-    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
-  },
-  {
     "revision": "427dc6119e442413329f5901bab5161d",
     "url": "/fonts/OpenSans-SemiboldItalic.427dc611.eot"
+  },
+  {
+    "revision": "1245824481137ab66a6f540116a569ab",
+    "url": "/fonts/OpenSans-BoldItalic.12458244.eot"
   },
   {
     "revision": "82895cef8355016ada50",
@@ -294,6 +290,10 @@ self.__precacheManifest = [
   {
     "revision": "be95e66a21b26c932482f3db7b84b410",
     "url": "/fonts/OpenSans-Italic.be95e66a.eot"
+  },
+  {
+    "revision": "f42a8498d930df4e0d764a8c67b18fed",
+    "url": "/fonts/OpenSans-SemiboldItalic.f42a8498.ttf"
   },
   {
     "revision": "58e9b403dbc8d7ef0b39e11ada61889c",
@@ -320,20 +320,16 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans.885e3d6f.eot"
   },
   {
-    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
-    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
+    "revision": "8165c1ec52bb9262b2105edc8032a5db",
+    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
   },
   {
     "revision": "22d4a36b7d366b2b213801c716dfb0b7",
     "url": "/fonts/OpenSans-Semibold.22d4a36b.ttf"
   },
   {
-    "revision": "8165c1ec52bb9262b2105edc8032a5db",
-    "url": "/fonts/OpenSans-Semibold.8165c1ec.eot"
-  },
-  {
-    "revision": "885e3d6f49fb6783494654e69793e802",
-    "url": "/fonts/OpenSans_1.885e3d6f.eot"
+    "revision": "fa25da4ad6b2e2e9484c771d7943deb1",
+    "url": "/fonts/OpenSans-Extrabold.fa25da4a.eot"
   },
   {
     "revision": "e1d396939867c493f06f2bbc071993d9",
@@ -344,6 +340,10 @@ self.__precacheManifest = [
     "url": "/fonts/OpenSans-Light.5299020b.ttf"
   },
   {
+    "revision": "4036090917114a9f089af14dc8b9dffc",
+    "url": "/fonts/TrajanPro-Regular.40360909.eot"
+  },
+  {
     "revision": "14633e007efb0b390d06cd0a30789962",
     "url": "/fonts/TrajanPro-Bold.14633e00.ttf"
   },
@@ -352,8 +352,8 @@ self.__precacheManifest = [
     "url": "/fonts/TrajanPro-Bold.27b48950.eot"
   },
   {
-    "revision": "4036090917114a9f089af14dc8b9dffc",
-    "url": "/fonts/TrajanPro-Regular.40360909.eot"
+    "revision": "885e3d6f49fb6783494654e69793e802",
+    "url": "/fonts/OpenSans_1.885e3d6f.eot"
   },
   {
     "revision": "e8425e8a393b5d1e7fe417f43e520c54",
@@ -432,10 +432,6 @@ self.__precacheManifest = [
     "url": "/img/product-view-bg-left.7eb09fad.png"
   },
   {
-    "revision": "5d47e20ae3b3d1a7d128e5a00c9d44b7",
-    "url": "/img/BANNER3.5d47e20a.png"
-  },
-  {
     "revision": "30905ce38825cdd2374f262ff06fcb35",
     "url": "/img/Recurso 12@4x.30905ce3.png"
   },
@@ -478,10 +474,6 @@ self.__precacheManifest = [
   {
     "revision": "181530c467a7e4046648e5fe3544413f",
     "url": "/img/s0-yellow.181530c4.png"
-  },
-  {
-    "revision": "3dca1cc85174f54b8212b20e90faa6df",
-    "url": "/img/overlapImage-2.3dca1cc8.png"
   },
   {
     "revision": "cf948e58d29d737ac4662c1b1c8dba45",
@@ -536,7 +528,7 @@ self.__precacheManifest = [
     "url": "/img/sw3_HD.def58d3a.jpg"
   },
   {
-    "revision": "3cc9af1bb698ffdf66afb56ea133a540",
+    "revision": "3a711e58dfb8dcca00184942fff19090",
     "url": "/index.html"
   },
   {
