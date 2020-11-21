@@ -5,8 +5,8 @@
       <HeaderComponent :theme="headerTheme" />
 
 
-      <img class="covid-banner mobile" src="../../shared/assets/images/Sintutulo3.png">
-      <img class="covid-banner desktop" src="../../shared/assets/images/Sintutulo4.png">
+      <img class="covid-banner mobile" src="../../shared/assets/images/iva.jpg">
+      <img class="covid-banner desktop" src="../../shared/assets/images/iva.jpg">
 
       <HomeSwiperComponent></HomeSwiperComponent>
       <HomeDekstopCoverComponent></HomeDekstopCoverComponent>
