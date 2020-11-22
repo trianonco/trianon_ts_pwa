@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './shared/routes/index.routes'
 import store from './shared/store/store'
-import './registerServiceWorker'
+//import './registerServiceWorker'
 
 import { config } from "./shared/database/firebase.config";
 import firebase from "firebase/app";
@@ -13,6 +13,7 @@ import "firebase/functions";
 import "firebase/storage";
 // Init Vendors & Services //
 firebase.initializeApp(config);
+
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
@@ -31,6 +32,28 @@ Vue.use(VueGeolocation);
 
 import VueAnalytics from "vue-analytics";
 Vue.use(VueAnalytics, { id: "UA-138600827-1" });
+
+import VueFacebookPixel from 'vue-analytics-facebook-pixel'
+Vue.use(VueFacebookPixel);
+
+import * as VueGoogleMaps from 'vue2-google-maps';
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyDIwlZ8kuzsE9T0_1OMhN6GoeQYXT7pvus',
+    libraries: 'places',
+    // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+
+    //// If you want to set the version, you can do so:
+    // v: '3.26',
+  }
+});
+
+
+import Meta from 'vue-meta';
+Vue.use(Meta);
 
 
 
@@ -62,6 +85,13 @@ Vue.filter('toCurrency', function (value: any) {
   });
   return formatter.format(value);
 });
+
+
+const FACEBOOK_CODE = '984344015003425';
+const FACEBOOK_EMAIL = 'trianonoficial@gmail.com';
+(Vue as any).analytics.fbq.init(FACEBOOK_CODE, {
+  em: FACEBOOK_EMAIL
+})
 
 
 new Vue({

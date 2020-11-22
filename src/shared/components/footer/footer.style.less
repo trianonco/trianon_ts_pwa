@@ -1,7 +1,7 @@
 @import (reference) "./../../styles/index.less";
 
-#constructor-footer{
-      display: block;
+#constructor-footer {
+  display: block;
   width: 100%;
   height: @10pm;
   margin: 0 auto;
@@ -12,6 +12,7 @@
 
   background-color: @color-black;
   color: @color-white;
+
   &-title {
     h2 {
       #Font-OpenSans("normal");
@@ -26,6 +27,7 @@
     display: block;
     width: 100%;
     margin: 0 auto;
+
     img {
       display: block;
       width: 100%;
@@ -34,9 +36,11 @@
       box-sizing: border-box;
     }
   }
+
   &-networks {
     #Flex-Row-Center-Center();
   }
+
   &-network {
     display: block;
     width: @3pm + 4px;
@@ -49,6 +53,56 @@
       box-sizing: content-box;
       display: block;
       width: 100%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    height: 225px;
+
+
+    .footer-logo img {
+      width: 150%;
+      position: relative;
+      left: -25%;
+      top: -0px;
+      z-index: -1000;
+    }
+
+    .footer .footer-copy {
+      display: block;
+    }
+
+    &-title {
+      h2 {
+        #Font-OpenSans("normal");
+        font-weight: 300;
+        font-size: 16px;
+        padding: @1pm;
+        padding-top: 2em;
+        letter-spacing: 2px;
+      }
+    }
+
+    &-networks {
+      z-index: 100;
+    }
+
+    &-network {
+      padding: 0.5em 1em;
+      padding-top: 2em;
+      font-family: 'TrajanPro';
+
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+
+
+      img {
+        width: 80%;
+
+      }
     }
   }
 }

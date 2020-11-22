@@ -11,9 +11,15 @@ export const PROFILE_ROUTES = [
                     next();
                 })
                 .catch(() => {
-                    next("/");
+                    next("/view/signin");
                 });
         }
+
+    },
+    {
+        path: "/view/edit-profile",
+        name: "edit-profile",
+        component: () => import(/* webpackChunkName: "profile" */ "./../../views/profile/edit-profile.view.vue"),
 
     }
 ];

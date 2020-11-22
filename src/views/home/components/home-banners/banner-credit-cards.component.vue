@@ -1,12 +1,24 @@
 <template>
-  <div class="banner credit cards">
-    <h2>MÉTODOS DE PAGO</h2>
-    <div class="credit-cards">
-      <img src="../../../../shared/assets/images/banners/credit-card-mc.png">
-      <img src="../../../../shared/assets/images/banners/credit-card-visa.png">
-      <img src="../../../../shared/assets/images/banners/credit-card-amex.png">
+  <div>
+    <div class="banner mobile credit cards">
+      <h2>MÉTODOS DE PAGO</h2>
+      <div class="credit-cards">
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/credit-card-mc.png"
+        >
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/credit-card-visa.png"
+        >
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/credit-card-amex.png"
+        >
+      </div>
+      <p>Realiza tus pagos a través de trajeta de credito, debito automatico (PSE) ó efectivo por medio de Efecty</p>
     </div>
-    <p>Realiza tus pagos a través de trajeta de credito, debito automatico (PSE) ó efectivo por medio de Efecty</p>
+  
   </div>
 </template>
 
@@ -26,6 +38,12 @@ export default {
   padding: 1em;
   box-sizing: border-box;
   background-color: white;
+  &.mobile {
+    display: block;
+  }
+  &.desktop {
+    display: none;
+  }
   #Font-OpenSans();
   h2 {
     text-align: center;
@@ -60,6 +78,20 @@ export default {
     color: gray;
     line-height: 20px;
     font-size: 11px;
+  }
+}
+
+@media (min-width: 600px) {
+  .banner.credit.cards {
+    &.mobile {
+      display: none;
+    }
+    &.desktop {
+      display: block;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

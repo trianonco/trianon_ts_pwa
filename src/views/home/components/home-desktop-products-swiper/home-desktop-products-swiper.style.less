@@ -1,0 +1,113 @@
+#constructor-desktop-products-swiper() {
+
+
+    .swiper-button-prev {
+        -webkit-filter: grayscale(100%);
+        /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+
+    }
+
+    .swiper-button-next {
+        -webkit-filter: grayscale(100%);
+        /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+    }
+
+
+    div.home-desktop-products-swiper {
+
+
+        display: block;
+        padding: 0em 0em;
+        height: auto;
+        display: block;
+        width: ~"calc(100% - 0em)";
+        margin: 0 auto;
+        box-sizing: border-box;
+        border-bottom: 1px solid gray;
+
+
+
+        .swiper-button-prev {}
+
+        .swiper-button-next {}
+
+        .swiper-slide {
+            div.product-card {
+                display: block;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 1em 0em;
+
+
+                .wrapper {
+                    display: block;
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 0em;
+                    border: 1px solid gray;
+                }
+
+                .info {
+                    background-color: gray;
+                    color: white;
+                    padding: 1em 0.5em;
+                    font-size: 12px;
+                    font-family: 'TrajanPro';
+                }
+
+                img {
+                    width: 100%;
+                    height: 15vw;
+                    padding: 1em;
+
+                    object-fit: contain;
+                    object-position: center;
+                    display: block;
+                    box-sizing: border-box;
+                }
+            }
+
+            &:first-child {
+                padding-left: 0em;
+            }
+
+            &:last-child {
+                padding-right: 0em;
+            }
+        }
+
+
+
+
+        .swiper-container {
+            width: ~"calc(100% - 30px)";
+            height: 100%;
+
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+    }
+
+
+
+}

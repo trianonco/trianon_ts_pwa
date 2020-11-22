@@ -6,13 +6,19 @@
     <div class="footer-networks">
       <div class="footer-network" v-for="icon in icons" v-bind:key="icon.id">
         <a :href="icon.url" target="_blank">
-          <img :src="icon.src" :alt="icon.alt">
+          <img :src="icon.src" :alt="icon.alt" />
         </a>
       </div>
     </div>
     <div class="footer-logo">
-      <img src="./../../assets/images/footers/bull.png" class alt>
+      <img class="mobile" alt="TrianonCo Image" src="./../../assets/images/footers/bull.png" />
+      <img
+        class="desktop"
+        alt="TrianonCo Image"
+        src="./../../assets/images/footers/G-C-LÍNEA-TORO-V1.png"
+      />
     </div>
+    <div class="footer-copy desktop">© {{currentYear}} TRIANON S.A.S TODOS LOS DERECHOS RESERVADOS.</div>
   </footer>
 </template>
 
@@ -21,6 +27,7 @@ export default {
   name: "FooterComponent",
   data() {
     return {
+      currentYear: new Date().getFullYear(),
       icons: [
         {
           id: 0,
@@ -58,5 +65,52 @@ export default {
 .footer {
   #constructor-footer();
   text-align: center;
+  .footer-logo {
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
+  }
+
+  .footer-copy {
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    .footer-logo {
+      .mobile {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
+    }
+
+    .footer-copy {
+      background-color: #3f3e3d;
+      display: block;
+      margin-top: -0em;
+      padding: 1em;
+      letter-spacing: 1px;
+      font-size: 12px;
+      font-family: "Open Sans";
+      color: #9d9d9c;
+
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  div.view.profile {
+    .footer {
+      position: relative;
+      bottom: 0px;
+    }
+  }
 }
 </style>

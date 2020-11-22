@@ -1,6 +1,20 @@
 <template>
   <div class="product price">
-  <div class="price" v-if="price">{{ parseFloat(price) | toCurrency }}</div>
+
+      
+      <div class="price" v-if="price && discount == 0">{{ parseFloat(price) | toCurrency }}</div>
+      
+      
+      <div class="price" v-if="price && (discount && discount!= 0)">
+
+        {{ (parseFloat(price)*(1 - 0.01*parseFloat(discount || 0))) | toCurrency}} 
+        <br>
+        <div v-if="price && discount != 0"  style="color: #a6a6a6;text-decoration: line-through;font-size: 20px;">
+          {{ parseFloat(price) | toCurrency}}
+        </div>
+
+      </div>
+     
   </div>
 </template>
 
@@ -16,6 +30,8 @@ import VLazyImage from "v-lazy-image";
 export default class ProductHeaderComponent extends Vue {
   @Prop()
  price!: number;
+  @Prop()
+ discount!: number;
   private mounted() {}
 }
 </script>

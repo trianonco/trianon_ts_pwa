@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar-and-chat">
     <div class="search-bar" @click="openSearchResults()">
-      <img src="../../../../shared/assets/images/search/lupa-icon.png">
+      <img alt="TrianonCo Image" src="../../../../shared/assets/images/search/lupa-icon.png">
       <input type="text" placeholder="BUSCAR" v-model="searchKeyword">
     </div>
 
@@ -10,7 +10,10 @@
       <ul>
         <li v-for="item of results" v-bind:key="item.id">
           <div v-if="isItemOnSearch(item)">
-            <img src="../../../../shared/assets/images/gender-categories/bullet-gray.png">
+            <img
+              alt="TrianonCo Image"
+              src="../../../../shared/assets/images/gender-categories/bullet-gray.png"
+            >
             <h5>{{ item.description }}</h5>
           </div>
         </li>
@@ -213,6 +216,12 @@ export default {
     letter-spacing: 0.1em;
     width: ~"calc(100% - 6.5em)";
     #Font-TrajanPro();
+  }
+}
+
+@media (min-width: 600px) {
+  .search-bar-and-chat {
+    display: none;
   }
 }
 </style>

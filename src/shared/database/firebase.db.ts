@@ -26,6 +26,32 @@ export default class FirebaseDB {
         });
     }
 
+
+
+
+    public getUserFromDB(email: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            console.warn('email ==> ' + email)
+            this.db.collection("USERS").where("email", "==", email).get()
+                .then((user_querySnapshot: any) => {
+                    this.db.collection("SHOPPING_HISTORY").where("email", "==", email).get()
+                        .then((inprocess_querySnapshot: any) => {
+                            const user = user_querySnapshot.docs[0].data();
+                            const inProcess = inprocess_querySnapshot.docs.map((doc: any) => doc.data());
+                            user['inProcessCart'] = inProcess;
+                            console.error('')
+                            console.error({
+                                user: user
+                            })
+                            console.error('')
+                            resolve(user);
+                        }).catch((error: any) => reject(error));
+                }).catch((error: any) => reject(error));
+        });
+    }
+
+
+
     public getHomeSwiperSlides(): Promise<any[]> {
         return new Promise((resolve) => {
             this.db.collection("HOME_SETTINGS").where("code", "==", "home_swiper_slides").get().then((querySnapshot: any) => {
@@ -125,6 +151,56 @@ export default class FirebaseDB {
         });
 
 
+    }
+
+
+
+
+    public getAuthorizedDistributors(): Promise<any> {
+        return new Promise((resolve) => {
+            this.db.collection("AUTHORIZED_DISTRIBUTORS").where("code", "==", "PLACES").get().then((querySnapshot: any) => {
+                resolve(querySnapshot.docs[0].data().PLACES);
+            });
+        });
+    }
+
+    public setAuthorizedDistributors(places: any[]): Promise<any> {
+        return new Promise((resolve) => {
+            this.db.collection("AUTHORIZED_DISTRIBUTORS").doc("wH9jN7gQ631j0Z1xq2AP").set({
+                name: "Los Angeles",
+                state: "CA",
+                country: "USA"
+            }).then(function () {
+                console.log("Document successfully written!");
+            }).catch(function (error: any) {
+                console.error("Error writing document: ", error);
+            });
+
+        });
+    }
+
+
+    public setShoppingCartProducts(shoppingCarProducts: any[]): Promise<any> {
+        return new Promise((resolve) => {
+            const user = JSON.parse(localStorage.getItem("user") || '{}');
+            const email = user.email || '';
+            if (email) {
+                this.db.collection("USERS").doc(email).update({
+                    shoppingCart: shoppingCarProducts
+                }).then(function () {
+                    console.log("Document successfully written!");
+                    resolve('OK')
+                }).catch(function (error: any) {
+
+                    console.error("Error writing document: ", error);
+                    resolve('ERROR FROM FIRESTORE')
+                });
+            } else {
+                resolve('ERROR!!! NO EMAIL IN LOCALSTORGAE')
+            }
+
+
+        });
     }
 
 

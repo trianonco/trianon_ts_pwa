@@ -10,7 +10,7 @@
       src="../../../shared/assets/images/gender-categories/female-bg.png"
       v-if="gender==='DAMA'"
     >
-    <h1>{{ description }}</h1>
+    <h1> {{ description }}</h1>
     <img
       class="last"
       src="../../../shared/assets/images/gender-categories/male-bg.png"
@@ -51,6 +51,8 @@ div.products-banner {
 
   h1 {
     #Font-TrajanPro();
+    transform: scaleY(0.8);
+    letter-spacing: 1px;
   }
 
   #Flex-Row-Extremes();
@@ -76,6 +78,13 @@ div.products-banner {
       filter: FlipH;
       -ms-filter: "FlipH";
     }
+  }
+}
+
+@media (min-width: 600px) {
+  div.products-banner {
+    background-color: white;
+    color: black;
   }
 }
 </style>

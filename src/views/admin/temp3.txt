@@ -1,0 +1,19 @@
+ <div class="header-title" :class="isCardOpen(product.ref)" @click="openCard(product.ref)">
+          <div class="text">
+            <img
+              src="../../../shared/assets/images/gender-categories/bullet-gray.png"
+              v-if="!isCardOpen(product.ref)"
+            >
+            <img
+              src="../../../shared/assets/images/gender-categories/bullet-gold.png"
+              v-if="isCardOpen(product.ref)"
+            >
+            <h1>{{ product.description }}</h1>
+          </div>
+          <span class="see-more" v-if="!isCardOpen(product.ref)">ver</span>
+        </div>
+
+        <div class="header-content" v-if="isCardOpen(product.ref)">
+          <img class="arrow" src="../../../shared/assets/images/gray-arrow.png">
+          <img class="photo" :src="getPhotoURL(product.ref_photo_code).thumb">
+        </div>

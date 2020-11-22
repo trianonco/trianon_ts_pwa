@@ -1,0 +1,198 @@
+div.panels {
+
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    //height: ~"calc(100vh - 72px - 122px)";
+
+    background-color: white;
+    z-index: 100000;
+
+    box-sizing: border-box;
+
+
+
+    div.panels-menu {
+        display: block;
+        position: absolute;
+        top: 0px;
+        width: 0px;
+        //height: ~"calc(100vh - 72px - 122px)";
+        min-height: 100vh;
+        background-color: black;
+        background-position: center center;
+        background-size: cover;
+
+        z-index: 100000;
+
+        ul {
+            display: block;
+            position: absolute;
+            top: 0px;
+            width: 200px;
+            //height: ~"calc(100vh - 72px - 122px)";
+            color: white;
+            background-color: rgba(50, 50, 50, 0.75);
+        }
+    }
+
+    div.panels-content {
+        //height: ~"calc(100vh - 72px - 122px)";
+        height: 100%;
+        min-height: 100vh;
+        overflow: auto;
+    }
+}
+
+
+div.no-module {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    text-align: center;
+    font-family: "TrajanPro";
+
+    height: ~"calc(100vh - 72px - 122px)";
+
+    @media (min-width: 600px) {
+        h1 {
+            padding-top: 5em;
+        }
+    }
+
+    img {
+        display: block;
+        width: 50vw;
+        max-width: 200px;
+        padding: 1em;
+    }
+
+    @media (min-width: 600px) {
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            max-width: 200px;
+            padding: 1em;
+        }
+    }
+
+    h5 {
+        padding: 0.5em;
+        padding-top: 1em;
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.view.admin {
+    h1 {
+        text-align: center;
+        padding: 1em;
+        font-family: "TrajanPro";
+    }
+
+    .button-container {
+        display: block;
+        width: 100%;
+
+        .button-upload {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            box-shadow: inset 0px 1px 0px 0px #ffffff;
+            background: -webkit-gradient(linear,
+                    left top,
+                    left bottom,
+                    color-stop(0.05, #ffffff),
+                    color-stop(1, #f6f6f6));
+            background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+            background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+            background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+            background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+            background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0);
+            background-color: #ffffff;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #dcdcdc;
+            cursor: pointer;
+            color: #666666;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 15px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #ffffff;
+        }
+
+        .button-upload:hover {
+            background: -webkit-gradient(linear,
+                    left top,
+                    left bottom,
+                    color-stop(0.05, #f6f6f6),
+                    color-stop(1, #ffffff));
+            background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+            background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+            background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+            background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+            background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff', GradientType=0);
+            background-color: #f6f6f6;
+        }
+
+        .button-upload:active {
+            position: relative;
+            top: 1px;
+        }
+    }
+}

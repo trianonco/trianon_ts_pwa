@@ -1,8 +1,8 @@
 import firebaseDB from './firebase.db';
 import localDB from './local.db';
-import IShopProduct from "./../../shared/models/IShopProduct.model";
-import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
-import { toIShopProducts } from "./../../shared/models/toIShopProduct.model";
+import IShopProduct from "../models/IShopProduct.model";
+import { toIShopProduct } from "../models/toIShopProduct.model";
+import { toIShopProducts } from "../models/toIShopProduct.model";
 
 export default class TrianonDB {
     public firebaseDB: any = new firebaseDB();
@@ -10,7 +10,10 @@ export default class TrianonDB {
     constructor() { }
 
     public async init() {
+
     }
+
+
 
 
     public getHeaderTitleText(): Promise<string> {
@@ -26,6 +29,50 @@ export default class TrianonDB {
             }
         });
     }
+
+
+    public getUserFromDB(email: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.getUserFromDB(email)
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public getAuthorizedDistributors(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.getAuthorizedDistributors()
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public setAuthorizedDistributors(places: any[]): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.firebaseDB.setAuthorizedDistributors(places)
+                .then((user: any) => {
+                    resolve(user);
+                })
+                .catch((error: any) => {
+                    reject(error);
+                })
+        });
+    }
+
+
+
+
+
+
+
 
     public getHomeSwiperSlides(): Promise<any[]> {
         return new Promise((resolve, reject) => {
@@ -67,6 +114,8 @@ export default class TrianonDB {
                 categoriesAsArray.map(async category => {
                     const products_gender = products.filter(product => product.gender === gender);
                     const products_gender_category = products_gender.filter(product => product.category === category);
+                    console.log(' Gender : ' + gender);
+                    console.log(' Category : ' + category)
                     const isUploaded = await this.firebaseDB.setShopProducts(products_gender_category, gender, category)
                 });
             });

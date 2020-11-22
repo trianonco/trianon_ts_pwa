@@ -2,33 +2,32 @@
   <div class="view admin">
     <div class="wrapper">
       <!-- Headers -->
-      <HeaderComponent/>
+      <HeaderComponent />
 
-      <!-- ADMIN Components -->
-      <h1>ADMIN</h1>
+      <!-- Panels -->
+      <div class="panels">
+        <!-- Menu -->
+        <div class="panels-menu">
+          <AdminPanelsMenuComponent :pages="pages" @btnChange="setPanelByTitle"></AdminPanelsMenuComponent>
+        </div>
 
-      <br>
-      <br>
+        <!-- Content -->
+        <div class="panels-content">
+          <div class="panel no-module" style="padding:2em" v-if="!currentPageTitle">
+            <h1>Trianon Panel de Admin*</h1>
+            <img src="./../../shared/assets/images/headers/logo.png" />
+            <h5>Selecciona un modulo del menu</h5>
+          </div>
 
-      <div class="db-stats" v-if="UX.isUploadButton">
-        <h1>Archivo :: {{ }}</h1>
-        <h1>Productos :: {{ }}</h1>
+          <div class="panel" v-for="(page,index) of pages" v-bind:key="index">
+            <div v-if="isPanelActiveByTitle(page.title)">
+              <div class="panel-content" style=" padding: 2em 1em;">
+                <component :is="page.component"></component>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <DragAndDropExcelComponent @onLoad="onLoad_DB"></DragAndDropExcelComponent>
-
-      <br>
-      <hr>
-      <br>
-      <div class="button-container" v-if="UX.isUploadButton">
-        <div class="button-upload" @click="upload_DB">SUBIR</div>
-      </div>
-
-      <br>
-      <hr>
-      <br>
-      <!-- Footers -->
-      <FooterComponent/>
     </div>
   </div>
 </template>
@@ -40,107 +39,103 @@ import { Component, Vue } from "vue-property-decorator";
 
 import HeaderComponent from "./../../shared/components/header/header.component.vue";
 import FooterComponent from "./../../shared/components/footer/footer.component.vue";
-import DragAndDropExcelComponent from "./components/drag-and-drop-excel.componet.vue";
 
-import IShopProduct from "./../../shared/models/IShopProduct.model";
-import { toIShopProduct } from "./../../shared/models/toIShopProduct.model";
-import TrianonDB from "./../../shared/database/db";
+import AdminPanelsMenuComponent from "./components/panels.menu.component.vue";
+
+import AdminTitle from "./pages/admin.title.page.component.vue";
+import AdminDispatches from "./pages/admin.dispatches.page.component.vue";
+import AdminUsers from "./pages/admin.users.page.component.vue";
+import AdminOrders from "./pages/admin.orders.page.component.vue";
+import AdminSwiper from "./pages/admin.swiper.page.component.vue";
+import AdminBanners from "./pages/admin.banners.page.component.vue";
+import AdminProducts from "./pages/admin.products.page.component.vue";
+import AdminCategories from "./pages/admin.categories.page.component.vue";
+import AdminDistributorsAndShops from "./pages/admin.distributors.and.shops.page.component.vue";
 
 @Component({
   components: {
     VLazyImage,
     HeaderComponent,
     FooterComponent,
-    DragAndDropExcelComponent
+    AdminPanelsMenuComponent,
+    AdminTitle,
+    AdminDispatches,
+    AdminUsers,
+    AdminSwiper,
+    AdminBanners,
+    AdminProducts,
+    AdminCategories,
+    AdminDistributorsAndShops
   }
 })
 export default class AdminViewComponent extends Vue {
-  private db = new TrianonDB();
-  private products: IShopProduct[] = [];
-  private UX: any = {
-    isUploadButton: false as boolean
-  };
-  private mounted() {}
+  private pages: any[] = [
+    {
+      title: "Title",
+      titulo: "Titulo",
+      component: AdminTitle
+    },
+    {
+      title: "Dispatches",
+      titulo: "Despachos",
+      component: AdminDispatches
+    },
+    {
+      title: "Orders",
+      titulo: "Ordenes de Compra",
+      component: AdminOrders
+    },
+    {
+      title: "Users",
+      titulo: "Usuarios",
+      component: AdminUsers
+    },
+    {
+      title: "Swiper",
+      titulo: "Swiper",
+      component: AdminSwiper
+    },
+    {
+      title: "Banners",
+      titulo: "Banners",
+      component: AdminBanners
+    },
+    {
+      title: "Products",
+      titulo: "Productos",
+      component: AdminProducts
+    },
+    {
+      title: "Categories",
+      titulo: "Categorias",
+      component: AdminCategories
+    },
+    {
+      title: "DistributorsAndSHops",
+      titulo: "Distribuidores y Tiendas",
+      component: AdminDistributorsAndShops
+    }
+  ];
 
-  private onLoad_DB($shop_db: any) {
-    this.products = [];
-    $shop_db.map(async ($shop_product: any) => {
-      const product: IShopProduct = await toIShopProduct($shop_product);
-      this.products.push(product);
-    });
+  private currentPageTitle: string = "";
 
-    this.UX.isUploadButton = true;
+  private getEnablePanelByUserRole(panelName: string): boolean {
+    return true;
   }
 
-  private async upload_DB() {
-    this.db
-      .setShopProducts(this.products)
-      .then(response => {})
-      .catch(error => {});
+  private isPanelActiveByTitle(title: string): boolean {
+    return (
+      this.getEnablePanelByUserRole(title) && this.currentPageTitle === title
+    );
+  }
+
+  private setPanelByTitle(title: string) {
+    this.currentPageTitle = title;
+    console.warn("setPanelByTitle :: " + title);
   }
 }
 </script>
 
 <style lang="less">
-div.view.admin {
-  .button-container {
-    display: block;
-    width: 100%;
-
-    .button-upload {
-      display: block;
-      width: fit-content;
-      margin: 0 auto;
-      -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-      -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-      box-shadow: inset 0px 1px 0px 0px #ffffff;
-      background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0.05, #ffffff),
-        color-stop(1, #f6f6f6)
-      );
-      background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-      background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-      background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-      background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-      background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
-      background-color: #ffffff;
-      -moz-border-radius: 6px;
-      -webkit-border-radius: 6px;
-      border-radius: 6px;
-      border: 1px solid #dcdcdc;
-      cursor: pointer;
-      color: #666666;
-      font-family: Arial;
-      font-size: 15px;
-      font-weight: bold;
-      padding: 15px 24px;
-      text-decoration: none;
-      text-shadow: 0px 1px 0px #ffffff;
-    }
-    .button-upload:hover {
-      background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0.05, #f6f6f6),
-        color-stop(1, #ffffff)
-      );
-      background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-      background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-      background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-      background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-      background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
-      background-color: #f6f6f6;
-    }
-    .button-upload:active {
-      position: relative;
-      top: 1px;
-    }
-  }
-}
+@import "./admin.view.style.less";
 </style>

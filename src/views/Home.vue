@@ -3,9 +3,6 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>
-        <div class="trianon-slide">I'm Slide 1</div>
-      </swiper-slide>
-      <swiper-slide>
         <div class="trianon-slide">I'm Slide 2</div>
       </swiper-slide>
       <swiper-slide>
@@ -13,6 +10,9 @@
       </swiper-slide>
       <swiper-slide>
         <div class="trianon-slide">I'm Slide 4</div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="trianon-slide">I'm Slide 5</div>
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>

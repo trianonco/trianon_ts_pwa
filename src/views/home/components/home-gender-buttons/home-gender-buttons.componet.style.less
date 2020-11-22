@@ -76,29 +76,10 @@
             background-color: gray;
         }
 
-        background: rgba(241, 231, 103, 1);
-        background: -moz-linear-gradient(-45deg,
-        rgba(241, 231, 103, 1) 0%,
-        rgba(254, 182, 69, 1) 100%);
-        background: -webkit-gradient(left top,
-        right bottom,
-        color-stop(0%, rgba(241, 231, 103, 1)),
-        color-stop(100%, rgba(254, 182, 69, 1)));
-        background: -webkit-linear-gradient(-45deg,
-        rgba(241, 231, 103, 1) 0%,
-        rgba(254, 182, 69, 1) 100%);
-        background: -o-linear-gradient(-45deg,
-        rgba(241, 231, 103, 1) 0%,
-        rgba(254, 182, 69, 1) 100%);
-        background: -ms-linear-gradient(-45deg,
-        rgba(241, 231, 103, 1) 0%,
-        rgba(254, 182, 69, 1) 100%);
-        background: linear-gradient(135deg,
-        rgba(241, 231, 103, 1) 0%,
-        rgba(254, 182, 69, 1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1);
-
-
+        background-image: url('./../../../../shared/assets/images/banners/bg-gold_Mesa\ de\ trabajo\ 1.png');
+        background-position: center;
+        background-repeat: repeat-x;
+        background-size: contain
 
 
     }
@@ -200,7 +181,8 @@
         height: @size-home-gender-content;
         overflow-y: hidden;
 
-        &.MALE {
+        &.MALE,
+        &.HOMBRE {
             background-image: url('./../../../../shared/assets/images/gender-categories/male-bg.png');
             background-size: 5em;
             background-repeat: no-repeat;
@@ -208,7 +190,8 @@
             background-position-y: center;
         }
 
-        &.FEMALE {
+        &.FEMALE,
+        &.DAMA {
             background-image: url('./../../../../shared/assets/images/gender-categories/female-bg.png');
             background-size: 5em;
             background-repeat: no-repeat;

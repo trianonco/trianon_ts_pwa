@@ -3,9 +3,15 @@
   <div class="banner address">
     <div class="header">
       <div class="title">
-        <img src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/bullet-gold-01.png"
+        >
         <h2>PUNTO DE FÁBRICA</h2>
-        <img src="../../../../shared/assets/images/banners/bullet-gold-01.png">
+        <img
+          alt="TrianonCo Image"
+          src="../../../../shared/assets/images/banners/bullet-gold-01.png"
+        >
       </div>
       <div class="address">
         BOGOTÁ | CALLE 6A # 33 - 22
@@ -15,7 +21,7 @@
     <div class="links">
       <router-link to="/safe">COMPRA SEGURA</router-link>/
       <router-link to="/terms">TERMINOS DE SERVICIO</router-link>
-      <br>
+      <br class="mobile-br">
       <router-link to="/politics">POLITICAS DE PRIVACIDAD</router-link>/
       <router-link to="/sitemap">MAPA DEL SITIO</router-link>
     </div>
@@ -40,7 +46,7 @@ export default {
   padding-bottom: 1em;
   box-sizing: border-box;
   background-color: black;
-  background-image: url("../../../../shared/assets/images/banners/address-bg.png");
+  background-image: url("../../../../shared/assets/images/banners/address-bg.jpg");
   background-size: cover;
   background-position: center;
 
@@ -117,6 +123,55 @@ export default {
         width: 1em;
         padding: 1.25em;
       }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .banner.address {
+    padding-bottom: 3em;
+    background-image: url("../../../../shared/assets/images/banners/address-large-bg_Mesa de trabajo 1.jpg");
+    background-position: top;
+
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 3px;
+    font-weight: 300;
+
+    margin: 0 auto;
+    padding-bottom: 0.5em;
+    line-height: 25px;
+
+    div.header {
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      padding-top: 1em;
+      margin-bottom: 0em;
+      .title {
+        font-family: "TrajanPro";
+        text-align: center;
+        padding: 1em;
+        font-size: 16px;
+            padding: 1em;
+    padding-top: 0em;
+        img {
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+        }
+      }
+    }
+    .links {
+      width: 80%;
+      padding: 1em 0em;
+      a {
+        padding: 1em;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+    .mobile-br {
+      display: none;
     }
   }
 }

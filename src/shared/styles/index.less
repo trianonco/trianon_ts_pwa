@@ -1,6 +1,28 @@
-
 @import './config/config.less';
 @import './vendors/vendors.less';
 @import './fonts/fonts.less';
 @import './layout/layout.less';
 @import './theme/theme.less';
+
+
+body {
+    --meta-date: '26-03-20';
+    --meta-version: '2.0.00';
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    /* IE 10+ */
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+        /* Chrome/Safari/Webkit */
+    }
+    
+}
+
+body {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+-webkit-text-stroke:1px transparent;
+}
