@@ -13,7 +13,7 @@
     "cli-color": "^1.4.0",
     "core-js": "^2.6.5",
     "cors": "^2.8.5",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "firebase": "^6.0.2",
     "fuzzyset.js": "0.0.8",
     "git-branch": "^2.0.1",
